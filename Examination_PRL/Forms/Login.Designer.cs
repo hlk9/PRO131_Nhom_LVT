@@ -46,8 +46,9 @@
             // 
             // txtUserName
             // 
+            txtUserName.Anchor = AnchorStyles.None;
             txtUserName.BackColor = Color.WhiteSmoke;
-            txtUserName.Location = new Point(244, 134);
+            txtUserName.Location = new Point(277, 125);
             txtUserName.Name = "txtUserName";
             txtUserName.NullText = "Nhập tên tài khoản";
             txtUserName.Size = new Size(286, 37);
@@ -56,8 +57,9 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
-            label1.Location = new Point(147, 145);
+            label1.Location = new Point(180, 136);
             label1.Name = "label1";
             label1.Size = new Size(68, 17);
             label1.TabIndex = 2;
@@ -65,19 +67,21 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
-            label2.Font = new Font("Roboto", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.Teal;
-            label2.Location = new Point(128, 34);
+            label2.Location = new Point(119, 34);
             label2.Name = "label2";
-            label2.Size = new Size(494, 33);
+            label2.Size = new Size(523, 31);
             label2.TabIndex = 3;
             label2.Text = "Chào mừng tới hệ thống thi trắc nghiệm";
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
-            label3.Location = new Point(147, 242);
+            label3.Location = new Point(180, 233);
             label3.Name = "label3";
             label3.Size = new Size(67, 17);
             label3.TabIndex = 4;
@@ -85,8 +89,9 @@
             // 
             // txtPassword
             // 
+            txtPassword.Anchor = AnchorStyles.None;
             txtPassword.BackColor = Color.WhiteSmoke;
-            txtPassword.Location = new Point(244, 240);
+            txtPassword.Location = new Point(277, 231);
             txtPassword.Name = "txtPassword";
             txtPassword.NullText = "Nhập mật khẩu";
             txtPassword.PasswordChar = '●';
@@ -97,9 +102,10 @@
             // 
             // lblForgot
             // 
+            lblForgot.Anchor = AnchorStyles.None;
             lblForgot.AutoSize = true;
             lblForgot.ForeColor = Color.IndianRed;
-            lblForgot.Location = new Point(420, 300);
+            lblForgot.Location = new Point(453, 291);
             lblForgot.Name = "lblForgot";
             lblForgot.Size = new Size(110, 17);
             lblForgot.TabIndex = 5;
@@ -107,10 +113,11 @@
             // 
             // radButton1
             // 
+            radButton1.Anchor = AnchorStyles.None;
             radButton1.BackColor = Color.Teal;
-            radButton1.Font = new Font("Roboto", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            radButton1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             radButton1.ForeColor = Color.White;
-            radButton1.Location = new Point(244, 359);
+            radButton1.Location = new Point(277, 350);
             radButton1.Name = "radButton1";
             radButton1.Size = new Size(120, 36);
             radButton1.TabIndex = 6;
@@ -119,9 +126,10 @@
             // 
             // radButton2
             // 
+            radButton2.Anchor = AnchorStyles.None;
             radButton2.BackColor = Color.IndianRed;
             radButton2.ForeColor = Color.White;
-            radButton2.Location = new Point(410, 359);
+            radButton2.Location = new Point(443, 350);
             radButton2.Name = "radButton2";
             radButton2.Size = new Size(120, 36);
             radButton2.TabIndex = 7;
@@ -142,11 +150,13 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(txtUserName);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Login";
             // 
             // 
             // 
             RootElement.ApplyShapeToControl = true;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             ThemeName = "MaterialTeal";
             ((System.ComponentModel.ISupportInitialize)txtUserName).EndInit();
