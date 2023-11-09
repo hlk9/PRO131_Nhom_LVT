@@ -31,6 +31,12 @@ namespace Examination_PRL.Forms.Staff
             //homePage.Item.SvgImage = homeIcon;
 
             RadPageViewPage schedulePage = new RadPageViewPage("Lịch thi"); //xem danh sách lịch thi
+            ThoiGian thoiGian = new ThoiGian();
+            thoiGian.TopLevel = false;
+            schedulePage.Controls.Add(thoiGian);
+            thoiGian.Show();
+            thoiGian.Dock = DockStyle.Fill;
+
             RadPageViewPage createSchedulePage = new RadPageViewPage("Tạo lịch thi");
             RadPageViewPage manageSchedulePage = new RadPageViewPage("Quản lý lịch thi"); //sửa, xoá
             schedulePage.SubPages.Add(createSchedulePage);
@@ -78,11 +84,6 @@ namespace Examination_PRL.Forms.Staff
             staffPage.SubPages.Add(addStaffPage);
             staffPage.SubPages.Add(editStaffPage);
             staffPage.SubPages.Add(deleteStaffPage);
-
-
-
-
-
 
             RadPageViewPage resultPage = new RadPageViewPage("Kết quả");
             RadPageViewPage resultByStudentPage = new RadPageViewPage("Kết quả của thí sinh");
