@@ -37,6 +37,12 @@ namespace Examination_PRL.Forms.Staff
             schedulePage.SubPages.Add(manageSchedulePage);
 
             RadPageViewPage studentPage = new RadPageViewPage("Thí sinh"); //xem danh sách thí sinh
+            StudentsList studentsList = new StudentsList();
+            studentsList.TopLevel = false;
+            studentPage.Controls.Add(studentsList);
+            studentsList.Show();
+            studentsList.Dock = DockStyle.Fill;
+
             RadPageViewPage addStudentPage = new RadPageViewPage("Thêm thí sinh");
             RadPageViewPage editStudentPage = new RadPageViewPage("Sửa thí sinh");
             RadPageViewPage deleteStudentPage = new RadPageViewPage("Xóa thí sinh");
@@ -61,23 +67,9 @@ namespace Examination_PRL.Forms.Staff
             questionPage.SubPages.Add(deleteQuestionPage);
 
 
-            RadPageViewPage subjectPage = new RadPageViewPage("Môn"); //xem danh sách môn
-            RadPageViewPage addSubjectPage = new RadPageViewPage("Thêm môn");
-            RadPageViewPage editSubjectPage = new RadPageViewPage("Sửa môn");
-            RadPageViewPage deleteSubjectPage = new RadPageViewPage("Xóa môn");
-            subjectPage.SubPages.Add(addSubjectPage);
-            subjectPage.SubPages.Add(editSubjectPage);
-            subjectPage.SubPages.Add(deleteSubjectPage);
-
-
+            RadPageViewPage subjectPage = new RadPageViewPage("Môn"); //xem danh sách môn       
 
             RadPageViewPage roomPage = new RadPageViewPage("Phòng thi"); //xem danh sách phòng thi
-            RadPageViewPage addRoomPage = new RadPageViewPage("Thêm phòng thi");
-            RadPageViewPage editRoomPage = new RadPageViewPage("Sửa phòng thi");
-            RadPageViewPage deleteRoomPage = new RadPageViewPage("Xóa phòng thi");
-            roomPage.SubPages.Add(addRoomPage);
-            roomPage.SubPages.Add(editRoomPage);
-            roomPage.SubPages.Add(deleteRoomPage);
 
             RadPageViewPage staffPage = new RadPageViewPage("Nhân viên"); //xem danh sách nhân viên
             RadPageViewPage addStaffPage = new RadPageViewPage("Thêm nhân viên");
