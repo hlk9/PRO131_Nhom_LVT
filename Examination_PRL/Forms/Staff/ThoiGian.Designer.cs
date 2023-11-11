@@ -51,7 +51,7 @@
             // 
             // radSchedulerNavigator1
             // 
-            radSchedulerNavigator1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            radSchedulerNavigator1.Anchor = AnchorStyles.Top;
             radSchedulerNavigator1.AssociatedScheduler = null;
             radSchedulerNavigator1.DateFormat = "yyyy/MM/dd";
             radSchedulerNavigator1.Location = new Point(217, 9);
@@ -62,18 +62,18 @@
             // 
             // 
             radSchedulerNavigator1.RootElement.StretchVertically = false;
-            radSchedulerNavigator1.Size = new Size(1491, 118);
+            radSchedulerNavigator1.Size = new Size(1348, 118);
             radSchedulerNavigator1.TabIndex = 0;
             radSchedulerNavigator1.ThemeName = "MaterialTeal";
             // 
             // radScheduler1
             // 
-            radScheduler1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            radScheduler1.Location = new Point(217, 102);
+            radScheduler1.Anchor = AnchorStyles.Top;
+            radScheduler1.Location = new Point(217, 131);
             radScheduler1.Margin = new Padding(3, 2, 3, 2);
             radScheduler1.Name = "radScheduler1";
             radScheduler1.PrintStyle = schedulerDailyPrintStyle1;
-            radScheduler1.Size = new Size(1491, 953);
+            radScheduler1.Size = new Size(1348, 874);
             radScheduler1.TabIndex = 1;
             radScheduler1.ThemeName = "MaterialTeal";
             // 
@@ -105,7 +105,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnablePreventFocusChange;
-            ClientSize = new Size(989, 625);
+            ClientSize = new Size(1577, 1016);
             Controls.Add(radCalendar2);
             Controls.Add(radCalendar1);
             Controls.Add(radScheduler1);
