@@ -15,6 +15,7 @@ namespace Examination_DAL.Models
         public int Id { get; set; }
 
         [Required]
+        [MaxLength(255)]
         public string ExamDetailCode { get; set; }
 
         [Required]
@@ -24,6 +25,7 @@ namespace Examination_DAL.Models
 
         [AllowNull]
         [Column(TypeName = "NVARCHAR")]
+        [MaxLength(255)]
         public string? Description { get; set; }
 
         [Required]

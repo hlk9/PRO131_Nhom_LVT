@@ -18,6 +18,7 @@ namespace Examination_DAL.Models
 
         [Required]
         [Column(TypeName = "NVARCHAR")]
+        [MaxLength(255)]
         public string Content { get; set; }
 
         [AllowNull]
@@ -43,6 +44,7 @@ namespace Examination_DAL.Models
 
         [AllowNull]
         [Column(TypeName = "NVARCHAR")]
+        [MaxLength(255)]
         public string? Docs { get; set; }
 
         [AllowNull]

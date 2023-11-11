@@ -20,6 +20,7 @@ namespace Examination_DAL.Models
 
         [Required]
         [Column(TypeName = "NVARCHAR")]
+        [MaxLength(255)]
         public string Name { get; set; }
 
         [AllowNull]

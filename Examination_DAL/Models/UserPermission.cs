@@ -14,6 +14,8 @@ namespace Examination_DAL.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        [Required]
+        [MaxLength(255)]
         public string AccountId { get; set; }
         [ForeignKey("AccountId")]
         public virtual Account Account { get; set; }

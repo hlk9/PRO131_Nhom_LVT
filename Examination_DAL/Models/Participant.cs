@@ -18,6 +18,7 @@ namespace Examination_DAL.Models
 
         [Required]
         [Column(TypeName = "NVARCHAR")]
+        [MaxLength(255)]
         public string FullName { get; set; }
 
         [AllowNull]
@@ -28,6 +29,7 @@ namespace Examination_DAL.Models
 
         [Required]
         [Column(TypeName = "NVARCHAR")]
+        [MaxLength(255)]
         public string Email { get; set; }
 
         [AllowNull]
@@ -36,6 +38,7 @@ namespace Examination_DAL.Models
 
         [AllowNull]
         [Column(TypeName = "NVARCHAR")]
+        [MaxLength(255)]
         public string? Address { get; set; }
 
         [AllowNull]

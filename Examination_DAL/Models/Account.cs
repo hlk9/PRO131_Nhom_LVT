@@ -17,11 +17,11 @@ namespace Examination_DAL.Models
         public string Id { get; set; }
 
         [Required]
-        [Column(TypeName = "NVARCHAR")]
+        [MaxLength(255)]
         public string UserName { get; set; }
 
         [Required]
-        [Column(TypeName = "NVARCHAR")]
+        [MaxLength(255)]
         public string Password { get; set; }
 
         [AllowNull]
@@ -30,8 +30,8 @@ namespace Examination_DAL.Models
         [AllowNull]
         public byte? Status { get; set; }
 
-        [AllowNull]
-        public int? UserPermissionId { get; set; }
+        [Required]
+        public int UserPermissionId { get; set; }
         [ForeignKey("UserPermissionId")]
         public virtual UserPermission UserPermission { get; set; }
 

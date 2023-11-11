@@ -12,10 +12,12 @@ namespace Examination_DAL.Models
     public class ExamRoom
     {
         [Key]
+        [MaxLength(255)]
         public string Id { get; set; }
 
         [Required]
         [Column(TypeName = "NVARCHAR")]
+        [MaxLength(255)]
         public string Name { get; set; }
 
         [AllowNull]
@@ -23,10 +25,12 @@ namespace Examination_DAL.Models
 
         [AllowNull]
         [Column(TypeName = "NVARCHAR")]
+        [MaxLength(255)]
         public string? Address { get; set; }
 
         [AllowNull]
         [Column(TypeName = "NVARCHAR")]
+        [MaxLength(255)]
         public string? Note { get; set; }
 
         [AllowNull]

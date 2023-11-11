@@ -17,6 +17,7 @@ namespace Examination_DAL.Models
 
         [Required]
         [Column(TypeName = "NVARCHAR")]
+        [MaxLength(255)]
         public string Name { get; set; }
 
         [Required]
@@ -37,11 +38,22 @@ namespace Examination_DAL.Models
 
         [AllowNull]
         [Column(TypeName = "NVARCHAR")]
+        [MaxLength(255)]
         public string? Subject { get; set; }
 
         [AllowNull]
         [Column(TypeName = "NVARCHAR")]
+        [MaxLength(255)]
         public string? Description { get; set; }
+
+        [AllowNull]
+        public bool? Status { get; set; }
+
+        [AllowNull]
+        public string? CreatedBy { get; set; }
+        [ForeignKey("CreatedBy")]
+        public virtual Staff Staff { get; set; }
+        
 
         public virtual ICollection<ExamScheduleDetail> ExamScheduleDetail { get; set;}
     }

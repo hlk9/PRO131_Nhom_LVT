@@ -22,11 +22,13 @@ namespace Examination_DAL.Models
 
         [Required]
         public string ParticipantId { get; set; }
+        [MaxLength(255)]
         [ForeignKey("ParticipantId")]
         public virtual Participant Participant { get; set; }
 
         [Required]
         public string SubjectId { get; set; }
+        [MaxLength(255)]
         [ForeignKey("SubjectId")]
         public virtual Subject Subject { get; set; }
 
@@ -36,33 +38,35 @@ namespace Examination_DAL.Models
         [AllowNull]
         public double? Score { get; set; }
 
-        [Required]
-        public byte Status { get; set; }
+        [AllowNull]
+        public byte? Status { get; set; }
 
-        [Required]
-        public bool IsPassed { get; set; }
+        [AllowNull]
+        public bool? IsPassed { get; set; }
 
-        [Required]
-        public int QuestionCorrect { get; set; }
+        [AllowNull]
+        public int? QuestionCorrect { get; set; }
 
-        [Required]
-        public int QuestionWrong { get; set; }
+        [AllowNull]
+        public int? QuestionWrong { get; set; }
 
-        [Required]
-        public int QuestionNotAnswered { get; set; }
+        [AllowNull]
+        public int? QuestionNotAnswered { get; set; }
 
         [AllowNull]
         [Column(TypeName = "NVARCHAR")]
+        [MaxLength(255)]
         public string? ScoredBy { get; set; }
 
-        [Required]
-        public double FinishTime { get; set; }
+        [AllowNull]
+        public double? FinishTime { get; set; }
 
         [AllowNull]
         public bool? ScoredMethod { get; set; }
 
         [AllowNull]
         [Column(TypeName = "NVARCHAR")]
+        [MaxLength(255)]
         public string? Note { get; set; }
 
         public virtual ICollection<AnswerResponse> AnswerResponses { get; set; }     
