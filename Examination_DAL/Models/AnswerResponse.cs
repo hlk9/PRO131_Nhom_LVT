@@ -14,8 +14,8 @@ namespace Examination_DAL.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [Required]
-        public bool IsCorrect { get; set; }
+        [AllowNull]
+        public bool? IsCorrect { get; set; }
         [Required]
         public int QuestionId { get; set; }
         [ForeignKey("QuestionId")]
@@ -29,7 +29,7 @@ namespace Examination_DAL.Models
         [ForeignKey("ExamResponseId")]
         public virtual ExamResponse ExamResponse { get; set; }
         [AllowNull]
-        public DateTime? AnswerTime { get; set; }
+        public DateTime? AnswerAt { get; set; }
         
   
 

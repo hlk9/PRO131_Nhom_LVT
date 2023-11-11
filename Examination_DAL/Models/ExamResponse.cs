@@ -41,11 +41,17 @@ namespace Examination_DAL.Models
         [Required]
         public int QuestionNotAnswered { get; set; }
         [AllowNull]
+        [Column(TypeName = "NVARCHAR")]
         public string? ScoredBy { get; set; }
         [ForeignKey("ScoredBy")]
         public virtual Account Account { get; set; }
         [Required]
         public double FinishTime { get; set; }
+        [AllowNull]
+        public bool? ScoredMethod { get; set; }
+        [AllowNull]
+        [Column(TypeName = "NVARCHAR")]
+        public string? Note { get; set; }
 
         public virtual ICollection<AnswerResponse> AnswerResponses { get; set; }     
 

@@ -14,17 +14,18 @@ namespace Examination_DAL.Models
         [Key]
         public int Id { get; set; }
         [Required]
+        public string ExamDetailCode { get; set; }
+        [Required]
         public int ExamId { get; set; }
         [ForeignKey("ExamId")]
         public virtual Exam Exam { get; set; }
         [AllowNull]
+        [Column(TypeName = "NVARCHAR")]
         public string? Description { get; set; }
         [Required]
         public int Duration { get; set; }
-        [Required]
-        public int TotalMark { get; set; }
-        [Required]
-        public int PassMark { get; set; }
+        [AllowNull]
+        public double PassMark { get; set; }
         [Required]
         public int TotalQuestion { get; set; }
         [Required]
