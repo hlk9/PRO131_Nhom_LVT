@@ -12,10 +12,12 @@ namespace Examination_DAL.Models
     {
         [Key]
         public byte Id { get; set; }
+
         [Required]
         [MaxLength(50)]
         [Column(TypeName = "NVARCHAR")]
         public string Name { get; set; }
+
         public virtual ICollection<Question> Questions { get; set; }
     }
 }

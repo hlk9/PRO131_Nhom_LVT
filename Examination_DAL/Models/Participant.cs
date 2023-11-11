@@ -15,29 +15,38 @@ namespace Examination_DAL.Models
         [Column(Order =1)]
         [MaxLength(255)]
         public string Id { get; set; }
+
         [Required]
         [Column(TypeName = "NVARCHAR")]
         public string FullName { get; set; }
+
         [AllowNull]
         public bool? Gender { get; set; }
+
         [Required]
         public DateTime DateOfBirth { get; set; }
+
         [Required]
         [Column(TypeName = "NVARCHAR")]
         public string Email { get; set; }
+
         [AllowNull]
         [MaxLength(30)]
         public string? PhoneNumber { get; set; }
+
         [AllowNull]
         [Column(TypeName = "NVARCHAR")]
         public string? Address { get; set; }
+
         [AllowNull]
         public byte? Status { get; set; }
+
         [AllowNull]
         public string? ClassroomId { get; set; }
-        [ForeignKey("Id")]
+        [ForeignKey("ClassroomId")]
         [Column(Order = 2, TypeName = "NVARCHAR")]
         public virtual Classroom Classroom { get; set; }
+
         [AllowNull]
         public string? AccountId { get; set; }
         [ForeignKey("Id")]

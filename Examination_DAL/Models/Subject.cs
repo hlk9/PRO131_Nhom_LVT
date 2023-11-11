@@ -12,10 +12,13 @@ namespace Examination_DAL.Models
     {
         [Key]
         public string Id { get; set; }
+
         [Required]
         public string Name { get; set; }
+
         [AllowNull] 
         public byte Status { get; set; }
+
         [AllowNull]
         public string? Description { get; set;}
 

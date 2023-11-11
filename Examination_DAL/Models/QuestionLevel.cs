@@ -12,6 +12,7 @@ namespace Examination_DAL.Models
     {
         [Key]
         public byte Id { get; set; }
+
         [Required]
         [Column(TypeName = "NVARCHAR")]
         public string Name { get; set; }

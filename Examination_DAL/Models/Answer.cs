@@ -14,21 +14,29 @@ namespace Examination_DAL.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
         [Required]
         [Column(TypeName ="NVARCHAR")]
         public string Content { get; set; }
+
         [Required]
         public bool IsCorrect { get; set; }
+
         [AllowNull]
         public DateTime? CreatedAt { get; set; }
+
         [AllowNull]
         public DateTime? UpdatedAt { get; set; }
+
         [AllowNull]
         public string? CreatedBy { get; set; }
+
         [AllowNull]
         public string? UpdatedBy { get; set; }
+
         [AllowNull]
         public bool? Status { get; set; }
+
         [Required]
         public int QuestionId { get; set; }
         [ForeignKey("QuestionId")]

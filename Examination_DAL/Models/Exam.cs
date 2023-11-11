@@ -14,12 +14,14 @@ namespace Examination_DAL.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
         [AllowNull]
         public string? ExamCode { get; set; }
 
         [Required]
         [Column(TypeName = "NVARCHAR")]
         public string Name { get; set; }
+
         [AllowNull]
         public string?  SubjectId { get; set; }
         [ForeignKey("SubjectId")]

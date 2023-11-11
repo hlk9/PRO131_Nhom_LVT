@@ -15,15 +15,17 @@ namespace Examination_DAL.Models
         [Column(Order = 1)]
         public int Id { get; set; }
 
-        //[Required]
-        //[Column(Order = 2)]
-        //public int ExamDetailId { get; set; }
-        //[ForeignKey("ExamDetailId")]
-        //public virtual ExamDetail ExamDetail { get; set; }
- 
+        [Required]
+        [Column(Order = 2)]
+        public int ExamDetailId { get; set; }
+        [ForeignKey("ExamDetailId")]
+        public virtual ExamDetail ExamDetail { get; set; }
 
-        public virtual ICollection<Question> Questions { get; set; }
-        public virtual ICollection<ExamDetail> ExamDetails { get; set; }
+        [Required]
+        [Column(Order = 3)]
+        public int QuestionId { get; set; }
+        [ForeignKey("QuestionId")]
+        public virtual Question Question { get; set; }
 
     }
 }

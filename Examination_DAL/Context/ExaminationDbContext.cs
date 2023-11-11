@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Examination_DAL.Context
 {
-    public class ExaminationDbContext:DbContext
+    public class ExaminationDbContext : DbContext
     {
         public ExaminationDbContext()
         {
-            
+
         }
         ExaminationDbContext(DbContextOptions<ExaminationDbContext> options) : base(options)
         {
@@ -51,17 +51,12 @@ namespace Examination_DAL.Context
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Exam>()
-                .HasIndex(e=>e.ExamCode)
+                .HasIndex(e => e.ExamCode)
                 .IsUnique();
 
             modelBuilder.Entity<ExamDetail>()
                .HasIndex(e => e.ExamDetailCode)
                .IsUnique();
-
-
-            //modelBuilder.Entity<Models.Participant>().HasKey(p => new { p.Id });
-            //modelBuilder.Entity<Models.UserPermission>().HasKey(up => new { up.Id });
-            //modelBuilder.Entity<Models.Staff>().HasKey(s => new { s.Id });
 
             modelBuilder.Entity<Question>()
                  .HasMany(q => q.AnswerResponses)
@@ -79,6 +74,44 @@ namespace Examination_DAL.Context
               .WithOne(a => a.Subject)
               .OnDelete(DeleteBehavior.Restrict);
 
+            modelBuilder.Entity<ExamQuestion>()
+               .HasOne(eq => eq.Question)
+               .WithOne()
+               .HasForeignKey<ExamQuestion>(eq => eq.QuestionId)
+               .OnDelete(DeleteBehavior.Restrict);
+
+
+            //modelBuilder.Entity<Account>().HasData(
+
+            //    new Account
+            //    {
+            //        Id = "longhd",
+            //        UserName= "longhd",
+            //        Password = "123456",
+            //        LastLogin = null,                    
+            //        Status = 1,
+
+
+            //    }
+            //    );
+
+            ////seed data for Participant table
+            //modelBuilder.Entity<Participant>().HasData(
+
+            //    new Participant
+            //    {
+            //        Id = "longhd",
+            //        FullName = "Hoàng Duy Long",
+            //        Email = "hoanglong.cmb@gmail.com",
+            //        PhoneNumber = "0987654321",
+            //        Address = "Hà Nội",
+            //        Gender = true,
+            //        DateOfBirth = new DateTime(2004, 01, 23), 
+            //        Status = 1,
+            //        ClassroomId = null,
+            //        AccountId = "longhd",
+            //    }
+            //    );
 
 
 

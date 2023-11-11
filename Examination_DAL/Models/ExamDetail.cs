@@ -13,35 +13,48 @@ namespace Examination_DAL.Models
     {
         [Key]
         public int Id { get; set; }
+
         [Required]
         public string ExamDetailCode { get; set; }
+
         [Required]
         public int ExamId { get; set; }
         [ForeignKey("ExamId")]
         public virtual Exam Exam { get; set; }
+
         [AllowNull]
         [Column(TypeName = "NVARCHAR")]
         public string? Description { get; set; }
+
         [Required]
         public int Duration { get; set; }
+
         [AllowNull]
         public double PassMark { get; set; }
+
         [Required]
         public int TotalQuestion { get; set; }
+
         [Required]
         public int MaxiumMark { get; set; }
+
         [AllowNull]
         public int? ReTestNumber { get; set; }
+
         [AllowNull]
         public bool? Status { get; set; }
+
         [Required]
         public DateTime CreatedAt { get; set; }
+
         [AllowNull]
         public DateTime? UpdatedAt { get; set; }
+
         [Required]
         public string CreatedBy { get; set; }
         [ForeignKey("CreatedBy")]
         public virtual Staff Staff { get; set; }
+
         [AllowNull]
         public string? UpdatedBy { get; set; }
 
