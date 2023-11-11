@@ -20,7 +20,7 @@ namespace Examination_DAL.Models
         [Required]
         public string ParticipantId { get; set; }
         [ForeignKey("ParticipantId")]
-        public virtual Participant Participant { get; set; }        
+        public virtual Participant Participant { get; set; } 
 
     }
 }

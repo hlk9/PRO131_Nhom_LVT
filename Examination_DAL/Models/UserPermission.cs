@@ -14,12 +14,17 @@ namespace Examination_DAL.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public string AccountId { get; set; }
-        [ForeignKey("AccountId")]
-        public virtual Account Account { get; set; }
-    
+        //public string AccountId { get; set; }
+        //[ForeignKey("AccountId")]
+        //public virtual Account Account { get; set; }
+
+        //public byte PermissionId { get; set; }
+        //[ForeignKey("PermissionId")]
+        //public virtual Permission Permission { get; set; }    
 
         public virtual ICollection<Permission> Permissions { get; set; }
+        public virtual ICollection<Account> Accounts { get; set; }
+
 
 
     }

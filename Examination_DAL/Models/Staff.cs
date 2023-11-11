@@ -13,19 +13,23 @@ namespace Examination_DAL.Models
     {
         [Key]
         [Required]
+        [MaxLength(255)]
         public string Id { get; set; }
         [Required]
+        [Column(TypeName = "NVARCHAR")]
         public string FullName { get; set; }
         [AllowNull]
         public bool? Gender { get; set; }
         [Required]
         public DateTime DateOfBirth { get; set; }
         [Required]
+        [Column(TypeName = "NVARCHAR")]
         public string Email { get; set; }
         [AllowNull]
         [MaxLength(30)]
         public string? PhoneNumber { get; set; }
         [AllowNull]
+        [Column(TypeName = "NVARCHAR")]
         public string? Address { get; set; }
         [AllowNull]
         public byte? Status { get; set; }

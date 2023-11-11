@@ -47,9 +47,21 @@ namespace Examination_DAL.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Models.Participant>().HasKey(p => new { p.Id });
-            modelBuilder.Entity<Models.UserPermission>().HasKey(up => new { up.Id });
-            modelBuilder.Entity<Models.Staff>().HasKey(s => new { s.Id });
+
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Exam>()
+                .HasIndex(e=>e.ExamCode)
+                .IsUnique();
+
+            modelBuilder.Entity<ExamDetail>()
+               .HasIndex(e => e.ExamDetailCode)
+               .IsUnique();
+
+
+            //modelBuilder.Entity<Models.Participant>().HasKey(p => new { p.Id });
+            //modelBuilder.Entity<Models.UserPermission>().HasKey(up => new { up.Id });
+            //modelBuilder.Entity<Models.Staff>().HasKey(s => new { s.Id });
 
             modelBuilder.Entity<Question>()
                  .HasMany(q => q.AnswerResponses)
@@ -59,7 +71,7 @@ namespace Examination_DAL.Context
             modelBuilder.Entity<Question>()
                  .HasMany(q => q.Answers)
                  .WithOne(a => a.Question)
-                 .OnDelete(DeleteBehavior.Restrict);        
+                 .OnDelete(DeleteBehavior.Restrict);
 
 
             modelBuilder.Entity<Subject>()
@@ -68,7 +80,7 @@ namespace Examination_DAL.Context
               .OnDelete(DeleteBehavior.Restrict);
 
 
-           
+
 
 
 
