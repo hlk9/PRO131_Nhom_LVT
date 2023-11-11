@@ -54,58 +54,64 @@
             radSchedulerNavigator1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radSchedulerNavigator1.AssociatedScheduler = null;
             radSchedulerNavigator1.DateFormat = "yyyy/MM/dd";
-            radSchedulerNavigator1.Location = new Point(248, 12);
+            radSchedulerNavigator1.Location = new Point(217, 9);
+            radSchedulerNavigator1.Margin = new Padding(3, 2, 3, 2);
             radSchedulerNavigator1.Name = "radSchedulerNavigator1";
             radSchedulerNavigator1.NavigationStepType = Telerik.WinControls.UI.NavigationStepTypes.Day;
             // 
             // 
             // 
             radSchedulerNavigator1.RootElement.StretchVertically = false;
-            radSchedulerNavigator1.Size = new Size(727, 118);
+            radSchedulerNavigator1.Size = new Size(1491, 118);
             radSchedulerNavigator1.TabIndex = 0;
             radSchedulerNavigator1.ThemeName = "MaterialTeal";
             // 
             // radScheduler1
             // 
             radScheduler1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            radScheduler1.Location = new Point(248, 136);
+            radScheduler1.Location = new Point(217, 102);
+            radScheduler1.Margin = new Padding(3, 2, 3, 2);
             radScheduler1.Name = "radScheduler1";
             radScheduler1.PrintStyle = schedulerDailyPrintStyle1;
-            radScheduler1.Size = new Size(727, 448);
+            radScheduler1.Size = new Size(1491, 953);
             radScheduler1.TabIndex = 1;
             radScheduler1.ThemeName = "MaterialTeal";
             // 
             // radCalendar1
             // 
-            radCalendar1.HeaderHeight = 36;
-            radCalendar1.HeaderWidth = 36;
-            radCalendar1.Location = new Point(12, 12);
+            radCalendar1.HeaderHeight = 32;
+            radCalendar1.HeaderWidth = 32;
+            radCalendar1.Location = new Point(10, 9);
+            radCalendar1.Margin = new Padding(3, 2, 3, 2);
             radCalendar1.Name = "radCalendar1";
-            radCalendar1.Size = new Size(230, 259);
+            radCalendar1.Size = new Size(201, 194);
             radCalendar1.TabIndex = 2;
             radCalendar1.ThemeName = "MaterialTeal";
             // 
             // radCalendar2
             // 
-            radCalendar2.HeaderHeight = 36;
-            radCalendar2.HeaderWidth = 36;
-            radCalendar2.Location = new Point(12, 306);
+            radCalendar2.HeaderHeight = 32;
+            radCalendar2.HeaderWidth = 32;
+            radCalendar2.Location = new Point(10, 230);
+            radCalendar2.Margin = new Padding(3, 2, 3, 2);
             radCalendar2.Name = "radCalendar2";
-            radCalendar2.Size = new Size(230, 252);
+            radCalendar2.Size = new Size(201, 189);
             radCalendar2.TabIndex = 3;
             radCalendar2.ThemeName = "MaterialTeal";
             // 
             // ThoiGian
             // 
-            AutoScaleBaseSize = new Size(8, 20);
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleBaseSize = new Size(7, 15);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnablePreventFocusChange;
-            ClientSize = new Size(987, 596);
+            ClientSize = new Size(989, 625);
             Controls.Add(radCalendar2);
             Controls.Add(radCalendar1);
             Controls.Add(radScheduler1);
             Controls.Add(radSchedulerNavigator1);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ThoiGian";
             // 
             // 
