@@ -28,192 +28,258 @@
         /// </summary>
         private void InitializeComponent()
         {
-            materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
-            materialTealTheme2 = new Telerik.WinControls.Themes.MaterialTealTheme();
-            dataGridView1 = new DataGridView();
-            radButton2 = new Telerik.WinControls.UI.RadButton();
-            radButton1 = new Telerik.WinControls.UI.RadButton();
-            radTextBox6 = new Telerik.WinControls.UI.RadTextBox();
-            radTextBox5 = new Telerik.WinControls.UI.RadTextBox();
-            radTextBox4 = new Telerik.WinControls.UI.RadTextBox();
-            radTextBox3 = new Telerik.WinControls.UI.RadTextBox();
-            radTextBox2 = new Telerik.WinControls.UI.RadTextBox();
-            radTextBox1 = new Telerik.WinControls.UI.RadTextBox();
+            radDateTimePicker1 = new Telerik.WinControls.UI.RadDateTimePicker();
+            radSexNu = new Telerik.WinControls.UI.RadRadioButton();
+            radSexNam = new Telerik.WinControls.UI.RadRadioButton();
+            label8 = new Label();
+            label7 = new Label();
+            radtxtTrangThai = new Telerik.WinControls.UI.RadTextBox();
+            radtxtDiaChi = new Telerik.WinControls.UI.RadTextBox();
+            radtxtSDT = new Telerik.WinControls.UI.RadTextBox();
+            radtxtEmail = new Telerik.WinControls.UI.RadTextBox();
+            radtxtID = new Telerik.WinControls.UI.RadTextBox();
+            radtxtTen = new Telerik.WinControls.UI.RadTextBox();
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radButton2).BeginInit();
+            dtgAddNhanVien = new DataGridView();
+            radbtnClear = new Telerik.WinControls.UI.RadButton();
+            materialTealTheme2 = new Telerik.WinControls.Themes.MaterialTealTheme();
+            radButton1 = new Telerik.WinControls.UI.RadButton();
+            materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
+            ((System.ComponentModel.ISupportInitialize)radDateTimePicker1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radSexNu).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radSexNam).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radtxtTrangThai).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radtxtDiaChi).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radtxtSDT).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radtxtEmail).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radtxtID).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radtxtTen).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtgAddNhanVien).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radbtnClear).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radButton1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radTextBox6).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radTextBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radTextBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radTextBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radTextBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radTextBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // radDateTimePicker1
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(62, 283);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(742, 175);
-            dataGridView1.TabIndex = 35;
+            radDateTimePicker1.CalendarSize = new Size(290, 320);
+            radDateTimePicker1.Location = new Point(111, 153);
+            radDateTimePicker1.Name = "radDateTimePicker1";
+            radDateTimePicker1.Size = new Size(256, 41);
+            radDateTimePicker1.TabIndex = 72;
+            radDateTimePicker1.TabStop = false;
+            radDateTimePicker1.Text = "Sunday, November 12, 2023";
+            radDateTimePicker1.ThemeName = "MaterialTeal";
+            radDateTimePicker1.Value = new DateTime(2023, 11, 12, 9, 59, 10, 238);
             // 
-            // radButton2
+            // radSexNu
             // 
-            radButton2.Location = new Point(448, 208);
-            radButton2.Name = "radButton2";
-            radButton2.Size = new Size(356, 56);
-            radButton2.TabIndex = 34;
-            radButton2.Text = "Clear";
-            radButton2.ThemeName = "MaterialTeal";
+            radSexNu.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            radSexNu.Location = new Point(271, 127);
+            radSexNu.Name = "radSexNu";
+            radSexNu.Size = new Size(49, 22);
+            radSexNu.TabIndex = 71;
+            radSexNu.Text = "Nữ";
+            radSexNu.ThemeName = "MaterialTeal";
             // 
-            // radButton1
+            // radSexNam
             // 
-            radButton1.Location = new Point(62, 208);
-            radButton1.Name = "radButton1";
-            radButton1.Size = new Size(354, 56);
-            radButton1.TabIndex = 33;
-            radButton1.Text = "Xóa";
-            radButton1.ThemeName = "MaterialTeal";
+            radSexNam.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            radSexNam.Location = new Point(148, 127);
+            radSexNam.Name = "radSexNam";
+            radSexNam.Size = new Size(63, 22);
+            radSexNam.TabIndex = 70;
+            radSexNam.Text = "Nam";
+            radSexNam.ThemeName = "MaterialTeal";
             // 
-            // radTextBox6
+            // label8
             // 
-            radTextBox6.Location = new Point(549, 146);
-            radTextBox6.Name = "radTextBox6";
-            radTextBox6.Size = new Size(255, 37);
-            radTextBox6.TabIndex = 32;
-            radTextBox6.ThemeName = "MaterialTeal";
+            label8.AutoSize = true;
+            label8.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Location = new Point(407, 170);
+            label8.Name = "label8";
+            label8.Size = new Size(99, 20);
+            label8.TabIndex = 69;
+            label8.Text = "Trạng Thái";
             // 
-            // radTextBox5
+            // label7
             // 
-            radTextBox5.Location = new Point(549, 79);
-            radTextBox5.Name = "radTextBox5";
-            radTextBox5.Size = new Size(255, 37);
-            radTextBox5.TabIndex = 31;
-            radTextBox5.ThemeName = "MaterialTeal";
+            label7.AutoSize = true;
+            label7.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Location = new Point(11, 170);
+            label7.Name = "label7";
+            label7.Size = new Size(94, 20);
+            label7.TabIndex = 68;
+            label7.Text = "Ngày Sinh";
             // 
-            // radTextBox4
+            // radtxtTrangThai
             // 
-            radTextBox4.Location = new Point(549, 10);
-            radTextBox4.Name = "radTextBox4";
-            radTextBox4.Size = new Size(255, 37);
-            radTextBox4.TabIndex = 30;
-            radTextBox4.ThemeName = "MaterialTeal";
+            radtxtTrangThai.Location = new Point(512, 153);
+            radtxtTrangThai.Name = "radtxtTrangThai";
+            radtxtTrangThai.Size = new Size(256, 42);
+            radtxtTrangThai.TabIndex = 67;
+            radtxtTrangThai.ThemeName = "MaterialTeal";
             // 
-            // radTextBox3
+            // radtxtDiaChi
             // 
-            radTextBox3.Location = new Point(152, 10);
-            radTextBox3.Name = "radTextBox3";
-            radTextBox3.Size = new Size(255, 37);
-            radTextBox3.TabIndex = 29;
-            radTextBox3.ThemeName = "MaterialTeal";
+            radtxtDiaChi.Location = new Point(513, 105);
+            radtxtDiaChi.Name = "radtxtDiaChi";
+            radtxtDiaChi.Size = new Size(255, 42);
+            radtxtDiaChi.TabIndex = 66;
+            radtxtDiaChi.ThemeName = "MaterialTeal";
             // 
-            // radTextBox2
+            // radtxtSDT
             // 
-            radTextBox2.Location = new Point(152, 146);
-            radTextBox2.Name = "radTextBox2";
-            radTextBox2.Size = new Size(255, 37);
-            radTextBox2.TabIndex = 28;
-            radTextBox2.ThemeName = "MaterialTeal";
+            radtxtSDT.Location = new Point(512, 57);
+            radtxtSDT.Name = "radtxtSDT";
+            radtxtSDT.Size = new Size(255, 42);
+            radtxtSDT.TabIndex = 65;
+            radtxtSDT.ThemeName = "MaterialTeal";
             // 
-            // radTextBox1
+            // radtxtEmail
             // 
-            radTextBox1.Location = new Point(152, 79);
-            radTextBox1.Name = "radTextBox1";
-            radTextBox1.Size = new Size(255, 37);
-            radTextBox1.TabIndex = 27;
-            radTextBox1.ThemeName = "MaterialTeal";
+            radtxtEmail.Location = new Point(513, 9);
+            radtxtEmail.Name = "radtxtEmail";
+            radtxtEmail.Size = new Size(255, 42);
+            radtxtEmail.TabIndex = 64;
+            radtxtEmail.ThemeName = "MaterialTeal";
+            // 
+            // radtxtID
+            // 
+            radtxtID.Location = new Point(116, 9);
+            radtxtID.Name = "radtxtID";
+            radtxtID.Size = new Size(255, 42);
+            radtxtID.TabIndex = 63;
+            radtxtID.ThemeName = "MaterialTeal";
+            // 
+            // radtxtTen
+            // 
+            radtxtTen.Location = new Point(116, 57);
+            radtxtTen.Name = "radtxtTen";
+            radtxtTen.Size = new Size(255, 42);
+            radtxtTen.TabIndex = 62;
+            radtxtTen.ThemeName = "MaterialTeal";
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(448, 168);
+            label6.Location = new Point(425, 127);
             label6.Name = "label6";
             label6.Size = new Size(71, 20);
-            label6.TabIndex = 26;
+            label6.TabIndex = 61;
             label6.Text = "Địa Chỉ";
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(448, 101);
+            label5.Location = new Point(436, 79);
             label5.Name = "label5";
             label5.Size = new Size(45, 20);
-            label5.TabIndex = 25;
+            label5.TabIndex = 60;
             label5.Text = "SĐT";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(448, 32);
+            label4.Location = new Point(425, 31);
             label4.Name = "label4";
-            label4.Size = new Size(94, 20);
-            label4.TabIndex = 24;
-            label4.Text = "Ngày Sinh";
+            label4.Size = new Size(56, 20);
+            label4.TabIndex = 59;
+            label4.Text = "Email";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(62, 168);
+            label3.Location = new Point(17, 127);
             label3.Name = "label3";
-            label3.Size = new Size(56, 20);
-            label3.TabIndex = 23;
-            label3.Text = "Email";
+            label3.Size = new Size(85, 20);
+            label3.TabIndex = 58;
+            label3.Text = "Giới Tính";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(53, 101);
+            label2.Location = new Point(37, 79);
             label2.Name = "label2";
-            label2.Size = new Size(85, 20);
-            label2.TabIndex = 22;
-            label2.Text = "Giới Tính";
+            label2.Size = new Size(40, 20);
+            label2.TabIndex = 57;
+            label2.Text = "Tên";
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(53, 32);
+            label1.Location = new Point(37, 31);
             label1.Name = "label1";
-            label1.Size = new Size(70, 20);
-            label1.TabIndex = 21;
-            label1.Text = "Họ Tên";
+            label1.Size = new Size(28, 20);
+            label1.TabIndex = 56;
+            label1.Text = "ID";
+            // 
+            // dtgAddNhanVien
+            // 
+            dtgAddNhanVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgAddNhanVien.Location = new Point(17, 284);
+            dtgAddNhanVien.Name = "dtgAddNhanVien";
+            dtgAddNhanVien.RowHeadersWidth = 51;
+            dtgAddNhanVien.RowTemplate.Height = 29;
+            dtgAddNhanVien.Size = new Size(750, 175);
+            dtgAddNhanVien.TabIndex = 55;
+            // 
+            // radbtnClear
+            // 
+            radbtnClear.Location = new Point(413, 214);
+            radbtnClear.Name = "radbtnClear";
+            radbtnClear.Size = new Size(356, 56);
+            radbtnClear.TabIndex = 54;
+            radbtnClear.Text = "Clear";
+            radbtnClear.ThemeName = "MaterialTeal";
+            radbtnClear.Click += radbtnClear_Click;
+            // 
+            // radButton1
+            // 
+            radButton1.Location = new Point(17, 214);
+            radButton1.Name = "radButton1";
+            radButton1.Size = new Size(354, 56);
+            radButton1.TabIndex = 53;
+            radButton1.Text = "Xóa";
+            radButton1.ThemeName = "MaterialTeal";
             // 
             // RemoveNhanVien
             // 
             AutoScaleBaseSize = new Size(8, 20);
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(852, 464);
-            Controls.Add(dataGridView1);
-            Controls.Add(radButton2);
-            Controls.Add(radButton1);
-            Controls.Add(radTextBox6);
-            Controls.Add(radTextBox5);
-            Controls.Add(radTextBox4);
-            Controls.Add(radTextBox3);
-            Controls.Add(radTextBox2);
-            Controls.Add(radTextBox1);
+            ClientSize = new Size(780, 468);
+            Controls.Add(radDateTimePicker1);
+            Controls.Add(radSexNu);
+            Controls.Add(radSexNam);
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(radtxtTrangThai);
+            Controls.Add(radtxtDiaChi);
+            Controls.Add(radtxtSDT);
+            Controls.Add(radtxtEmail);
+            Controls.Add(radtxtID);
+            Controls.Add(radtxtTen);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Controls.Add(dtgAddNhanVien);
+            Controls.Add(radbtnClear);
+            Controls.Add(radButton1);
             Name = "RemoveNhanVien";
             // 
             // 
@@ -221,15 +287,18 @@
             RootElement.ApplyShapeToControl = true;
             Text = "RemoveNhanVien";
             ThemeName = "MaterialTeal";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radButton2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radDateTimePicker1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radSexNu).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radSexNam).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radtxtTrangThai).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radtxtDiaChi).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radtxtSDT).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radtxtEmail).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radtxtID).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radtxtTen).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtgAddNhanVien).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radbtnClear).EndInit();
             ((System.ComponentModel.ISupportInitialize)radButton1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radTextBox6).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radTextBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radTextBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radTextBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radTextBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radTextBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -237,22 +306,27 @@
 
         #endregion
 
-        private Telerik.WinControls.Themes.MaterialTealTheme materialTealTheme1;
-        private Telerik.WinControls.Themes.MaterialTealTheme materialTealTheme2;
-        private DataGridView dataGridView1;
-        private Telerik.WinControls.UI.RadButton radButton2;
-        private Telerik.WinControls.UI.RadButton radButton1;
-        private Telerik.WinControls.UI.RadTextBox radTextBox6;
-        private Telerik.WinControls.UI.RadTextBox radTextBox5;
-        private Telerik.WinControls.UI.RadTextBox radTextBox4;
-        private Telerik.WinControls.UI.RadTextBox radTextBox3;
-        private Telerik.WinControls.UI.RadTextBox radTextBox2;
-        private Telerik.WinControls.UI.RadTextBox radTextBox1;
+        private Telerik.WinControls.UI.RadDateTimePicker radDateTimePicker1;
+        private Telerik.WinControls.UI.RadRadioButton radSexNu;
+        private Telerik.WinControls.UI.RadRadioButton radSexNam;
+        private Label label8;
+        private Label label7;
+        private Telerik.WinControls.UI.RadTextBox radtxtTrangThai;
+        private Telerik.WinControls.UI.RadTextBox radtxtDiaChi;
+        private Telerik.WinControls.UI.RadTextBox radtxtSDT;
+        private Telerik.WinControls.UI.RadTextBox radtxtEmail;
+        private Telerik.WinControls.UI.RadTextBox radtxtID;
+        private Telerik.WinControls.UI.RadTextBox radtxtTen;
         private Label label6;
         private Label label5;
         private Label label4;
         private Label label3;
         private Label label2;
         private Label label1;
+        private DataGridView dtgAddNhanVien;
+        private Telerik.WinControls.UI.RadButton radbtnClear;
+        private Telerik.WinControls.Themes.MaterialTealTheme materialTealTheme2;
+        private Telerik.WinControls.UI.RadButton radButton1;
+        private Telerik.WinControls.Themes.MaterialTealTheme materialTealTheme1;
     }
 }
