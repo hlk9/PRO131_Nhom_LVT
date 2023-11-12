@@ -13,6 +13,9 @@ namespace Examination_DAL.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public byte Id { get; set; }
+        [Required]
+        [Column(TypeName = "NVARCHAR")]
+        [MaxLength(255)]
         public string Name { get; set; }       
     }
 }

@@ -76,6 +76,11 @@ namespace Examination_PRL.Forms.Staff
             RadPageViewPage subjectPage = new RadPageViewPage("Môn"); //xem danh sách môn       
 
             RadPageViewPage roomPage = new RadPageViewPage("Phòng thi"); //xem danh sách phòng thi
+            Room room = new Room();
+            room.TopLevel = false;
+            roomPage.Controls.Add(room);
+            room.Show();
+            room.Dock = DockStyle.Fill;
 
             RadPageViewPage staffPage = new RadPageViewPage("Nhân viên"); //xem danh sách nhân viên
             RadPageViewPage addStaffPage = new RadPageViewPage("Thêm nhân viên");

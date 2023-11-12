@@ -12,13 +12,22 @@ namespace Examination_DAL.Models
     public class Exam
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
+        [AllowNull]
+        public string? ExamCode { get; set; }
+
         [Required]
+        [Column(TypeName = "NVARCHAR")]
+        [MaxLength(255)]
         public string Name { get; set; }
+
         [AllowNull]
         public string?  SubjectId { get; set; }
         [ForeignKey("SubjectId")]
         public virtual Subject Subject { get; set; }
+
         public virtual ICollection<ExamDetail> ExamDetails { get; set; }
 
     }

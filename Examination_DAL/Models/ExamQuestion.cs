@@ -21,13 +21,11 @@ namespace Examination_DAL.Models
         [ForeignKey("ExamDetailId")]
         public virtual ExamDetail ExamDetail { get; set; }
 
-        //[Required]
-        //[Column(Order = 3)]
-        //public int QuestionId { get; set; }
-        //[ForeignKey("QuestionId")]
-        //public virtual Question Question { get; set; }
+        [Required]
+        [Column(Order = 3)]
+        public int QuestionId { get; set; }
+        [ForeignKey("QuestionId")]
+        public virtual Question Question { get; set; }
 
-
-        public virtual ICollection<Question> Questions { get; set; }
     }
 }
