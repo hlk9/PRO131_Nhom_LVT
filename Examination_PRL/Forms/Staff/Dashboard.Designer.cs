@@ -37,11 +37,11 @@
             // 
             // pvDashboard
             // 
-            pvDashboard.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pvDashboard.Dock = DockStyle.Fill;
             pvDashboard.Location = new Point(0, 0);
             pvDashboard.Name = "pvDashboard";
             pvDashboard.Padding = new Padding(0, 0, 15, 0);
-            pvDashboard.Size = new Size(1000, 700);
+            pvDashboard.Size = new Size(998, 663);
             pvDashboard.TabIndex = 0;
             pvDashboard.ThemeName = "MaterialTeal";
             pvDashboard.ViewMode = Telerik.WinControls.UI.PageViewMode.NavigationView;
@@ -53,7 +53,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(998, 663);
             Controls.Add(pvDashboard);
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Dashboard";
             // 
             // 
@@ -62,7 +61,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Dashboard";
             ThemeName = "MaterialTeal";
-            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)pvDashboard).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);

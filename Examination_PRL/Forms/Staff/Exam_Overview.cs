@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
 using Telerik.WinControls.UI;
+using Telerik.WinControls.UI.Docking;
 
 namespace Examination_PRL.Forms.Staff
 {
@@ -19,10 +20,14 @@ namespace Examination_PRL.Forms.Staff
         public Exam_Overview()
         {
             InitializeComponent();
+            RoundRectShape roundRectShape = new RoundRectShape();
+            roundRectShape.Radius = 30;
+            //panelOverview.RootElement.Shape = roundRectShape;
+            //panelOverview.RootElement.ApplyShapeToControl = true;
+
+
             LoadData();
-            examGridView.AutoSize = false;
-            examGridView.AllowAddNewRow = false;
-            examGridView.ViewCellFormatting += ExamGridView_ViewCellFormatting;
+
 
         }
 
@@ -30,7 +35,7 @@ namespace Examination_PRL.Forms.Staff
         {
             if (e.CellElement is GridHeaderCellElement)
             {
-                if (e.CellElement.Text == "Exam Code" || e.CellElement.Text == "Name" || e.CellElement.Text == "Subject ID" || e.CellElement.Text == "")
+                if (e.CellElement.Text == "Mã bài thi" || e.CellElement.Text == "Tên bài thi" || e.CellElement.Text == "Mã môn" || e.CellElement.Text == "")
                 {
                     e.CellElement.DrawBorder = true;
                     e.CellElement.DrawFill = true;
@@ -45,9 +50,9 @@ namespace Examination_PRL.Forms.Staff
         {
             examGridView.ColumnCount = 4;
             examGridView.Columns[0].HeaderText = "ID";
-            examGridView.Columns[1].HeaderText = "Exam Code";
-            examGridView.Columns[2].HeaderText = "Name";
-            examGridView.Columns[3].HeaderText = "Subject ID";
+            examGridView.Columns[1].HeaderText = "Mã bài thi";
+            examGridView.Columns[2].HeaderText = "Tên bài thi";
+            examGridView.Columns[3].HeaderText = "Mã môn";
             examGridView.Columns[0].IsVisible = false;
 
 
@@ -55,7 +60,7 @@ namespace Examination_PRL.Forms.Staff
             {
                 examGridView.Rows.Add(item.Id, item.ExamCode, item.Name, item.SubjectId);
             }
-            lblTotalExam.Text = examGridView.RowCount.ToString();
+            // lblTotalExam.Text = examGridView.RowCount.ToString();
 
         }
     }
