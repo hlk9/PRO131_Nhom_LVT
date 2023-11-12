@@ -43,7 +43,13 @@ namespace Examination_DAL.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=MSI\\SQLEXPRESS;Initial Catalog=QuanLyThiTracNghiem;Integrated Security=True");
+            //optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=QuanLyThiTracNghiem;Integrated Security=True");
+
+
+            optionsBuilder.UseSqlServer(@"server=db-test-for-pro-131.australiaeast.cloudapp.azure.com,1433;database=QuanLyThiTracNghiem;uid=VM;password=123456789Aa@");
+
+
+            // "server=db-test-for-pro-131.australiaeast.cloudapp.azure.com,1433;database=QuanLyThiTracNghiem;uid=VM;password=123456789Aa@"
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -269,6 +275,16 @@ namespace Examination_DAL.Context
             {
                 Id = "MATH-01",
                 Name = "Toán sơ cấp"
+            },
+            new Subject
+            {
+                Id = "MATH-02",
+                Name = "Toán nâng cao"
+            },
+            new Subject
+            {
+                Id = "ENG-01",
+                Name = "Tiếng Anh sơ cấp"
             }
             );
 
@@ -281,7 +297,185 @@ namespace Examination_DAL.Context
                     ExamCode = "2023_Math_01",
                     Name = "Đề thi môn Toán sơ cấp",
                     SubjectId = "MATH-01",
-                }
+                },
+                new Exam
+                {
+                    Id = 2,
+                    ExamCode = "2023_Math_02",
+                    Name = "Đề thi môn Toán nâng cao",
+                    SubjectId = "MATH-02",
+                },
+                new Exam
+                {
+                    Id = 3,
+                    ExamCode = "2023_Eng_01",
+                    Name = "Đề thi môn Tiếng Anh sơ cấp",
+                    SubjectId = "ENG-01",
+                },
+                new Exam
+                {
+                    Id = 4,
+                    ExamCode = "2023_Com1071",
+                    Name = "Đề thi môn Tin học",
+                    SubjectId = "COM1071",
+                },
+                new Exam
+                {
+                    Id = 5,
+                    ExamCode = "2023_Pro131",
+                    Name = "Đề thi môn Dự án 1",
+                    SubjectId = "PRO131",
+                },
+                //seed more data, ExamCode is unique
+                new Exam
+                {
+                    Id = 6,
+                    ExamCode = "2024_Math_01",
+                    Name = "Đề thi môn Toán sơ cấp",
+                    SubjectId = "MATH-01",
+                },
+                new Exam
+                {
+                    Id = 7,
+                    ExamCode = "2024_Math_02",
+                    Name = "Đề thi môn Toán nâng cao",
+                    SubjectId = "MATH-02",
+                },
+                new Exam
+                {
+                    Id = 8,
+                    ExamCode = "2024_Eng_01",
+                    Name = "Đề thi Cuối kỳ môn Tiếng Anh sơ cấp",
+                    SubjectId = "ENG-01",
+                },
+                new Exam
+                {
+                    Id = 9,
+                    ExamCode = "2024_Com1071",
+                    Name = "Đề thi môn Tin học",
+                    SubjectId = "COM1071",
+                },
+                new Exam
+                {
+                    Id = 10,
+                    ExamCode = "2024_Pro131",
+                    Name = "Đề thi môn Dự án 1",
+                    SubjectId = "PRO131",
+                },
+                new Exam
+                {
+                    Id = 11,
+                    ExamCode = "2025_Math_01",
+                    Name = "Đề thi môn Toán sơ cấp",
+                    SubjectId = "MATH-01",
+                },
+                new Exam
+                {
+                    Id = 12,
+                    ExamCode = "2025_Math_02",
+                    Name = "Đề thi môn Toán nâng cao",
+                    SubjectId = "MATH-02",
+                },
+                 //seed more data, ExamCode is unique
+                 new Exam
+                 {
+                     Id = 13,
+                     ExamCode = "2026_Math_01",
+                     Name = "Đề thi môn Toán sơ cấp",
+                     SubjectId = "MATH-01",
+                 },
+                 new Exam
+                 {
+                     Id = 14,
+                     ExamCode = "2026_Math_02",
+                     Name = "Đề thi môn Toán nâng cao",
+                     SubjectId = "MATH-02",
+                 },
+                 new Exam
+                 {
+                     Id = 15,
+                     ExamCode = "2026_Eng_01",
+                     Name = "Đề thi môn Tiếng Anh sơ cấp",
+                     SubjectId = "ENG-01",
+                 },
+                 new Exam
+                 {
+                     Id = 16,
+                     ExamCode = "2026_Com1071",
+                     Name = "Đề thi môn Tin học",
+                     SubjectId = "COM1071",
+                 },
+                 new Exam
+                 {
+                     Id = 17,
+                     ExamCode = "2026_Pro131",
+                     Name = "Đề thi môn Dự án 1",
+                     SubjectId = "PRO131",
+                 },
+                 new Exam
+                 {
+                     Id = 18,
+                     ExamCode = "2027_Math_01",
+                     Name = "Đề thi môn Toán sơ cấp",
+                     SubjectId = "MATH-01",
+                 },
+                 new Exam
+                 {
+                     Id = 19,
+                     ExamCode = "2027_Math_02",
+                     Name = "Đề thi môn Toán nâng cao",
+                     SubjectId = "MATH-02",
+                 },
+                 new Exam
+                 {
+                     Id = 20,
+                     ExamCode = "2027_Eng_01",
+                     Name = "Đề thi môn Tiếng Anh sơ cấp",
+                     SubjectId = "ENG-01",
+                 },
+                 new Exam
+                 {
+                     Id = 21,
+                     ExamCode = "2027_Com1071",
+                     Name = "Đề thi môn Tin học",
+                     SubjectId = "COM1071",
+                 },
+                 new Exam
+                 {
+                     Id = 22,
+                     ExamCode = "2027_Pro131",
+                     Name = "Đề thi môn Dự án 1",
+                     SubjectId = "PRO131",
+                 },
+                 new Exam
+                 {
+                     Id = 23,
+                     ExamCode = "2028_Math_01",
+                     Name = "Đề thi môn Toán sơ cấp",
+                     SubjectId = "MATH-01",
+                 },
+                 new Exam
+                 {
+                     Id = 24,
+                     ExamCode = "2028_Math_02",
+                     Name = "Đề thi môn Toán nâng cao",
+                     SubjectId = "MATH-02",
+                 },
+                 new Exam
+                 {
+                     Id = 25,
+                     ExamCode = "2028_Eng_01",
+                     Name = "Đề thi môn Tiếng Anh sơ cấp",
+                     SubjectId = "ENG-01",
+                 },
+                 new Exam
+                 {
+                     Id = 26,
+                     ExamCode = "2028_Com1071",
+                     Name = "Đề thi môn Tin học",
+                     SubjectId = "COM1071",
+                 }
+
                 );
             modelBuilder.Entity<ExamRoom>()
              .HasData(
@@ -340,14 +534,15 @@ namespace Examination_DAL.Context
                 });
 
             //seed data for ExamRoom table
-         
+
             //seed data for ExamScheduleDetail table
             modelBuilder.Entity<ExamScheduleDetail>()
                 .HasData(
-                new ExamScheduleDetail { 
-                Id = 1,
-                ExamScheduleId = 1,
-                ParticipantId = "longhd"               
+                new ExamScheduleDetail
+                {
+                    Id = 1,
+                    ExamScheduleId = 1,
+                    ParticipantId = "longhd"
                 },
                 new ExamScheduleDetail
                 {
@@ -362,9 +557,9 @@ namespace Examination_DAL.Context
                 .HasData(
                 new ExamDetail
                 {
-                    Id=1,
+                    Id = 1,
                     ExamId = 1,
-                    ExamDetailCode="001",
+                    ExamDetailCode = "001",
                     Description = "Ma de 01",
                     Duration = 90,
                     TotalQuestion = 10,
@@ -586,7 +781,7 @@ namespace Examination_DAL.Context
                 .HasData(
                 new Answer
                 {
-                    Id=1,
+                    Id = 1,
                     QuestionId = 1,
                     Content = "4",
                     IsCorrect = true,
@@ -1153,7 +1348,7 @@ namespace Examination_DAL.Context
                     Id = 10,
                     ExamDetailId = 1,
                     QuestionId = 10,
-                }             
+                }
                 );
 
             //seed AnswerResponse for Chiu Pang Pang
@@ -1190,7 +1385,7 @@ namespace Examination_DAL.Context
                     AnswerId = 1,
                     IsCorrect = true,
                     AnswerAt = DateTime.Now,
-                  
+
                 },
                 //seed more 9 records and total is correct 5, wrong 5
                 new AnswerResponse
@@ -1201,7 +1396,7 @@ namespace Examination_DAL.Context
                     AnswerId = 5,
                     IsCorrect = true,
                     AnswerAt = DateTime.Now,
-                  
+
                 },
                 new AnswerResponse
                 {
@@ -1211,7 +1406,7 @@ namespace Examination_DAL.Context
                     AnswerId = 9,
                     IsCorrect = true,
                     AnswerAt = DateTime.Now,
-                  
+
                 },
                 new AnswerResponse
                 {
@@ -1221,7 +1416,7 @@ namespace Examination_DAL.Context
                     AnswerId = 13,
                     IsCorrect = true,
                     AnswerAt = DateTime.Now,
-                  
+
                 },
                 new AnswerResponse
                 {
@@ -1231,7 +1426,7 @@ namespace Examination_DAL.Context
                     AnswerId = 17,
                     IsCorrect = true,
                     AnswerAt = DateTime.Now,
-                  
+
                 },
                 new AnswerResponse
                 {
@@ -1241,7 +1436,7 @@ namespace Examination_DAL.Context
                     AnswerId = 21,
                     IsCorrect = false,
                     AnswerAt = DateTime.Now,
-                  
+
                 },
                 new AnswerResponse
                 {
@@ -1251,7 +1446,7 @@ namespace Examination_DAL.Context
                     AnswerId = 25,
                     IsCorrect = false,
                     AnswerAt = DateTime.Now,
-                  
+
                 },
                 new AnswerResponse
                 {
@@ -1261,7 +1456,7 @@ namespace Examination_DAL.Context
                     AnswerId = 29,
                     IsCorrect = false,
                     AnswerAt = DateTime.Now,
-                  
+
                 },
                 new AnswerResponse
                 {
@@ -1271,7 +1466,7 @@ namespace Examination_DAL.Context
                     AnswerId = 33,
                     IsCorrect = false,
                     AnswerAt = DateTime.Now,
-                  
+
                 },
                 new AnswerResponse
                 {
@@ -1281,8 +1476,8 @@ namespace Examination_DAL.Context
                     AnswerId = 37,
                     IsCorrect = false,
                     AnswerAt = DateTime.Now,
-                  
-                }           
+
+                }
 
                 );
 

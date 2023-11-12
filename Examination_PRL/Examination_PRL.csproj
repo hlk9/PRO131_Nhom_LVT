@@ -24,4 +24,7 @@
   <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Examination_BUS\Examination_BUS.csproj" />
+  </ItemGroup>
 </Project>

@@ -16,8 +16,7 @@ namespace Examination_DAL.Models
 
         [Required]
         [MaxLength(255)]
-        public string AccountId { get; set; }
-        [ForeignKey("AccountId")]
+        public string AccountId { get; set; }       
         public virtual Account Account { get; set; }
 
         public byte PermissionId { get; set; }

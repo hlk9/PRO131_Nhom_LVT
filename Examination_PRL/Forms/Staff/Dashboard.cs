@@ -57,6 +57,13 @@ namespace Examination_PRL.Forms.Staff
             studentPage.SubPages.Add(deleteStudentPage);
 
             RadPageViewPage examPage = new RadPageViewPage("Đề thi"); //xem danh sách đề thi
+            Exam_Overview exam_Overview = new Exam_Overview();
+            exam_Overview.TopLevel = false;
+            examPage.Controls.Add(exam_Overview);
+            exam_Overview.Show();
+            exam_Overview.Dock = DockStyle.Fill;
+
+
             RadPageViewPage addExamPage = new RadPageViewPage("Thêm đề thi");
             RadPageViewPage editExamPage = new RadPageViewPage("Sửa đề thi");
             RadPageViewPage deleteExamPage = new RadPageViewPage("Xóa đề thi");

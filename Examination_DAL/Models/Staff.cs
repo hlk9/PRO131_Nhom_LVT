@@ -51,9 +51,7 @@ namespace Examination_DAL.Models
 
         public virtual ICollection<ExamSchedule> ExamSchedules { get; set; }
         public virtual ICollection<ExamResponse> ExamResponses { get; set; }
-        public virtual ICollection<ExamDetail> ExamDetails { get; set; }
-
-  
+        public virtual ICollection<ExamDetail> ExamDetails { get; set; } 
 
     }
 }

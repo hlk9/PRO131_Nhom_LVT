@@ -1,4 +1,6 @@
 using Examination_PRL.Forms;
+using Examination_PRL.Forms.Staff;
+using Examination_PRL.Forms.Staff.Home;
 
 namespace Examination_PRL
 {
@@ -13,7 +15,7 @@ namespace Examination_PRL
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Login());
+            Application.Run(new Dashboard());
         }
     }
 }
