@@ -40,12 +40,12 @@ namespace Examination_DAL.Repository
 
         public ExamDetail GetByCode(string code)
         {
-            throw new NotImplementedException();
+           return _context.ExamDetails.Where(x => x.ExamDetailCode == code).FirstOrDefault();
         }
 
         public ExamDetail GetByID(int id)
         {
-            throw new NotImplementedException();
+            return _context.ExamDetails.Find(id);
         }
 
         public bool Update(ExamDetail obj)
