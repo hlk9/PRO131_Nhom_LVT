@@ -51,6 +51,12 @@ namespace Examination_PRL.Forms.Staff
 
             RadPageViewPage addStudentPage = new RadPageViewPage("Thêm thí sinh");
             RadPageViewPage editStudentPage = new RadPageViewPage("Sửa thí sinh");
+            UpdateStudents updateStudents = new UpdateStudents();
+            updateStudents.TopLevel = false;
+            editStudentPage.Controls.Add(updateStudents);
+            updateStudents.Show();  
+            updateStudents.Dock = DockStyle.Fill;
+
             RadPageViewPage deleteStudentPage = new RadPageViewPage("Xóa thí sinh");
             studentPage.SubPages.Add(addStudentPage);
             studentPage.SubPages.Add(editStudentPage);
