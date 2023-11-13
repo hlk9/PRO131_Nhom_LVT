@@ -44,17 +44,13 @@
             radDtpNS = new Telerik.WinControls.UI.RadDateTimePicker();
             radLabel7 = new Telerik.WinControls.UI.RadLabel();
             radTxtAdress = new Telerik.WinControls.UI.RadTextBox();
-            radTxtClass = new Telerik.WinControls.UI.RadTextBox();
             radLabel6 = new Telerik.WinControls.UI.RadLabel();
             radTxtEmail = new Telerik.WinControls.UI.RadTextBox();
-            radLabel5 = new Telerik.WinControls.UI.RadLabel();
             radTxtPhone = new Telerik.WinControls.UI.RadTextBox();
             radLabel4 = new Telerik.WinControls.UI.RadLabel();
             radTxtTen = new Telerik.WinControls.UI.RadTextBox();
             radLabel3 = new Telerik.WinControls.UI.RadLabel();
             radLabel2 = new Telerik.WinControls.UI.RadLabel();
-            radTxtHo = new Telerik.WinControls.UI.RadTextBox();
-            radLabel1 = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)radDock1).BeginInit();
             radDock1.SuspendLayout();
             toolWindow1.SuspendLayout();
@@ -74,17 +70,13 @@
             ((System.ComponentModel.ISupportInitialize)radDtpNS).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radTxtAdress).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radTxtClass).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radTxtEmail).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radTxtPhone).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radTxtTen).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radTxtHo).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
@@ -204,17 +196,13 @@
             toolWindow2.Controls.Add(radDtpNS);
             toolWindow2.Controls.Add(radLabel7);
             toolWindow2.Controls.Add(radTxtAdress);
-            toolWindow2.Controls.Add(radTxtClass);
             toolWindow2.Controls.Add(radLabel6);
             toolWindow2.Controls.Add(radTxtEmail);
-            toolWindow2.Controls.Add(radLabel5);
             toolWindow2.Controls.Add(radTxtPhone);
             toolWindow2.Controls.Add(radLabel4);
             toolWindow2.Controls.Add(radTxtTen);
             toolWindow2.Controls.Add(radLabel3);
             toolWindow2.Controls.Add(radLabel2);
-            toolWindow2.Controls.Add(radTxtHo);
-            toolWindow2.Controls.Add(radLabel1);
             toolWindow2.DocumentButtons = Telerik.WinControls.UI.Docking.DocumentStripButtons.None;
             toolWindow2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             toolWindow2.Location = new Point(4, 52);
@@ -237,7 +225,7 @@
             // 
             // radBNu
             // 
-            radBNu.Location = new Point(144, 519);
+            radBNu.Location = new Point(144, 379);
             radBNu.Name = "radBNu";
             radBNu.Size = new Size(45, 22);
             radBNu.TabIndex = 7;
@@ -247,7 +235,7 @@
             // radBNam
             // 
             radBNam.CheckState = CheckState.Checked;
-            radBNam.Location = new Point(3, 519);
+            radBNam.Location = new Point(3, 379);
             radBNam.Name = "radBNam";
             radBNam.Size = new Size(57, 22);
             radBNam.TabIndex = 6;
@@ -259,7 +247,7 @@
             // 
             radLabel8.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radLabel8.ForeColor = Color.Teal;
-            radLabel8.Location = new Point(3, 492);
+            radLabel8.Location = new Point(3, 352);
             radLabel8.Name = "radLabel8";
             radLabel8.Size = new Size(65, 21);
             radLabel8.TabIndex = 5;
@@ -270,7 +258,7 @@
             // 
             radDtpNS.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radDtpNS.CalendarSize = new Size(290, 320);
-            radDtpNS.Location = new Point(3, 450);
+            radDtpNS.Location = new Point(3, 310);
             radDtpNS.Name = "radDtpNS";
             radDtpNS.Size = new Size(326, 36);
             radDtpNS.TabIndex = 5;
@@ -283,7 +271,7 @@
             // 
             radLabel7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radLabel7.ForeColor = Color.Teal;
-            radLabel7.Location = new Point(3, 423);
+            radLabel7.Location = new Point(3, 283);
             radLabel7.Name = "radLabel7";
             radLabel7.Size = new Size(72, 21);
             radLabel7.TabIndex = 4;
@@ -293,26 +281,17 @@
             // radTxtAdress
             // 
             radTxtAdress.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            radTxtAdress.Location = new Point(3, 380);
+            radTxtAdress.Location = new Point(3, 240);
             radTxtAdress.Name = "radTxtAdress";
             radTxtAdress.Size = new Size(331, 37);
             radTxtAdress.TabIndex = 4;
             radTxtAdress.ThemeName = "MaterialTeal";
             // 
-            // radTxtClass
-            // 
-            radTxtClass.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            radTxtClass.Location = new Point(3, 310);
-            radTxtClass.Name = "radTxtClass";
-            radTxtClass.Size = new Size(331, 37);
-            radTxtClass.TabIndex = 4;
-            radTxtClass.ThemeName = "MaterialTeal";
-            // 
             // radLabel6
             // 
             radLabel6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radLabel6.ForeColor = Color.Teal;
-            radLabel6.Location = new Point(3, 353);
+            radLabel6.Location = new Point(3, 213);
             radLabel6.Name = "radLabel6";
             radLabel6.Size = new Size(53, 21);
             radLabel6.TabIndex = 3;
@@ -322,27 +301,16 @@
             // radTxtEmail
             // 
             radTxtEmail.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            radTxtEmail.Location = new Point(3, 240);
+            radTxtEmail.Location = new Point(3, 170);
             radTxtEmail.Name = "radTxtEmail";
             radTxtEmail.Size = new Size(331, 37);
             radTxtEmail.TabIndex = 4;
             radTxtEmail.ThemeName = "MaterialTeal";
             // 
-            // radLabel5
-            // 
-            radLabel5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            radLabel5.ForeColor = Color.Teal;
-            radLabel5.Location = new Point(3, 283);
-            radLabel5.Name = "radLabel5";
-            radLabel5.Size = new Size(31, 21);
-            radLabel5.TabIndex = 3;
-            radLabel5.Text = "Lớp";
-            radLabel5.ThemeName = "MaterialTeal";
-            // 
             // radTxtPhone
             // 
             radTxtPhone.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            radTxtPhone.Location = new Point(3, 170);
+            radTxtPhone.Location = new Point(3, 100);
             radTxtPhone.Name = "radTxtPhone";
             radTxtPhone.Size = new Size(331, 37);
             radTxtPhone.TabIndex = 4;
@@ -352,7 +320,7 @@
             // 
             radLabel4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radLabel4.ForeColor = Color.Teal;
-            radLabel4.Location = new Point(3, 213);
+            radLabel4.Location = new Point(3, 143);
             radLabel4.Name = "radLabel4";
             radLabel4.Size = new Size(43, 21);
             radLabel4.TabIndex = 3;
@@ -362,7 +330,7 @@
             // radTxtTen
             // 
             radTxtTen.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            radTxtTen.Location = new Point(3, 100);
+            radTxtTen.Location = new Point(3, 30);
             radTxtTen.Name = "radTxtTen";
             radTxtTen.Size = new Size(331, 37);
             radTxtTen.TabIndex = 4;
@@ -372,7 +340,7 @@
             // 
             radLabel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radLabel3.ForeColor = Color.Teal;
-            radLabel3.Location = new Point(3, 143);
+            radLabel3.Location = new Point(3, 73);
             radLabel3.Name = "radLabel3";
             radLabel3.Size = new Size(97, 21);
             radLabel3.TabIndex = 3;
@@ -383,32 +351,12 @@
             // 
             radLabel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radLabel2.ForeColor = Color.Teal;
-            radLabel2.Location = new Point(3, 73);
+            radLabel2.Location = new Point(3, 3);
             radLabel2.Name = "radLabel2";
-            radLabel2.Size = new Size(32, 21);
+            radLabel2.Size = new Size(54, 21);
             radLabel2.TabIndex = 3;
-            radLabel2.Text = "Tên";
+            radLabel2.Text = "Họ Tên";
             radLabel2.ThemeName = "MaterialTeal";
-            // 
-            // radTxtHo
-            // 
-            radTxtHo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            radTxtHo.Location = new Point(3, 30);
-            radTxtHo.Name = "radTxtHo";
-            radTxtHo.Size = new Size(331, 37);
-            radTxtHo.TabIndex = 2;
-            radTxtHo.ThemeName = "MaterialTeal";
-            // 
-            // radLabel1
-            // 
-            radLabel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            radLabel1.ForeColor = Color.Teal;
-            radLabel1.Location = new Point(3, 3);
-            radLabel1.Name = "radLabel1";
-            radLabel1.Size = new Size(26, 21);
-            radLabel1.TabIndex = 0;
-            radLabel1.Text = "Họ";
-            radLabel1.ThemeName = "MaterialTeal";
             // 
             // UpdateStudents
             // 
@@ -445,17 +393,13 @@
             ((System.ComponentModel.ISupportInitialize)radDtpNS).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel7).EndInit();
             ((System.ComponentModel.ISupportInitialize)radTxtAdress).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radTxtClass).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel6).EndInit();
             ((System.ComponentModel.ISupportInitialize)radTxtEmail).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel5).EndInit();
             ((System.ComponentModel.ISupportInitialize)radTxtPhone).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel4).EndInit();
             ((System.ComponentModel.ISupportInitialize)radTxtTen).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel3).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radTxtHo).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel1).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }
@@ -474,17 +418,13 @@
         private Telerik.WinControls.UI.RadDateTimePicker radDtpNS;
         private Telerik.WinControls.UI.RadLabel radLabel7;
         private Telerik.WinControls.UI.RadTextBox radTxtAdress;
-        private Telerik.WinControls.UI.RadTextBox radTxtClass;
         private Telerik.WinControls.UI.RadLabel radLabel6;
         private Telerik.WinControls.UI.RadTextBox radTxtEmail;
-        private Telerik.WinControls.UI.RadLabel radLabel5;
         private Telerik.WinControls.UI.RadTextBox radTxtPhone;
         private Telerik.WinControls.UI.RadLabel radLabel4;
         private Telerik.WinControls.UI.RadTextBox radTxtTen;
         private Telerik.WinControls.UI.RadLabel radLabel3;
         private Telerik.WinControls.UI.RadLabel radLabel2;
-        private Telerik.WinControls.UI.RadTextBox radTxtHo;
-        private Telerik.WinControls.UI.RadLabel radLabel1;
         private Telerik.WinControls.UI.RadButton radButton1;
         private Telerik.WinControls.UI.RadRadioButton radBNu;
         private Telerik.WinControls.UI.RadRadioButton radBNam;

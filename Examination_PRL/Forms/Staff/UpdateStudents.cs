@@ -15,6 +15,8 @@ namespace Examination_PRL.Forms.Staff
     {
         ParticipantService _ser = new ParticipantService();
 
+        string _idWhenClick;
+
         public UpdateStudents()
         {
             InitializeComponent();
@@ -45,11 +47,25 @@ namespace Examination_PRL.Forms.Staff
 
         private void examGridView_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
+            _idWhenClick = examGridView.Rows[e.RowIndex].Cells[1].Value.ToString();        
+            var obj = _ser.getAllStudents().Where(x => x.Id == _idWhenClick).FirstOrDefault();
 
-            if (index == 0 || index == _ser.getAllStudents().Count) return;
-
-
+            if (obj != null)
+            {
+                radTxtTen.Text = obj.FullName;
+                radTxtPhone.Text = obj.PhoneNumber;
+                radTxtEmail.Text = obj.Email;
+                radTxtAdress.Text = obj.Address;
+                radDtpNS.Value = obj.DateOfBirth;
+                if(obj.Gender == true)
+                {
+                    radBNam.IsChecked = true;
+                }
+                else
+                {
+                    radBNu.IsChecked = true;
+                }
+            }
         }
     }
 }
