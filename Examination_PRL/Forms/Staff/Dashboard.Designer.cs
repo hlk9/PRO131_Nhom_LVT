@@ -61,6 +61,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Dashboard";
             ThemeName = "MaterialTeal";
+            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)pvDashboard).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);

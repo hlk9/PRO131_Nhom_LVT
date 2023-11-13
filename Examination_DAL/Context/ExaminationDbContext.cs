@@ -1,5 +1,6 @@
 ﻿using Examination_DAL.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Metadata;
 using System;
 using System.Collections.Generic;
@@ -86,6 +87,7 @@ namespace Examination_DAL.Context
                .WithOne()
                .HasForeignKey<ExamQuestion>(eq => eq.QuestionId)
                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<ExamQuestion>().HasIndex(eq => eq.QuestionId).IsUnique(false);
 
             modelBuilder.Entity<Account>()
          .HasOne(a => a.UserPermission)
@@ -285,6 +287,11 @@ namespace Examination_DAL.Context
             {
                 Id = "ENG-01",
                 Name = "Tiếng Anh sơ cấp"
+            },
+            new Subject
+            {
+                Id= "MATH-03",
+                Name = "Toán Sieu cao cấp"
             }
             );
 
@@ -474,7 +481,15 @@ namespace Examination_DAL.Context
                      ExamCode = "2028_Com1071",
                      Name = "Đề thi môn Tin học",
                      SubjectId = "COM1071",
-                 }
+                 },
+                   new Exam
+                   {
+                       Id = 27,
+                       ExamCode = "2028_Math_03",
+                       Name = "Đề thi môn Toán SIEEU nâng cao",
+                       SubjectId = "MATH-03",
+                   }
+
 
                 );
             modelBuilder.Entity<ExamRoom>()
@@ -561,6 +576,78 @@ namespace Examination_DAL.Context
                     ExamId = 1,
                     ExamDetailCode = "001",
                     Description = "Ma de 01",
+                    Duration = 90,
+                    TotalQuestion = 10,
+                    PassMark = 5,
+                    MaxiumMark = 10,
+                    ReTestNumber = 1,
+                    Status = true,
+                    CreatedBy = "admin",
+                    CreatedAt = DateTime.Now,
+                    UpdatedBy = null,
+                    UpdatedAt = null,
+
+                },
+                new ExamDetail
+                {
+                    Id = 2,
+                    ExamId = 27,
+                    ExamDetailCode = "MATH-03_002",
+                    Description = "Ma de 02 - MATH 03",
+                    Duration = 90,
+                    TotalQuestion = 10,
+                    PassMark = 5,
+                    MaxiumMark = 10,
+                    ReTestNumber = 1,
+                    Status = true,
+                    CreatedBy = "admin",
+                    CreatedAt = DateTime.Now,
+                    UpdatedBy = null,
+                    UpdatedAt = null,
+
+                },
+                new ExamDetail
+                {
+                    Id = 3,
+                    ExamId = 2,
+                    ExamDetailCode = "002",
+                    Description = "Ma de 02",
+                    Duration = 90,
+                    TotalQuestion = 10,
+                    PassMark = 5,
+                    MaxiumMark = 10,
+                    ReTestNumber = 1,
+                    Status = true,
+                    CreatedBy = "admin",
+                    CreatedAt = DateTime.Now,
+                    UpdatedBy = null,
+                    UpdatedAt = null,
+
+                },
+                new ExamDetail
+                {
+                    Id = 4,
+                    ExamId = 3,
+                    ExamDetailCode = "003",
+                    Description = "Ma de 03",
+                    Duration = 90,
+                    TotalQuestion = 10,
+                    PassMark = 5,
+                    MaxiumMark = 10,
+                    ReTestNumber = 1,
+                    Status = true,
+                    CreatedBy = "admin",
+                    CreatedAt = DateTime.Now,
+                    UpdatedBy = null,
+                    UpdatedAt = null,
+
+                },
+                new ExamDetail
+                {
+                    Id = 5,
+                    ExamId = 4,
+                    ExamDetailCode = "004",
+                    Description = "Ma de 04",
                     Duration = 90,
                     TotalQuestion = 10,
                     PassMark = 5,
@@ -771,7 +858,297 @@ namespace Examination_DAL.Context
                     ModifiedBy = "admin",
                     ModifiedTime = DateTime.Now,
                     Docs = null
+                },
+                //seed data for question table, random subjectID, random question type, random question level and content
+                new Question
+                {
+                    Id = 11,
+                    QuestionTypeId = 1,
+                    QuestionLevelId = 1,
+                    SubjectId = "MATH-02",
+                    Content = "2 + 2 = ?",
+                    Point = 1,
+                    Status = true,
+                    CreatedBy = "admin",
+                    CreatedTime = DateTime.Now,
+                    ModifiedBy = "admin",
+                    ModifiedTime = DateTime.Now,
+                    Docs = null
+                },
+                new Question
+                {
+                    Id = 12,
+                    QuestionTypeId = 1,
+                    QuestionLevelId = 1,
+                    SubjectId = "MATH-02",
+                    Content = "2 + 3 = ?",
+                    Point = 1,
+                    Status = true,
+                    CreatedBy = "admin",
+                    CreatedTime = DateTime.Now,
+                    ModifiedBy = "admin",
+                    ModifiedTime = DateTime.Now,
+                    Docs = null
+                },
+                new Question
+                {
+                    Id = 13,
+                    QuestionTypeId = 1,
+                    QuestionLevelId = 1,
+                    SubjectId = "MATH-02",
+                    Content = "2 + 4 = ?",
+                    Point = 1,
+                    Status = true,
+                    CreatedBy = "admin",
+                    CreatedTime = DateTime.Now,
+                    ModifiedBy = "admin",
+                    ModifiedTime = DateTime.Now,
+                    Docs = null
+                },
+                new Question
+                {
+                    Id = 14,
+                    QuestionTypeId = 1,
+                    QuestionLevelId = 1,
+                    SubjectId = "MATH-02",
+                    Content = "2 + 5 = ?",
+                    Point = 1,
+                    Status = true,
+                    CreatedBy = "admin",
+                    CreatedTime = DateTime.Now,
+                    ModifiedBy = "admin",
+                    ModifiedTime = DateTime.Now,
+                    Docs = null
+                },
+                new Question
+                {
+                    Id = 15,
+                    QuestionTypeId = 1,
+                    QuestionLevelId = 1,
+                    SubjectId = "MATH-02",
+                    Content = "2 + 6 = ?",
+                    Point = 1,
+                    Status = true,
+                    CreatedBy = "admin",
+                    CreatedTime = DateTime.Now,
+                    ModifiedBy = "admin",
+                    ModifiedTime = DateTime.Now,
+                    Docs = null
+                },
+                new Question
+                {
+                    Id = 16,
+                    QuestionTypeId = 1,
+                    QuestionLevelId = 1,
+                    SubjectId = "MATH-02",
+                    Content = "2 + 7 = ?",
+                    Point = 1,
+                    Status = true,
+                    CreatedBy = "admin",
+                    CreatedTime = DateTime.Now,
+                    ModifiedBy = "admin",
+                    ModifiedTime = DateTime.Now,
+                    Docs = null
+                },
+                new Question
+                {
+                    Id = 17,
+                    QuestionTypeId = 1,
+                    QuestionLevelId = 1,
+                    SubjectId = "MATH-02",
+                    Content = "2 + 8 = ?",
+                    Point = 1,
+                    Status = true,
+                    CreatedBy = "admin",
+                    CreatedTime = DateTime.Now,
+                    ModifiedBy = null,
+                    ModifiedTime = null,
+                    Docs = null
+                },
+                new Question
+                {
+                    Id = 18,
+                    QuestionTypeId = 1,
+                    QuestionLevelId = 1,
+                    SubjectId = "MATH-02",
+                    Content = "2 + 9 = ?",
+                    Point = 1,
+                    Status = true,
+                    CreatedBy = "admin",
+                    CreatedTime = DateTime.Now,
+                    ModifiedBy = null,
+                    ModifiedTime = null,
+                    Docs = null
+                },
+                new Question
+                {
+                    Id = 19,
+                    QuestionTypeId = 1,
+                    QuestionLevelId = 1,
+                    SubjectId = "MATH-02",
+                    Content = "2 + 10 = ?",
+                    Point = 1,
+                    Status = true,
+                    CreatedBy = "admin",
+                    CreatedTime = DateTime.Now,
+                    ModifiedBy = null,
+                    ModifiedTime = null,
+                    Docs = null
+
+                },
+                new Question
+                {
+                    Id = 20,
+                    QuestionTypeId = 2,
+                    QuestionLevelId = 1,
+                    SubjectId = "MATH-02",
+                    Content = "10 + 10 = ?",
+                    Point = 1,
+                    Status = true,
+                    CreatedBy = "admin",
+                    CreatedTime = DateTime.Now,
+                    ModifiedBy = null,
+                    ModifiedTime = null,
+                    Docs = null
+                },
+                //seed data for question table, random subjectID, random question type, random question level and content
+                new Question
+                {
+                    Id = 21,
+                    QuestionTypeId = 1,
+                    QuestionLevelId = 1,
+                    SubjectId = "MATH-03",
+                    Content = "2 + 2 = ?",
+                    Point = 1,
+                    Status = true,
+                    CreatedBy = "admin",
+                    CreatedTime = DateTime.Now,
+                    ModifiedBy = null,
+                    ModifiedTime = null,
+                    Docs = null
+                },
+                new Question
+                {
+                    Id = 22,
+                    QuestionTypeId = 1,
+                    QuestionLevelId = 1,
+                    SubjectId = "MATH-03",
+                    Content = "2 + 3 = ?",
+                    Point = 1,
+                    Status = true,
+                    CreatedBy = "admin",
+                    CreatedTime = DateTime.Now,
+                    ModifiedBy = null,
+                    ModifiedTime = null,
+                    Docs = null
+                },
+                new Question
+                {
+                    Id = 23,
+                    QuestionTypeId = 1,
+                    QuestionLevelId = 1,
+                    SubjectId = "MATH-03",
+                    Content = "2 + 4 = ?",
+                    Point = 1,
+                    Status = true,
+                    CreatedBy = "admin",
+                    CreatedTime = DateTime.Now,
+                    ModifiedBy = "admin",
+                    ModifiedTime = DateTime.Now,
+                    Docs = null
+                },
+                new Question
+                {
+                    Id = 24,
+                    QuestionTypeId = 1,
+                    QuestionLevelId = 1,
+                    SubjectId = "MATH-03",
+                    Content = "2 + 5 = ?",
+                    Point = 1,
+                    Status = true,
+                    CreatedBy = "admin",
+                    CreatedTime = DateTime.Now,
+                    ModifiedBy = "admin",
+                    ModifiedTime = DateTime.Now,
+                    Docs = null
+                },
+                new Question
+                {
+                    Id = 25,
+                    QuestionTypeId = 1,
+                    QuestionLevelId = 1,
+                    SubjectId = "MATH-03",
+                    Content = "2 + 6 = ?",
+                    Point = 1,
+                    Status = true,
+                    CreatedBy = "admin",
+                    CreatedTime = DateTime.Now,
+                    ModifiedBy = "admin",
+                    ModifiedTime = DateTime.Now,
+                    Docs = null
+                },
+                new Question
+                {
+                    Id = 26,
+                    QuestionTypeId = 1,
+                    QuestionLevelId = 1,
+                    SubjectId = "MATH-03",
+                    Content = "2 + 7 = ?",
+                    Point = 1,
+                    Status = true,
+                    CreatedBy = "admin",
+                    CreatedTime = DateTime.Now,
+                    ModifiedBy = "admin",
+                    ModifiedTime = DateTime.Now,
+                    Docs = null
+                },
+                new Question
+                {
+                    Id = 27,
+                    QuestionTypeId = 1,
+                    QuestionLevelId = 1,
+                    SubjectId = "MATH-03",
+                    Content = "2 + 8 = ?",
+                    Point = 1,
+                    Status = true,
+                    CreatedBy = "admin",
+                    CreatedTime = DateTime.Now,
+                    ModifiedBy = "admin",
+                    ModifiedTime = DateTime.Now,
+                    Docs = null
+                },
+                new Question
+                {
+                    Id = 28,
+                    QuestionTypeId = 1,
+                    QuestionLevelId = 1,
+                    SubjectId = "MATH-03",
+                    Content = "2 + 9 = ?",
+                    Point = 1,
+                    Status = true,
+                    CreatedBy = "admin",
+                    CreatedTime = DateTime.Now,
+                    ModifiedBy = "admin",
+                    ModifiedTime = DateTime.Now,
+                    Docs = null
+                },
+                new Question
+                {
+                    Id = 29,
+                    QuestionTypeId = 1,
+                    QuestionLevelId = 1,
+                    SubjectId = "MATH-03",
+                    Content = "2 + 10 = ?",
+                    Point = 1,
+                    Status = true,
+                    CreatedBy = "admin",
+                    CreatedTime = DateTime.Now,
+                    ModifiedBy = "admin",
+                    ModifiedTime = DateTime.Now,
+                    Docs = null
+
                 }
+
 
                 );
 
@@ -1285,6 +1662,8 @@ namespace Examination_DAL.Context
                     UpdatedBy = "admin"
 
                 }
+                //seed more 20 data for another subjectID , each question has 4 answers, random content
+
                 );
 
             modelBuilder.Entity<ExamQuestion>()
@@ -1348,7 +1727,255 @@ namespace Examination_DAL.Context
                     Id = 10,
                     ExamDetailId = 1,
                     QuestionId = 10,
-                }
+                },
+                //seed 10 question for examDetailId = 2
+                new ExamQuestion
+                {
+                    Id = 11,
+                    ExamDetailId = 2,
+                    QuestionId = 11,
+                },
+                new ExamQuestion
+                {
+                    Id = 12,
+                    ExamDetailId = 2,
+                    QuestionId = 12,
+                },
+                new ExamQuestion
+                {
+                    Id = 13,
+                    ExamDetailId = 2,
+                    QuestionId = 13,
+                },
+                new ExamQuestion
+                {
+                    Id = 14,
+                    ExamDetailId = 2,
+                    QuestionId = 14,
+                },
+                new ExamQuestion
+                {
+                    Id = 15,
+                    ExamDetailId = 2,
+                    QuestionId = 15,
+                },
+                new ExamQuestion
+                {
+                    Id = 16,
+                    ExamDetailId = 2,
+                    QuestionId = 16,
+                },
+                new ExamQuestion
+                {
+                    Id = 17,
+                    ExamDetailId = 2,
+                    QuestionId = 17,
+                },
+                new ExamQuestion
+                {
+                    Id = 18,
+                    ExamDetailId = 2,
+                    QuestionId = 18,
+                },
+                new ExamQuestion
+                {
+                    Id = 19,
+                    ExamDetailId = 2,
+                    QuestionId = 19,
+                },
+                new ExamQuestion
+                {
+                    Id = 20,
+                    ExamDetailId = 2,
+                    QuestionId = 20,
+                },
+                //seed 10 question for examDetailId = 3, questionId = 1-20
+                new ExamQuestion
+                {
+                    Id = 21,
+                    ExamDetailId = 3,
+                    QuestionId = 1,
+                },
+                new ExamQuestion
+                {
+                    Id = 22,
+                    ExamDetailId = 3,
+                    QuestionId = 2,
+                },
+                new ExamQuestion
+                {
+                    Id = 23,
+                    ExamDetailId = 3,
+                    QuestionId = 3,
+                },
+                new ExamQuestion
+                {
+                    Id = 24,
+                    ExamDetailId = 3,
+                    QuestionId = 4,
+                },
+                new ExamQuestion
+                {
+                    Id = 25,
+                    ExamDetailId = 3,
+                    QuestionId = 5,
+                },
+                new ExamQuestion
+                {
+                    Id = 26,
+                    ExamDetailId = 3,
+                    QuestionId = 6,
+                },
+                new ExamQuestion
+                {
+                    Id = 27,
+                    ExamDetailId = 3,
+                    QuestionId = 7,
+                },
+                new ExamQuestion
+                {
+                    Id = 28,
+                    ExamDetailId = 3,
+                    QuestionId = 8,
+                },
+                new ExamQuestion
+                {
+                    Id = 29,
+                    ExamDetailId = 3,
+                    QuestionId = 9,
+                },
+                new ExamQuestion
+                {
+                    Id = 30,
+                    ExamDetailId = 3,
+                    QuestionId = 10,
+                },
+                //seed 10 question for examDetailId = 4, questionId random from 1 to 20
+                new ExamQuestion
+                {
+                    Id = 31,
+                    ExamDetailId = 4,
+                    QuestionId = 1,
+                },
+                new ExamQuestion
+                {
+                    Id = 32,
+                    ExamDetailId = 4,
+                    QuestionId = 2,
+                },
+                new ExamQuestion
+                {
+                    Id = 33,
+                    ExamDetailId = 4,
+                    QuestionId = 3,
+                },
+                new ExamQuestion
+                {
+                    Id = 34,
+                    ExamDetailId = 4,
+                    QuestionId = 4,
+                },
+                new ExamQuestion
+                {
+                    Id = 35,
+                    ExamDetailId = 4,
+                    QuestionId = 5,
+                },
+                    new ExamQuestion
+                    {
+                    Id = 36,
+                    ExamDetailId = 4,
+                    QuestionId = 6,
+                },
+                    new ExamQuestion
+                    {
+                    Id = 37,
+                    ExamDetailId = 4,
+                    QuestionId = 7,
+                },
+                    new ExamQuestion
+                    {
+                    Id = 38,
+                    ExamDetailId = 4,
+                    QuestionId = 8,
+                },
+                    new ExamQuestion
+                    {
+                    Id = 39,
+                    ExamDetailId = 4,
+                    QuestionId = 9,
+                },
+                    new ExamQuestion
+                    {
+                    Id = 40,
+                    ExamDetailId = 4,
+                    QuestionId = 10,
+                },
+                    //seed 10 question for examDetailId = 5, questionId random from 1 to 20
+                    new ExamQuestion
+                    {
+                        Id = 41,
+                        ExamDetailId = 5,
+                        QuestionId = 1,
+},
+                    new ExamQuestion
+                    {
+                        Id = 42,
+                        ExamDetailId = 5,
+                        QuestionId = 2,
+},
+                    new ExamQuestion
+                    {
+                        Id = 43,
+                        ExamDetailId = 5,
+                        QuestionId = 3,
+                    },
+                    new ExamQuestion
+                    {
+                        Id = 44,
+                        ExamDetailId = 5,
+                        QuestionId = 4,
+                    },
+                    new ExamQuestion
+                    {
+                        Id = 45,
+                        ExamDetailId = 5,
+                        QuestionId = 5,
+                    },
+                    new ExamQuestion
+                    {
+                        Id = 46,
+                        ExamDetailId = 5,
+                        QuestionId = 6,
+                    },
+                    new ExamQuestion
+                    {
+                        Id = 47,
+                        ExamDetailId = 5,
+                        QuestionId = 7,
+                    },  
+                    new ExamQuestion
+                    {
+                        Id = 48,
+                        ExamDetailId = 5,
+                        QuestionId = 8,
+                    },
+                    new ExamQuestion
+                    {
+                        Id = 49,
+                        ExamDetailId = 5,
+                        QuestionId = 9,
+                    },
+                    new ExamQuestion
+                    {
+                        Id = 50,
+                        ExamDetailId = 5,
+                        QuestionId = 10,
+                    }
+
+
+
+
                 );
 
             //seed AnswerResponse for Chiu Pang Pang
