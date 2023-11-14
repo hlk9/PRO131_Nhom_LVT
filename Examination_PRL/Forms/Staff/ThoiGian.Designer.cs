@@ -133,7 +133,7 @@
             // 
             // radDock1
             // 
-            radDock1.ActiveWindow = toolWindow2;
+            radDock1.ActiveWindow = toolWindow1;
             radDock1.CausesValidation = false;
             radDock1.Controls.Add(toolTabStrip1);
             radDock1.Controls.Add(documentContainer1);
@@ -184,6 +184,7 @@
             // radScheduler2
             // 
             radScheduler2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            radScheduler2.AutoScroll = true;
             radScheduler2.Location = new Point(0, 124);
             radScheduler2.Name = "radScheduler2";
             radScheduler2.PrintStyle = schedulerDailyPrintStyle2;
