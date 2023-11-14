@@ -37,7 +37,26 @@ namespace Examination_DAL.Repository
 
         public bool Update(Staff staff)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var upDate = _context.Staffs.Find(staff.Id);
+                upDate.FullName = staff.FullName;
+                upDate.Gender = staff.Gender;
+                upDate.DateOfBirth = staff.DateOfBirth;
+                upDate.Email = staff.Email;
+                upDate.PhoneNumber = staff.PhoneNumber;
+                upDate.PhoneNumber = staff.PhoneNumber;
+                upDate.Address = staff.Address;
+                upDate.Status = staff.Status;
+
+                _context.Staffs.Update(staff);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

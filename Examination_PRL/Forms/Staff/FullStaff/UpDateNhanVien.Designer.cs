@@ -28,258 +28,387 @@
         /// </summary>
         private void InitializeComponent()
         {
-            materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
-            materialTealTheme2 = new Telerik.WinControls.Themes.MaterialTealTheme();
-            dtgAddNhanVien = new DataGridView();
-            radbtnClear = new Telerik.WinControls.UI.RadButton();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             radButton1 = new Telerik.WinControls.UI.RadButton();
-            radDateTimePicker1 = new Telerik.WinControls.UI.RadDateTimePicker();
-            radSexNu = new Telerik.WinControls.UI.RadRadioButton();
-            radSexNam = new Telerik.WinControls.UI.RadRadioButton();
-            label8 = new Label();
-            label7 = new Label();
-            radtxtTrangThai = new Telerik.WinControls.UI.RadTextBox();
-            radtxtDiaChi = new Telerik.WinControls.UI.RadTextBox();
-            radtxtSDT = new Telerik.WinControls.UI.RadTextBox();
-            radtxtEmail = new Telerik.WinControls.UI.RadTextBox();
-            radtxtID = new Telerik.WinControls.UI.RadTextBox();
-            radtxtTen = new Telerik.WinControls.UI.RadTextBox();
-            label6 = new Label();
-            label5 = new Label();
-            label4 = new Label();
-            label3 = new Label();
-            label2 = new Label();
-            label1 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dtgAddNhanVien).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radbtnClear).BeginInit();
+            radBNu = new Telerik.WinControls.UI.RadRadioButton();
+            radBNam = new Telerik.WinControls.UI.RadRadioButton();
+            radLabel8 = new Telerik.WinControls.UI.RadLabel();
+            radDtpNS = new Telerik.WinControls.UI.RadDateTimePicker();
+            radLabel7 = new Telerik.WinControls.UI.RadLabel();
+            radTxtAdress = new Telerik.WinControls.UI.RadTextBox();
+            radLabel6 = new Telerik.WinControls.UI.RadLabel();
+            radTxtEmail = new Telerik.WinControls.UI.RadTextBox();
+            radTxtPhone = new Telerik.WinControls.UI.RadTextBox();
+            radLabel4 = new Telerik.WinControls.UI.RadLabel();
+            radTxtTen = new Telerik.WinControls.UI.RadTextBox();
+            radLabel3 = new Telerik.WinControls.UI.RadLabel();
+            radLabel2 = new Telerik.WinControls.UI.RadLabel();
+            toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
+            toolWindow2 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            radDropDownList1 = new Telerik.WinControls.UI.RadDropDownList();
+            radBtnUpDate = new Telerik.WinControls.UI.RadButton();
+            radLabel1 = new Telerik.WinControls.UI.RadLabel();
+            documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
+            toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            dtg_Staff = new Telerik.WinControls.UI.RadGridView();
+            documentContainer1 = new Telerik.WinControls.UI.Docking.DocumentContainer();
+            radDock1 = new Telerik.WinControls.UI.Docking.RadDock();
+            materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             ((System.ComponentModel.ISupportInitialize)radButton1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radDateTimePicker1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radSexNu).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radSexNam).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radtxtTrangThai).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radtxtDiaChi).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radtxtSDT).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radtxtEmail).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radtxtID).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radtxtTen).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radBNu).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radBNam).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel8).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radDtpNS).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radTxtAdress).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radTxtEmail).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radTxtPhone).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radTxtTen).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)toolTabStrip1).BeginInit();
+            toolTabStrip1.SuspendLayout();
+            toolWindow2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)radDropDownList1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radBtnUpDate).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)documentTabStrip1).BeginInit();
+            documentTabStrip1.SuspendLayout();
+            toolWindow1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dtg_Staff).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtg_Staff.MasterTemplate).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)documentContainer1).BeginInit();
+            documentContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)radDock1).BeginInit();
+            radDock1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
-            // dtgAddNhanVien
-            // 
-            dtgAddNhanVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgAddNhanVien.Location = new Point(16, 281);
-            dtgAddNhanVien.Name = "dtgAddNhanVien";
-            dtgAddNhanVien.RowHeadersWidth = 51;
-            dtgAddNhanVien.RowTemplate.Height = 29;
-            dtgAddNhanVien.Size = new Size(750, 175);
-            dtgAddNhanVien.TabIndex = 35;
-            // 
-            // radbtnClear
-            // 
-            radbtnClear.Location = new Point(412, 211);
-            radbtnClear.Name = "radbtnClear";
-            radbtnClear.Size = new Size(356, 56);
-            radbtnClear.TabIndex = 34;
-            radbtnClear.Text = "Clear";
-            radbtnClear.ThemeName = "MaterialTeal";
-            radbtnClear.Click += radbtnClear_Click_1;
-            // 
             // radButton1
             // 
-            radButton1.Location = new Point(16, 211);
+            radButton1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            radButton1.BackColor = Color.Teal;
+            radButton1.Location = new Point(3, 936);
             radButton1.Name = "radButton1";
-            radButton1.Size = new Size(354, 56);
-            radButton1.TabIndex = 33;
-            radButton1.Text = "Sửa";
+            radButton1.Size = new Size(463, 46);
+            radButton1.TabIndex = 8;
+            radButton1.Text = "Sửa Thông Tin";
             radButton1.ThemeName = "MaterialTeal";
             // 
-            // radDateTimePicker1
+            // radBNu
             // 
-            radDateTimePicker1.CalendarSize = new Size(290, 320);
-            radDateTimePicker1.Location = new Point(110, 150);
-            radDateTimePicker1.Name = "radDateTimePicker1";
-            radDateTimePicker1.Size = new Size(256, 41);
-            radDateTimePicker1.TabIndex = 52;
-            radDateTimePicker1.TabStop = false;
-            radDateTimePicker1.Text = "Sunday, November 12, 2023";
-            radDateTimePicker1.ThemeName = "MaterialTeal";
-            radDateTimePicker1.Value = new DateTime(2023, 11, 12, 9, 59, 10, 238);
+            radBNu.Location = new Point(122, 100);
+            radBNu.Name = "radBNu";
+            radBNu.Size = new Size(45, 22);
+            radBNu.TabIndex = 7;
+            radBNu.Text = "Nữ";
+            radBNu.ThemeName = "MaterialTeal";
             // 
-            // radSexNu
+            // radBNam
             // 
-            radSexNu.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            radSexNu.Location = new Point(270, 124);
-            radSexNu.Name = "radSexNu";
-            radSexNu.Size = new Size(49, 22);
-            radSexNu.TabIndex = 51;
-            radSexNu.Text = "Nữ";
-            radSexNu.ThemeName = "MaterialTeal";
+            radBNam.CheckState = CheckState.Checked;
+            radBNam.Location = new Point(18, 100);
+            radBNam.Name = "radBNam";
+            radBNam.Size = new Size(57, 22);
+            radBNam.TabIndex = 6;
+            radBNam.Text = "Nam";
+            radBNam.ThemeName = "MaterialTeal";
+            radBNam.ToggleState = Telerik.WinControls.Enumerations.ToggleState.On;
             // 
-            // radSexNam
+            // radLabel8
             // 
-            radSexNam.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            radSexNam.Location = new Point(147, 124);
-            radSexNam.Name = "radSexNam";
-            radSexNam.Size = new Size(63, 22);
-            radSexNam.TabIndex = 50;
-            radSexNam.Text = "Nam";
-            radSexNam.ThemeName = "MaterialTeal";
+            radLabel8.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radLabel8.ForeColor = Color.Teal;
+            radLabel8.Location = new Point(3, 73);
+            radLabel8.Name = "radLabel8";
+            radLabel8.Size = new Size(65, 21);
+            radLabel8.TabIndex = 5;
+            radLabel8.Text = "Giới Tính";
+            radLabel8.ThemeName = "MaterialTeal";
             // 
-            // label8
+            // radDtpNS
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(406, 167);
-            label8.Name = "label8";
-            label8.Size = new Size(99, 20);
-            label8.TabIndex = 49;
-            label8.Text = "Trạng Thái";
+            radDtpNS.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radDtpNS.CalendarSize = new Size(290, 320);
+            radDtpNS.Location = new Point(3, 155);
+            radDtpNS.Name = "radDtpNS";
+            radDtpNS.Size = new Size(335, 36);
+            radDtpNS.TabIndex = 5;
+            radDtpNS.TabStop = false;
+            radDtpNS.Text = "Monday, November 13, 2023";
+            radDtpNS.ThemeName = "MaterialTeal";
+            radDtpNS.Value = new DateTime(2023, 11, 13, 22, 58, 8, 638);
             // 
-            // label7
+            // radLabel7
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(10, 167);
-            label7.Name = "label7";
-            label7.Size = new Size(94, 20);
-            label7.TabIndex = 48;
-            label7.Text = "Ngày Sinh";
+            radLabel7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radLabel7.ForeColor = Color.Teal;
+            radLabel7.Location = new Point(3, 128);
+            radLabel7.Name = "radLabel7";
+            radLabel7.Size = new Size(72, 21);
+            radLabel7.TabIndex = 4;
+            radLabel7.Text = "Ngày Sinh";
+            radLabel7.ThemeName = "MaterialTeal";
             // 
-            // radtxtTrangThai
+            // radTxtAdress
             // 
-            radtxtTrangThai.Location = new Point(511, 150);
-            radtxtTrangThai.Name = "radtxtTrangThai";
-            radtxtTrangThai.Size = new Size(256, 42);
-            radtxtTrangThai.TabIndex = 47;
-            radtxtTrangThai.ThemeName = "MaterialTeal";
+            radTxtAdress.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radTxtAdress.Location = new Point(2, 364);
+            radTxtAdress.Name = "radTxtAdress";
+            radTxtAdress.Size = new Size(334, 37);
+            radTxtAdress.TabIndex = 4;
+            radTxtAdress.ThemeName = "MaterialTeal";
             // 
-            // radtxtDiaChi
+            // radLabel6
             // 
-            radtxtDiaChi.Location = new Point(512, 102);
-            radtxtDiaChi.Name = "radtxtDiaChi";
-            radtxtDiaChi.Size = new Size(255, 42);
-            radtxtDiaChi.TabIndex = 46;
-            radtxtDiaChi.ThemeName = "MaterialTeal";
+            radLabel6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radLabel6.ForeColor = Color.Teal;
+            radLabel6.Location = new Point(3, 337);
+            radLabel6.Name = "radLabel6";
+            radLabel6.Size = new Size(53, 21);
+            radLabel6.TabIndex = 3;
+            radLabel6.Text = "Địa Chỉ";
+            radLabel6.ThemeName = "MaterialTeal";
             // 
-            // radtxtSDT
+            // radTxtEmail
             // 
-            radtxtSDT.Location = new Point(511, 54);
-            radtxtSDT.Name = "radtxtSDT";
-            radtxtSDT.Size = new Size(255, 42);
-            radtxtSDT.TabIndex = 45;
-            radtxtSDT.ThemeName = "MaterialTeal";
+            radTxtEmail.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radTxtEmail.Location = new Point(3, 224);
+            radTxtEmail.Name = "radTxtEmail";
+            radTxtEmail.Size = new Size(334, 37);
+            radTxtEmail.TabIndex = 4;
+            radTxtEmail.ThemeName = "MaterialTeal";
             // 
-            // radtxtEmail
+            // radTxtPhone
             // 
-            radtxtEmail.Location = new Point(512, 6);
-            radtxtEmail.Name = "radtxtEmail";
-            radtxtEmail.Size = new Size(255, 42);
-            radtxtEmail.TabIndex = 44;
-            radtxtEmail.ThemeName = "MaterialTeal";
+            radTxtPhone.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radTxtPhone.Location = new Point(3, 294);
+            radTxtPhone.Name = "radTxtPhone";
+            radTxtPhone.Size = new Size(335, 37);
+            radTxtPhone.TabIndex = 4;
+            radTxtPhone.ThemeName = "MaterialTeal";
             // 
-            // radtxtID
+            // radLabel4
             // 
-            radtxtID.Location = new Point(115, 6);
-            radtxtID.Name = "radtxtID";
-            radtxtID.Size = new Size(255, 42);
-            radtxtID.TabIndex = 43;
-            radtxtID.ThemeName = "MaterialTeal";
+            radLabel4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radLabel4.ForeColor = Color.Teal;
+            radLabel4.Location = new Point(3, 197);
+            radLabel4.Name = "radLabel4";
+            radLabel4.Size = new Size(43, 21);
+            radLabel4.TabIndex = 3;
+            radLabel4.Text = "Email";
+            radLabel4.ThemeName = "MaterialTeal";
             // 
-            // radtxtTen
+            // radTxtTen
             // 
-            radtxtTen.Location = new Point(115, 54);
-            radtxtTen.Name = "radtxtTen";
-            radtxtTen.Size = new Size(255, 42);
-            radtxtTen.TabIndex = 42;
-            radtxtTen.ThemeName = "MaterialTeal";
+            radTxtTen.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radTxtTen.Location = new Point(3, 30);
+            radTxtTen.Name = "radTxtTen";
+            radTxtTen.Size = new Size(335, 37);
+            radTxtTen.TabIndex = 4;
+            radTxtTen.ThemeName = "MaterialTeal";
             // 
-            // label6
+            // radLabel3
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(424, 124);
-            label6.Name = "label6";
-            label6.Size = new Size(71, 20);
-            label6.TabIndex = 41;
-            label6.Text = "Địa Chỉ";
+            radLabel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radLabel3.ForeColor = Color.Teal;
+            radLabel3.Location = new Point(2, 267);
+            radLabel3.Name = "radLabel3";
+            radLabel3.Size = new Size(97, 21);
+            radLabel3.TabIndex = 3;
+            radLabel3.Text = "Số Điện Thoại";
+            radLabel3.ThemeName = "MaterialTeal";
             // 
-            // label5
+            // radLabel2
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(435, 76);
-            label5.Name = "label5";
-            label5.Size = new Size(45, 20);
-            label5.TabIndex = 40;
-            label5.Text = "SĐT";
+            radLabel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radLabel2.ForeColor = Color.Teal;
+            radLabel2.Location = new Point(3, 3);
+            radLabel2.Name = "radLabel2";
+            radLabel2.Size = new Size(54, 21);
+            radLabel2.TabIndex = 3;
+            radLabel2.Text = "Họ Tên";
+            radLabel2.ThemeName = "MaterialTeal";
             // 
-            // label4
+            // toolTabStrip1
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(424, 28);
-            label4.Name = "label4";
-            label4.Size = new Size(56, 20);
-            label4.TabIndex = 39;
-            label4.Text = "Email";
+            toolTabStrip1.CanUpdateChildIndex = true;
+            toolTabStrip1.CausesValidation = false;
+            toolTabStrip1.Controls.Add(toolWindow2);
+            toolTabStrip1.Location = new Point(433, 0);
+            toolTabStrip1.Name = "toolTabStrip1";
             // 
-            // label3
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(16, 124);
-            label3.Name = "label3";
-            label3.Size = new Size(85, 20);
-            label3.TabIndex = 38;
-            label3.Text = "Giới Tính";
             // 
-            // label2
+            toolTabStrip1.RootElement.MinSize = new Size(25, 25);
+            toolTabStrip1.SelectedIndex = 0;
+            toolTabStrip1.Size = new Size(345, 632);
+            toolTabStrip1.SizeInfo.AbsoluteSize = new Size(345, 200);
+            toolTabStrip1.SizeInfo.SplitterCorrection = new Size(145, 0);
+            toolTabStrip1.TabIndex = 1;
+            toolTabStrip1.TabStop = false;
+            toolTabStrip1.ThemeName = "MaterialTeal";
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(36, 76);
-            label2.Name = "label2";
-            label2.Size = new Size(40, 20);
-            label2.TabIndex = 37;
-            label2.Text = "Tên";
+            // toolWindow2
             // 
-            // label1
+            toolWindow2.AutoScroll = true;
+            toolWindow2.Caption = null;
+            toolWindow2.Controls.Add(radDropDownList1);
+            toolWindow2.Controls.Add(radBtnUpDate);
+            toolWindow2.Controls.Add(radLabel1);
+            toolWindow2.Controls.Add(radTxtPhone);
+            toolWindow2.Controls.Add(radTxtEmail);
+            toolWindow2.Controls.Add(radDtpNS);
+            toolWindow2.Controls.Add(radButton1);
+            toolWindow2.Controls.Add(radBNu);
+            toolWindow2.Controls.Add(radBNam);
+            toolWindow2.Controls.Add(radLabel8);
+            toolWindow2.Controls.Add(radLabel7);
+            toolWindow2.Controls.Add(radTxtAdress);
+            toolWindow2.Controls.Add(radLabel6);
+            toolWindow2.Controls.Add(radLabel4);
+            toolWindow2.Controls.Add(radTxtTen);
+            toolWindow2.Controls.Add(radLabel3);
+            toolWindow2.Controls.Add(radLabel2);
+            toolWindow2.DocumentButtons = Telerik.WinControls.UI.Docking.DocumentStripButtons.None;
+            toolWindow2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            toolWindow2.Location = new Point(4, 52);
+            toolWindow2.Name = "toolWindow2";
+            toolWindow2.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
+            toolWindow2.Size = new Size(337, 576);
+            toolWindow2.Text = "Sửa Thí Sinh Chi Tiết";
+            toolWindow2.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(36, 28);
-            label1.Name = "label1";
-            label1.Size = new Size(28, 20);
-            label1.TabIndex = 36;
-            label1.Text = "ID";
+            // radDropDownList1
+            // 
+            radDropDownList1.DropDownAnimationEnabled = true;
+            radDropDownList1.Location = new Point(3, 434);
+            radDropDownList1.Name = "radDropDownList1";
+            radDropDownList1.Size = new Size(326, 37);
+            radDropDownList1.TabIndex = 14;
+            radDropDownList1.Text = "radDropDownList1";
+            radDropDownList1.ThemeName = "MaterialTeal";
+            radDropDownList1.SelectedIndexChanged += radDropDownList1_SelectedIndexChanged;
+            // 
+            // radBtnUpDate
+            // 
+            radBtnUpDate.BackColor = Color.Teal;
+            radBtnUpDate.ForeColor = Color.Black;
+            radBtnUpDate.Location = new Point(3, 524);
+            radBtnUpDate.Name = "radBtnUpDate";
+            radBtnUpDate.Size = new Size(326, 44);
+            radBtnUpDate.TabIndex = 13;
+            radBtnUpDate.Text = "Sửa Nhân Viên";
+            radBtnUpDate.ThemeName = "MaterialTeal";
+            radBtnUpDate.Click += radBtnUpDate_Click;
+            // 
+            // radLabel1
+            // 
+            radLabel1.ForeColor = Color.Teal;
+            radLabel1.Location = new Point(2, 407);
+            radLabel1.Name = "radLabel1";
+            radLabel1.Size = new Size(77, 21);
+            radLabel1.TabIndex = 9;
+            radLabel1.Text = "Trạng Thái";
+            radLabel1.ThemeName = "MaterialTeal";
+            // 
+            // documentTabStrip1
+            // 
+            documentTabStrip1.CanUpdateChildIndex = true;
+            documentTabStrip1.CausesValidation = false;
+            documentTabStrip1.Controls.Add(toolWindow1);
+            documentTabStrip1.Location = new Point(0, 0);
+            documentTabStrip1.Name = "documentTabStrip1";
+            // 
+            // 
+            // 
+            documentTabStrip1.RootElement.MinSize = new Size(25, 25);
+            documentTabStrip1.SelectedIndex = 0;
+            documentTabStrip1.Size = new Size(425, 632);
+            documentTabStrip1.TabIndex = 0;
+            documentTabStrip1.TabStop = false;
+            documentTabStrip1.TabStripVisible = false;
+            documentTabStrip1.ThemeName = "MaterialTeal";
+            // 
+            // toolWindow1
+            // 
+            toolWindow1.Caption = null;
+            toolWindow1.Controls.Add(dtg_Staff);
+            toolWindow1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            toolWindow1.Location = new Point(4, 4);
+            toolWindow1.Name = "toolWindow1";
+            toolWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
+            toolWindow1.Size = new Size(417, 624);
+            toolWindow1.Text = "toolWindow2";
+            // 
+            // dtg_Staff
+            // 
+            dtg_Staff.Dock = DockStyle.Fill;
+            dtg_Staff.Location = new Point(0, 0);
+            // 
+            // 
+            // 
+            dtg_Staff.MasterTemplate.AllowAddNewRow = false;
+            dtg_Staff.MasterTemplate.AllowSearchRow = true;
+            dtg_Staff.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            dtg_Staff.MasterTemplate.EnablePaging = true;
+            dtg_Staff.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            dtg_Staff.Name = "dtg_Staff";
+            dtg_Staff.ReadOnly = true;
+            dtg_Staff.Size = new Size(417, 624);
+            dtg_Staff.TabIndex = 0;
+            dtg_Staff.ThemeName = "MaterialTeal";
+            dtg_Staff.CellClick += dtg_Staff_CellClick_1;
+            // 
+            // documentContainer1
+            // 
+            documentContainer1.CausesValidation = false;
+            documentContainer1.Controls.Add(documentTabStrip1);
+            documentContainer1.Name = "documentContainer1";
+            // 
+            // 
+            // 
+            documentContainer1.RootElement.MinSize = new Size(25, 25);
+            documentContainer1.SizeInfo.AbsoluteSize = new Size(439, 200);
+            documentContainer1.SizeInfo.SizeMode = Telerik.WinControls.UI.Docking.SplitPanelSizeMode.Fill;
+            documentContainer1.SizeInfo.SplitterCorrection = new Size(-145, 0);
+            documentContainer1.SplitterWidth = 8;
+            documentContainer1.ThemeName = "MaterialTeal";
+            // 
+            // radDock1
+            // 
+            radDock1.ActiveWindow = toolWindow1;
+            radDock1.CausesValidation = false;
+            radDock1.Controls.Add(documentContainer1);
+            radDock1.Controls.Add(toolTabStrip1);
+            radDock1.Dock = DockStyle.Fill;
+            radDock1.DocumentTabsVisible = false;
+            radDock1.IsCleanUpTarget = true;
+            radDock1.Location = new Point(0, 0);
+            radDock1.MainDocumentContainer = documentContainer1;
+            radDock1.Name = "radDock1";
+            radDock1.Padding = new Padding(0);
+            // 
+            // 
+            // 
+            radDock1.RootElement.MinSize = new Size(25, 25);
+            radDock1.Size = new Size(778, 632);
+            radDock1.SplitterWidth = 8;
+            radDock1.TabIndex = 1;
+            radDock1.TabStop = false;
+            radDock1.ThemeName = "MaterialTeal";
             // 
             // UpDateNhanVien
             // 
-            AutoScaleBaseSize = new Size(8, 20);
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleBaseSize = new Size(7, 15);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(780, 468);
-            Controls.Add(radDateTimePicker1);
-            Controls.Add(radSexNu);
-            Controls.Add(radSexNam);
-            Controls.Add(label8);
-            Controls.Add(label7);
-            Controls.Add(radtxtTrangThai);
-            Controls.Add(radtxtDiaChi);
-            Controls.Add(radtxtSDT);
-            Controls.Add(radtxtEmail);
-            Controls.Add(radtxtID);
-            Controls.Add(radtxtTen);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(dtgAddNhanVien);
-            Controls.Add(radbtnClear);
-            Controls.Add(radButton1);
+            ClientSize = new Size(778, 632);
+            Controls.Add(radDock1);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "UpDateNhanVien";
             // 
             // 
@@ -287,46 +416,66 @@
             RootElement.ApplyShapeToControl = true;
             Text = "UpDateNhanVien";
             ThemeName = "MaterialTeal";
-            ((System.ComponentModel.ISupportInitialize)dtgAddNhanVien).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radbtnClear).EndInit();
             ((System.ComponentModel.ISupportInitialize)radButton1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radDateTimePicker1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radSexNu).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radSexNam).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radtxtTrangThai).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radtxtDiaChi).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radtxtSDT).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radtxtEmail).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radtxtID).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radtxtTen).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radBNu).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radBNam).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel8).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radDtpNS).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radTxtAdress).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radTxtEmail).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radTxtPhone).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radTxtTen).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)toolTabStrip1).EndInit();
+            toolTabStrip1.ResumeLayout(false);
+            toolWindow2.ResumeLayout(false);
+            toolWindow2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)radDropDownList1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radBtnUpDate).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)documentTabStrip1).EndInit();
+            documentTabStrip1.ResumeLayout(false);
+            toolWindow1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dtg_Staff.MasterTemplate).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtg_Staff).EndInit();
+            ((System.ComponentModel.ISupportInitialize)documentContainer1).EndInit();
+            documentContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)radDock1).EndInit();
+            radDock1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Telerik.WinControls.Themes.MaterialTealTheme materialTealTheme1;
-        private Telerik.WinControls.Themes.MaterialTealTheme materialTealTheme2;
-        private DataGridView dtgAddNhanVien;
-        private Telerik.WinControls.UI.RadButton radbtnClear;
         private Telerik.WinControls.UI.RadButton radButton1;
-        private Telerik.WinControls.UI.RadDateTimePicker radDateTimePicker1;
-        private Telerik.WinControls.UI.RadRadioButton radSexNu;
-        private Telerik.WinControls.UI.RadRadioButton radSexNam;
-        private Label label8;
-        private Label label7;
-        private Telerik.WinControls.UI.RadTextBox radtxtTrangThai;
-        private Telerik.WinControls.UI.RadTextBox radtxtDiaChi;
-        private Telerik.WinControls.UI.RadTextBox radtxtSDT;
-        private Telerik.WinControls.UI.RadTextBox radtxtEmail;
-        private Telerik.WinControls.UI.RadTextBox radtxtID;
-        private Telerik.WinControls.UI.RadTextBox radtxtTen;
-        private Label label6;
-        private Label label5;
-        private Label label4;
-        private Label label3;
-        private Label label2;
-        private Label label1;
+        private Telerik.WinControls.UI.RadRadioButton radBNu;
+        private Telerik.WinControls.UI.RadRadioButton radBNam;
+        private Telerik.WinControls.UI.RadLabel radLabel8;
+        private Telerik.WinControls.UI.RadDateTimePicker radDtpNS;
+        private Telerik.WinControls.UI.RadLabel radLabel7;
+        private Telerik.WinControls.UI.RadTextBox radTxtAdress;
+        private Telerik.WinControls.UI.RadLabel radLabel6;
+        private Telerik.WinControls.UI.RadTextBox radTxtEmail;
+        private Telerik.WinControls.UI.RadTextBox radTxtPhone;
+        private Telerik.WinControls.UI.RadLabel radLabel4;
+        private Telerik.WinControls.UI.RadTextBox radTxtTen;
+        private Telerik.WinControls.UI.RadLabel radLabel3;
+        private Telerik.WinControls.UI.RadLabel radLabel2;
+        private Telerik.WinControls.UI.Docking.ToolTabStrip toolTabStrip1;
+        private Telerik.WinControls.UI.Docking.ToolWindow toolWindow2;
+        private Telerik.WinControls.UI.Docking.DocumentTabStrip documentTabStrip1;
+        private Telerik.WinControls.UI.Docking.ToolWindow toolWindow1;
+        private Telerik.WinControls.UI.RadGridView dtg_Staff;
+        private Telerik.WinControls.UI.Docking.DocumentContainer documentContainer1;
+        private Telerik.WinControls.UI.Docking.RadDock radDock1;
+        private Telerik.WinControls.Themes.MaterialTealTheme materialTealTheme1;
+        private Telerik.WinControls.UI.RadLabel radLabel1;
+        private Telerik.WinControls.UI.RadButton radBtnUpDate;
+        private Telerik.WinControls.UI.RadDropDownList radDropDownList1;
     }
 }

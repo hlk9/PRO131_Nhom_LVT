@@ -36,7 +36,7 @@ namespace Examination_PRL
 
             foreach (var item in _services.GetAll())
             {
-                radViewNV.Rows.Add(item.Id, stt++, item.FullName, (item.Gender == true  ? "Nam" : "Nữ"), item.DateOfBirth, item.Email, item.PhoneNumber, item.Address);
+                radViewNV.Rows.Add(item.Id, stt++, item.FullName, (item.Gender == true ? "Nam" : "Nữ"), item.DateOfBirth, item.Email, item.PhoneNumber, item.Address);
             }
         }
     }

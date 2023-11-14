@@ -89,6 +89,7 @@
             radViewNV.MasterTemplate.AllowAddNewRow = false;
             radViewNV.MasterTemplate.AllowSearchRow = true;
             radViewNV.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            radViewNV.MasterTemplate.EnablePaging = true;
             radViewNV.MasterTemplate.ViewDefinition = tableViewDefinition1;
             radViewNV.Name = "radViewNV";
             radViewNV.ReadOnly = true;

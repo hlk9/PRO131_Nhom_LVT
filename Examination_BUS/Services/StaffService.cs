@@ -23,5 +23,20 @@ namespace Examination_BUS.Services
         {
             return _staffRepos.GetById(id);
         }
+        public bool UpDateStaff(string id, string name, bool sex, DateTime dateofbirth, string email, string phone, string address, byte status)
+        {
+            Staff staff = new Staff
+            {
+                Id = id,
+                FullName = name,
+                Gender = sex,
+                DateOfBirth = dateofbirth,
+                Email = email,
+                PhoneNumber = phone,
+                Address = address,
+                Status = status
+            };
+            return _staffRepos.Update(staff);
+        }
     }
 }

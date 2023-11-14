@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Examination_BUS.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +12,7 @@ namespace Examination_PRL
 {
     public partial class AddNhanVien : Telerik.WinControls.UI.RadForm
     {
+        StaffService _service = new StaffService();
         public AddNhanVien()
         {
             InitializeComponent();
@@ -19,32 +21,24 @@ namespace Examination_PRL
 
         public void LoadData()
         {
-            dtgAddNhanVien.Rows.Clear();
-            dtgAddNhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             int stt = 1;
-            dtgAddNhanVien.ColumnCount = 10;
 
-            dtgAddNhanVien.Columns[0].Name = "STT";
-            dtgAddNhanVien.Columns[1].Name = "ID";
-            dtgAddNhanVien.Columns[2].Name = "Tên";
-            dtgAddNhanVien.Columns[3].Name = "Giới Tính";
-            dtgAddNhanVien.Columns[4].Name = "Ngày Sinh";
-            dtgAddNhanVien.Columns[5].Name = "Email";
-            dtgAddNhanVien.Columns[6].Name = "SĐT";
-            dtgAddNhanVien.Columns[7].Name = "Địa Chỉ";
-            dtgAddNhanVien.Columns[8].Name = "Trạng Thái";
-            dtgAddNhanVien.Columns[9].Name = "ID Tài Khoản";
-        }
+            dtg_Staff.ColumnCount = 9;
+            dtg_Staff.Columns[0].HeaderText = "STT";
+            dtg_Staff.Columns[1].HeaderText = "ID";
+            dtg_Staff.Columns[1].IsVisible = false;
+            dtg_Staff.Columns[2].HeaderText = "Họ Tên";
+            dtg_Staff.Columns[3].HeaderText = "Giới Tính";
+            dtg_Staff.Columns[4].HeaderText = "Ngày Sinh";
+            dtg_Staff.Columns[5].HeaderText = "Email";
+            dtg_Staff.Columns[6].HeaderText = "SĐT";
+            dtg_Staff.Columns[7].HeaderText = "Địa Chỉ";
+            dtg_Staff.Columns[8].HeaderText = "Trạng Thái";
 
-        private void radbtnClear_Click(object sender, EventArgs e)
-        {
-            radtxtID.Text = "";
-            radtxtTen.Text = "";
-            radSexNam.IsChecked = true;
-            radtxtEmail.Text = "";
-            radtxtSDT.Text = "";
-            radtxtDiaChi.Text = "";
-            radtxtTrangThai.Text = "";
+            foreach (var item in _service.GetAll())
+            {
+                dtg_Staff.Rows.Add(stt++, item.Id, item.FullName, (item.Gender == true ? "Nam" : "Nữ"), item.DateOfBirth, item.Email, item.PhoneNumber, item.Address, item.Status);
+            }
         }
     }
 }
