@@ -96,6 +96,11 @@ namespace Examination_PRL.Forms.Staff
             room.Dock = DockStyle.Fill;
 
             RadPageViewPage staffPage = new RadPageViewPage("Nhân viên"); //xem danh sách nhân viên
+            OverViewNhanVien overViewNhanVien = new OverViewNhanVien();
+            overViewNhanVien.TopLevel = false;
+            staffPage.Controls.Add(overViewNhanVien);
+            overViewNhanVien.Show();
+            overViewNhanVien.Dock = DockStyle.Fill;
             RadPageViewPage addStaffPage = new RadPageViewPage("Thêm nhân viên");
             RadPageViewPage editStaffPage = new RadPageViewPage("Sửa nhân viên");
             RadPageViewPage deleteStaffPage = new RadPageViewPage("Xóa nhân viên");
