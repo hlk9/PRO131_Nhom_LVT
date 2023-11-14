@@ -70,7 +70,9 @@
             // 
             // radLabel1
             // 
-            radLabel1.Location = new Point(32, 44);
+            radLabel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radLabel1.Location = new Point(28, 33);
+            radLabel1.Margin = new Padding(3, 2, 3, 2);
             radLabel1.Name = "radLabel1";
             radLabel1.Size = new Size(78, 21);
             radLabel1.TabIndex = 2;
@@ -79,16 +81,20 @@
             // 
             // radMaskedEditBox1
             // 
-            radMaskedEditBox1.Location = new Point(344, 71);
+            radMaskedEditBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radMaskedEditBox1.Location = new Point(301, 53);
+            radMaskedEditBox1.Margin = new Padding(3, 2, 3, 2);
             radMaskedEditBox1.Name = "radMaskedEditBox1";
-            radMaskedEditBox1.Size = new Size(272, 42);
+            radMaskedEditBox1.Size = new Size(238, 37);
             radMaskedEditBox1.TabIndex = 7;
             radMaskedEditBox1.TabStop = false;
             radMaskedEditBox1.ThemeName = "MaterialTeal";
             // 
             // radLabel2
             // 
-            radLabel2.Location = new Point(344, 44);
+            radLabel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radLabel2.Location = new Point(301, 33);
+            radLabel2.Margin = new Padding(3, 2, 3, 2);
             radLabel2.Name = "radLabel2";
             radLabel2.Size = new Size(77, 21);
             radLabel2.TabIndex = 8;
@@ -97,7 +103,8 @@
             // 
             // radLabel3
             // 
-            radLabel3.Location = new Point(32, 112);
+            radLabel3.Location = new Point(28, 84);
+            radLabel3.Margin = new Padding(3, 2, 3, 2);
             radLabel3.Name = "radLabel3";
             radLabel3.Size = new Size(72, 21);
             radLabel3.TabIndex = 9;
@@ -106,7 +113,8 @@
             // 
             // radLabel4
             // 
-            radLabel4.Location = new Point(344, 112);
+            radLabel4.Location = new Point(301, 84);
+            radLabel4.Margin = new Padding(3, 2, 3, 2);
             radLabel4.Name = "radLabel4";
             radLabel4.Size = new Size(65, 21);
             radLabel4.TabIndex = 10;
@@ -115,44 +123,49 @@
             // 
             // radMaskedEditBox5
             // 
-            radMaskedEditBox5.Location = new Point(32, 211);
+            radMaskedEditBox5.Location = new Point(28, 158);
+            radMaskedEditBox5.Margin = new Padding(3, 2, 3, 2);
             radMaskedEditBox5.MaskType = Telerik.WinControls.UI.MaskType.EMail;
             radMaskedEditBox5.Name = "radMaskedEditBox5";
-            radMaskedEditBox5.Size = new Size(272, 42);
+            radMaskedEditBox5.Size = new Size(238, 37);
             radMaskedEditBox5.TabIndex = 13;
             radMaskedEditBox5.TabStop = false;
             radMaskedEditBox5.ThemeName = "MaterialTeal";
             // 
             // radMaskedEditBox6
             // 
-            radMaskedEditBox6.Location = new Point(344, 211);
+            radMaskedEditBox6.Location = new Point(301, 158);
+            radMaskedEditBox6.Margin = new Padding(3, 2, 3, 2);
             radMaskedEditBox6.Name = "radMaskedEditBox6";
-            radMaskedEditBox6.Size = new Size(272, 42);
+            radMaskedEditBox6.Size = new Size(238, 37);
             radMaskedEditBox6.TabIndex = 14;
             radMaskedEditBox6.TabStop = false;
             radMaskedEditBox6.ThemeName = "MaterialTeal";
             // 
             // radMaskedEditBox7
             // 
-            radMaskedEditBox7.Location = new Point(32, 287);
+            radMaskedEditBox7.Location = new Point(28, 215);
+            radMaskedEditBox7.Margin = new Padding(3, 2, 3, 2);
             radMaskedEditBox7.Name = "radMaskedEditBox7";
-            radMaskedEditBox7.Size = new Size(272, 42);
+            radMaskedEditBox7.Size = new Size(238, 37);
             radMaskedEditBox7.TabIndex = 15;
             radMaskedEditBox7.TabStop = false;
             radMaskedEditBox7.ThemeName = "MaterialTeal";
             // 
             // radMaskedEditBox8
             // 
-            radMaskedEditBox8.Location = new Point(344, 287);
+            radMaskedEditBox8.Location = new Point(301, 215);
+            radMaskedEditBox8.Margin = new Padding(3, 2, 3, 2);
             radMaskedEditBox8.Name = "radMaskedEditBox8";
-            radMaskedEditBox8.Size = new Size(272, 42);
+            radMaskedEditBox8.Size = new Size(238, 37);
             radMaskedEditBox8.TabIndex = 16;
             radMaskedEditBox8.TabStop = false;
             radMaskedEditBox8.ThemeName = "MaterialTeal";
             // 
             // radLabel5
             // 
-            radLabel5.Location = new Point(32, 184);
+            radLabel5.Location = new Point(28, 138);
+            radLabel5.Margin = new Padding(3, 2, 3, 2);
             radLabel5.Name = "radLabel5";
             radLabel5.Size = new Size(43, 21);
             radLabel5.TabIndex = 17;
@@ -161,7 +174,8 @@
             // 
             // radLabel6
             // 
-            radLabel6.Location = new Point(344, 184);
+            radLabel6.Location = new Point(301, 138);
+            radLabel6.Margin = new Padding(3, 2, 3, 2);
             radLabel6.Name = "radLabel6";
             radLabel6.Size = new Size(34, 21);
             radLabel6.TabIndex = 18;
@@ -170,7 +184,8 @@
             // 
             // radLabel7
             // 
-            radLabel7.Location = new Point(32, 260);
+            radLabel7.Location = new Point(28, 195);
+            radLabel7.Margin = new Padding(3, 2, 3, 2);
             radLabel7.Name = "radLabel7";
             radLabel7.Size = new Size(31, 21);
             radLabel7.TabIndex = 19;
@@ -179,7 +194,8 @@
             // 
             // radLabel8
             // 
-            radLabel8.Location = new Point(344, 260);
+            radLabel8.Location = new Point(301, 195);
+            radLabel8.Margin = new Padding(3, 2, 3, 2);
             radLabel8.Name = "radLabel8";
             radLabel8.Size = new Size(53, 21);
             radLabel8.TabIndex = 20;
@@ -190,16 +206,18 @@
             // 
             radButton1.BackColor = Color.LightSeaGreen;
             radButton1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            radButton1.Location = new Point(32, 343);
+            radButton1.Location = new Point(28, 257);
+            radButton1.Margin = new Padding(3, 2, 3, 2);
             radButton1.Name = "radButton1";
-            radButton1.Size = new Size(584, 51);
+            radButton1.Size = new Size(511, 38);
             radButton1.TabIndex = 21;
             radButton1.Text = "Thêm Thí Sinh";
             radButton1.ThemeName = "MaterialTeal";
             // 
             // radRadioButton1
             // 
-            radRadioButton1.Location = new Point(364, 142);
+            radRadioButton1.Location = new Point(318, 106);
+            radRadioButton1.Margin = new Padding(3, 2, 3, 2);
             radRadioButton1.Name = "radRadioButton1";
             radRadioButton1.Size = new Size(57, 22);
             radRadioButton1.TabIndex = 22;
@@ -208,7 +226,8 @@
             // 
             // radRadioButton2
             // 
-            radRadioButton2.Location = new Point(477, 141);
+            radRadioButton2.Location = new Point(417, 106);
+            radRadioButton2.Margin = new Padding(3, 2, 3, 2);
             radRadioButton2.Name = "radRadioButton2";
             radRadioButton2.Size = new Size(45, 22);
             radRadioButton2.TabIndex = 23;
@@ -217,28 +236,31 @@
             // 
             // radTextBoxControl1
             // 
-            radTextBoxControl1.Location = new Point(35, 71);
+            radTextBoxControl1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radTextBoxControl1.Location = new Point(31, 53);
+            radTextBoxControl1.Margin = new Padding(3, 2, 3, 2);
             radTextBoxControl1.Name = "radTextBoxControl1";
-            radTextBoxControl1.Size = new Size(269, 36);
+            radTextBoxControl1.Size = new Size(235, 36);
             radTextBoxControl1.TabIndex = 25;
             radTextBoxControl1.ThemeName = "MaterialTeal";
             // 
             // radDateTimePicker1
             // 
             radDateTimePicker1.CalendarSize = new Size(290, 320);
-            radDateTimePicker1.Location = new Point(32, 139);
+            radDateTimePicker1.Location = new Point(28, 104);
+            radDateTimePicker1.Margin = new Padding(3, 2, 3, 2);
             radDateTimePicker1.Name = "radDateTimePicker1";
-            radDateTimePicker1.Size = new Size(280, 41);
+            radDateTimePicker1.Size = new Size(245, 36);
             radDateTimePicker1.TabIndex = 26;
             radDateTimePicker1.TabStop = false;
             radDateTimePicker1.Text = "Tuesday, November 7, 2023";
             radDateTimePicker1.ThemeName = "MaterialTeal";
             radDateTimePicker1.Value = new DateTime(2023, 11, 7, 14, 57, 47, 519);
             // 
-            // RadForm1
+            // AddThiSinh
             // 
-            AutoScaleBaseSize = new Size(8, 20);
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleBaseSize = new Size(7, 15);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(650, 429);
             Controls.Add(radDateTimePicker1);
@@ -259,14 +281,14 @@
             Controls.Add(radLabel2);
             Controls.Add(radMaskedEditBox1);
             Controls.Add(radLabel1);
-            Name = "RadForm1";
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "AddThiSinh";
             // 
             // 
             // 
             RootElement.ApplyShapeToControl = true;
             Text = "RadForm1";
             ThemeName = "MaterialTeal";
-            Load += RadForm1_Load;
             ((System.ComponentModel.ISupportInitialize)radLabel1).EndInit();
             ((System.ComponentModel.ISupportInitialize)radMaskedEditBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel2).EndInit();

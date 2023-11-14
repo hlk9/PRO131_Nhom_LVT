@@ -50,6 +50,12 @@ namespace Examination_PRL.Forms.Staff
             studentsList.Dock = DockStyle.Fill;
 
             RadPageViewPage addStudentPage = new RadPageViewPage("Thêm thí sinh");
+            AddThiSinh addThiSinh = new AddThiSinh();
+            addThiSinh.TopLevel = false;
+            addStudentPage.Controls.Add(addThiSinh);
+            addThiSinh.Show();
+            addThiSinh.Dock = DockStyle.Fill;
+
             RadPageViewPage editStudentPage = new RadPageViewPage("Sửa thí sinh");
             UpdateStudents updateStudents = new UpdateStudents();
             updateStudents.TopLevel = false;
@@ -58,6 +64,12 @@ namespace Examination_PRL.Forms.Staff
             updateStudents.Dock = DockStyle.Fill;
 
             RadPageViewPage deleteStudentPage = new RadPageViewPage("Xóa thí sinh");
+            DeleteStudents deleteStudents = new DeleteStudents();
+            deleteStudents.TopLevel = false;
+            deleteStudentPage.Controls.Add(deleteStudents);
+            deleteStudents.Show();
+            deleteStudents.Dock = DockStyle.Fill;
+
             studentPage.SubPages.Add(addStudentPage);
             studentPage.SubPages.Add(editStudentPage);
             studentPage.SubPages.Add(deleteStudentPage);
@@ -96,6 +108,12 @@ namespace Examination_PRL.Forms.Staff
             room.Dock = DockStyle.Fill;
 
             RadPageViewPage staffPage = new RadPageViewPage("Nhân viên"); //xem danh sách nhân viên
+            OverViewNhanVien overViewNhanVien = new OverViewNhanVien();
+            overViewNhanVien.TopLevel = false;
+            staffPage.Controls.Add(overViewNhanVien);
+            overViewNhanVien.Show();
+            overViewNhanVien.Dock = DockStyle.Fill;
+
             RadPageViewPage addStaffPage = new RadPageViewPage("Thêm nhân viên");
             RadPageViewPage editStaffPage = new RadPageViewPage("Sửa nhân viên");
             RadPageViewPage deleteStaffPage = new RadPageViewPage("Xóa nhân viên");

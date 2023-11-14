@@ -15,10 +15,5 @@ namespace Examination_PRL.Forms
         {
             InitializeComponent();
         }
-
-        private void RadForm1_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
