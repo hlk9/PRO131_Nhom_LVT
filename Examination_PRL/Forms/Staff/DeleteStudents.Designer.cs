@@ -1,6 +1,6 @@
-﻿namespace Examination_PRL.Forms
+﻿namespace Examination_PRL.Forms.Staff
 {
-    partial class AddThiSinh
+    partial class DeleteStudents
     {
         /// <summary>
         /// Required designer variable.
@@ -48,25 +48,24 @@
             examGridView.MasterTemplate.EnablePaging = true;
             examGridView.MasterTemplate.ViewDefinition = tableViewDefinition1;
             examGridView.Name = "examGridView";
-            examGridView.Size = new Size(652, 466);
+            examGridView.Size = new Size(800, 500);
             examGridView.TabIndex = 0;
             examGridView.ThemeName = "MaterialTeal";
             // 
-            // AddThiSinh
+            // DeleteStudents
             // 
             AutoScaleBaseSize = new Size(7, 15);
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(652, 466);
+            ClientSize = new Size(800, 500);
             Controls.Add(examGridView);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 2, 3, 2);
-            Name = "AddThiSinh";
+            Name = "DeleteStudents";
             // 
             // 
             // 
             RootElement.ApplyShapeToControl = true;
-            Text = "RadForm1";
+            Text = "DeleteStudents";
             ThemeName = "MaterialTeal";
             ((System.ComponentModel.ISupportInitialize)examGridView.MasterTemplate).EndInit();
             ((System.ComponentModel.ISupportInitialize)examGridView).EndInit();
@@ -75,6 +74,7 @@
         }
 
         #endregion
+
         private Telerik.WinControls.Themes.MaterialTealTheme materialTealTheme1;
         private Telerik.WinControls.UI.RadGridView examGridView;
     }

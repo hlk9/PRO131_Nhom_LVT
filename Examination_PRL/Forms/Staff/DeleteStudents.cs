@@ -9,13 +9,12 @@ using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
 
-namespace Examination_PRL.Forms
+namespace Examination_PRL.Forms.Staff
 {
-    public partial class AddThiSinh : Telerik.WinControls.UI.RadForm
+    public partial class DeleteStudents : Telerik.WinControls.UI.RadForm
     {
         ParticipantService _ser = new ParticipantService();
-
-        public AddThiSinh()
+        public DeleteStudents()
         {
             InitializeComponent();
             LoadData();
