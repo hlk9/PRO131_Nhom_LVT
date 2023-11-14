@@ -26,12 +26,12 @@ namespace Examination_PRL.Forms.Staff
             int stt = 1;
             dtg_Show.ColumnCount = 4;
             dtg_Show.Columns[0].Name = "stt"; dtg_Show.Columns[0].HeaderText = "Số thứ tự";
-            dtg_Show.Columns[1].Name = "subject"; dtg_Show.Columns[1].HeaderText = "Môn học";
-            dtg_Show.Columns[2].Name = "IDsubjetc"; dtg_Show.Columns[2].HeaderText = "ID Môn học";
-            dtg_Show.Columns[3].Name = "status"; dtg_Show.Columns[2].HeaderText = "Trạng thái";
+            dtg_Show.Columns[1].Name = "IDsubject"; dtg_Show.Columns[1].HeaderText = "ID Môn Học";
+            dtg_Show.Columns[2].Name = "subjetc"; dtg_Show.Columns[2].HeaderText = "Môn Học";
+            dtg_Show.Columns[3].Name = "status"; dtg_Show.Columns[3].HeaderText = "Trạng Thái";
             foreach (var item in data)
             {
-                dtg_Show.Rows.Add(stt++, item.Name, item.Id, item.Status == 0);
+                dtg_Show.Rows.Add(stt++, item.Id, item.Name, item.Status == 0 ? "Hoạt Động" : "Không Hoạt Động");
             }
         }
 

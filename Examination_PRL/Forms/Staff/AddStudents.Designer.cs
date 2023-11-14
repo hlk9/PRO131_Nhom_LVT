@@ -1,6 +1,6 @@
 ﻿namespace Examination_PRL.Forms
 {
-    partial class AddThiSinh
+    partial class AddStudents
     {
         /// <summary>
         /// Required designer variable.

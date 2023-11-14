@@ -11,11 +11,11 @@ using Telerik.WinControls;
 
 namespace Examination_PRL.Forms
 {
-    public partial class AddThiSinh : Telerik.WinControls.UI.RadForm
+    public partial class AddStudents : Telerik.WinControls.UI.RadForm
     {
         ParticipantService _ser = new ParticipantService();
 
-        public AddThiSinh()
+        public AddStudents()
         {
             InitializeComponent();
             LoadData();

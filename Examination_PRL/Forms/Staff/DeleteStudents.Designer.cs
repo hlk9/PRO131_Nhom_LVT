@@ -43,11 +43,13 @@
             // 
             // 
             // 
+            examGridView.MasterTemplate.AllowAddNewRow = false;
             examGridView.MasterTemplate.AllowSearchRow = true;
             examGridView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             examGridView.MasterTemplate.EnablePaging = true;
             examGridView.MasterTemplate.ViewDefinition = tableViewDefinition1;
             examGridView.Name = "examGridView";
+            examGridView.ReadOnly = true;
             examGridView.Size = new Size(800, 500);
             examGridView.TabIndex = 0;
             examGridView.ThemeName = "MaterialTeal";

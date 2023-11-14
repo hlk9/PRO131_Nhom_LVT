@@ -50,7 +50,7 @@ namespace Examination_PRL.Forms.Staff
             studentsList.Dock = DockStyle.Fill;
 
             RadPageViewPage addStudentPage = new RadPageViewPage("Thêm thí sinh");
-            AddThiSinh addThiSinh = new AddThiSinh();
+            AddStudents addThiSinh = new AddStudents();
             addThiSinh.TopLevel = false;
             addStudentPage.Controls.Add(addThiSinh);
             addThiSinh.Show();
@@ -99,6 +99,11 @@ namespace Examination_PRL.Forms.Staff
 
 
             RadPageViewPage subjectPage = new RadPageViewPage("Môn"); //xem danh sách môn       
+            Subject subject = new Subject();
+            subject.TopLevel = false;
+            subjectPage.Controls.Add(subject);
+            subject.Show();
+            subject.Dock = DockStyle.Fill;
 
             RadPageViewPage roomPage = new RadPageViewPage("Phòng thi"); //xem danh sách phòng thi
             Room room = new Room();
