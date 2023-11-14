@@ -118,9 +118,28 @@ namespace Examination_PRL.Forms.Staff
             staffPage.Controls.Add(overViewNhanVien);
             overViewNhanVien.Show();
             overViewNhanVien.Dock = DockStyle.Fill;
+
             RadPageViewPage addStaffPage = new RadPageViewPage("Thêm nhân viên");
+            AddNhanVien addNhanViens = new AddNhanVien();
+            addNhanViens.TopLevel = false;
+            addStaffPage.Controls.Add(addNhanViens);
+            addNhanViens.Show();
+            addNhanViens.Dock = DockStyle.Fill;
+
             RadPageViewPage editStaffPage = new RadPageViewPage("Sửa nhân viên");
+            UpDateNhanVien upDateNhanViens = new UpDateNhanVien();
+            upDateNhanViens.TopLevel= false;
+            editStaffPage.Controls.Add(upDateNhanViens);
+            upDateNhanViens.Show();
+            upDateNhanViens.Dock = DockStyle .Fill;
+
             RadPageViewPage deleteStaffPage = new RadPageViewPage("Xóa nhân viên");
+            RemoveNhanVien removeNhanViens = new RemoveNhanVien();
+            removeNhanViens.TopLevel= false;
+            deleteStaffPage.Controls .Add(removeNhanViens);
+            removeNhanViens.Show();
+            removeNhanViens.Dock = DockStyle.Fill;
+
             staffPage.SubPages.Add(addStaffPage);
             staffPage.SubPages.Add(editStaffPage);
             staffPage.SubPages.Add(deleteStaffPage);
