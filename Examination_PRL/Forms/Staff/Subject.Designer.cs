@@ -28,160 +28,164 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition5 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition6 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition7 = new Telerik.WinControls.UI.TableViewDefinition();
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
-            tb_Subject = new Telerik.WinControls.UI.RadTextBox();
-            radLabel1 = new Telerik.WinControls.UI.RadLabel();
-            radLabel2 = new Telerik.WinControls.UI.RadLabel();
-            tb_IDSubject = new Telerik.WinControls.UI.RadTextBox();
-            btn_ShowSubject = new Telerik.WinControls.UI.RadButton();
-            btn_Clear = new Telerik.WinControls.UI.RadButton();
-            btn_AddSubject = new Telerik.WinControls.UI.RadButton();
-            btn_EditSubject = new Telerik.WinControls.UI.RadButton();
-            btn_DeleteSubject = new Telerik.WinControls.UI.RadButton();
-            dataGridView1 = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)tb_Subject).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)tb_IDSubject).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)btn_ShowSubject).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)btn_Clear).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)btn_AddSubject).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)btn_EditSubject).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)btn_DeleteSubject).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            radDock1 = new Telerik.WinControls.UI.Docking.RadDock();
+            documentContainer1 = new Telerik.WinControls.UI.Docking.DocumentContainer();
+            radGridView1 = new Telerik.WinControls.UI.RadGridView();
+            radGridView2 = new Telerik.WinControls.UI.RadGridView();
+            radGridView3 = new Telerik.WinControls.UI.RadGridView();
+            radGridView4 = new Telerik.WinControls.UI.RadGridView();
+            radGridView5 = new Telerik.WinControls.UI.RadGridView();
+            radGridView6 = new Telerik.WinControls.UI.RadGridView();
+            dtg_Show = new Telerik.WinControls.UI.RadGridView();
+            ((System.ComponentModel.ISupportInitialize)radDock1).BeginInit();
+            radDock1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)documentContainer1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radGridView1.MasterTemplate).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radGridView2.MasterTemplate).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radGridView3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radGridView3.MasterTemplate).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radGridView4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radGridView4.MasterTemplate).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radGridView5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radGridView5.MasterTemplate).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radGridView6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radGridView6.MasterTemplate).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtg_Show).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtg_Show.MasterTemplate).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
-            // tb_Subject
+            // radDock1
             // 
-            tb_Subject.Location = new Point(45, 68);
-            tb_Subject.Name = "tb_Subject";
-            tb_Subject.Size = new Size(210, 37);
-            tb_Subject.TabIndex = 0;
-            tb_Subject.ThemeName = "MaterialTeal";
+            radDock1.Controls.Add(documentContainer1);
+            radDock1.Dock = DockStyle.Fill;
+            radDock1.IsCleanUpTarget = true;
+            radDock1.Location = new Point(0, 0);
+            radDock1.MainDocumentContainer = documentContainer1;
+            radDock1.Name = "radDock1";
+            radDock1.Padding = new Padding(6);
             // 
-            // radLabel1
             // 
-            radLabel1.Location = new Point(45, 41);
-            radLabel1.Name = "radLabel1";
-            radLabel1.Size = new Size(67, 21);
-            radLabel1.TabIndex = 1;
-            radLabel1.Text = "Môn học:";
-            radLabel1.ThemeName = "MaterialTeal";
             // 
-            // radLabel2
+            radDock1.RootElement.MinSize = new Size(25, 25);
+            radDock1.Size = new Size(735, 421);
+            radDock1.SplitterWidth = 10;
+            radDock1.TabIndex = 0;
+            radDock1.TabStop = false;
+            radDock1.ThemeName = "MaterialTeal";
             // 
-            radLabel2.Location = new Point(45, 144);
-            radLabel2.Name = "radLabel2";
-            radLabel2.Size = new Size(84, 21);
-            radLabel2.TabIndex = 1;
-            radLabel2.Text = "ID Môn học:";
-            radLabel2.ThemeName = "MaterialTeal";
+            // documentContainer1
             // 
-            // tb_IDSubject
+            documentContainer1.Name = "documentContainer1";
+            documentContainer1.Padding = new Padding(0);
             // 
-            tb_IDSubject.Location = new Point(45, 171);
-            tb_IDSubject.Name = "tb_IDSubject";
-            tb_IDSubject.Size = new Size(210, 42);
-            tb_IDSubject.TabIndex = 0;
-            tb_IDSubject.ThemeName = "MaterialTeal";
             // 
-            // btn_ShowSubject
             // 
-            btn_ShowSubject.Location = new Point(312, 41);
-            btn_ShowSubject.Name = "btn_ShowSubject";
-            btn_ShowSubject.Size = new Size(171, 38);
-            btn_ShowSubject.TabIndex = 2;
-            btn_ShowSubject.Text = "Hiển thị";
-            btn_ShowSubject.ThemeName = "MaterialTeal";
+            documentContainer1.RootElement.MinSize = new Size(25, 25);
+            documentContainer1.SizeInfo.SizeMode = Telerik.WinControls.UI.Docking.SplitPanelSizeMode.Fill;
+            documentContainer1.ThemeName = "MaterialTeal";
             // 
-            // btn_Clear
+            // radGridView1
             // 
-            btn_Clear.Location = new Point(312, 110);
-            btn_Clear.Name = "btn_Clear";
-            btn_Clear.Size = new Size(171, 38);
-            btn_Clear.TabIndex = 2;
-            btn_Clear.Text = "Clear";
-            btn_Clear.ThemeName = "MaterialTeal";
+            radGridView1.Location = new Point(4, 17);
             // 
-            // btn_AddSubject
             // 
-            btn_AddSubject.Location = new Point(524, 41);
-            btn_AddSubject.Name = "btn_AddSubject";
-            btn_AddSubject.Size = new Size(171, 38);
-            btn_AddSubject.TabIndex = 2;
-            btn_AddSubject.Text = "Thêm";
-            btn_AddSubject.ThemeName = "MaterialTeal";
             // 
-            // btn_EditSubject
+            radGridView1.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            radGridView1.Name = "radGridView1";
+            radGridView1.Size = new Size(375, 234);
+            radGridView1.TabIndex = 0;
             // 
-            btn_EditSubject.Location = new Point(524, 110);
-            btn_EditSubject.Name = "btn_EditSubject";
-            btn_EditSubject.Size = new Size(171, 38);
-            btn_EditSubject.TabIndex = 2;
-            btn_EditSubject.Text = "Sửa";
-            btn_EditSubject.ThemeName = "MaterialTeal";
+            // radGridView2
             // 
-            // btn_DeleteSubject
+            radGridView2.Location = new Point(149, 88);
             // 
-            btn_DeleteSubject.Location = new Point(524, 175);
-            btn_DeleteSubject.Name = "btn_DeleteSubject";
-            btn_DeleteSubject.Size = new Size(171, 38);
-            btn_DeleteSubject.TabIndex = 2;
-            btn_DeleteSubject.Text = "Xóa";
-            btn_DeleteSubject.ThemeName = "MaterialTeal";
             // 
-            // dataGridView1
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3 });
-            dataGridView1.Location = new Point(45, 247);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(424, 188);
-            dataGridView1.TabIndex = 3;
+            radGridView2.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            radGridView2.Name = "radGridView2";
+            radGridView2.Size = new Size(375, 234);
+            radGridView2.TabIndex = 0;
             // 
-            // Column1
+            // radGridView3
             // 
-            Column1.HeaderText = "STT";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            Column1.Width = 125;
+            radGridView3.Location = new Point(205, 108);
             // 
-            // Column2
             // 
-            Column2.HeaderText = "Môn học";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
-            Column2.Width = 125;
             // 
-            // Column3
+            radGridView3.MasterTemplate.ViewDefinition = tableViewDefinition3;
+            radGridView3.Name = "radGridView3";
+            radGridView3.Size = new Size(375, 234);
+            radGridView3.TabIndex = 0;
             // 
-            Column3.HeaderText = "ID Môn học";
-            Column3.MinimumWidth = 6;
-            Column3.Name = "Column3";
-            Column3.Width = 125;
+            // radGridView4
+            // 
+            radGridView4.Location = new Point(163, 83);
+            // 
+            // 
+            // 
+            radGridView4.MasterTemplate.ViewDefinition = tableViewDefinition4;
+            radGridView4.Name = "radGridView4";
+            radGridView4.Size = new Size(375, 234);
+            radGridView4.TabIndex = 0;
+            // 
+            // radGridView5
+            // 
+            radGridView5.Location = new Point(346, 122);
+            // 
+            // 
+            // 
+            radGridView5.MasterTemplate.ViewDefinition = tableViewDefinition5;
+            radGridView5.Name = "radGridView5";
+            radGridView5.Size = new Size(375, 234);
+            radGridView5.TabIndex = 0;
+            // 
+            // radGridView6
+            // 
+            radGridView6.Location = new Point(370, 108);
+            // 
+            // 
+            // 
+            radGridView6.MasterTemplate.ViewDefinition = tableViewDefinition6;
+            radGridView6.Name = "radGridView6";
+            radGridView6.Size = new Size(375, 234);
+            radGridView6.TabIndex = 0;
+            // 
+            // dtg_Show
+            // 
+            dtg_Show.Dock = DockStyle.Fill;
+            dtg_Show.Location = new Point(0, 0);
+            // 
+            // 
+            // 
+            dtg_Show.MasterTemplate.AllowSearchRow = true;
+            dtg_Show.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            dtg_Show.MasterTemplate.EnablePaging = true;
+            dtg_Show.MasterTemplate.ViewDefinition = tableViewDefinition7;
+            dtg_Show.Name = "dtg_Show";
+            dtg_Show.Size = new Size(737, 458);
+            dtg_Show.TabIndex = 0;
+            dtg_Show.ThemeName = "MaterialTeal";
+            dtg_Show.Click += dtg_Show_Click;
             // 
             // Subject
             // 
             AutoScaleBaseSize = new Size(8, 20);
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(762, 451);
-            Controls.Add(dataGridView1);
-            Controls.Add(btn_DeleteSubject);
-            Controls.Add(btn_EditSubject);
-            Controls.Add(btn_AddSubject);
-            Controls.Add(btn_Clear);
-            Controls.Add(btn_ShowSubject);
-            Controls.Add(radLabel2);
-            Controls.Add(radLabel1);
-            Controls.Add(tb_IDSubject);
-            Controls.Add(tb_Subject);
+            ClientSize = new Size(737, 458);
+            Controls.Add(dtg_Show);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Subject";
             // 
             // 
@@ -189,36 +193,38 @@
             RootElement.ApplyShapeToControl = true;
             Text = "Subject";
             ThemeName = "MaterialTeal";
-            ((System.ComponentModel.ISupportInitialize)tb_Subject).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)tb_IDSubject).EndInit();
-            ((System.ComponentModel.ISupportInitialize)btn_ShowSubject).EndInit();
-            ((System.ComponentModel.ISupportInitialize)btn_Clear).EndInit();
-            ((System.ComponentModel.ISupportInitialize)btn_AddSubject).EndInit();
-            ((System.ComponentModel.ISupportInitialize)btn_EditSubject).EndInit();
-            ((System.ComponentModel.ISupportInitialize)btn_DeleteSubject).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radDock1).EndInit();
+            radDock1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)documentContainer1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radGridView1.MasterTemplate).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radGridView2.MasterTemplate).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radGridView3.MasterTemplate).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radGridView3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radGridView4.MasterTemplate).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radGridView4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radGridView5.MasterTemplate).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radGridView5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radGridView6.MasterTemplate).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radGridView6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtg_Show.MasterTemplate).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtg_Show).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private Telerik.WinControls.Themes.MaterialTealTheme materialTealTheme1;
-        private Telerik.WinControls.UI.RadTextBox tb_Subject;
-        private Telerik.WinControls.UI.RadLabel radLabel1;
-        private Telerik.WinControls.UI.RadLabel radLabel2;
-        private Telerik.WinControls.UI.RadTextBox tb_IDSubject;
-        private Telerik.WinControls.UI.RadButton btn_ShowSubject;
-        private Telerik.WinControls.UI.RadButton btn_Clear;
-        private Telerik.WinControls.UI.RadButton btn_AddSubject;
-        private Telerik.WinControls.UI.RadButton btn_EditSubject;
-        private Telerik.WinControls.UI.RadButton btn_DeleteSubject;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
+        private Telerik.WinControls.UI.Docking.RadDock radDock1;
+        private Telerik.WinControls.UI.Docking.DocumentContainer documentContainer1;
+        private Telerik.WinControls.UI.RadGridView radGridView1;
+        private Telerik.WinControls.UI.RadGridView radGridView2;
+        private Telerik.WinControls.UI.RadGridView radGridView3;
+        private Telerik.WinControls.UI.RadGridView radGridView4;
+        private Telerik.WinControls.UI.RadGridView radGridView5;
+        private Telerik.WinControls.UI.RadGridView radGridView6;
+        private Telerik.WinControls.UI.RadGridView dtg_Show;
     }
 }
