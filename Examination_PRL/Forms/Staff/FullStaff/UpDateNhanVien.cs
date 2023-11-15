@@ -19,10 +19,12 @@ namespace Examination_PRL
         {
             InitializeComponent();
             LoadData();
+            LoadDropDown();
         }
 
         public void LoadData()
         {
+            dtg_Staff.Rows.Clear();
             int stt = 1;
 
             dtg_Staff.ColumnCount = 9;
@@ -39,7 +41,7 @@ namespace Examination_PRL
 
             foreach (var item in _service.GetAll())
             {
-                string status = (item.Status == 0 ? "Kích Hoạt" : "Vô Hiệu Hóa");
+                string status = (item.Status == 0 ? "Vô Hiệu Hóa" : "Kích Hoạt");
                 dtg_Staff.Rows.Add(stt++, item.Id, item.FullName, (item.Gender == true ? "Nam" : "Nữ"), item.DateOfBirth, item.Email, item.PhoneNumber, item.Address, status);
             }
         }
@@ -66,11 +68,11 @@ namespace Examination_PRL
                 }
                 if (obj.Status == 0)
                 {
-                    radDropDownList1.SelectedIndex = radDropDownList1.FindStringExact("Kích Hoạt");
+                    dropdownStatus.SelectedIndex = 0;
                 }
                 else
                 {
-                    radDropDownList1.SelectedIndex = radDropDownList1.FindStringExact("Vô Hiệu Hóa");
+                    dropdownStatus.SelectedIndex = 1;
                 }
             }
         }
@@ -85,10 +87,10 @@ namespace Examination_PRL
             string phone = radTxtPhone.Text;
             string address = radTxtAdress.Text;
             byte status = 0; // Default to inactive
-            string selectedStatus = radDropDownList1.SelectedItem?.ToString();
+            string selectedStatus = dropdownStatus.SelectedItem.Text;
 
             // Map status based on the selected item
-            if (selectedStatus != null && selectedStatus.StartsWith("Active"))
+            if (selectedStatus != null && selectedStatus.StartsWith("Kích Hoạt"))
             {
                 status = 1; // Set to active
             }
@@ -113,16 +115,22 @@ namespace Examination_PRL
             };
 
             // Clear existing items in the RadDropDownList (optional)
-            radDropDownList1.Items.Clear();
+            dropdownStatus.Items.Clear();
 
             // Add the new items
-            radDropDownList1.Items.AddRange(itemsToAdd.ToArray());
+            dropdownStatus.Items.AddRange(itemsToAdd.ToArray());
 
             // If you want to select the first item by default
-            if (radDropDownList1.Items.Count > 0)
+            if (dropdownStatus.Items.Count > 0)
             {
-                radDropDownList1.SelectedIndex = 0;
+                dropdownStatus.SelectedIndex = 0;
             }
+        }
+        public void LoadDropDown()
+        {
+            dropdownStatus.Items.Add("Vô Hiệu Hóa");
+            dropdownStatus.Items.Add("Kích Hoạt");
+
         }
     }
 }

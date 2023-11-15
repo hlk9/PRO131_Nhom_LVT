@@ -61,6 +61,29 @@ namespace Examination_BUS.Services
 
 
         }
+        public QuestionWithAnswerViewModel GetQuestionWithAnswer(int id)
+        {
+            var answerData = (from q in questionRepository.GetAllQuestions()
+                       join a in answerRepository.GetAllAnswers()
+                       on q.Id equals a.QuestionId
+                       where q.Id == id
+                       select a).ToList();
+
+            var questionData = questionRepository.GetQuestionById(id);
+            QuestionWithAnswerViewModel questionWithAnswerViewModel = new QuestionWithAnswerViewModel();
+            questionWithAnswerViewModel.Id = questionData.Id;
+            questionWithAnswerViewModel.Content = questionData.Content;
+            questionWithAnswerViewModel.Point = questionData.Point;
+            questionWithAnswerViewModel.QuestionType = questionData.QuestionLevelId;
+            questionWithAnswerViewModel.QuestionLevel = questionData.QuestionLevelId;
+            questionWithAnswerViewModel.Subject = questionData.SubjectId;
+            questionWithAnswerViewModel.Docs = questionData.Docs;
+            questionWithAnswerViewModel.Status = questionData.Status;
+            questionWithAnswerViewModel.Answers = answerData;
+            return questionWithAnswerViewModel;
+
+
+        }
 
     }
 }

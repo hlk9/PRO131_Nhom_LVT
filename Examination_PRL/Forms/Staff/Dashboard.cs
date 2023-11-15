@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Examination_PRL.Forms.Staff.Exam;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -83,6 +84,12 @@ namespace Examination_PRL.Forms.Staff
 
 
             RadPageViewPage addExamPage = new RadPageViewPage("Thêm đề thi");
+            AddExam addExam = new AddExam();
+            addExam.TopLevel = false;
+            addExamPage.Controls.Add(addExam);
+            addExam.Show();
+            addExam.Dock = DockStyle.Fill;
+
             RadPageViewPage editExamPage = new RadPageViewPage("Sửa đề thi");
             RadPageViewPage deleteExamPage = new RadPageViewPage("Xóa đề thi");
             examPage.SubPages.Add(addExamPage);

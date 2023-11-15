@@ -44,7 +44,11 @@ namespace Examination_DAL.Repository
         {
             try
             {
-                _context.Exams.Update(exam);
+                var examUpdate = _context.Exams.Find(exam.Id);
+                examUpdate.Name = exam.Name;
+                examUpdate.SubjectId = exam.SubjectId;
+                examUpdate.ExamCode = exam.ExamCode;
+                _context.Update(examUpdate);
                 _context.SaveChanges();
                 return true;
             }

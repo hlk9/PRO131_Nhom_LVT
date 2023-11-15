@@ -36,5 +36,14 @@ namespace Examination_PRL.Forms.Staff
                 examGridView.Rows.Add(x.Id, x.FullName, (x.Gender == true ? "Nam" : "Nữ"), x.DateOfBirth, x.PhoneNumber, x.Email, x.Address);
             }
         }
+
+        private void examGridView_UserDeletingRow(object sender, Telerik.WinControls.UI.GridViewRowCancelEventArgs e)
+        {
+            string id=  examGridView.CurrentRow.Cells[0].Value.ToString();
+            MessageBox.Show("Ping"+id);
+            //get id current cell
+            
+
+        }
     }
 }

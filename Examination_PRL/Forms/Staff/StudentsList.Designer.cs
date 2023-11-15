@@ -64,6 +64,7 @@
             radDock1.Location = new Point(0, 0);
             radDock1.MainDocumentContainer = documentContainer1;
             radDock1.Name = "radDock1";
+            radDock1.Padding = new Padding(0);
             // 
             // 
             // 
@@ -81,7 +82,7 @@
             documentWindow1.Location = new Point(4, 4);
             documentWindow1.Name = "documentWindow1";
             documentWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
-            documentWindow1.Size = new Size(902, 561);
+            documentWindow1.Size = new Size(912, 571);
             documentWindow1.Text = "documentWindow1";
             // 
             // examGridView
@@ -97,9 +98,10 @@
             examGridView.MasterTemplate.EnablePaging = true;
             examGridView.MasterTemplate.ViewDefinition = tableViewDefinition1;
             examGridView.Name = "examGridView";
-            examGridView.Size = new Size(902, 561);
+            examGridView.Size = new Size(912, 571);
             examGridView.TabIndex = 1;
             examGridView.ThemeName = "MaterialTeal";
+            examGridView.UserDeletingRow += examGridView_UserDeletingRow;
             // 
             // documentContainer1
             // 
@@ -134,7 +136,7 @@
             documentTabStrip1.RootElement.MinSize = new Size(25, 25);
             documentTabStrip1.RootElement.UseDefaultDisabledPaint = true;
             documentTabStrip1.SelectedIndex = 0;
-            documentTabStrip1.Size = new Size(910, 569);
+            documentTabStrip1.Size = new Size(920, 579);
             documentTabStrip1.TabIndex = 0;
             documentTabStrip1.TabStop = false;
             documentTabStrip1.TabStripVisible = false;
@@ -145,14 +147,14 @@
             toolTabStrip1.CanUpdateChildIndex = true;
             toolTabStrip1.CausesValidation = false;
             toolTabStrip1.Controls.Add(toolWindow1);
-            toolTabStrip1.Location = new Point(923, 5);
+            toolTabStrip1.Location = new Point(928, 0);
             toolTabStrip1.Name = "toolTabStrip1";
             // 
             // 
             // 
             toolTabStrip1.RootElement.MinSize = new Size(25, 25);
             toolTabStrip1.SelectedIndex = 0;
-            toolTabStrip1.Size = new Size(264, 569);
+            toolTabStrip1.Size = new Size(264, 579);
             toolTabStrip1.SizeInfo.AbsoluteSize = new Size(264, 200);
             toolTabStrip1.SizeInfo.SplitterCorrection = new Size(64, 0);
             toolTabStrip1.TabIndex = 1;
@@ -167,7 +169,7 @@
             toolWindow1.Location = new Point(4, 52);
             toolWindow1.Name = "toolWindow1";
             toolWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            toolWindow1.Size = new Size(256, 513);
+            toolWindow1.Size = new Size(256, 523);
             toolWindow1.Text = "Thông Tin Chi Tiết";
             toolWindow1.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 

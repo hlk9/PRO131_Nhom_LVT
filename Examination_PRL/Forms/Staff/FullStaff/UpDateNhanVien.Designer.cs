@@ -45,7 +45,7 @@
             radLabel2 = new Telerik.WinControls.UI.RadLabel();
             toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             toolWindow2 = new Telerik.WinControls.UI.Docking.ToolWindow();
-            radDropDownList1 = new Telerik.WinControls.UI.RadDropDownList();
+            dropdownStatus = new Telerik.WinControls.UI.RadDropDownList();
             radBtnUpDate = new Telerik.WinControls.UI.RadButton();
             radLabel1 = new Telerik.WinControls.UI.RadLabel();
             documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
@@ -71,7 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)toolTabStrip1).BeginInit();
             toolTabStrip1.SuspendLayout();
             toolWindow2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)radDropDownList1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dropdownStatus).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radBtnUpDate).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)documentTabStrip1).BeginInit();
@@ -255,7 +255,7 @@
             // 
             toolWindow2.AutoScroll = true;
             toolWindow2.Caption = null;
-            toolWindow2.Controls.Add(radDropDownList1);
+            toolWindow2.Controls.Add(dropdownStatus);
             toolWindow2.Controls.Add(radBtnUpDate);
             toolWindow2.Controls.Add(radLabel1);
             toolWindow2.Controls.Add(radTxtPhone);
@@ -281,16 +281,14 @@
             toolWindow2.Text = "Sửa Thí Sinh Chi Tiết";
             toolWindow2.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
-            // radDropDownList1
+            // dropdownStatus
             // 
-            radDropDownList1.DropDownAnimationEnabled = true;
-            radDropDownList1.Location = new Point(3, 434);
-            radDropDownList1.Name = "radDropDownList1";
-            radDropDownList1.Size = new Size(326, 37);
-            radDropDownList1.TabIndex = 14;
-            radDropDownList1.Text = "radDropDownList1";
-            radDropDownList1.ThemeName = "MaterialTeal";
-            radDropDownList1.SelectedIndexChanged += radDropDownList1_SelectedIndexChanged;
+            dropdownStatus.DropDownAnimationEnabled = true;
+            dropdownStatus.Location = new Point(3, 434);
+            dropdownStatus.Name = "dropdownStatus";
+            dropdownStatus.Size = new Size(326, 37);
+            dropdownStatus.TabIndex = 14;
+            dropdownStatus.ThemeName = "MaterialTeal";
             // 
             // radBtnUpDate
             // 
@@ -434,7 +432,7 @@
             toolTabStrip1.ResumeLayout(false);
             toolWindow2.ResumeLayout(false);
             toolWindow2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)radDropDownList1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dropdownStatus).EndInit();
             ((System.ComponentModel.ISupportInitialize)radBtnUpDate).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).EndInit();
             ((System.ComponentModel.ISupportInitialize)documentTabStrip1).EndInit();
@@ -476,6 +474,6 @@
         private Telerik.WinControls.Themes.MaterialTealTheme materialTealTheme1;
         private Telerik.WinControls.UI.RadLabel radLabel1;
         private Telerik.WinControls.UI.RadButton radBtnUpDate;
-        private Telerik.WinControls.UI.RadDropDownList radDropDownList1;
+        private Telerik.WinControls.UI.RadDropDownList dropdownStatus;
     }
 }
