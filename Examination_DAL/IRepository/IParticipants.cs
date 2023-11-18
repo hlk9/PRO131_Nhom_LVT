@@ -10,13 +10,5 @@ namespace Examination_DAL.IRepository
     internal interface IParticipants
     {
         List<Participant> GetAll();
-
-        List<Participant> getStudentRemove();
-
-        bool addStudent(Participant par);
-
-        bool updateSutudent(Participant par);
-
-        bool deleteStudents(Participant par);
     }
 }

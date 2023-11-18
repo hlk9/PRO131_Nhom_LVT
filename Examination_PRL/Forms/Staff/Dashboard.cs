@@ -1,5 +1,4 @@
 ﻿using Examination_PRL.Forms.Staff.Exam;
-using Examination_PRL.Forms.Staff.Home;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,7 +24,7 @@ namespace Examination_PRL.Forms.Staff
 
 
             RadPageViewPage homePage = new RadPageViewPage("Trang chủ");
-            
+
             //RadSvgImage homeIcon;
             //homeIcon = RadSvgImage.Deserialize(File.ReadAllText(@"C:\Users\hlk\Downloads\icons\home.svg"));
             //Size iconSize = homeIcon.Size;
