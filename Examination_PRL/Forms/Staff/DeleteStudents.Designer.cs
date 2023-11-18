@@ -31,10 +31,17 @@
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             examGridView = new Telerik.WinControls.UI.RadGridView();
+            ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             ((System.ComponentModel.ISupportInitialize)examGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)examGridView.MasterTemplate).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
+            // 
+            // DeleteStudents
+            // 
+            AutoScaleBaseSize = new Size(7, 15);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 500);
             // 
             // examGridView
             // 
@@ -53,13 +60,8 @@
             examGridView.Size = new Size(800, 500);
             examGridView.TabIndex = 0;
             examGridView.ThemeName = "MaterialTeal";
-            // 
-            // DeleteStudents
-            // 
-            AutoScaleBaseSize = new Size(7, 15);
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 500);
+            examGridView.UserDeletingRow += examGridView_UserDeletingRow;
+            examGridView.ContextMenuOpening += examGridView_ContextMenuOpening;
             Controls.Add(examGridView);
             FormBorderStyle = FormBorderStyle.None;
             Name = "DeleteStudents";
