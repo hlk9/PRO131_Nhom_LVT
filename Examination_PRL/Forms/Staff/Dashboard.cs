@@ -1,4 +1,5 @@
 ﻿using Examination_PRL.Forms.Staff.Exam;
+using Examination_PRL.Forms.Staff.QuestionForm;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -61,7 +62,7 @@ namespace Examination_PRL.Forms.Staff
             UpdateStudents updateStudents = new UpdateStudents();
             updateStudents.TopLevel = false;
             editStudentPage.Controls.Add(updateStudents);
-            updateStudents.Show();  
+            updateStudents.Show();
             updateStudents.Dock = DockStyle.Fill;
 
             RadPageViewPage deleteStudentPage = new RadPageViewPage("Xóa thí sinh");
@@ -97,11 +98,13 @@ namespace Examination_PRL.Forms.Staff
             examPage.SubPages.Add(deleteExamPage);
 
             RadPageViewPage questionPage = new RadPageViewPage("Câu hỏi");
-            RadPageViewPage addQuestionPage = new RadPageViewPage("Thêm câu hỏi");
-            RadPageViewPage editQuestionPage = new RadPageViewPage("Sửa câu hỏi");
+            RadPageViewPage importQuestion = new RadPageViewPage("Import Câu hỏi");
+            RadPageViewPage importAnswer = new RadPageViewPage("Import đáp án");
             RadPageViewPage deleteQuestionPage = new RadPageViewPage("Xóa câu hỏi");
-            questionPage.SubPages.Add(addQuestionPage);
-            questionPage.SubPages.Add(editQuestionPage);
+
+            importQuestion.Click += AddQuestionPage_Click;
+            questionPage.SubPages.Add(importQuestion);
+            questionPage.SubPages.Add(importAnswer);
             questionPage.SubPages.Add(deleteQuestionPage);
 
 
@@ -111,6 +114,11 @@ namespace Examination_PRL.Forms.Staff
             subjectPage.Controls.Add(subject);
             subject.Show();
             subject.Dock = DockStyle.Fill;
+
+
+            RadPageViewPage classRoom = new RadPageViewPage("Lớp"); //xem danh sách lớp
+
+
 
             RadPageViewPage roomPage = new RadPageViewPage("Phòng thi"); //xem danh sách phòng thi
             Room room = new Room();
@@ -135,15 +143,15 @@ namespace Examination_PRL.Forms.Staff
 
             RadPageViewPage editStaffPage = new RadPageViewPage("Sửa nhân viên");
             UpDateNhanVien upDateNhanViens = new UpDateNhanVien();
-            upDateNhanViens.TopLevel= false;
+            upDateNhanViens.TopLevel = false;
             editStaffPage.Controls.Add(upDateNhanViens);
             upDateNhanViens.Show();
-            upDateNhanViens.Dock = DockStyle .Fill;
+            upDateNhanViens.Dock = DockStyle.Fill;
 
             RadPageViewPage deleteStaffPage = new RadPageViewPage("Xóa nhân viên");
             RemoveNhanVien removeNhanViens = new RemoveNhanVien();
-            removeNhanViens.TopLevel= false;
-            deleteStaffPage.Controls .Add(removeNhanViens);
+            removeNhanViens.TopLevel = false;
+            deleteStaffPage.Controls.Add(removeNhanViens);
             removeNhanViens.Show();
             removeNhanViens.Dock = DockStyle.Fill;
 
@@ -177,17 +185,22 @@ namespace Examination_PRL.Forms.Staff
             pvDashboard.Pages.Add(examPage);
             pvDashboard.Pages.Add(subjectPage);
             pvDashboard.Pages.Add(roomPage);
+            pvDashboard.Pages.Add(classRoom);
             pvDashboard.Pages.Add(staffPage);
             pvDashboard.Pages.Add(resultPage);
             pvDashboard.Pages.Add(reportPage);
             pvDashboard.Pages.Add(questionPage);
+         
+
 
             pvDashboard.AutoScroll = true;
 
         }
 
-
-
-
+        private void AddQuestionPage_Click(object? sender, EventArgs e)
+        {
+            AddQuestion addQuestion = new AddQuestion();
+            addQuestion.ShowDialog();
+        }
     }
 }
