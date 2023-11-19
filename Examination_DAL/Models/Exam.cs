@@ -26,7 +26,7 @@ namespace Examination_DAL.Models
         [AllowNull]
         public string?  SubjectId { get; set; }
         [ForeignKey("SubjectId")]
-        public virtual Subject Subject { get; set; }
+        public virtual Subject? Subject { get; set; }
 
         public virtual ICollection<ExamDetail> ExamDetails { get; set; }
 

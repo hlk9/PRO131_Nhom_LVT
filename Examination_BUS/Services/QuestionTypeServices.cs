@@ -27,11 +27,11 @@ namespace Examination_BUS.Services
         }
 
         public IEnumerable<QuestionType> GetAll()
-        {
+        { 
             return questionTypeRepository.GetAll();
         }
 
-        public QuestionType GetById(int id)
+        public QuestionType GetById(byte id)
         {
             return questionTypeRepository.GetById(id);
         }
@@ -40,10 +40,11 @@ namespace Examination_BUS.Services
         {
             return questionTypeRepository.Update(questionType);
         }
-        public string GetQuestionTypeNameById(int id)
+        public string GetQuestionTypeNameById(byte id)
         {
             return questionTypeRepository.GetById(id).Name;
         }
+       
 
       
 

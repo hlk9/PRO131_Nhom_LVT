@@ -64,10 +64,10 @@ namespace Examination_BUS.Services
         public QuestionWithAnswerViewModel GetQuestionWithAnswer(int id)
         {
             var answerData = (from q in questionRepository.GetAllQuestions()
-                       join a in answerRepository.GetAllAnswers()
-                       on q.Id equals a.QuestionId
-                       where q.Id == id
-                       select a).ToList();
+                              join a in answerRepository.GetAllAnswers()
+                              on q.Id equals a.QuestionId
+                              where q.Id == id
+                              select a).ToList();
 
             var questionData = questionRepository.GetQuestionById(id);
             QuestionWithAnswerViewModel questionWithAnswerViewModel = new QuestionWithAnswerViewModel();
@@ -82,6 +82,94 @@ namespace Examination_BUS.Services
             questionWithAnswerViewModel.Answers = answerData;
             return questionWithAnswerViewModel;
 
+
+        }
+        public List<QuestionWithAnswerViewModel> GetListQuestionWithLevel(byte? level)
+        {
+
+            var data = from ojb in questionRepository.GetAllQuestions()
+                       where ojb.QuestionLevelId == level
+                       select new QuestionWithAnswerViewModel
+                       {
+                           Id = ojb.Id,
+                           Content = ojb.Content,
+                           Point = ojb.Point,
+                           QuestionType = ojb.QuestionTypeId,
+                           QuestionLevel = ojb.QuestionLevelId,
+                           Subject = ojb.SubjectId,
+                           Docs = ojb.Docs,
+                           Status = ojb.Status,
+                           Answers = (from a in answerRepository.GetAllAnswers()
+                                      where a.QuestionId == ojb.Id
+                                      select a).ToList()
+                       };
+            return data.ToList();
+
+
+        }
+        public List<QuestionWithAnswerViewModel> GetListQuestionWithSubject(string subject)
+        {
+
+            var data = from ojb in questionRepository.GetAllQuestions()
+                       where ojb.SubjectId == subject
+                       select new QuestionWithAnswerViewModel
+                       {
+                           Id = ojb.Id,
+                           Content = ojb.Content,
+                           Point = ojb.Point,
+                           QuestionType = ojb.QuestionTypeId,
+                           QuestionLevel = ojb.QuestionLevelId,
+                           Subject = ojb.SubjectId,
+                           Docs = ojb.Docs,
+                           Status = ojb.Status,
+                           Answers = (from a in answerRepository.GetAllAnswers()
+                                      where a.QuestionId == ojb.Id
+                                      select a).ToList()
+                       };
+            return data.ToList();
+        }
+
+        public List<QuestionWithAnswerViewModel> GetListQuestionWithType(byte? type)
+        {
+            var data = from ojb in questionRepository.GetAllQuestions()
+                       where ojb.QuestionTypeId == type
+                       select new QuestionWithAnswerViewModel
+                       {
+                           Id = ojb.Id,
+                           Content = ojb.Content,
+                           Point = ojb.Point,
+                           QuestionType = ojb.QuestionTypeId,
+                           QuestionLevel = ojb.QuestionLevelId,
+                           Subject = ojb.SubjectId,
+                           Docs = ojb.Docs,
+                           Status = ojb.Status,
+                           Answers = (from a in answerRepository.GetAllAnswers()
+                                      where a.QuestionId == ojb.Id
+                                      select a).ToList()
+                       };
+            return data.ToList();
+
+        }
+
+        public List<QuestionWithAnswerViewModel> GetListQuestionWithTypeAndLevel(byte? type, byte? level)
+        {
+            var data = from ojb in questionRepository.GetAllQuestions()
+                       where ojb.QuestionTypeId == type && ojb.QuestionLevelId == level
+                       select new QuestionWithAnswerViewModel
+                       {
+                           Id = ojb.Id,
+                           Content = ojb.Content,
+                           Point = ojb.Point,
+                           QuestionType = ojb.QuestionTypeId,
+                           QuestionLevel = ojb.QuestionLevelId,
+                           Subject = ojb.SubjectId,
+                           Docs = ojb.Docs,
+                           Status = ojb.Status,
+                           Answers = (from a in answerRepository.GetAllAnswers()
+                                      where a.QuestionId == ojb.Id
+                                      select a).ToList()
+                       };
+            return data.ToList();
 
         }
 

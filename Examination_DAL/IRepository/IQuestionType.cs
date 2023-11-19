@@ -10,7 +10,7 @@ namespace Examination_DAL.IRepository
     public interface IQuestionType
     {
         public IEnumerable<QuestionType> GetAll();
-        public QuestionType GetById(int id);
+        public QuestionType GetById(byte id);
         public bool Add(QuestionType questionType);
         public bool Update(QuestionType questionType);
         public bool DeleteById(int id);

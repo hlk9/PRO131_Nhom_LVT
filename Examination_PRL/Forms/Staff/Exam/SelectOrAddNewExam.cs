@@ -15,9 +15,9 @@ namespace Examination_PRL.Forms.Staff.Exam
     public partial class SelectOrAddNewExam : Telerik.WinControls.UI.RadForm
     {
         ExamServices examServices = new ExamServices();
-        string curentExamCode = "";
+        public string curentExamCode = "";
         int currentExamId = -1;
-
+     
         public SelectOrAddNewExam()
         {
             InitializeComponent();
@@ -46,7 +46,22 @@ namespace Examination_PRL.Forms.Staff.Exam
             RadMenuItem deleteItem = new RadMenuItem("Xoá bài thi này");
             deleteItem.Click += DeleteItem_Click;
             e.ContextMenu.Items.Add(deleteItem);
+          
+            e.ContextMenu.Items.Add(separator);
 
+            RadMenuItem selectThis = new RadMenuItem("Chọn bài thi này");
+            selectThis.Click += SelectThis_Click;
+            e.ContextMenu.Items.Add(selectThis);
+            selectThis.ForeColor = Color.DarkViolet;
+
+
+        }
+
+        private void SelectThis_Click(object? sender, EventArgs e)
+        {
+         
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void DeleteItem_Click(object? sender, EventArgs e)
