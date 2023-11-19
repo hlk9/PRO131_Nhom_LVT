@@ -16,7 +16,7 @@ namespace Examination_PRL.Forms.Staff.QuestionForm
 
         QuestionServices questionServices = new QuestionServices();
         QuestionLevelService levelService = new QuestionLevelService();
-
+        int currentQuestionId = -1;
         QuestionTypeServices questionTypeServices = new QuestionTypeServices();
         public QuestionOverview()
         {
@@ -25,7 +25,7 @@ namespace Examination_PRL.Forms.Staff.QuestionForm
         }
         void LoadData()
         {
-            
+
             questionGridView.ColumnCount = 7;
 
             int stt = 1;
@@ -51,6 +51,32 @@ namespace Examination_PRL.Forms.Staff.QuestionForm
             lblTotal.Text = questionGridView.Rows.Count.ToString();
         }
 
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            AddQuestion addQuestion = new AddQuestion();
+            addQuestion.ShowDialog();
+        }
 
+        private void questionGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                currentQuestionId = Convert.ToInt32(questionGridView.CurrentRow.Cells[1].Value);
+                Question q =  questionServices.GetQuestionById(currentQuestionId);
+                lblCreatedBy.Text = q.CreatedBy;
+                lblCreateTime.Text = q.CreatedTime.ToString();
+                lblID.Text = q.Id.ToString();
+                lblLevel.Text = levelService.GetById(Convert.ToByte(q.QuestionLevelId)).Name;
+                lblSubjectCode.Text = q.SubjectId.ToString();
+                lblQType.Text = questionTypeServices.GetById(Convert.ToByte(q.QuestionTypeId)).Name;
+                lblStatus.Text = q.Status.ToString();
+                lblAnswerCount.Text = questionServices.GetQuestionWithAnswer(currentQuestionId).Answers.Count.ToString();
+
+            }
+            catch (Exception)
+            {
+                currentQuestionId = -1;
+            }
+        }
     }
 }
