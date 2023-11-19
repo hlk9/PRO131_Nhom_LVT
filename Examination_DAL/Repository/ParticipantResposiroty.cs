@@ -18,9 +18,24 @@ namespace Examination_DAL.Repository
             
         }
 
+        public bool createStudents(Participant par)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool deleteStudents(Participant par)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Participant> GetAll()
         {
            return _context.Participants.ToList();
+        }
+
+        public bool updateStudents(Participant par)
+        {
+            throw new NotImplementedException();
         }
     }
 }
