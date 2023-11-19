@@ -9,11 +9,12 @@ namespace Examination_DAL.IRepository
 {
     internal interface IClassroom
     {
-        IEnumerable<Classroom>  GetClassrooms();
-        List<Classroom> GetClassByName(string name);
-        bool CreateClass(Classroom room);
-        bool UpdateClass(Classroom room);
-        bool DeleteClass(string ID);
+        List<Classroom>  GetClassrooms();
 
+        bool CreateClass(Classroom room);
+
+        bool UpdateClass(Classroom room);
+
+        bool DeleteClass(Classroom room);
     }
 }
