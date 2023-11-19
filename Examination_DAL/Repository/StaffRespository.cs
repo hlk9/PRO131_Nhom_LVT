@@ -17,7 +17,16 @@ namespace Examination_DAL.Repository
         }
         public bool Add(Staff staff)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.Add(staff);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool Delete(int id)
