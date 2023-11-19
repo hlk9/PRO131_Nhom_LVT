@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             radDock1 = new Telerik.WinControls.UI.Docking.RadDock();
             toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
@@ -126,7 +126,7 @@
             examRoomGridView.MasterTemplate.AllowSearchRow = true;
             examRoomGridView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             examRoomGridView.MasterTemplate.EnablePaging = true;
-            examRoomGridView.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            examRoomGridView.MasterTemplate.ViewDefinition = tableViewDefinition1;
             examRoomGridView.Name = "examRoomGridView";
             examRoomGridView.Size = new Size(640, 687);
             examRoomGridView.TabIndex = 0;
@@ -231,6 +231,7 @@
             // 
             // radBtnAdd
             // 
+            radBtnAdd.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radBtnAdd.BackColor = Color.Teal;
             radBtnAdd.ForeColor = Color.White;
             radBtnAdd.Location = new Point(3, 512);
@@ -243,6 +244,7 @@
             // 
             // radBtnUpdate
             // 
+            radBtnUpdate.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radBtnUpdate.BackColor = Color.Teal;
             radBtnUpdate.ForeColor = Color.White;
             radBtnUpdate.Location = new Point(3, 572);
@@ -255,6 +257,7 @@
             // 
             // radTxtNote
             // 
+            radTxtNote.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radTxtNote.Location = new Point(3, 310);
             radTxtNote.Name = "radTxtNote";
             radTxtNote.Size = new Size(387, 37);
@@ -263,6 +266,7 @@
             // 
             // radLabel6
             // 
+            radLabel6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radLabel6.Location = new Point(3, 353);
             radLabel6.Name = "radLabel6";
             radLabel6.Size = new Size(77, 21);
@@ -272,6 +276,7 @@
             // 
             // radLabel5
             // 
+            radLabel5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radLabel5.Location = new Point(3, 283);
             radLabel5.Name = "radLabel5";
             radLabel5.Size = new Size(58, 21);
@@ -281,6 +286,7 @@
             // 
             // radTxtCapacity
             // 
+            radTxtCapacity.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radTxtCapacity.Location = new Point(3, 240);
             radTxtCapacity.Name = "radTxtCapacity";
             radTxtCapacity.Size = new Size(387, 37);
@@ -289,6 +295,7 @@
             // 
             // radTxtAddress
             // 
+            radTxtAddress.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radTxtAddress.Location = new Point(3, 170);
             radTxtAddress.Name = "radTxtAddress";
             radTxtAddress.Size = new Size(387, 37);
@@ -297,6 +304,7 @@
             // 
             // radLabel4
             // 
+            radLabel4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radLabel4.Location = new Point(3, 213);
             radLabel4.Name = "radLabel4";
             radLabel4.Size = new Size(70, 21);
@@ -306,6 +314,7 @@
             // 
             // radTxtName
             // 
+            radTxtName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radTxtName.Location = new Point(3, 100);
             radTxtName.Name = "radTxtName";
             radTxtName.Size = new Size(387, 37);
@@ -314,6 +323,7 @@
             // 
             // radLabel3
             // 
+            radLabel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radLabel3.Location = new Point(3, 143);
             radLabel3.Name = "radLabel3";
             radLabel3.Size = new Size(53, 21);
@@ -324,6 +334,7 @@
             // 
             // radTxtId
             // 
+            radTxtId.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radTxtId.Location = new Point(3, 30);
             radTxtId.Name = "radTxtId";
             radTxtId.Size = new Size(387, 37);
@@ -332,6 +343,7 @@
             // 
             // radLabel2
             // 
+            radLabel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radLabel2.Location = new Point(3, 73);
             radLabel2.Name = "radLabel2";
             radLabel2.Size = new Size(101, 21);
@@ -341,6 +353,7 @@
             // 
             // radLabel1
             // 
+            radLabel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radLabel1.Location = new Point(3, 3);
             radLabel1.Name = "radLabel1";
             radLabel1.Size = new Size(97, 21);

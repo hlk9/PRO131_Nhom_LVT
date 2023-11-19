@@ -22,7 +22,7 @@ namespace Examination_PRL.Forms.Staff
         public Room()
         {
             InitializeComponent();
-
+            LoadData();
         }
 
         public void LoadData()
@@ -81,6 +81,8 @@ namespace Examination_PRL.Forms.Staff
             {
                 MessageBox.Show("Thêm Thất Bại");
             }
+
+            LoadData();
         }
 
         private void radBtnUpdate_Click(object sender, EventArgs e)
@@ -131,14 +133,12 @@ namespace Examination_PRL.Forms.Staff
             {
                 radBtnFalse.IsChecked = true;
             }
-
-            LoadData();
         }
 
         private void dtg_Show_ContextMenuOpening(object sender, ContextMenuOpeningEventArgs e)
         {
             RadMenuItem deleteExamRoom = new RadMenuItem("Xoá phòng thi này");
-            deleteExamRoom.Click += DeleteItem_Click; ;
+            deleteExamRoom.Click += DeleteItem_Click; 
             e.ContextMenu.Items.Add(deleteExamRoom);
 
             RadMenuItem restoreExamRoom = new RadMenuItem("Khôi phục phòng thi");
@@ -148,7 +148,10 @@ namespace Examination_PRL.Forms.Staff
 
         private void Restore_Click(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            RestoreExamRoom room = new RestoreExamRoom();
+            room.ShowDialog();
+
+            LoadData();
         }
 
         private void DeleteItem_Click(object? sender, EventArgs e)
