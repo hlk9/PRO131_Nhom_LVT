@@ -44,7 +44,7 @@ namespace Examination_DAL.Repository
             return dbContext.QuestionTypes.ToList();
         }
 
-        public QuestionType GetById(int id)
+        public QuestionType GetById(byte id)
         {
             return dbContext.QuestionTypes.Find(id);
         }

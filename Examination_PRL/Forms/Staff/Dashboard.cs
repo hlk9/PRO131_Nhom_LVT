@@ -98,14 +98,12 @@ namespace Examination_PRL.Forms.Staff
             examPage.SubPages.Add(deleteExamPage);
 
             RadPageViewPage questionPage = new RadPageViewPage("Câu hỏi");
-            RadPageViewPage importQuestion = new RadPageViewPage("Import Câu hỏi");
-            RadPageViewPage importAnswer = new RadPageViewPage("Import đáp án");
-            RadPageViewPage deleteQuestionPage = new RadPageViewPage("Xóa câu hỏi");
+            QuestionOverview questionOverview = new QuestionOverview();
+            questionOverview.TopLevel = false;
+            questionPage.Controls.Add(questionOverview);
+            questionOverview.Show();
+            questionOverview.Dock = DockStyle.Fill;
 
-            importQuestion.Click += AddQuestionPage_Click;
-            questionPage.SubPages.Add(importQuestion);
-            questionPage.SubPages.Add(importAnswer);
-            questionPage.SubPages.Add(deleteQuestionPage);
 
 
             RadPageViewPage subjectPage = new RadPageViewPage("Môn"); //xem danh sách môn       

@@ -133,9 +133,9 @@ namespace Examination_PRL.Forms.Staff
 
         private void btnViewDetail_Click(object sender, EventArgs e)
         {
-            if(curentExamDetailCode!="" && examGridView.SelectedRows.Count>0)
+            if (curentExamDetailCode != "" && examGridView.SelectedRows.Count > 0)
             {
-                int examDetailId =Convert.ToInt32( examGridView.Rows[examGridView.SelectedRows[0].Index].Cells[1].Value);
+                int examDetailId = Convert.ToInt32(examGridView.Rows[examGridView.SelectedRows[0].Index].Cells[1].Value);
                 ViewOneExam oneExam = new ViewOneExam(examDetailId);
                 oneExam.ShowDialog();
             }

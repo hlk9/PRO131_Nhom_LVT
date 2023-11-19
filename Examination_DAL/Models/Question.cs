@@ -13,7 +13,7 @@ namespace Examination_DAL.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column(Order = 1)]
+        [Column(Order = 1)]       
         public int Id { get; set; }
 
         [Required]

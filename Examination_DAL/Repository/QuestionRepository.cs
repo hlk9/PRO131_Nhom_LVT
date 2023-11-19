@@ -19,7 +19,10 @@ namespace Examination_DAL.Repository
         }
         public bool AddQuestion(Question question)
         {
-            throw new NotImplementedException();
+            _context.Questions.Add(question);
+            _context.SaveChanges();
+            return true;
+
         }
 
         public bool DeleteQuestion(int questionId)

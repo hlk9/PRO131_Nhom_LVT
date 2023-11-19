@@ -48,13 +48,13 @@ namespace Examination_DAL.Models
         public string? ClassroomId { get; set; }
         [ForeignKey("ClassroomId")]
         [Column(Order = 2, TypeName = "NVARCHAR")]
-        public virtual Classroom Classroom { get; set; }
+        public virtual Classroom? Classroom { get; set; }
 
         [AllowNull]
         public string? AccountId { get; set; }
-        [ForeignKey("Id")]
+        [ForeignKey("AccountId")]
         [Column(Order = 3, TypeName = "NVARCHAR")]
-        public virtual Account Account { get; set; }
+        public virtual Account? Account { get; set; }
 
         public virtual ICollection<ExamScheduleDetail> ExamScheduleDetails { get; set;}
         public virtual ICollection<ExamResponse> ExamResponses { get; set;}
