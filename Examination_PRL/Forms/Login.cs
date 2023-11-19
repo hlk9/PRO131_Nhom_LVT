@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Examination_BUS.Services;
+using Examination_DAL.Models;
+using Examination_PRL.Forms.Participant;
+using Examination_PRL.Forms.Staff;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,9 +15,62 @@ namespace Examination_PRL.Forms
 {
     public partial class Login : Telerik.WinControls.UI.RadForm
     {
+        UserPermissionServices userPermissionServices = new UserPermissionServices();
+        AccountServices accountServices = new AccountServices();
         public Login()
         {
             InitializeComponent();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if(txtPassword.Text=="" || txtUserName.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+                return;
+            }
+            else
+            {
+                Account account = new Account();
+                account = accountServices.GetAccountById(txtUserName.Text);
+                if (account != null)
+                {
+                    if (account.Password != txtPassword.Text)
+                    {
+                        MessageBox.Show("Sai mật khẩu");
+                        return;
+                    }
+
+
+                    List<UserPermission> userPermissions = new List<UserPermission>();
+                    userPermissions = userPermissionServices.GetUserPermissionByAccountID(account.Id);
+
+                    foreach(var item in userPermissions)
+                    {
+                        if(item.PermissionId==1)
+                        {
+                            Dashboard dashboard = new Dashboard();
+                            dashboard.FormClosed += Dashboard_FormClosed;
+                            dashboard.Show();
+                            this.Hide();
+                            return;
+                        }    
+                    }    
+
+                    Dashboard_P dashboard_P = new Dashboard_P();
+                    dashboard_P.FormClosed += Dashboard_FormClosed;
+                    dashboard_P.Show();
+                    this.Hide();
+                    return;
+
+                }    
+
+            }    
+        }
+
+        private void Dashboard_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+           Application.Exit();
         }
     }
 }
