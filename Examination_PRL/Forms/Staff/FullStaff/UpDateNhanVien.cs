@@ -86,13 +86,12 @@ namespace Examination_PRL
             string email = radTxtEmail.Text;
             string phone = radTxtPhone.Text;
             string address = radTxtAdress.Text;
-            byte status = 0; // Default to inactive
+            byte status = 0; 
             string selectedStatus = dropdownStatus.SelectedItem.Text;
 
-            // Map status based on the selected item
             if (selectedStatus != null && selectedStatus.StartsWith("Kích Hoạt"))
             {
-                status = 1; // Set to active
+                status = 1; 
             }
             if (_service.UpDateStaff(id, name, sex, ngaysinh, email, phone, address, status))
             {
@@ -105,32 +104,11 @@ namespace Examination_PRL
             LoadData();
         }
 
-        private void radDropDownList1_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
-        {
-            List<string> itemsToAdd = new List<string>
-            {
-                "Kích Hoạt",
-                "Vô Hiệu Hóa",
-                // Add more items as needed
-            };
-
-            // Clear existing items in the RadDropDownList (optional)
-            dropdownStatus.Items.Clear();
-
-            // Add the new items
-            dropdownStatus.Items.AddRange(itemsToAdd.ToArray());
-
-            // If you want to select the first item by default
-            if (dropdownStatus.Items.Count > 0)
-            {
-                dropdownStatus.SelectedIndex = 0;
-            }
-        }
         public void LoadDropDown()
         {
             dropdownStatus.Items.Add("Vô Hiệu Hóa");
             dropdownStatus.Items.Add("Kích Hoạt");
-
+            dropdownStatus.SelectedIndex = 0;
         }
     }
 }
