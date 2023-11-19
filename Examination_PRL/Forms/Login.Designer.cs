@@ -35,11 +35,11 @@
             label3 = new Label();
             txtPassword = new Telerik.WinControls.UI.RadTextBox();
             lblForgot = new Label();
-            radButton1 = new Telerik.WinControls.UI.RadButton();
+            btnLogin = new Telerik.WinControls.UI.RadButton();
             radButton2 = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)txtUserName).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtPassword).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radButton1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnLogin).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radButton2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
@@ -111,18 +111,19 @@
             lblForgot.TabIndex = 5;
             lblForgot.Text = "Quên mật khẩu?";
             // 
-            // radButton1
+            // btnLogin
             // 
-            radButton1.Anchor = AnchorStyles.None;
-            radButton1.BackColor = Color.Teal;
-            radButton1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            radButton1.ForeColor = Color.White;
-            radButton1.Location = new Point(277, 350);
-            radButton1.Name = "radButton1";
-            radButton1.Size = new Size(120, 36);
-            radButton1.TabIndex = 6;
-            radButton1.Text = "Đăng nhập";
-            radButton1.ThemeName = "MaterialTeal";
+            btnLogin.Anchor = AnchorStyles.None;
+            btnLogin.BackColor = Color.Teal;
+            btnLogin.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnLogin.ForeColor = Color.White;
+            btnLogin.Location = new Point(277, 350);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(120, 36);
+            btnLogin.TabIndex = 6;
+            btnLogin.Text = "Đăng nhập";
+            btnLogin.ThemeName = "MaterialTeal";
+            btnLogin.Click += btnLogin_Click;
             // 
             // radButton2
             // 
@@ -143,7 +144,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(783, 459);
             Controls.Add(radButton2);
-            Controls.Add(radButton1);
+            Controls.Add(btnLogin);
             Controls.Add(lblForgot);
             Controls.Add(txtPassword);
             Controls.Add(label3);
@@ -161,7 +162,7 @@
             ThemeName = "MaterialTeal";
             ((System.ComponentModel.ISupportInitialize)txtUserName).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtPassword).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radButton1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnLogin).EndInit();
             ((System.ComponentModel.ISupportInitialize)radButton2).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
@@ -177,7 +178,7 @@
         private Label label3;
         private Telerik.WinControls.UI.RadTextBox txtPassword;
         private Label lblForgot;
-        private Telerik.WinControls.UI.RadButton radButton1;
+        private Telerik.WinControls.UI.RadButton btnLogin;
         private Telerik.WinControls.UI.RadButton radButton2;
     }
 }
