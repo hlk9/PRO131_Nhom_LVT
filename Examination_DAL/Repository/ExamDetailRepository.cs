@@ -20,7 +20,16 @@ namespace Examination_DAL.Repository
 
         public bool Add(ExamDetail obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.ExamDetails.Add(obj);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool Delete(int id)

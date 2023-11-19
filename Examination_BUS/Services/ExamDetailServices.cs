@@ -62,6 +62,33 @@ namespace Examination_BUS.Services
             return data.ToList();
         }
 
+        public bool Add(ExamDetail examDetail)
+        {
+            return _examDetailRepos.Add(examDetail);
+        }
+
+        public bool Update(ExamDetail examDetail)
+        {
+            return _examDetailRepos.Update(examDetail);
+        }
+
+        public bool Delete(int id)
+        {
+            return _examDetailRepos.Delete(id);
+        }
+
+        public bool DeleteByCode(string code)
+        {
+            return _examDetailRepos.DeleteByCode(code);
+        }
+
+        public ExamDetail GetByExamDetailCode(string code)
+        {
+            return _examDetailRepos.GetByCode(code);
+        }
+
+
+
 
     }
 }

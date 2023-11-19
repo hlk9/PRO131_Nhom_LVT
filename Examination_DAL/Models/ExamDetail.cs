@@ -38,7 +38,7 @@ namespace Examination_DAL.Models
         public int TotalQuestion { get; set; }
 
         [Required]
-        public int MaxiumMark { get; set; }
+        public double MaxiumMark { get; set; }
 
         [AllowNull]
         public int? ReTestNumber { get; set; }

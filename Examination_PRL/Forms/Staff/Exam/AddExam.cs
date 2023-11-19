@@ -1,5 +1,6 @@
 ﻿using Examination_BUS.Services;
 using Examination_BUS.ViewModel;
+using Examination_DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,14 +21,17 @@ namespace Examination_PRL.Forms.Staff.Exam
         ExamServices examServices = new ExamServices();
         QuestionServices questionServices = new QuestionServices();
         AnswerServices answerServices = new AnswerServices();
-
         QuestionLevelService questionLevelService = new QuestionLevelService();
-        int currentGenerateQuestion = 1;
+        ExamDetailServices examDetailServices = new ExamDetailServices();
 
+        ExamQuestionServices examQuestionServices = new ExamQuestionServices();
+
+        int currentGenerateQuestion = 1;
         int pageViewWidth = -1;
         int pageViewHeight = -1;
-
-        List<int> CurrentQuestionList = new List<int>();
+        List<int> QuestionList = new List<int>();
+        int CurrentQuestionCount = 0;
+        int QuestionLimit = -1;
 
         public AddExam()
         {
@@ -63,6 +67,12 @@ namespace Examination_PRL.Forms.Staff.Exam
 
         public void AddQuestionToPage(int questionID)
         {
+
+            if (CurrentQuestionCount >= QuestionLimit)
+            {
+                MessageBox.Show("Số lượng câu hỏi đã đạt giới hạn");
+                return;
+            }
 
             QuestionWithAnswerViewModel question = questionServices.GetQuestionWithAnswer(questionID);
 
@@ -141,13 +151,15 @@ namespace Examination_PRL.Forms.Staff.Exam
             }
             pageViewQuestion.Controls.Add(pageQuestion);
             currentGenerateQuestion++;
+            CurrentQuestionCount++;
         }
 
         private void radButton1_Click(object sender, EventArgs e)
         {
             SelectOrAddNewExam selectOrAddNewExam = new SelectOrAddNewExam();
             selectOrAddNewExam.ShowDialog();
-            MessageBox.Show("Select: " + selectOrAddNewExam.curentExamCode);
+            MessageBox.Show("Select: " + selectOrAddNewExam.curentExamID);
+            lblExam.Text = selectOrAddNewExam.curentExamID.ToString();
 
         }
 
@@ -159,20 +171,39 @@ namespace Examination_PRL.Forms.Staff.Exam
 
 
         }
-        void ResizePageView(int width, int height)
-        {
 
-            pageViewQuestion.Height = height - 100;
-            pageViewQuestion.Width = width - 100;
-        }
 
         private void radButton2_Click(object sender, EventArgs e)
         {
+
+            try
+            {
+                if (txtQNumber.Text == "" || txtMaxScore.Text == "" || txtDuration.Text == "" || lblExam.Text == "")
+                {
+                    MessageBox.Show("Các trường yêu cầu không trống");
+                    return;
+                }
+            }
+            catch
+            {
+
+            }
+
+
+            try
+            {
+                QuestionLimit = Convert.ToInt32(txtQNumber.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Số lượng câu hỏi không hợp lệ");
+                QuestionLimit = -1;
+                return;
+            }
+
             byte questionType = Convert.ToByte(dropDownQuestionType.SelectedIndex + 1);
             byte questionLevel = Convert.ToByte(dropDownQuestionLevel.SelectedIndex + 1);
             int qNumber = Convert.ToInt32(txtCount.Text);
-
-
 
             List<QuestionWithAnswerViewModel> ListQuestionWithTypeAndLevel = questionServices.GetListQuestionWithTypeAndLevel(questionType, questionLevel);
 
@@ -189,7 +220,7 @@ namespace Examination_PRL.Forms.Staff.Exam
                     return;
                 }
 
-                if (CurrentQuestionList.Contains(ListQuestionWithTypeAndLevel[count].Id))
+                if (QuestionList.Contains(ListQuestionWithTypeAndLevel[count].Id))
                 {
                     i--;
                     offset++;
@@ -198,22 +229,71 @@ namespace Examination_PRL.Forms.Staff.Exam
                     continue;
                 }
 
-                CurrentQuestionList.Add(ListQuestionWithTypeAndLevel[count].Id);
-                //if (CurrentQuestionList.Contains(ListQuestionWithTypeAndLevel[i].Id))
-                //{
-                //    i--;
-                //    continue;
-                //}
-
+                QuestionList.Add(ListQuestionWithTypeAndLevel[count].Id);
                 AddQuestionToPage(ListQuestionWithTypeAndLevel[count].Id);
-
-
-
             }
 
 
 
 
+        }
+
+        private void btnAuto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (QuestionList.Count == 0 || QuestionList.Count < QuestionLimit)
+            {
+                MessageBox.Show("Số lượng câu hỏi không phù hợp");
+                return;
+            }
+            else
+            {
+
+                double scorePerQuestion = Convert.ToDouble(txtMaxScore.Text) / QuestionLimit;
+
+                ExamDetail examDetail = new ExamDetail();
+                examDetail.ExamId = Convert.ToInt32(lblExam.Text);
+                examDetail.Status = true;
+                examDetail.MaxiumMark = Convert.ToDouble(txtMaxScore.Text);
+                examDetail.Duration = Convert.ToInt32(txtDuration.Text);
+                examDetail.TotalQuestion = QuestionLimit;
+                examDetail.CreatedAt = DateTime.Now;
+                examDetail.UpdatedAt = null;
+                examDetail.CreatedBy = "admin";
+                examDetail.UpdatedBy = null;
+                examDetail.PassMark = 5;
+                examDetail.ReTestNumber = 4;
+                examDetail.ExamDetailCode = lblExamDetailCode.Text;
+
+                if (examDetailServices.Add(examDetail) == true)
+                {
+
+                    ExamDetail currentExamDetail = examDetailServices.GetByExamDetailCode(lblExamDetailCode.Text);
+
+                    if(currentExamDetail == null)
+                    {
+                        MessageBox.Show("Không tìm thấy đề thi");
+                        return;
+                    }
+
+                    foreach (var item in QuestionList)
+                    {
+                        ExamQuestion examQuestion = new ExamQuestion();
+                        examQuestion.ExamDetailId = currentExamDetail.Id;
+                        examQuestion.QuestionId = item;
+                        examQuestion.Score = scorePerQuestion;
+                        examQuestionServices.AddExamQuestion(examQuestion);
+
+                    }
+                }
+
+
+
+            }
         }
     }
 }
