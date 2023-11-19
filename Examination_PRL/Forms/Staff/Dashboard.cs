@@ -1,4 +1,5 @@
-﻿using Examination_PRL.Forms.Staff.Exam;
+﻿using Examination_PRL.Forms.Staff.ClassRoom;
+using Examination_PRL.Forms.Staff.Exam;
 using Examination_PRL.Forms.Staff.QuestionForm;
 using System;
 using System.Collections.Generic;
@@ -115,8 +116,11 @@ namespace Examination_PRL.Forms.Staff
 
 
             RadPageViewPage classRoom = new RadPageViewPage("Lớp"); //xem danh sách lớp
-
-
+            ClassRooms classRooms = new ClassRooms();
+            classRooms.TopLevel = false;
+            classRoom.Controls.Add(classRooms);
+            classRooms.Show();
+            classRooms.Dock = DockStyle.Fill;
 
             RadPageViewPage roomPage = new RadPageViewPage("Phòng thi"); //xem danh sách phòng thi
             Room room = new Room();

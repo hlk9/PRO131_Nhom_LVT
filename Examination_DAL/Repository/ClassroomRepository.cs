@@ -30,35 +30,29 @@ namespace Examination_DAL.Repository
                 _context.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            catch
             {
-
                 return false;
             }
         }
 
-        public bool DeleteClass(string ID)
+        public bool DeleteClass(Classroom room)
         {
             try
             {
-                var deleteItem = _context.Classrooms.Find(ID);
-                _context.Classrooms.Remove(deleteItem);
+                var dele = _context.Classrooms.Find(room.Id);
+
+                _context.Classrooms.Remove(dele);
                 _context.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            catch
             {
-
                 return false;
             }
         }
 
-        public List<Classroom> GetClassByName(string name)
-        {
-            return _context.Classrooms.Where(x=>x.Name.Contains(name)).ToList();
-        }
-
-        public IEnumerable<Classroom> GetClassrooms()
+        public List<Classroom> GetClassrooms()
         {
             return _context.Classrooms.ToList();
         }
@@ -67,16 +61,17 @@ namespace Examination_DAL.Repository
         {
             try
             {
-                var updateClass = _context.Classrooms.Find(room.Id);
-                updateClass.Name = room.Name;
-                updateClass.Id  = room.Id;
-                _context.Classrooms.Update(updateClass);
+                var update = _context.Classrooms.Find(room.Id);
+
+                update.Name = room.Name;
+                update.Id = room.Id;
+
+                _context.Classrooms.Update(update);
                 _context.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            catch
             {
-
                 return false;
             }
         }
