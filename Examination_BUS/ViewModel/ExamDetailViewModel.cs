@@ -23,7 +23,7 @@ namespace Examination_BUS.ViewModel
         public int Duration { get; set; }
         public double PassMark { get; set; }
         public int TotalQuestion { get; set; }
-        public int MaxiumMark { get; set; }
+        public double MaxiumMark { get; set; }
         public int? ReTestNumber { get; set; }
         public bool? Status { get; set; }
         public DateTime CreatedAt { get; set; }
