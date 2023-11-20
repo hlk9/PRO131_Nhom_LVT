@@ -59,23 +59,7 @@ namespace Examination_PRL.Forms.Staff
             addThiSinh.Show();
             addThiSinh.Dock = DockStyle.Fill;
 
-            RadPageViewPage editStudentPage = new RadPageViewPage("Sửa thí sinh");
-            UpdateStudents updateStudents = new UpdateStudents();
-            updateStudents.TopLevel = false;
-            editStudentPage.Controls.Add(updateStudents);
-            updateStudents.Show();
-            updateStudents.Dock = DockStyle.Fill;
-
-            RadPageViewPage deleteStudentPage = new RadPageViewPage("Xóa thí sinh");
-            DeleteStudents deleteStudents = new DeleteStudents();
-            deleteStudents.TopLevel = false;
-            deleteStudentPage.Controls.Add(deleteStudents);
-            deleteStudents.Show();
-            deleteStudents.Dock = DockStyle.Fill;
-
             studentPage.SubPages.Add(addStudentPage);
-            studentPage.SubPages.Add(editStudentPage);
-            studentPage.SubPages.Add(deleteStudentPage);
 
             RadPageViewPage examPage = new RadPageViewPage("Đề thi"); //xem danh sách đề thi
             Exam_Overview exam_Overview = new Exam_Overview();
