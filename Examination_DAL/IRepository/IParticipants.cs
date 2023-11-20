@@ -11,6 +11,8 @@ namespace Examination_DAL.IRepository
     {
         List<Participant> GetAll();
 
+        List<Participant> getAllRemove();
+
         bool createStudents(Participant par);
 
         bool updateStudents(Participant par);

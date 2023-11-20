@@ -14,36 +14,72 @@ namespace Examination_PRL.Forms.Staff
     {
         ParticipantService _ser = new ParticipantService();
 
+        string _idWhenClick;
+
         public StudentsList()
         {
             InitializeComponent();
+            radLblSum.Text = _ser.getAllStudents().Count.ToString();
+            radLblBoySum.Text = _ser.getAllStudents().Where(x => x.Gender == true).ToList().Count.ToString();
+            radLblGirlSum.Text = _ser.getAllStudents().Where(x => x.Gender == false).ToList().Count.ToString();
             LoadData();
         }
 
         public void LoadData()
         {
-            examGridView.ColumnCount = 7;
-            examGridView.Columns[0].HeaderText = "Mã Thí Sinh";
-            examGridView.Columns[1].HeaderText = "Tên Thí Sinh";
-            examGridView.Columns[2].HeaderText = "Giới Tính";
-            examGridView.Columns[3].HeaderText = "Ngày Sinh";
-            examGridView.Columns[4].HeaderText = "Số Điện Thoại";
-            examGridView.Columns[5].HeaderText = "Email";
-            examGridView.Columns[6].HeaderText = "Địa Chỉ";
+            int stt = 1;
+
+            examGridView.ColumnCount = 10;
+
+            examGridView.Columns[0].HeaderText = "STT";
+            examGridView.Columns[1].HeaderText = "Mã Thí Sinh";
+            examGridView.Columns[2].HeaderText = "Tên Thí Sinh";
+            examGridView.Columns[3].HeaderText = "Giới Tính";
+            examGridView.Columns[4].HeaderText = "Ngày Sinh";
+            examGridView.Columns[5].HeaderText = "Số Điện Thoại";
+            examGridView.Columns[6].HeaderText = "Email";
+            examGridView.Columns[7].HeaderText = "Địa Chỉ";
+            examGridView.Columns[8].HeaderText = "Mã Lớp";
+            examGridView.Columns[9].HeaderText = "Trạng Thái";
 
             foreach (var x in _ser.getAllStudents())
             {
-                examGridView.Rows.Add(x.Id, x.FullName, (x.Gender == true ? "Nam" : "Nữ"), x.DateOfBirth, x.PhoneNumber, x.Email, x.Address);
+                examGridView.Rows.Add(stt++, x.Id, x.FullName, (x.Gender == true ? "Nam" : "Nữ"), x.DateOfBirth, x.PhoneNumber, x.Email, x.Address, x.ClassroomId, x.Status == 1 ? "Hoạt Động" : "Không Hoạt Động");
             }
         }
 
-        private void examGridView_UserDeletingRow(object sender, Telerik.WinControls.UI.GridViewRowCancelEventArgs e)
+        private void examGridView_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
-            string id = examGridView.CurrentRow.Cells[0].Value.ToString();
-            MessageBox.Show("Ping" + id);
-            //get id current cell
+            _idWhenClick = examGridView.CurrentRow.Cells[1].Value.ToString();
 
+            var obj = _ser.getAllStudents().Where(x => x.Id == _idWhenClick).FirstOrDefault();
 
+            radLblId.Text = obj.Id;
+            radLblName.Text = obj.FullName;
+            radLblPhone.Text = obj.PhoneNumber;
+            radLblEmail.Text = obj.Email;
+            radLblAddress.Text = obj.Address;
+            radLblDateOfBirth.Text = obj.DateOfBirth.ToString();
+
+            if (obj.Gender == true)
+            {
+                radLblGender.Text = "Nam";
+            }
+            else
+            {
+                radLblGender.Text = "Nữ";
+            }
+
+            if (obj.Status == 1)
+            {
+                radLblStatus.Text = "Hoạt Động";
+            }
+            else
+            {
+                radLblStatus.Text = "Không Hoạt Động";
+            }
+
+            radLblClassId.Text = obj.ClassroomId;
         }
     }
 }

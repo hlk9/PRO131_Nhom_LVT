@@ -55,6 +55,11 @@ namespace Examination_DAL.Repository
            return _context.Participants.ToList();
         }
 
+        public List<Participant> getAllRemove()
+        {
+            return _context.Participants.Where(x => x.Status == 255).ToList();
+        }
+
         public bool updateStudents(Participant par)
         {
             try

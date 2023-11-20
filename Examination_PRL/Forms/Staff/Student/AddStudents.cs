@@ -1,5 +1,6 @@
 ﻿using Examination_BUS.Services;
 using Examination_DAL.Models;
+using Examination_PRL.Forms.Staff.Student;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
+using Telerik.WinControls.UI;
 
 namespace Examination_PRL.Forms
 {
@@ -17,6 +19,8 @@ namespace Examination_PRL.Forms
         ParticipantService _ser = new ParticipantService();
         ClassroomServices _serClass = new ClassroomServices();
         List<string> _lstClass = new List<string>();
+
+        string _idWhenClick;
 
         public AddStudents()
         {
@@ -57,7 +61,13 @@ namespace Examination_PRL.Forms
             {
                 examGridView.Rows.Add(stt++, x.Id, x.FullName, (x.Gender == true ? "Nam" : "Nữ"), x.DateOfBirth, x.PhoneNumber, x.Email, x.Address, x.ClassroomId, x.Status == 1 ? "Hoạt Động" : "Không Hoạt Động");
 
-
+                foreach (GridViewRowInfo rowInfo in examGridView.Rows)
+                {
+                    if (rowInfo.Cells[9].Value == "Không Hoạt Động")
+                    {
+                        rowInfo.IsVisible = false;
+                    }
+                }
             }
         }
 
@@ -69,7 +79,7 @@ namespace Examination_PRL.Forms
             string address = radTxtAddress.Text;
             string phone = radTxtPhoneNumber.Text;
             bool gender;
-            if(radBtnBoy.IsChecked == true)
+            if (radBtnBoy.IsChecked == true)
             {
                 gender = true;
             }
@@ -83,7 +93,7 @@ namespace Examination_PRL.Forms
             DateTime dateOfBirth = radDtpDateOfBirth.Value;
             string classRoomId = _lstClass[radDDClassId.SelectedIndex];
 
-            if(_ser.createStudents(id, name, address, email,  phone, gender, status, dateOfBirth, classRoomId))
+            if (_ser.createStudents(id, name, address, email, phone, gender, status, dateOfBirth, classRoomId))
             {
                 MessageBox.Show("Thêm Thành Công");
             }
@@ -92,6 +102,109 @@ namespace Examination_PRL.Forms
                 MessageBox.Show("Thêm Thất Bại");
             }
 
+            LoadData();
+        }
+
+        private void radBtnUpdate_Click(object sender, EventArgs e)
+        {
+            string id = _idWhenClick;
+            string name = radTxtName.Text;
+            string email = radTxtEmail.Text;
+            string address = radTxtAddress.Text;
+            string phone = radTxtPhoneNumber.Text;
+            bool gender;
+            if (radBtnBoy.IsChecked == true)
+            {
+                gender = true;
+            }
+            else
+            {
+                gender = false;
+            }
+            byte status = Convert.ToByte(_ser.getAllStudents().Where(x => x.Id == _idWhenClick).Select(x => x.Status).FirstOrDefault());
+            DateTime dateOfBirth = radDtpDateOfBirth.Value;
+            string classRoomId = _lstClass[radDDClassId.SelectedIndex];
+
+            if (_ser.updateStudents(id, name, address, email, phone, gender, status, dateOfBirth, classRoomId))
+            {
+                MessageBox.Show("Sửa Thành Công");
+            }
+            else
+            {
+                MessageBox.Show("Sửa Thất Bại");
+            }
+
+            LoadData();
+        }
+
+        private void radBtnClear_Click(object sender, EventArgs e)
+        {
+            radTxtName.Text = "";
+            radTxtPhoneNumber.Text = ""; 
+            radTxtEmail.Text = "";
+            radTxtAddress.Text = "";
+            radDtpDateOfBirth.Value = DateTime.Now;
+            radBtnBoy.IsChecked = true;
+            radDDClassId.SelectedIndex = 0;
+            radTxtId.Text = "";
+        }
+
+        private void examGridView_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
+        {
+            _idWhenClick = examGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            var obj = _ser.getAllStudents().Where(x => x.Id == _idWhenClick).FirstOrDefault();
+
+            if (obj != null)
+            {
+                radTxtId.Text = obj.Id;
+                radTxtName.Text = obj.FullName;
+                radTxtPhoneNumber.Text = obj.PhoneNumber;
+                radTxtEmail.Text = obj.Email;
+                radTxtAddress.Text = obj.Address;
+                radDtpDateOfBirth.Value = obj.DateOfBirth;
+                if (obj.Gender == true)
+                {
+                    radBtnBoy.IsChecked = true;
+                }
+                else
+                {
+                    radBtnGirl.IsChecked = true;
+                }
+
+                radDDClassId.SelectedIndex = _lstClass.FindIndex(x => x == obj.ClassroomId);
+            }
+        }
+
+        private void examGridView_ContextMenuOpening(object sender, ContextMenuOpeningEventArgs e)
+        {
+            e.ContextMenu.Items.Clear();
+
+            RadMenuItem deleteItem = new RadMenuItem("Xoá thí sinh này");
+            deleteItem.Click += DeleteItem_Click; 
+            e.ContextMenu.Items.Add(deleteItem);
+
+            RadMenuItem restore = new RadMenuItem("Khôi phục thí sinh");
+            restore.Click += Restore_Click;
+            e.ContextMenu.Items.Add(restore);
+        }
+
+        private void Restore_Click(object? sender, EventArgs e)
+        {
+            RestoreStudents restore = new RestoreStudents();
+            restore.ShowDialog();
+        }
+
+        private void DeleteItem_Click(object? sender, EventArgs e)
+        {
+            string id = examGridView.CurrentRow.Cells[1].Value.ToString();
+            if(_ser.deleteStudents(id, 255))
+            {
+                MessageBox.Show("Xóa Thành Công");
+            }
+            else
+            {
+                MessageBox.Show("Xóa Thất bại");
+            }
             LoadData();
         }
     }
