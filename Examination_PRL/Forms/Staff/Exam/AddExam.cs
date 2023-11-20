@@ -84,17 +84,17 @@ namespace Examination_PRL.Forms.Staff.Exam
             panelTopMost.Dock = DockStyle.Fill;
             panelTopMost.Height = pageViewHeight;
             panelTopMost.Width = pageViewWidth;
-
+            panelTopMost.Name = "panelTopMost" + currentGenerateQuestion.ToString();
             panelTopMost.Padding = new Padding(10);
 
-            panelTopMost.BackColor = Color.Yellow;
+            panelTopMost.BackColor = Color.White; ;
             pageQuestion.Controls.Add(panelTopMost);
             int pageWith = panelTopMost.Width;
             int pageHeight = panelTopMost.Height;
 
             RadPanel panelQuestion = new RadPanel();
             panelQuestion.Dock = DockStyle.Top;
-            panelQuestion.Height = pageHeight / 2;
+            panelQuestion.Height = pageViewHeight / 2;
             panelQuestion.Width = pageWith;
             panelQuestion.BackColor = Color.White;
             panelTopMost.Controls.Add(panelQuestion);
@@ -106,11 +106,13 @@ namespace Examination_PRL.Forms.Staff.Exam
             panelAnswer.Dock = DockStyle.Bottom;
             panelAnswer.Height = pageViewHeight / 2;
             panelAnswer.Width = pageWith;
-            panelAnswer.BackColor = Color.Violet;
+            panelAnswer.BackColor = Color.Azure;
             panelTopMost.Controls.Add(panelAnswer);
-            panelQuestion.Text = question.Content;
+            panelQuestion.Text = questionTypeServices.GetQuestionTypeNameById(Convert.ToByte(question.QuestionType))+"\n"+question.Content;
             panelAnswer.ThemeName = "MaterialTeal";
             panelAnswer.Padding = new Padding(10);
+
+            
 
             FlowLayoutPanel flowPanel = new FlowLayoutPanel();
             flowPanel.FlowDirection = FlowDirection.TopDown;
@@ -118,6 +120,14 @@ namespace Examination_PRL.Forms.Staff.Exam
             panelAnswer.Controls.Add(flowPanel);
             flowPanel.Width = panelAnswer.Width;
             flowPanel.Height = panelAnswer.Height;
+            flowPanel.Location = new Point(30, 80);
+
+            flowPanel.BringToFront();
+            MessageBox.Show(panelAnswer.Location.X.ToString() + "\n" + panelAnswer.Location.Y.ToString());
+            MessageBox.Show(flowPanel.Location.X.ToString() + "\n" + flowPanel.Location.Y.ToString());
+
+
+
 
             foreach (var item in question.Answers)
             {
@@ -166,7 +176,7 @@ namespace Examination_PRL.Forms.Staff.Exam
         private void pageViewQuestion_SizeChanged(object sender, EventArgs e)
         {
             var ojb = sender as RadPageView;
-            pageViewHeight = ojb.Height;
+            pageViewHeight = ojb.Height - 50;
             pageViewWidth = ojb.Width;
 
 
@@ -274,7 +284,7 @@ namespace Examination_PRL.Forms.Staff.Exam
 
                     ExamDetail currentExamDetail = examDetailServices.GetByExamDetailCode(lblExamDetailCode.Text);
 
-                    if(currentExamDetail == null)
+                    if (currentExamDetail == null)
                     {
                         MessageBox.Show("Không tìm thấy đề thi");
                         return;

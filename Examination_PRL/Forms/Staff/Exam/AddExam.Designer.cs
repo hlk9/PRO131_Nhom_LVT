@@ -54,11 +54,11 @@
             dropDownQuestionLevel = new Telerik.WinControls.UI.RadDropDownList();
             dropDownQuestionType = new Telerik.WinControls.UI.RadDropDownList();
             radPanel1 = new Telerik.WinControls.UI.RadPanel();
+            lblExamDetailCode = new Telerik.WinControls.UI.RadTextBox();
             lblExam = new Telerik.WinControls.UI.RadLabel();
             lblExamCode = new Telerik.WinControls.UI.RadLabel();
             radLabel6 = new Telerik.WinControls.UI.RadLabel();
             btnSelectExam = new Telerik.WinControls.UI.RadButton();
-            lblExamDetailCode = new Telerik.WinControls.UI.RadTextBox();
             ((System.ComponentModel.ISupportInitialize)radDock1).BeginInit();
             radDock1.SuspendLayout();
             documentWindow4.SuspendLayout();
@@ -91,11 +91,11 @@
             ((System.ComponentModel.ISupportInitialize)dropDownQuestionType).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radPanel1).BeginInit();
             radPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)lblExamDetailCode).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lblExam).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lblExamCode).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnSelectExam).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)lblExamDetailCode).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
@@ -240,6 +240,7 @@
             // 
             // btnAdd
             // 
+            btnAdd.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnAdd.Location = new Point(10, 726);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(140, 36);
@@ -250,8 +251,9 @@
             // 
             // txtMaxScore
             // 
+            txtMaxScore.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtMaxScore.BackColor = Color.LavenderBlush;
-            txtMaxScore.Location = new Point(143, 583);
+            txtMaxScore.Location = new Point(153, 598);
             txtMaxScore.Name = "txtMaxScore";
             txtMaxScore.NullText = "Điểm tối đa";
             txtMaxScore.ShowNullText = true;
@@ -261,7 +263,7 @@
             // 
             // radLabel8
             // 
-            radLabel8.Location = new Point(10, 592);
+            radLabel8.Location = new Point(20, 607);
             radLabel8.Name = "radLabel8";
             radLabel8.Size = new Size(84, 21);
             radLabel8.TabIndex = 12;
@@ -270,8 +272,9 @@
             // 
             // txtQNumber
             // 
+            txtQNumber.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtQNumber.BackColor = Color.LavenderBlush;
-            txtQNumber.Location = new Point(143, 517);
+            txtQNumber.Location = new Point(153, 532);
             txtQNumber.Name = "txtQNumber";
             txtQNumber.NullText = "Nhập số lượng";
             txtQNumber.ShowNullText = true;
@@ -281,7 +284,7 @@
             // 
             // radLabel7
             // 
-            radLabel7.Location = new Point(10, 526);
+            radLabel7.Location = new Point(20, 541);
             radLabel7.Name = "radLabel7";
             radLabel7.Size = new Size(119, 21);
             radLabel7.TabIndex = 10;
@@ -290,6 +293,7 @@
             // 
             // btnSave
             // 
+            btnSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnSave.Location = new Point(243, 726);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(168, 36);
@@ -300,8 +304,9 @@
             // 
             // txtDuration
             // 
+            txtDuration.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtDuration.BackColor = Color.LavenderBlush;
-            txtDuration.Location = new Point(143, 453);
+            txtDuration.Location = new Point(153, 468);
             txtDuration.Name = "txtDuration";
             txtDuration.NullText = "Phút";
             txtDuration.ShowNullText = true;
@@ -311,7 +316,7 @@
             // 
             // radLabel5
             // 
-            radLabel5.Location = new Point(10, 462);
+            radLabel5.Location = new Point(20, 477);
             radLabel5.Name = "radLabel5";
             radLabel5.Size = new Size(118, 21);
             radLabel5.TabIndex = 8;
@@ -320,6 +325,7 @@
             // 
             // btnManual
             // 
+            btnManual.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnManual.Location = new Point(243, 667);
             btnManual.Name = "btnManual";
             btnManual.Size = new Size(168, 36);
@@ -329,8 +335,9 @@
             // 
             // txtCount
             // 
+            txtCount.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtCount.BackColor = Color.GhostWhite;
-            txtCount.Location = new Point(143, 390);
+            txtCount.Location = new Point(153, 405);
             txtCount.Name = "txtCount";
             txtCount.NullText = "Nhập số lượng";
             txtCount.ShowNullText = true;
@@ -340,7 +347,7 @@
             // 
             // radLabel4
             // 
-            radLabel4.Location = new Point(10, 399);
+            radLabel4.Location = new Point(20, 414);
             radLabel4.Name = "radLabel4";
             radLabel4.Size = new Size(65, 21);
             radLabel4.TabIndex = 6;
@@ -349,7 +356,7 @@
             // 
             // radLabel3
             // 
-            radLabel3.Location = new Point(10, 331);
+            radLabel3.Location = new Point(20, 346);
             radLabel3.Name = "radLabel3";
             radLabel3.Size = new Size(56, 21);
             radLabel3.TabIndex = 5;
@@ -358,7 +365,7 @@
             // 
             // radLabel2
             // 
-            radLabel2.Location = new Point(10, 258);
+            radLabel2.Location = new Point(20, 273);
             radLabel2.Name = "radLabel2";
             radLabel2.Size = new Size(89, 21);
             radLabel2.TabIndex = 4;
@@ -367,6 +374,7 @@
             // 
             // radLabel1
             // 
+            radLabel1.Anchor = AnchorStyles.Top;
             radLabel1.Font = new Font("Roboto", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             radLabel1.ForeColor = Color.Teal;
             radLabel1.Location = new Point(40, 189);
@@ -378,10 +386,11 @@
             // 
             // dropDownQuestionLevel
             // 
+            dropDownQuestionLevel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dropDownQuestionLevel.BackColor = Color.GhostWhite;
             dropDownQuestionLevel.DropDownAnimationEnabled = true;
             dropDownQuestionLevel.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
-            dropDownQuestionLevel.Location = new Point(143, 320);
+            dropDownQuestionLevel.Location = new Point(153, 335);
             dropDownQuestionLevel.Name = "dropDownQuestionLevel";
             dropDownQuestionLevel.Size = new Size(246, 37);
             dropDownQuestionLevel.TabIndex = 2;
@@ -390,10 +399,11 @@
             // 
             // dropDownQuestionType
             // 
+            dropDownQuestionType.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dropDownQuestionType.BackColor = Color.GhostWhite;
             dropDownQuestionType.DropDownAnimationEnabled = true;
             dropDownQuestionType.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
-            dropDownQuestionType.Location = new Point(143, 248);
+            dropDownQuestionType.Location = new Point(153, 263);
             dropDownQuestionType.Name = "dropDownQuestionType";
             dropDownQuestionType.Size = new Size(246, 37);
             dropDownQuestionType.TabIndex = 1;
@@ -402,6 +412,7 @@
             // 
             // radPanel1
             // 
+            radPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radPanel1.Controls.Add(lblExamDetailCode);
             radPanel1.Controls.Add(lblExam);
             radPanel1.Controls.Add(lblExamCode);
@@ -413,9 +424,22 @@
             radPanel1.TabIndex = 0;
             radPanel1.ThemeName = "MaterialTeal";
             // 
+            // lblExamDetailCode
+            // 
+            lblExamDetailCode.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            lblExamDetailCode.BackColor = Color.LavenderBlush;
+            lblExamDetailCode.Location = new Point(12, 61);
+            lblExamDetailCode.Name = "lblExamDetailCode";
+            lblExamDetailCode.NullText = "Nhập mã đề";
+            lblExamDetailCode.ShowNullText = true;
+            lblExamDetailCode.Size = new Size(401, 37);
+            lblExamDetailCode.TabIndex = 14;
+            lblExamDetailCode.ThemeName = "MaterialTeal";
+            // 
             // lblExam
             // 
-            lblExam.Location = new Point(155, 16);
+            lblExam.ForeColor = Color.FromArgb(192, 0, 192);
+            lblExam.Location = new Point(128, 16);
             lblExam.Name = "lblExam";
             lblExam.Size = new Size(2, 2);
             lblExam.TabIndex = 6;
@@ -433,13 +457,14 @@
             // 
             radLabel6.Location = new Point(12, 16);
             radLabel6.Name = "radLabel6";
-            radLabel6.Size = new Size(75, 21);
+            radLabel6.Size = new Size(68, 21);
             radLabel6.TabIndex = 5;
-            radLabel6.Text = "Mã bài thi:";
+            radLabel6.Text = "ID bài thi:";
             radLabel6.ThemeName = "MaterialTeal";
             // 
             // btnSelectExam
             // 
+            btnSelectExam.Anchor = AnchorStyles.Bottom;
             btnSelectExam.Location = new Point(155, 127);
             btnSelectExam.Name = "btnSelectExam";
             btnSelectExam.Size = new Size(120, 36);
@@ -447,17 +472,6 @@
             btnSelectExam.Text = "Chọn bài thi";
             btnSelectExam.ThemeName = "MaterialTeal";
             btnSelectExam.Click += radButton1_Click;
-            // 
-            // lblExamDetailCode
-            // 
-            lblExamDetailCode.BackColor = Color.LavenderBlush;
-            lblExamDetailCode.Location = new Point(12, 61);
-            lblExamDetailCode.Name = "lblExamDetailCode";
-            lblExamDetailCode.NullText = "Nhập mã đề";
-            lblExamDetailCode.ShowNullText = true;
-            lblExamDetailCode.Size = new Size(246, 37);
-            lblExamDetailCode.TabIndex = 14;
-            lblExamDetailCode.ThemeName = "MaterialTeal";
             // 
             // AddExam
             // 
@@ -508,11 +522,11 @@
             ((System.ComponentModel.ISupportInitialize)radPanel1).EndInit();
             radPanel1.ResumeLayout(false);
             radPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)lblExamDetailCode).EndInit();
             ((System.ComponentModel.ISupportInitialize)lblExam).EndInit();
             ((System.ComponentModel.ISupportInitialize)lblExamCode).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel6).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnSelectExam).EndInit();
-            ((System.ComponentModel.ISupportInitialize)lblExamDetailCode).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }
