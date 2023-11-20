@@ -44,14 +44,7 @@ namespace Examination_PRL.Forms.Staff
             foreach (var item in _ser.getAllRooms())
             {
                 examRoomGridView.Rows.Add(stt++, item.Id, item.Name, item.Address, item.Note, item.Capacity, item.Status == true ? "Hoạt Động" : "Không Hoạt Động");
-
-                foreach (GridViewRowInfo row in examRoomGridView.Rows)
-                {
-                    if (row.Cells[6].Value == "Không Hoạt Động")
-                    {
-                        row.IsVisible = false;
-                    }
-                }
+             
             }
         }
 
@@ -137,21 +130,9 @@ namespace Examination_PRL.Forms.Staff
 
         private void dtg_Show_ContextMenuOpening(object sender, ContextMenuOpeningEventArgs e)
         {
-            RadMenuItem deleteExamRoom = new RadMenuItem("Xoá phòng thi này");
+            RadMenuItem deleteExamRoom = new RadMenuItem("Vô hiệu hóa thi này");
             deleteExamRoom.Click += DeleteItem_Click; 
             e.ContextMenu.Items.Add(deleteExamRoom);
-
-            RadMenuItem restoreExamRoom = new RadMenuItem("Khôi phục phòng thi");
-            restoreExamRoom.Click += Restore_Click;
-            e.ContextMenu.Items.Add(restoreExamRoom);
-        }
-
-        private void Restore_Click(object? sender, EventArgs e)
-        {
-            RestoreExamRoom room = new RestoreExamRoom();
-            room.ShowDialog();
-
-            LoadData();
         }
 
         private void DeleteItem_Click(object? sender, EventArgs e)
