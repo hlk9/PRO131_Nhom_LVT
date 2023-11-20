@@ -22,6 +22,11 @@ namespace Examination_BUS.Services
             return _respos.GetAll();
         }
 
+        public List<Participant> getAllRemove()
+        {
+            return _respos.getAllRemove();
+        }
+
         public bool createStudents(string id, string name, string address, string email, string phone, bool gender, byte status, DateTime dateOfBirth, string classRoomId)
         {
             var student = new Participant()

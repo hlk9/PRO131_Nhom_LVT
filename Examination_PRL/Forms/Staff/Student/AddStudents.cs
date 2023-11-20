@@ -1,5 +1,6 @@
 ﻿using Examination_BUS.Services;
 using Examination_DAL.Models;
+using Examination_PRL.Forms.Staff.Student;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
@@ -60,7 +61,13 @@ namespace Examination_PRL.Forms
             {
                 examGridView.Rows.Add(stt++, x.Id, x.FullName, (x.Gender == true ? "Nam" : "Nữ"), x.DateOfBirth, x.PhoneNumber, x.Email, x.Address, x.ClassroomId, x.Status == 1 ? "Hoạt Động" : "Không Hoạt Động");
 
-
+                foreach (GridViewRowInfo rowInfo in examGridView.Rows)
+                {
+                    if (rowInfo.Cells[9].Value == "Không Hoạt Động")
+                    {
+                        rowInfo.IsVisible = false;
+                    }
+                }
             }
         }
 
@@ -183,7 +190,8 @@ namespace Examination_PRL.Forms
 
         private void Restore_Click(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            RestoreStudents restore = new RestoreStudents();
+            restore.ShowDialog();
         }
 
         private void DeleteItem_Click(object? sender, EventArgs e)
