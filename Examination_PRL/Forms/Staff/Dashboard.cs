@@ -251,11 +251,7 @@ namespace Examination_PRL.Forms.Staff
                     default:
                         break;
 
-
-
-                }
-
-               
+                }               
 
             }
             catch

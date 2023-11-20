@@ -10,8 +10,4 @@
     <ProjectReference Include="..\Examination_DAL\Examination_DAL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Utilities\" />
-  </ItemGroup>
-
 </Project>

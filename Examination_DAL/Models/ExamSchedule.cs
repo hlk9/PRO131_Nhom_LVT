@@ -28,7 +28,7 @@ namespace Examination_DAL.Models
         [AllowNull]
         public string? ExamRoomId { get; set; }
         [ForeignKey("ExamRoomId")]
-        public virtual ExamRoom ExamRoom { get; set; }
+        public virtual ExamRoom? ExamRoom { get; set; }
 
         [Required]
         public DateTime StartTime { get; set; }

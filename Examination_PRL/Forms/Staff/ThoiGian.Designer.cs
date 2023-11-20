@@ -38,33 +38,33 @@
             radCalendar2 = new Telerik.WinControls.UI.RadCalendar();
             radScheduler1 = new Telerik.WinControls.UI.RadScheduler();
             radDock1 = new Telerik.WinControls.UI.Docking.RadDock();
-            toolWindow2 = new Telerik.WinControls.UI.Docking.ToolWindow();
-            radSchedulerNavigator2 = new Telerik.WinControls.UI.RadSchedulerNavigator();
-            radScheduler2 = new Telerik.WinControls.UI.RadScheduler();
-            toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
             radCalendar4 = new Telerik.WinControls.UI.RadCalendar();
             radCalendar3 = new Telerik.WinControls.UI.RadCalendar();
+            toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             documentContainer1 = new Telerik.WinControls.UI.Docking.DocumentContainer();
             documentTabStrip2 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
+            toolWindow2 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            scheduleNavigator = new Telerik.WinControls.UI.RadSchedulerNavigator();
+            scheduleDetail = new Telerik.WinControls.UI.RadScheduler();
             ((System.ComponentModel.ISupportInitialize)radSchedulerNavigator1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radCalendar1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radCalendar2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radScheduler1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radDock1).BeginInit();
             radDock1.SuspendLayout();
-            toolWindow2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)radSchedulerNavigator2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radScheduler2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)toolTabStrip1).BeginInit();
-            toolTabStrip1.SuspendLayout();
             toolWindow1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)radCalendar4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radCalendar3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)toolTabStrip1).BeginInit();
+            toolTabStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)documentContainer1).BeginInit();
             documentContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)documentTabStrip2).BeginInit();
             documentTabStrip2.SuspendLayout();
+            toolWindow2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)scheduleNavigator).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)scheduleDetail).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
@@ -133,7 +133,7 @@
             // 
             // radDock1
             // 
-            radDock1.ActiveWindow = toolWindow1;
+            radDock1.ActiveWindow = toolWindow2;
             radDock1.CausesValidation = false;
             radDock1.Controls.Add(toolTabStrip1);
             radDock1.Controls.Add(documentContainer1);
@@ -152,64 +152,6 @@
             radDock1.TabIndex = 4;
             radDock1.TabStop = false;
             radDock1.ThemeName = "MaterialTeal";
-            // 
-            // toolWindow2
-            // 
-            toolWindow2.Caption = null;
-            toolWindow2.Controls.Add(radSchedulerNavigator2);
-            toolWindow2.Controls.Add(radScheduler2);
-            toolWindow2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            toolWindow2.Location = new Point(4, 54);
-            toolWindow2.Name = "toolWindow2";
-            toolWindow2.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Floating;
-            toolWindow2.Size = new Size(710, 642);
-            toolWindow2.Text = "toolWindow3";
-            // 
-            // radSchedulerNavigator2
-            // 
-            radSchedulerNavigator2.AssociatedScheduler = null;
-            radSchedulerNavigator2.DateFormat = "yyyy/MM/dd";
-            radSchedulerNavigator2.Dock = DockStyle.Top;
-            radSchedulerNavigator2.Location = new Point(0, 0);
-            radSchedulerNavigator2.Name = "radSchedulerNavigator2";
-            radSchedulerNavigator2.NavigationStepType = Telerik.WinControls.UI.NavigationStepTypes.Day;
-            // 
-            // 
-            // 
-            radSchedulerNavigator2.RootElement.StretchVertically = false;
-            radSchedulerNavigator2.Size = new Size(710, 118);
-            radSchedulerNavigator2.TabIndex = 1;
-            radSchedulerNavigator2.ThemeName = "MaterialTeal";
-            // 
-            // radScheduler2
-            // 
-            radScheduler2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            radScheduler2.AutoScroll = true;
-            radScheduler2.Location = new Point(0, 124);
-            radScheduler2.Name = "radScheduler2";
-            radScheduler2.PrintStyle = schedulerDailyPrintStyle2;
-            radScheduler2.Size = new Size(710, 518);
-            radScheduler2.TabIndex = 0;
-            radScheduler2.ThemeName = "MaterialTeal";
-            // 
-            // toolTabStrip1
-            // 
-            toolTabStrip1.CanUpdateChildIndex = true;
-            toolTabStrip1.CausesValidation = false;
-            toolTabStrip1.Controls.Add(toolWindow1);
-            toolTabStrip1.Location = new Point(0, 0);
-            toolTabStrip1.Name = "toolTabStrip1";
-            // 
-            // 
-            // 
-            toolTabStrip1.RootElement.MinSize = new Size(25, 25);
-            toolTabStrip1.SelectedIndex = 0;
-            toolTabStrip1.Size = new Size(274, 700);
-            toolTabStrip1.SizeInfo.AbsoluteSize = new Size(274, 200);
-            toolTabStrip1.SizeInfo.SplitterCorrection = new Size(74, 0);
-            toolTabStrip1.TabIndex = 1;
-            toolTabStrip1.TabStop = false;
-            toolTabStrip1.ThemeName = "MaterialTeal";
             // 
             // toolWindow1
             // 
@@ -245,6 +187,25 @@
             radCalendar3.TabIndex = 0;
             radCalendar3.ThemeName = "MaterialTeal";
             // 
+            // toolTabStrip1
+            // 
+            toolTabStrip1.CanUpdateChildIndex = true;
+            toolTabStrip1.CausesValidation = false;
+            toolTabStrip1.Controls.Add(toolWindow1);
+            toolTabStrip1.Location = new Point(0, 0);
+            toolTabStrip1.Name = "toolTabStrip1";
+            // 
+            // 
+            // 
+            toolTabStrip1.RootElement.MinSize = new Size(25, 25);
+            toolTabStrip1.SelectedIndex = 0;
+            toolTabStrip1.Size = new Size(274, 700);
+            toolTabStrip1.SizeInfo.AbsoluteSize = new Size(274, 200);
+            toolTabStrip1.SizeInfo.SplitterCorrection = new Size(74, 0);
+            toolTabStrip1.TabIndex = 1;
+            toolTabStrip1.TabStop = false;
+            toolTabStrip1.ThemeName = "MaterialTeal";
+            // 
             // documentContainer1
             // 
             documentContainer1.CausesValidation = false;
@@ -276,7 +237,47 @@
             documentTabStrip2.Size = new Size(718, 700);
             documentTabStrip2.TabIndex = 0;
             documentTabStrip2.TabStop = false;
+            documentTabStrip2.TabStripVisible = false;
             documentTabStrip2.ThemeName = "MaterialTeal";
+            // 
+            // toolWindow2
+            // 
+            toolWindow2.Caption = null;
+            toolWindow2.Controls.Add(scheduleNavigator);
+            toolWindow2.Controls.Add(scheduleDetail);
+            toolWindow2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            toolWindow2.Location = new Point(4, 4);
+            toolWindow2.Name = "toolWindow2";
+            toolWindow2.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Floating;
+            toolWindow2.Size = new Size(710, 692);
+            toolWindow2.Text = "toolWindow3";
+            // 
+            // scheduleNavigator
+            // 
+            scheduleNavigator.AssociatedScheduler = scheduleDetail;
+            scheduleNavigator.DateFormat = "yyyy/MM/dd";
+            scheduleNavigator.Dock = DockStyle.Top;
+            scheduleNavigator.Location = new Point(0, 0);
+            scheduleNavigator.Name = "scheduleNavigator";
+            scheduleNavigator.NavigationStepType = Telerik.WinControls.UI.NavigationStepTypes.Day;
+            // 
+            // 
+            // 
+            scheduleNavigator.RootElement.StretchVertically = false;
+            scheduleNavigator.Size = new Size(710, 118);
+            scheduleNavigator.TabIndex = 1;
+            scheduleNavigator.ThemeName = "MaterialTeal";
+            // 
+            // scheduleDetail
+            // 
+            scheduleDetail.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            scheduleDetail.AutoScroll = true;
+            scheduleDetail.Location = new Point(0, 124);
+            scheduleDetail.Name = "scheduleDetail";
+            scheduleDetail.PrintStyle = schedulerDailyPrintStyle2;
+            scheduleDetail.Size = new Size(710, 568);
+            scheduleDetail.TabIndex = 0;
+            scheduleDetail.ThemeName = "MaterialTeal";
             // 
             // ThoiGian
             // 
@@ -305,19 +306,19 @@
             ((System.ComponentModel.ISupportInitialize)radScheduler1).EndInit();
             ((System.ComponentModel.ISupportInitialize)radDock1).EndInit();
             radDock1.ResumeLayout(false);
-            toolWindow2.ResumeLayout(false);
-            toolWindow2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)radSchedulerNavigator2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radScheduler2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)toolTabStrip1).EndInit();
-            toolTabStrip1.ResumeLayout(false);
             toolWindow1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)radCalendar4).EndInit();
             ((System.ComponentModel.ISupportInitialize)radCalendar3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)toolTabStrip1).EndInit();
+            toolTabStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)documentContainer1).EndInit();
             documentContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)documentTabStrip2).EndInit();
             documentTabStrip2.ResumeLayout(false);
+            toolWindow2.ResumeLayout(false);
+            toolWindow2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)scheduleNavigator).EndInit();
+            ((System.ComponentModel.ISupportInitialize)scheduleDetail).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -333,8 +334,8 @@
         private Telerik.WinControls.UI.RadScheduler radScheduler1;
         private Telerik.WinControls.UI.Docking.RadDock radDock1;
         private Telerik.WinControls.UI.Docking.ToolWindow toolWindow2;
-        private Telerik.WinControls.UI.RadSchedulerNavigator radSchedulerNavigator2;
-        private Telerik.WinControls.UI.RadScheduler radScheduler2;
+        private Telerik.WinControls.UI.RadSchedulerNavigator scheduleNavigator;
+        private Telerik.WinControls.UI.RadScheduler scheduleDetail;
         private Telerik.WinControls.UI.Docking.ToolTabStrip toolTabStrip1;
         private Telerik.WinControls.UI.Docking.ToolWindow toolWindow1;
         private Telerik.WinControls.UI.RadCalendar radCalendar3;
