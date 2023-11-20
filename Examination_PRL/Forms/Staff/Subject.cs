@@ -19,9 +19,9 @@ namespace Examination_PRL.Forms.Staff
         {
             InitializeComponent();
             _ser = new SubjectServices();
-            LoadData(_ser.GetSubjects());
+            LoadData();
         }
-        public void LoadData(dynamic data)
+        public void LoadData()
         {
             dtg_Show.Rows.Clear();
             int stt = 1;
@@ -30,7 +30,7 @@ namespace Examination_PRL.Forms.Staff
             dtg_Show.Columns[1].Name = "IDsubject"; dtg_Show.Columns[1].HeaderText = "ID Môn Học";
             dtg_Show.Columns[2].Name = "subjetc"; dtg_Show.Columns[2].HeaderText = "Môn Học";
             dtg_Show.Columns[3].Name = "status"; dtg_Show.Columns[3].HeaderText = "Trạng Thái";
-            foreach (var item in data)
+            foreach (var item in _ser.GetSubjects())
             {
                 dtg_Show.Rows.Add(stt++, item.Id, item.Name, item.Status == 0 ? "Hoạt Động" : "Không Hoạt Động");
             }
@@ -65,7 +65,7 @@ namespace Examination_PRL.Forms.Staff
             bool add = _ser.AddSub(name, ID, trangthai);
             if (add) MessageBox.Show("Thêm thành công!");
             else MessageBox.Show("Thêm thất bại!");
-            LoadData(_ser.GetSubjects());
+            LoadData();
         }
 
         private void btn_Edit_Click(object sender, EventArgs e)

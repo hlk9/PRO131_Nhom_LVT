@@ -23,7 +23,7 @@ namespace Examination_PRL.Forms.Staff.QuestionForm
             InitializeComponent();
             LoadData();
         }
-        void LoadData()
+        public void LoadData()
         {
 
             questionGridView.ColumnCount = 7;

@@ -45,6 +45,7 @@
             pvDashboard.TabIndex = 0;
             pvDashboard.ThemeName = "MaterialTeal";
             pvDashboard.ViewMode = Telerik.WinControls.UI.PageViewMode.NavigationView;
+            pvDashboard.SelectedPageChanged += pvDashboard_SelectedPageChanged;
             // 
             // Dashboard
             // 

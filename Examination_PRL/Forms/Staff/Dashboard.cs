@@ -15,6 +15,10 @@ namespace Examination_PRL.Forms.Staff
 {
     public partial class Dashboard : Telerik.WinControls.UI.RadForm
     {
+
+        public delegate void UpdateDataDelegate();
+        public event UpdateDataDelegate UpdateDataEvent = delegate { };
+
         public Dashboard()
         {
             InitializeComponent();
@@ -51,6 +55,7 @@ namespace Examination_PRL.Forms.Staff
             studentPage.Controls.Add(studentsList);
             studentsList.Show();
             studentsList.Dock = DockStyle.Fill;
+            studentsList.Name = "studentsListForm";
 
             RadPageViewPage addStudentPage = new RadPageViewPage("Thêm thí sinh");
             AddStudents addThiSinh = new AddStudents();
@@ -58,6 +63,8 @@ namespace Examination_PRL.Forms.Staff
             addStudentPage.Controls.Add(addThiSinh);
             addThiSinh.Show();
             addThiSinh.Dock = DockStyle.Fill;
+            addThiSinh.Name = "addThiSinhForm";
+
 
             RadPageViewPage editStudentPage = new RadPageViewPage("Sửa thí sinh");
             UpdateStudents updateStudents = new UpdateStudents();
@@ -65,6 +72,7 @@ namespace Examination_PRL.Forms.Staff
             editStudentPage.Controls.Add(updateStudents);
             updateStudents.Show();
             updateStudents.Dock = DockStyle.Fill;
+            updateStudents.Name = "updateStudentsForm";
 
             RadPageViewPage deleteStudentPage = new RadPageViewPage("Xóa thí sinh");
             DeleteStudents deleteStudents = new DeleteStudents();
@@ -72,17 +80,22 @@ namespace Examination_PRL.Forms.Staff
             deleteStudentPage.Controls.Add(deleteStudents);
             deleteStudents.Show();
             deleteStudents.Dock = DockStyle.Fill;
+            deleteStudents.Name = "deleteStudentsForm";
 
             studentPage.SubPages.Add(addStudentPage);
             studentPage.SubPages.Add(editStudentPage);
             studentPage.SubPages.Add(deleteStudentPage);
 
             RadPageViewPage examPage = new RadPageViewPage("Đề thi"); //xem danh sách đề thi
+
             Exam_Overview exam_Overview = new Exam_Overview();
             exam_Overview.TopLevel = false;
             examPage.Controls.Add(exam_Overview);
             exam_Overview.Show();
             exam_Overview.Dock = DockStyle.Fill;
+            exam_Overview.Name = "exam_OverviewForm";
+
+
 
 
             RadPageViewPage addExamPage = new RadPageViewPage("Thêm đề thi");
@@ -91,6 +104,7 @@ namespace Examination_PRL.Forms.Staff
             addExamPage.Controls.Add(addExam);
             addExam.Show();
             addExam.Dock = DockStyle.Fill;
+            addExam.Name = "addExamForm";
 
             RadPageViewPage editExamPage = new RadPageViewPage("Sửa đề thi");
             RadPageViewPage deleteExamPage = new RadPageViewPage("Xóa đề thi");
@@ -104,6 +118,7 @@ namespace Examination_PRL.Forms.Staff
             questionPage.Controls.Add(questionOverview);
             questionOverview.Show();
             questionOverview.Dock = DockStyle.Fill;
+            questionOverview.Name = "questionOverviewForm";
 
 
 
@@ -113,6 +128,7 @@ namespace Examination_PRL.Forms.Staff
             subjectPage.Controls.Add(subject);
             subject.Show();
             subject.Dock = DockStyle.Fill;
+            subject.Name = "subjectForm";
 
 
             RadPageViewPage classRoom = new RadPageViewPage("Lớp"); //xem danh sách lớp
@@ -121,6 +137,7 @@ namespace Examination_PRL.Forms.Staff
             classRoom.Controls.Add(classRooms);
             classRooms.Show();
             classRooms.Dock = DockStyle.Fill;
+            classRooms.Name = "classRoomsForm";
 
             RadPageViewPage roomPage = new RadPageViewPage("Phòng thi"); //xem danh sách phòng thi
             Room room = new Room();
@@ -128,6 +145,7 @@ namespace Examination_PRL.Forms.Staff
             roomPage.Controls.Add(room);
             room.Show();
             room.Dock = DockStyle.Fill;
+            room.Name = "roomForm";
 
             RadPageViewPage staffPage = new RadPageViewPage("Nhân viên"); //xem danh sách nhân viên
             OverViewNhanVien overViewNhanVien = new OverViewNhanVien();
@@ -135,6 +153,7 @@ namespace Examination_PRL.Forms.Staff
             staffPage.Controls.Add(overViewNhanVien);
             overViewNhanVien.Show();
             overViewNhanVien.Dock = DockStyle.Fill;
+            overViewNhanVien.Name = "overViewNhanVienForm";
 
             RadPageViewPage addStaffPage = new RadPageViewPage("Thêm nhân viên");
             AddNhanVien addNhanViens = new AddNhanVien();
@@ -142,6 +161,7 @@ namespace Examination_PRL.Forms.Staff
             addStaffPage.Controls.Add(addNhanViens);
             addNhanViens.Show();
             addNhanViens.Dock = DockStyle.Fill;
+            addNhanViens.Name = "addNhanViensForm";
 
             RadPageViewPage editStaffPage = new RadPageViewPage("Sửa nhân viên");
             UpDateNhanVien upDateNhanViens = new UpDateNhanVien();
@@ -149,6 +169,7 @@ namespace Examination_PRL.Forms.Staff
             editStaffPage.Controls.Add(upDateNhanViens);
             upDateNhanViens.Show();
             upDateNhanViens.Dock = DockStyle.Fill;
+            upDateNhanViens.Name = "upDateNhanViensForm";
 
             RadPageViewPage deleteStaffPage = new RadPageViewPage("Xóa nhân viên");
             RemoveNhanVien removeNhanViens = new RemoveNhanVien();
@@ -156,6 +177,7 @@ namespace Examination_PRL.Forms.Staff
             deleteStaffPage.Controls.Add(removeNhanViens);
             removeNhanViens.Show();
             removeNhanViens.Dock = DockStyle.Fill;
+            removeNhanViens.Name = "removeNhanViensForm";
 
             staffPage.SubPages.Add(addStaffPage);
             staffPage.SubPages.Add(editStaffPage);
@@ -192,7 +214,7 @@ namespace Examination_PRL.Forms.Staff
             pvDashboard.Pages.Add(resultPage);
             pvDashboard.Pages.Add(reportPage);
             pvDashboard.Pages.Add(questionPage);
-         
+
 
 
             pvDashboard.AutoScroll = true;
@@ -201,8 +223,64 @@ namespace Examination_PRL.Forms.Staff
 
         private void AddQuestionPage_Click(object? sender, EventArgs e)
         {
-            AddQuestion addQuestion = new AddQuestion();
-            addQuestion.ShowDialog();
+            //Exam_Overview examOverviewForm = Application.OpenForms.OfType<Exam_Overview>().FirstOrDefault();
+            //examOverviewForm?.UpdateDataEvent?.Invoke();
+
+        }
+
+        private void pvDashboard_SelectedPageChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                RadPageViewPage radPageViewPage = pvDashboard.SelectedPage;
+                RadForm form = radPageViewPage.Controls[0] as RadForm;
+
+                switch (form.Name)
+                {
+                    case "studentsListForm":
+                        (form as StudentsList).LoadData();
+                        break;
+                    case "examOverviewForm":
+                        (form as Exam_Overview).LoadData();
+                        break;
+                    case "questionOverviewForm":
+                        (form as QuestionOverview).LoadData();
+                        break;
+                    case "subjectForm":
+                        (form as Subject).LoadData();
+                        break;
+                    case "classRoomsForm":
+                        (form as ClassRooms).LoadData();
+                        break;
+                    case "roomForm":
+                        (form as Room).LoadData();
+                        break;
+                    case "overViewNhanVienForm":
+                        (form as OverViewNhanVien).LoadData();
+                        break;
+                    case "addNhanViensForm":
+                        (form as AddNhanVien).LoadData();
+                        break;
+                    case "upDateNhanViensForm":
+                        (form as UpDateNhanVien).LoadData();
+                        break;
+                    case "removeNhanViensForm":
+                        (form as RemoveNhanVien).LoadData();
+                        break;
+                    default:
+                        break;
+
+
+
+                }
+
+               
+
+            }
+            catch
+            {
+
+            }
         }
     }
 }

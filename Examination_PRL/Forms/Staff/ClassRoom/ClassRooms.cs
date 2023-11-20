@@ -23,7 +23,7 @@ namespace Examination_PRL.Forms.Staff.ClassRoom
             LoadData();
         }
 
-        private void LoadData()
+        public void LoadData()
         {
             ClassRoomExamGridView.Rows.Clear();
 

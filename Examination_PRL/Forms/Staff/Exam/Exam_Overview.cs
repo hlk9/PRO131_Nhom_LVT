@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Telerik.WinControls;
 using Telerik.WinControls.UI;
 using Telerik.WinControls.UI.Docking;
+using static Examination_PRL.Forms.Staff.Dashboard;
 
 namespace Examination_PRL.Forms.Staff
 {
@@ -21,6 +22,10 @@ namespace Examination_PRL.Forms.Staff
         ExamDetailServices examDetailServices = new ExamDetailServices();
         ExamServices examServices = new ExamServices();
         string curentExamDetailCode = "";
+
+
+   
+
         public Exam_Overview()
         {
             InitializeComponent();
@@ -52,6 +57,7 @@ namespace Examination_PRL.Forms.Staff
 
         public void LoadData()
         {
+            examGridView.Rows.Clear();
             ConditionalFormattingObject formattingObject = new ConditionalFormattingObject("StatusFalse", ConditionTypes.Equal, "false", "", true);
             formattingObject.RowBackColor = Color.MistyRose;
 
