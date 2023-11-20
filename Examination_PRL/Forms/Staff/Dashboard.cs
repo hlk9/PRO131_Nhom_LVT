@@ -52,7 +52,7 @@ namespace Examination_PRL.Forms.Staff
             studentsList.Show();
             studentsList.Dock = DockStyle.Fill;
 
-            RadPageViewPage addStudentPage = new RadPageViewPage("Thêm thí sinh");
+            RadPageViewPage addStudentPage = new RadPageViewPage("Edit thí sinh");
             AddStudents addThiSinh = new AddStudents();
             addThiSinh.TopLevel = false;
             addStudentPage.Controls.Add(addThiSinh);
