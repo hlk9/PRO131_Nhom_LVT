@@ -251,7 +251,7 @@
             // 
             radLblClassId.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radLblClassId.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            radLblClassId.ForeColor = Color.Teal;
+            radLblClassId.ForeColor = Color.MediumSlateBlue;
             radLblClassId.Location = new Point(126, 569);
             radLblClassId.Name = "radLblClassId";
             radLblClassId.Size = new Size(15, 21);
@@ -263,7 +263,7 @@
             // 
             radLblStatus.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radLblStatus.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            radLblStatus.ForeColor = Color.Teal;
+            radLblStatus.ForeColor = Color.MediumSlateBlue;
             radLblStatus.Location = new Point(126, 523);
             radLblStatus.Name = "radLblStatus";
             radLblStatus.Size = new Size(15, 21);
@@ -275,7 +275,7 @@
             // 
             radLblGender.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radLblGender.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            radLblGender.ForeColor = Color.Teal;
+            radLblGender.ForeColor = Color.MediumSlateBlue;
             radLblGender.Location = new Point(126, 480);
             radLblGender.Name = "radLblGender";
             radLblGender.Size = new Size(15, 21);
@@ -287,7 +287,7 @@
             // 
             radLblDateOfBirth.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radLblDateOfBirth.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            radLblDateOfBirth.ForeColor = Color.Teal;
+            radLblDateOfBirth.ForeColor = Color.MediumSlateBlue;
             radLblDateOfBirth.Location = new Point(126, 439);
             radLblDateOfBirth.Name = "radLblDateOfBirth";
             radLblDateOfBirth.Size = new Size(15, 21);
@@ -299,7 +299,7 @@
             // 
             radLblAddress.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radLblAddress.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            radLblAddress.ForeColor = Color.Teal;
+            radLblAddress.ForeColor = Color.MediumSlateBlue;
             radLblAddress.Location = new Point(126, 395);
             radLblAddress.Name = "radLblAddress";
             radLblAddress.Size = new Size(15, 21);
@@ -311,7 +311,7 @@
             // 
             radLblEmail.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radLblEmail.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            radLblEmail.ForeColor = Color.Teal;
+            radLblEmail.ForeColor = Color.MediumSlateBlue;
             radLblEmail.Location = new Point(126, 351);
             radLblEmail.Name = "radLblEmail";
             radLblEmail.Size = new Size(15, 21);
@@ -323,7 +323,7 @@
             // 
             radLblPhone.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radLblPhone.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            radLblPhone.ForeColor = Color.Teal;
+            radLblPhone.ForeColor = Color.MediumSlateBlue;
             radLblPhone.Location = new Point(126, 303);
             radLblPhone.Name = "radLblPhone";
             radLblPhone.Size = new Size(15, 21);
@@ -335,7 +335,7 @@
             // 
             radLblName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radLblName.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            radLblName.ForeColor = Color.Teal;
+            radLblName.ForeColor = Color.MediumSlateBlue;
             radLblName.Location = new Point(126, 259);
             radLblName.Name = "radLblName";
             radLblName.Size = new Size(15, 21);
@@ -347,7 +347,7 @@
             // 
             radLblId.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radLblId.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            radLblId.ForeColor = Color.Teal;
+            radLblId.ForeColor = Color.MediumSlateBlue;
             radLblId.Location = new Point(126, 212);
             radLblId.Name = "radLblId";
             radLblId.Size = new Size(15, 21);
@@ -374,7 +374,7 @@
             // 
             radLblGirlSum.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radLblGirlSum.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            radLblGirlSum.ForeColor = Color.Teal;
+            radLblGirlSum.ForeColor = Color.MediumSlateBlue;
             radLblGirlSum.Location = new Point(127, 136);
             radLblGirlSum.Name = "radLblGirlSum";
             radLblGirlSum.Size = new Size(15, 21);
@@ -386,7 +386,7 @@
             // 
             radLblBoySum.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radLblBoySum.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            radLblBoySum.ForeColor = Color.Teal;
+            radLblBoySum.ForeColor = Color.MediumSlateBlue;
             radLblBoySum.Location = new Point(127, 96);
             radLblBoySum.Name = "radLblBoySum";
             radLblBoySum.Size = new Size(15, 21);
@@ -398,7 +398,7 @@
             // 
             radLblSum.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radLblSum.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            radLblSum.ForeColor = Color.Teal;
+            radLblSum.ForeColor = Color.MediumSlateBlue;
             radLblSum.Location = new Point(127, 55);
             radLblSum.Name = "radLblSum";
             radLblSum.Size = new Size(15, 21);

@@ -40,7 +40,7 @@ namespace Examination_BUS.Services
             return _respos.createStudents(student);
         }
 
-        public bool updateStudents(string id, string name, string address, string email, string phone, bool gender, DateTime dateOfBirth, string classRoomId)
+        public bool updateStudents(string id, string name, string address, string email, string phone, bool gender, byte status,DateTime dateOfBirth, string classRoomId)
         {
             Participant student = new Participant()
             {
@@ -50,6 +50,7 @@ namespace Examination_BUS.Services
                 Email = email,
                 PhoneNumber = phone,
                 Gender = gender,
+                Status= status,
                 DateOfBirth = dateOfBirth,
                 ClassroomId = classRoomId
             };

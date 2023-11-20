@@ -37,10 +37,9 @@
             documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             toolWindow2 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            radBtnClear = new Telerik.WinControls.UI.RadButton();
+            radBtnUpdate = new Telerik.WinControls.UI.RadButton();
             radBtnAdd = new Telerik.WinControls.UI.RadButton();
-            radBtnNone = new Telerik.WinControls.UI.RadRadioButton();
-            radBtnYes = new Telerik.WinControls.UI.RadRadioButton();
-            radLabel2 = new Telerik.WinControls.UI.RadLabel();
             radDDClassId = new Telerik.WinControls.UI.RadDropDownList();
             radLabel8 = new Telerik.WinControls.UI.RadLabel();
             radBtnGirl = new Telerik.WinControls.UI.RadRadioButton();
@@ -70,10 +69,9 @@
             ((System.ComponentModel.ISupportInitialize)toolTabStrip1).BeginInit();
             toolTabStrip1.SuspendLayout();
             toolWindow2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)radBtnClear).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radBtnUpdate).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radBtnAdd).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radBtnNone).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radBtnYes).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radDDClassId).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radBtnGirl).BeginInit();
@@ -145,6 +143,8 @@
             examGridView.Size = new Size(501, 850);
             examGridView.TabIndex = 0;
             examGridView.ThemeName = "MaterialTeal";
+            examGridView.CellClick += examGridView_CellClick;
+            examGridView.ContextMenuOpening += examGridView_ContextMenuOpening;
             // 
             // documentContainer1
             // 
@@ -201,10 +201,9 @@
             // toolWindow2
             // 
             toolWindow2.Caption = null;
+            toolWindow2.Controls.Add(radBtnClear);
+            toolWindow2.Controls.Add(radBtnUpdate);
             toolWindow2.Controls.Add(radBtnAdd);
-            toolWindow2.Controls.Add(radBtnNone);
-            toolWindow2.Controls.Add(radBtnYes);
-            toolWindow2.Controls.Add(radLabel2);
             toolWindow2.Controls.Add(radDDClassId);
             toolWindow2.Controls.Add(radLabel8);
             toolWindow2.Controls.Add(radBtnGirl);
@@ -231,12 +230,38 @@
             toolWindow2.Text = "Thông Tin Chi Tiết";
             toolWindow2.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
+            // radBtnClear
+            // 
+            radBtnClear.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            radBtnClear.BackColor = Color.Teal;
+            radBtnClear.ForeColor = Color.White;
+            radBtnClear.Location = new Point(3, 744);
+            radBtnClear.Name = "radBtnClear";
+            radBtnClear.Size = new Size(451, 50);
+            radBtnClear.TabIndex = 29;
+            radBtnClear.Text = "Tạo Mới";
+            radBtnClear.ThemeName = "MaterialTeal";
+            radBtnClear.Click += radBtnClear_Click;
+            // 
+            // radBtnUpdate
+            // 
+            radBtnUpdate.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            radBtnUpdate.BackColor = Color.Teal;
+            radBtnUpdate.ForeColor = Color.White;
+            radBtnUpdate.Location = new Point(3, 688);
+            radBtnUpdate.Name = "radBtnUpdate";
+            radBtnUpdate.Size = new Size(451, 50);
+            radBtnUpdate.TabIndex = 29;
+            radBtnUpdate.Text = "Sửa";
+            radBtnUpdate.ThemeName = "MaterialTeal";
+            radBtnUpdate.Click += radBtnUpdate_Click;
+            // 
             // radBtnAdd
             // 
             radBtnAdd.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radBtnAdd.BackColor = Color.Teal;
             radBtnAdd.ForeColor = Color.White;
-            radBtnAdd.Location = new Point(3, 744);
+            radBtnAdd.Location = new Point(3, 632);
             radBtnAdd.Name = "radBtnAdd";
             radBtnAdd.Size = new Size(451, 50);
             radBtnAdd.TabIndex = 28;
@@ -244,41 +269,11 @@
             radBtnAdd.ThemeName = "MaterialTeal";
             radBtnAdd.Click += radBtnAdd_Click;
             // 
-            // radBtnNone
-            // 
-            radBtnNone.Location = new Point(181, 504);
-            radBtnNone.Name = "radBtnNone";
-            radBtnNone.Size = new Size(140, 22);
-            radBtnNone.TabIndex = 26;
-            radBtnNone.TabStop = false;
-            radBtnNone.Text = "Không Hoạt Động";
-            radBtnNone.ThemeName = "MaterialTeal";
-            // 
-            // radBtnYes
-            // 
-            radBtnYes.CheckState = CheckState.Checked;
-            radBtnYes.Location = new Point(3, 504);
-            radBtnYes.Name = "radBtnYes";
-            radBtnYes.Size = new Size(95, 22);
-            radBtnYes.TabIndex = 24;
-            radBtnYes.Text = "Hoạt Động";
-            radBtnYes.ThemeName = "MaterialTeal";
-            radBtnYes.ToggleState = Telerik.WinControls.Enumerations.ToggleState.On;
-            // 
-            // radLabel2
-            // 
-            radLabel2.Location = new Point(3, 477);
-            radLabel2.Name = "radLabel2";
-            radLabel2.Size = new Size(77, 21);
-            radLabel2.TabIndex = 27;
-            radLabel2.Text = "Trạng Thái";
-            radLabel2.ThemeName = "MaterialTeal";
-            // 
             // radDDClassId
             // 
             radDDClassId.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radDDClassId.DropDownAnimationEnabled = true;
-            radDDClassId.Location = new Point(3, 559);
+            radDDClassId.Location = new Point(3, 504);
             radDDClassId.Name = "radDDClassId";
             radDDClassId.Size = new Size(451, 37);
             radDDClassId.TabIndex = 25;
@@ -288,7 +283,7 @@
             // radLabel8
             // 
             radLabel8.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            radLabel8.Location = new Point(3, 532);
+            radLabel8.Location = new Point(3, 477);
             radLabel8.Name = "radLabel8";
             radLabel8.Size = new Size(55, 21);
             radLabel8.TabIndex = 23;
@@ -472,10 +467,9 @@
             toolTabStrip1.ResumeLayout(false);
             toolWindow2.ResumeLayout(false);
             toolWindow2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)radBtnClear).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radBtnUpdate).EndInit();
             ((System.ComponentModel.ISupportInitialize)radBtnAdd).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radBtnNone).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radBtnYes).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel2).EndInit();
             ((System.ComponentModel.ISupportInitialize)radDDClassId).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel8).EndInit();
             ((System.ComponentModel.ISupportInitialize)radBtnGirl).EndInit();
@@ -506,9 +500,6 @@
         private Telerik.WinControls.UI.Docking.DocumentTabStrip documentTabStrip1;
         private Telerik.WinControls.UI.Docking.ToolTabStrip toolTabStrip1;
         private Telerik.WinControls.UI.Docking.ToolWindow toolWindow2;
-        private Telerik.WinControls.UI.RadRadioButton radBtnNone;
-        private Telerik.WinControls.UI.RadRadioButton radBtnYes;
-        private Telerik.WinControls.UI.RadLabel radLabel2;
         private Telerik.WinControls.UI.RadDropDownList radDDClassId;
         private Telerik.WinControls.UI.RadLabel radLabel8;
         private Telerik.WinControls.UI.RadRadioButton radBtnGirl;
@@ -527,5 +518,7 @@
         private Telerik.WinControls.UI.RadLabel radLabel;
         private Telerik.WinControls.UI.RadLabel radLabel1;
         private Telerik.WinControls.UI.RadButton radBtnAdd;
+        private Telerik.WinControls.UI.RadButton radBtnClear;
+        private Telerik.WinControls.UI.RadButton radBtnUpdate;
     }
 }

@@ -19,6 +19,9 @@ namespace Examination_PRL.Forms.Staff
         public StudentsList()
         {
             InitializeComponent();
+            radLblSum.Text = _ser.getAllStudents().Count.ToString();
+            radLblBoySum.Text = _ser.getAllStudents().Where(x => x.Gender == true).ToList().Count.ToString();
+            radLblGirlSum.Text = _ser.getAllStudents().Where(x => x.Gender == false).ToList().Count.ToString();
             LoadData();
         }
 
@@ -41,24 +44,24 @@ namespace Examination_PRL.Forms.Staff
 
             foreach (var x in _ser.getAllStudents())
             {
-                examGridView.Rows.Add(stt++, x.Id, x.FullName, (x.Gender == true ? "Nam" : "Nữ"), x.DateOfBirth, x.PhoneNumber, x.Email, x.Address, x.ClassroomId, x.Status);
+                examGridView.Rows.Add(stt++, x.Id, x.FullName, (x.Gender == true ? "Nam" : "Nữ"), x.DateOfBirth, x.PhoneNumber, x.Email, x.Address, x.ClassroomId, x.Status == 1 ? "Hoạt Động" : "Không Hoạt Động");
             }
         }
 
         private void examGridView_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
-            _idWhenClick = examGridView.CurrentRow.Cells[0].Value.ToString();
+            _idWhenClick = examGridView.CurrentRow.Cells[1].Value.ToString();
 
             var obj = _ser.getAllStudents().Where(x => x.Id == _idWhenClick).FirstOrDefault();
 
-            radLblId.Text = _idWhenClick;
+            radLblId.Text = obj.Id;
             radLblName.Text = obj.FullName;
             radLblPhone.Text = obj.PhoneNumber;
             radLblEmail.Text = obj.Email;
             radLblAddress.Text = obj.Address;
             radLblDateOfBirth.Text = obj.DateOfBirth.ToString();
 
-            if(obj.Gender == true)
+            if (obj.Gender == true)
             {
                 radLblGender.Text = "Nam";
             }
@@ -67,7 +70,7 @@ namespace Examination_PRL.Forms.Staff
                 radLblGender.Text = "Nữ";
             }
 
-            if(obj.Status == 1)
+            if (obj.Status == 1)
             {
                 radLblStatus.Text = "Hoạt Động";
             }
