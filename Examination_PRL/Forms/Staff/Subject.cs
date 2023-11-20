@@ -42,6 +42,14 @@ namespace Examination_PRL.Forms.Staff
             var selectedID = dtg_Show.Rows[index];
             tbt_Subject.Text = selectedID.Cells[2].Value.ToString();
             tbt_IDSubject.Text = selectedID.Cells[1].Value.ToString();
+            if (selectedID.Cells[3].Value.ToString() == "Hoạt động")
+            {
+                rb_Onl.IsChecked = true; rb_Off.IsChecked = false;
+            }
+            else
+            {
+                rb_Off.IsChecked = true; rb_Onl.IsChecked = false;
+            }
 
         }
 
@@ -50,7 +58,10 @@ namespace Examination_PRL.Forms.Staff
             string name = tbt_Subject.Text;
             string ID = tbt_IDSubject.Text;
             byte trangthai = 0;
-
+            if (rb_Off.IsChecked)
+            {
+                trangthai = 1;
+            }
             bool add = _ser.AddSub(name, ID, trangthai);
             if (add) MessageBox.Show("Thêm thành công!");
             else MessageBox.Show("Thêm thất bại!");
@@ -61,10 +72,19 @@ namespace Examination_PRL.Forms.Staff
         {
             string name = tbt_Subject.Text;
             string ID = tbt_IDSubject.Text;
-            byte status = 0;
-            bool update = _ser.EditSub(name, ID, status);
+            byte trangthai = 0;
+            if (rb_Onl.IsChecked)
+            {
+                trangthai = 1;
+            }
+            bool update = _ser.EditSub(name, ID, trangthai);
             if (update) MessageBox.Show("Sửa thành công!");
             else MessageBox.Show("Sửa thất bại!");
+        }
+
+        private void rb_Off_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
