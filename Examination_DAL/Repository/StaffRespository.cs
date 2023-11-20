@@ -54,11 +54,10 @@ namespace Examination_DAL.Repository
                 upDate.DateOfBirth = staff.DateOfBirth;
                 upDate.Email = staff.Email;
                 upDate.PhoneNumber = staff.PhoneNumber;
-                upDate.PhoneNumber = staff.PhoneNumber;
                 upDate.Address = staff.Address;
                 upDate.Status = staff.Status;
 
-                _context.Staffs.Update(staff);
+                _context.Staffs.Update(upDate);
                 _context.SaveChanges();
                 return true;
             }

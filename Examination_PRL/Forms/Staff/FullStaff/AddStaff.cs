@@ -39,6 +39,8 @@ namespace Examination_PRL
             rad_Staff.Columns[7].HeaderText = "Địa Chỉ";
             rad_Staff.Columns[8].HeaderText = "Trạng Thái";
 
+            rad_Staff.Rows.Clear();
+
             foreach (var item in _service.GetAll())
             {
                 rad_Staff.Rows.Add(stt++, item.Id, item.FullName, (item.Gender == true ? "Nam" : "Nữ"), item.DateOfBirth, item.Email, item.PhoneNumber, item.Address, (item.Status == 0 ? "Vô Hiệu Hóa" : "Kích Hoạt"));
@@ -91,11 +93,11 @@ namespace Examination_PRL
             string email = radTxtEmail.Text;
             string phone = radTxtAdress.Text;
             string address = radTxtAdress.Text;
-            byte statuss = 0; 
+            byte statuss = 0;
             string selectedStatus = radListStaff.SelectedItem.Text;
             if (selectedStatus != null && selectedStatus.StartsWith("Kích Hoạt"))
             {
-                statuss = 1; 
+                statuss = 1;
             }
             if (_service.AddStaff(id, name, gender, date, email, phone, address, statuss))
             {
@@ -106,6 +108,11 @@ namespace Examination_PRL
                 MessageBox.Show("Thêm Thất bại");
             }
             LoadData();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -39,10 +39,10 @@ namespace Examination_PRL.Forms.Staff
 
         private void examGridView_UserDeletingRow(object sender, Telerik.WinControls.UI.GridViewRowCancelEventArgs e)
         {
-            string id=  examGridView.CurrentRow.Cells[0].Value.ToString();
-            MessageBox.Show("Ping"+id);
+            string id = examGridView.CurrentRow.Cells[0].Value.ToString();
+            MessageBox.Show("Ping" + id);
             //get id current cell
-            
+
 
         }
     }

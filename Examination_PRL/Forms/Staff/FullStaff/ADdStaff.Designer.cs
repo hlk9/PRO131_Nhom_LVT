@@ -82,7 +82,7 @@
             // 
             // radDock1
             // 
-            radDock1.ActiveWindow = documentWindow1;
+            radDock1.ActiveWindow = toolWindow1;
             radDock1.CausesValidation = false;
             radDock1.Controls.Add(documentContainer1);
             radDock1.Controls.Add(toolTabStrip1);
@@ -97,7 +97,7 @@
             // 
             // 
             radDock1.RootElement.MinSize = new Size(25, 25);
-            radDock1.Size = new Size(917, 526);
+            radDock1.Size = new Size(917, 592);
             radDock1.SplitterWidth = 8;
             radDock1.TabIndex = 0;
             radDock1.TabStop = false;
@@ -110,7 +110,7 @@
             documentWindow1.Location = new Point(4, 4);
             documentWindow1.Name = "documentWindow1";
             documentWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
-            documentWindow1.Size = new Size(572, 518);
+            documentWindow1.Size = new Size(572, 584);
             documentWindow1.Text = "documentWindow1";
             // 
             // rad_Staff
@@ -126,7 +126,7 @@
             rad_Staff.MasterTemplate.EnablePaging = true;
             rad_Staff.MasterTemplate.ViewDefinition = tableViewDefinition1;
             rad_Staff.Name = "rad_Staff";
-            rad_Staff.Size = new Size(572, 518);
+            rad_Staff.Size = new Size(572, 584);
             rad_Staff.TabIndex = 0;
             rad_Staff.ThemeName = "MaterialTeal";
             rad_Staff.CellClick += rad_Staff_CellClick;
@@ -158,7 +158,7 @@
             // 
             documentTabStrip1.RootElement.MinSize = new Size(25, 25);
             documentTabStrip1.SelectedIndex = 0;
-            documentTabStrip1.Size = new Size(580, 526);
+            documentTabStrip1.Size = new Size(580, 592);
             documentTabStrip1.TabIndex = 0;
             documentTabStrip1.TabStop = false;
             documentTabStrip1.TabStripVisible = false;
@@ -176,7 +176,7 @@
             // 
             toolTabStrip1.RootElement.MinSize = new Size(25, 25);
             toolTabStrip1.SelectedIndex = 0;
-            toolTabStrip1.Size = new Size(329, 526);
+            toolTabStrip1.Size = new Size(329, 592);
             toolTabStrip1.SizeInfo.AbsoluteSize = new Size(329, 200);
             toolTabStrip1.SizeInfo.SplitterCorrection = new Size(129, 0);
             toolTabStrip1.TabIndex = 1;
@@ -208,26 +208,28 @@
             toolWindow1.Location = new Point(4, 52);
             toolWindow1.Name = "toolWindow1";
             toolWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            toolWindow1.Size = new Size(321, 470);
+            toolWindow1.Size = new Size(321, 536);
             toolWindow1.Text = "Thông Tin Chi Tiết";
             toolWindow1.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(-3, 141);
+            label8.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.ForeColor = Color.Teal;
+            label8.Location = new Point(3, 174);
             label8.Name = "label8";
-            label8.Size = new Size(75, 17);
+            label8.Size = new Size(84, 20);
             label8.TabIndex = 15;
             label8.Text = "Ngày Sinh:";
             // 
             // radDTP
             // 
             radDTP.CalendarSize = new Size(290, 320);
-            radDTP.Location = new Point(78, 131);
+            radDTP.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            radDTP.Location = new Point(3, 197);
             radDTP.Name = "radDTP";
-            radDTP.Size = new Size(249, 36);
+            radDTP.Size = new Size(310, 36);
             radDTP.TabIndex = 14;
             radDTP.TabStop = false;
             radDTP.Text = "Monday, November 20, 2023";
@@ -238,7 +240,7 @@
             // 
             radBtnAddStaff.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radBtnAddStaff.BackColor = Color.Teal;
-            radBtnAddStaff.Location = new Point(3, 419);
+            radBtnAddStaff.Location = new Point(3, 485);
             radBtnAddStaff.Name = "radBtnAddStaff";
             radBtnAddStaff.Size = new Size(310, 43);
             radBtnAddStaff.TabIndex = 13;
@@ -249,16 +251,16 @@
             // radListStaff
             // 
             radListStaff.DropDownAnimationEnabled = true;
-            radListStaff.Location = new Point(78, 316);
+            radListStaff.Location = new Point(3, 447);
             radListStaff.Name = "radListStaff";
-            radListStaff.Size = new Size(249, 37);
+            radListStaff.Size = new Size(310, 37);
             radListStaff.TabIndex = 12;
             radListStaff.Text = "radDropDownList1";
             radListStaff.ThemeName = "MaterialTeal";
             // 
             // radNu
             // 
-            radNu.Location = new Point(182, 103);
+            radNu.Location = new Point(149, 149);
             radNu.Name = "radNu";
             radNu.Size = new Size(45, 22);
             radNu.TabIndex = 11;
@@ -269,7 +271,7 @@
             // radNam
             // 
             radNam.CheckState = CheckState.Checked;
-            radNam.Location = new Point(94, 103);
+            radNam.Location = new Point(31, 149);
             radNam.Name = "radNam";
             radNam.Size = new Size(57, 22);
             radNam.TabIndex = 10;
@@ -279,111 +281,124 @@
             // 
             // radTxtAdress
             // 
-            radTxtAdress.Location = new Point(78, 259);
+            radTxtAdress.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            radTxtAdress.Location = new Point(3, 384);
             radTxtAdress.Name = "radTxtAdress";
-            radTxtAdress.Size = new Size(249, 37);
+            radTxtAdress.Size = new Size(310, 37);
             radTxtAdress.TabIndex = 8;
             radTxtAdress.ThemeName = "MaterialTeal";
             // 
             // radTxtPhone
             // 
-            radTxtPhone.Location = new Point(78, 216);
+            radTxtPhone.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            radTxtPhone.Location = new Point(3, 321);
             radTxtPhone.Name = "radTxtPhone";
-            radTxtPhone.Size = new Size(249, 37);
+            radTxtPhone.Size = new Size(310, 37);
             radTxtPhone.TabIndex = 8;
             radTxtPhone.ThemeName = "MaterialTeal";
             // 
             // radTxtEmail
             // 
-            radTxtEmail.Location = new Point(78, 173);
+            radTxtEmail.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            radTxtEmail.Location = new Point(3, 259);
             radTxtEmail.Name = "radTxtEmail";
-            radTxtEmail.Size = new Size(249, 37);
+            radTxtEmail.Size = new Size(310, 37);
             radTxtEmail.TabIndex = 9;
             radTxtEmail.ThemeName = "MaterialTeal";
             // 
             // radTxtID
             // 
-            radTxtID.Location = new Point(78, 3);
+            radTxtID.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            radTxtID.Location = new Point(3, 23);
             radTxtID.Name = "radTxtID";
-            radTxtID.Size = new Size(249, 37);
+            radTxtID.Size = new Size(310, 37);
             radTxtID.TabIndex = 8;
             radTxtID.ThemeName = "MaterialTeal";
             // 
             // radTxtFullName
             // 
-            radTxtFullName.Location = new Point(78, 46);
+            radTxtFullName.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            radTxtFullName.Location = new Point(3, 86);
             radTxtFullName.Name = "radTxtFullName";
-            radTxtFullName.Size = new Size(249, 37);
+            radTxtFullName.Size = new Size(310, 37);
             radTxtFullName.TabIndex = 7;
             radTxtFullName.ThemeName = "MaterialTeal";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(0, 323);
+            label7.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.ForeColor = Color.Teal;
+            label7.Location = new Point(3, 424);
             label7.Name = "label7";
-            label7.Size = new Size(79, 17);
+            label7.Size = new Size(88, 20);
             label7.TabIndex = 6;
             label7.Text = "Tình Trạng:";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(9, 269);
+            label6.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.ForeColor = Color.Teal;
+            label6.Location = new Point(3, 361);
             label6.Name = "label6";
-            label6.Size = new Size(57, 17);
+            label6.Size = new Size(62, 20);
             label6.TabIndex = 5;
             label6.Text = "Địa Chỉ:";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(18, 226);
+            label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.ForeColor = Color.Teal;
+            label5.Location = new Point(3, 299);
             label5.Name = "label5";
-            label5.Size = new Size(37, 17);
+            label5.Size = new Size(41, 20);
             label5.TabIndex = 4;
             label5.Text = "SĐT:";
+            label5.Click += label5_Click;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(9, 184);
+            label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.ForeColor = Color.Teal;
+            label4.Location = new Point(3, 236);
             label4.Name = "label4";
-            label4.Size = new Size(46, 17);
+            label4.Size = new Size(51, 20);
             label4.TabIndex = 3;
             label4.Text = "Email:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(0, 104);
+            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = Color.Teal;
+            label3.Location = new Point(3, 126);
             label3.Name = "label3";
-            label3.Size = new Size(69, 17);
+            label3.Size = new Size(76, 20);
             label3.TabIndex = 2;
             label3.Text = "Giới Tính:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(-1, 56);
+            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.Teal;
+            label2.Location = new Point(3, 63);
             label2.Name = "label2";
-            label2.Size = new Size(56, 17);
+            label2.Size = new Size(62, 20);
             label2.TabIndex = 1;
             label2.Text = "Họ Tên:";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(10, 13);
+            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.Teal;
+            label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(26, 17);
+            label1.Size = new Size(29, 20);
             label1.TabIndex = 0;
             label1.Text = "ID:";
             // 
@@ -392,7 +407,7 @@
             AutoScaleBaseSize = new Size(7, 15);
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(917, 526);
+            ClientSize = new Size(917, 592);
             Controls.Add(radDock1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
