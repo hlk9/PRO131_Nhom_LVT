@@ -21,5 +21,52 @@ namespace Examination_BUS.Services
         {
             return _respos.GetAll();
         }
+
+        public bool createStudents(string id, string name, string address, string email, string phone, bool gender, byte status, DateTime dateOfBirth, string classRoomId)
+        {
+            var student = new Participant()
+            {
+                Id = id,
+                FullName = name,
+                Address = address,
+                Email = email,
+                PhoneNumber = phone,
+                Gender = gender,
+                Status = status,
+                DateOfBirth = dateOfBirth,
+                ClassroomId = classRoomId           
+            };
+
+            return _respos.createStudents(student);
+        }
+
+        public bool updateStudents(string id, string name, string address, string email, string phone, bool gender, byte status, DateTime dateOfBirth, string classRoomId)
+        {
+            Participant student = new Participant()
+            {
+                Id = id,
+                FullName = name,
+                Address = address,
+                Email = email,
+                PhoneNumber = phone,
+                Gender = gender,
+                Status = status,
+                DateOfBirth = dateOfBirth,
+                ClassroomId = classRoomId
+            };
+
+            return _respos.updateStudents(student);
+        }
+
+        public bool deleteStudents(string id, byte status)
+        {
+            Participant student = new Participant()
+            {
+                Id = id,
+                Status = status
+            };
+
+            return _respos.deleteStudents(student);
+        }
     }
 }
