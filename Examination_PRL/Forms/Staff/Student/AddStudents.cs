@@ -40,7 +40,7 @@ namespace Examination_PRL.Forms
         {
             int stt = 1;
 
-            examGridView.ColumnCount = 9;
+            examGridView.ColumnCount = 10;
             examGridView.Columns[0].HeaderText = "STT";
             examGridView.Columns[1].HeaderText = "Mã Thí Sinh";
             examGridView.Columns[2].HeaderText = "Tên Thí Sinh";
@@ -50,11 +50,12 @@ namespace Examination_PRL.Forms
             examGridView.Columns[6].HeaderText = "Email";
             examGridView.Columns[7].HeaderText = "Địa Chỉ";
             examGridView.Columns[8].HeaderText = "Mã Lớp";
+            examGridView.Columns[9].HeaderText = "Trạng Thái";
             examGridView.Rows.Clear();
 
             foreach (var x in _ser.getAllStudents())
             {
-                examGridView.Rows.Add(stt++, x.Id, x.FullName, (x.Gender == true ? "Nam" : "Nữ"), x.DateOfBirth, x.PhoneNumber, x.Email, x.Address, x.ClassroomId);
+                examGridView.Rows.Add(stt++, x.Id, x.FullName, (x.Gender == true ? "Nam" : "Nữ"), x.DateOfBirth, x.PhoneNumber, x.Email, x.Address, x.ClassroomId, x.Status == 1 ? "Hoạt Động" : "Không Hoạt Động");
 
 
             }
@@ -77,15 +78,7 @@ namespace Examination_PRL.Forms
                 gender = false;
             }
 
-            byte status;
-            if(radBtnYes.IsChecked == true)
-            {
-                status = 1;
-            }
-            else
-            {
-                status = 255;
-            }
+            byte status = 1;
 
             DateTime dateOfBirth = radDtpDateOfBirth.Value;
             string classRoomId = _lstClass[radDDClassId.SelectedIndex];

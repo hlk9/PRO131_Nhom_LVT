@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             radDock1 = new Telerik.WinControls.UI.Docking.RadDock();
             toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
@@ -37,7 +37,6 @@
             documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             toolWindow2 = new Telerik.WinControls.UI.Docking.ToolWindow();
-            radLabel1 = new Telerik.WinControls.UI.RadLabel();
             radDDClassId = new Telerik.WinControls.UI.RadDropDownList();
             radLabel5 = new Telerik.WinControls.UI.RadLabel();
             radButton1 = new Telerik.WinControls.UI.RadButton();
@@ -54,7 +53,6 @@
             radTxtName = new Telerik.WinControls.UI.RadTextBox();
             radLabel3 = new Telerik.WinControls.UI.RadLabel();
             radLabel2 = new Telerik.WinControls.UI.RadLabel();
-            radDdStatus = new Telerik.WinControls.UI.RadDropDownList();
             ((System.ComponentModel.ISupportInitialize)radDock1).BeginInit();
             radDock1.SuspendLayout();
             toolWindow1.SuspendLayout();
@@ -67,7 +65,6 @@
             ((System.ComponentModel.ISupportInitialize)toolTabStrip1).BeginInit();
             toolTabStrip1.SuspendLayout();
             toolWindow2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)radLabel1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radDDClassId).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radButton1).BeginInit();
@@ -84,7 +81,6 @@
             ((System.ComponentModel.ISupportInitialize)radTxtName).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radDdStatus).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
@@ -133,7 +129,7 @@
             examGridView.MasterTemplate.AllowSearchRow = true;
             examGridView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             examGridView.MasterTemplate.EnablePaging = true;
-            examGridView.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            examGridView.MasterTemplate.ViewDefinition = tableViewDefinition1;
             examGridView.Name = "examGridView";
             examGridView.ReadOnly = true;
             examGridView.Size = new Size(352, 692);
@@ -197,8 +193,6 @@
             // 
             toolWindow2.AutoScroll = true;
             toolWindow2.Caption = null;
-            toolWindow2.Controls.Add(radDdStatus);
-            toolWindow2.Controls.Add(radLabel1);
             toolWindow2.Controls.Add(radDDClassId);
             toolWindow2.Controls.Add(radLabel5);
             toolWindow2.Controls.Add(radButton1);
@@ -224,20 +218,11 @@
             toolWindow2.Text = "Sửa Thí Sinh Chi Tiết";
             toolWindow2.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
-            // radLabel1
-            // 
-            radLabel1.Location = new Point(3, 407);
-            radLabel1.Name = "radLabel1";
-            radLabel1.Size = new Size(77, 21);
-            radLabel1.TabIndex = 32;
-            radLabel1.Text = "Trạng Thái";
-            radLabel1.ThemeName = "MaterialTeal";
-            // 
             // radDDClassId
             // 
             radDDClassId.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radDDClassId.DropDownAnimationEnabled = true;
-            radDDClassId.Location = new Point(3, 504);
+            radDDClassId.Location = new Point(3, 434);
             radDDClassId.Name = "radDDClassId";
             radDDClassId.Size = new Size(418, 37);
             radDDClassId.TabIndex = 30;
@@ -247,7 +232,7 @@
             // radLabel5
             // 
             radLabel5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            radLabel5.Location = new Point(3, 477);
+            radLabel5.Location = new Point(3, 407);
             radLabel5.Name = "radLabel5";
             radLabel5.Size = new Size(55, 21);
             radLabel5.TabIndex = 28;
@@ -401,16 +386,6 @@
             radLabel2.Text = "Họ Tên";
             radLabel2.ThemeName = "MaterialTeal";
             // 
-            // radDdStatus
-            // 
-            radDdStatus.DropDownAnimationEnabled = true;
-            radDdStatus.Location = new Point(3, 434);
-            radDdStatus.Name = "radDdStatus";
-            radDdStatus.Size = new Size(418, 37);
-            radDdStatus.TabIndex = 33;
-            radDdStatus.Text = "radDropDownList1";
-            radDdStatus.ThemeName = "MaterialTeal";
-            // 
             // UpdateStudents
             // 
             AutoScaleBaseSize = new Size(7, 15);
@@ -439,7 +414,6 @@
             toolTabStrip1.ResumeLayout(false);
             toolWindow2.ResumeLayout(false);
             toolWindow2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)radLabel1).EndInit();
             ((System.ComponentModel.ISupportInitialize)radDDClassId).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel5).EndInit();
             ((System.ComponentModel.ISupportInitialize)radButton1).EndInit();
@@ -456,7 +430,6 @@
             ((System.ComponentModel.ISupportInitialize)radTxtName).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel3).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radDdStatus).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }
@@ -485,9 +458,7 @@
         private Telerik.WinControls.UI.RadButton radButton1;
         private Telerik.WinControls.UI.RadRadioButton radBNu;
         private Telerik.WinControls.UI.RadRadioButton radBNam;
-        private Telerik.WinControls.UI.RadLabel radLabel1;
         private Telerik.WinControls.UI.RadDropDownList radDDClassId;
         private Telerik.WinControls.UI.RadLabel radLabel5;
-        private Telerik.WinControls.UI.RadDropDownList radDdStatus;
     }
 }
