@@ -54,6 +54,20 @@ namespace Examination_BUS.Services
             return _staffRepos.Update(staff);
         }
 
+        public bool deleteStaff(string id, byte status) 
+        {
+            Staff staff = new Staff()
+            {
+                Id = id,
+                Status = status
+            };
 
+            return _staffRepos.deleStaff(staff);
+        }
+
+        public List<Staff> getStaffAllRemove() 
+        {
+            return _staffRepos.GetAllStaffRemove();
+        }
     }
 }

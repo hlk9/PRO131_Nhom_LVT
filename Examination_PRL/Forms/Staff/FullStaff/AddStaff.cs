@@ -1,4 +1,5 @@
 ﻿using Examination_BUS.Services;
+using Examination_PRL.Forms.Staff.FullStaff;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace Examination_PRL
     {
         StaffService _service = new StaffService();
         string _idWhenClick;
+
         public AddNhanVien()
         {
             InitializeComponent();
@@ -42,8 +44,17 @@ namespace Examination_PRL
 
             foreach (var item in _service.GetAll())
             {
-                rad_Staff.Rows.Add(stt++, item.Id, item.FullName, (item.Gender == true ? "Nam" : "Nữ"), item.DateOfBirth, item.Email, item.PhoneNumber, item.Address, (item.Status == 0 ? "Vô Hiệu Hóa" : "Kích Hoạt"));
+                rad_Staff.Rows.Add(stt++, item.Id, item.FullName, (item.Gender == true ? "Nam" : "Nữ"), item.DateOfBirth, item.Email, item.PhoneNumber, item.Address, (item.Status == 1 ? "Kích Hoạt" : "Vô Hiệu Hóa"));
+
+                foreach (GridViewRowInfo rowInfo in rad_Staff.Rows)
+                {
+                    if (rowInfo.Cells[8].Value == "Vô Hiệu Hóa")
+                    {
+                        rowInfo.IsVisible = false;
+                    }
+                }
             }
+            rad_Staff.Refresh();
         }
 
         private void rad_Staff_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
@@ -111,7 +122,7 @@ namespace Examination_PRL
 
         private void radBtnUpDate_Click(object sender, EventArgs e)
         {
-            string id = radTxtID.Text;
+            string id = _idWhenClick;
             string name = radTxtFullName.Text;
             bool gender = radNam.IsChecked;
             DateTime date = Convert.ToDateTime(radDTP.Text);
@@ -144,6 +155,48 @@ namespace Examination_PRL
             radTxtPhone.Text = "";
             radNam.IsChecked = true;
             radListStaff.SelectedIndex = 0;
+        }
+
+        private void rad_Staff_ContextMenuOpening(object sender, ContextMenuOpeningEventArgs e)
+        {
+            e.ContextMenu.Items.Clear();
+            RadMenuItem dele = new RadMenuItem("Vô Hiệu Hóa Nhân Viên Này");
+            dele.Click += Dele_Click;
+            e.ContextMenu.Items.Add(dele);
+
+            RadMenuItem restore = new RadMenuItem("Khôi Phục Nhân Viên");
+            restore.Click += Restore_Click; ;
+            e.ContextMenu.Items.Add(restore);
+        }
+
+        private void Restore_Click(object? sender, EventArgs e)
+        {
+            RestoreStaff restore = new RestoreStaff();
+            restore.ShowDialog();
+            //  MessageBox.Show("Ping");
+            Thread.Sleep(5000);
+           this.LoadData();
+
+        }
+
+        private void Restore_FormClosing(object? sender, FormClosingEventArgs e)
+        {
+            LoadData();
+        }
+
+        private void Dele_Click(object? sender, EventArgs e)
+        {
+            string id = rad_Staff.CurrentRow.Cells[1].Value.ToString();
+            if(_service.deleteStaff(id, 255))
+            {
+                MessageBox.Show("Vô Hiệu Hóa Thành Công");
+            }   
+            else
+            {
+                MessageBox.Show("Vô Hiệu Hóa Thất Bại");
+            }
+
+            LoadData();
         }
     }
 }

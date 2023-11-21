@@ -27,6 +27,9 @@ namespace Examination_PRL.Forms.Staff
 
         public void LoadData()
         {
+            ConditionalFormattingObject formattingObject = new ConditionalFormattingObject("StatusFalse", ConditionTypes.Equal, "Không Hoạt Động", "", true);
+            formattingObject.RowBackColor = Color.MistyRose;
+
             examRoomGridView.Rows.Clear();
 
             int stt = 1;
@@ -44,8 +47,9 @@ namespace Examination_PRL.Forms.Staff
             foreach (var item in _ser.getAllRooms())
             {
                 examRoomGridView.Rows.Add(stt++, item.Id, item.Name, item.Address, item.Note, item.Capacity, item.Status == true ? "Hoạt Động" : "Không Hoạt Động");
-
             }
+
+            this.examRoomGridView.Columns[6].ConditionalFormattingObjectList.Add(formattingObject);
         }
 
         private void radBtnAdd_Click(object sender, EventArgs e)

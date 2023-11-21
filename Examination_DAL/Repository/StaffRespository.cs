@@ -39,6 +39,11 @@ namespace Examination_DAL.Repository
             return _context.Staffs.ToList();
         }
 
+        public List<Staff> GetAllStaffRemove() 
+        { 
+            return _context.Staffs.Where(x => x.Status == 255).ToList();
+        }
+
         public Staff GetById(int id)
         {
             return _context.Staffs.Find(id);
@@ -62,6 +67,24 @@ namespace Examination_DAL.Repository
                 return true;
             }
             catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool deleStaff(Staff staff)
+        {
+            try
+            {
+                var dele = _context.Staffs.Find(staff.Id);
+                
+                dele.Status = staff.Status;
+
+                _context.Staffs.Update(dele);
+                _context.SaveChanges();
+                return true;
+            }
+            catch
             {
                 return false;
             }
