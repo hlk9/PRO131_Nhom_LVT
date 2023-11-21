@@ -101,11 +101,11 @@ namespace Examination_PRL
             }
             if (_service.AddStaff(id, name, gender, date, email, phone, address, statuss))
             {
-                MessageBox.Show("Thêm Thành Công");
+                MessageBox.Show("Thêm Nhân Viên Thành Công");
             }
             else
             {
-                MessageBox.Show("Thêm Thất bại");
+                MessageBox.Show("Thêm Nhân Viên Thất Bại");
             }
             LoadData();
         }
@@ -131,18 +131,18 @@ namespace Examination_PRL
             }
             else
             {
-                MessageBox.Show("Thêm Nhân Viên Thất bại");
+                MessageBox.Show("Thêm Nhân Viên Thất Bại");
             }
             LoadData();
         }
 
         private void radBtnClear_Click(object sender, EventArgs e)
         {
-            radTxtID.Text = " ";
-            radTxtFullName.Text = " ";
-            radTxtAdress.Text = " ";
-            radTxtEmail.Text = " ";
-            radTxtPhone.Text = " ";
+            radTxtID.Text = "";
+            radTxtFullName.Text = "";
+            radTxtAdress.Text = "";
+            radTxtEmail.Text = "";
+            radTxtPhone.Text = "";
             radNam.IsChecked = true;
             radListStaff.SelectedIndex = 0;
         }
