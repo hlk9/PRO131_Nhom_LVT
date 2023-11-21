@@ -144,25 +144,7 @@ namespace Examination_PRL.Forms.Staff
             addNhanViens.Dock = DockStyle.Fill;
             addNhanViens.Name = "addNhanViensForm";
 
-            RadPageViewPage editStaffPage = new RadPageViewPage("Sửa nhân viên");
-            UpDateNhanVien upDateNhanViens = new UpDateNhanVien();
-            upDateNhanViens.TopLevel = false;
-            editStaffPage.Controls.Add(upDateNhanViens);
-            upDateNhanViens.Show();
-            upDateNhanViens.Dock = DockStyle.Fill;
-            upDateNhanViens.Name = "upDateNhanViensForm";
-
-            RadPageViewPage deleteStaffPage = new RadPageViewPage("Xóa nhân viên");
-            RemoveNhanVien removeNhanViens = new RemoveNhanVien();
-            removeNhanViens.TopLevel = false;
-            deleteStaffPage.Controls.Add(removeNhanViens);
-            removeNhanViens.Show();
-            removeNhanViens.Dock = DockStyle.Fill;
-            removeNhanViens.Name = "removeNhanViensForm";
-
             staffPage.SubPages.Add(addStaffPage);
-            staffPage.SubPages.Add(editStaffPage);
-            staffPage.SubPages.Add(deleteStaffPage);
 
             RadPageViewPage resultPage = new RadPageViewPage("Kết quả");
             RadPageViewPage resultByStudentPage = new RadPageViewPage("Kết quả của thí sinh");
@@ -241,12 +223,6 @@ namespace Examination_PRL.Forms.Staff
                         break;
                     case "addNhanViensForm":
                         (form as AddNhanVien).LoadData();
-                        break;
-                    case "upDateNhanViensForm":
-                        (form as UpDateNhanVien).LoadData();
-                        break;
-                    case "removeNhanViensForm":
-                        (form as RemoveNhanVien).LoadData();
                         break;
                     default:
                         break;

@@ -431,9 +431,10 @@
             // radLabel1
             // 
             radLabel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radLabel1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             radLabel1.Location = new Point(3, 3);
             radLabel1.Name = "radLabel1";
-            radLabel1.Size = new Size(84, 21);
+            radLabel1.Size = new Size(90, 21);
             radLabel1.TabIndex = 8;
             radLabel1.Text = "Mã Thí Sinh";
             radLabel1.ThemeName = "MaterialTeal";

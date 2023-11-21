@@ -140,7 +140,7 @@ namespace Examination_PRL.Forms
         private void radBtnClear_Click(object sender, EventArgs e)
         {
             radTxtName.Text = "";
-            radTxtPhoneNumber.Text = ""; 
+            radTxtPhoneNumber.Text = "";
             radTxtEmail.Text = "";
             radTxtAddress.Text = "";
             radDtpDateOfBirth.Value = DateTime.Now;
@@ -180,7 +180,7 @@ namespace Examination_PRL.Forms
             e.ContextMenu.Items.Clear();
 
             RadMenuItem deleteItem = new RadMenuItem("Xoá thí sinh này");
-            deleteItem.Click += DeleteItem_Click; 
+            deleteItem.Click += DeleteItem_Click;
             e.ContextMenu.Items.Add(deleteItem);
 
             RadMenuItem restore = new RadMenuItem("Khôi phục thí sinh");
@@ -197,7 +197,7 @@ namespace Examination_PRL.Forms
         private void DeleteItem_Click(object? sender, EventArgs e)
         {
             string id = examGridView.CurrentRow.Cells[1].Value.ToString();
-            if(_ser.deleteStudents(id, 255))
+            if (_ser.deleteStudents(id, 255))
             {
                 MessageBox.Show("Xóa Thành Công");
             }

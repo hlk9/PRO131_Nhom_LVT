@@ -110,9 +110,41 @@ namespace Examination_PRL
             LoadData();
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void radBtnUpDate_Click(object sender, EventArgs e)
         {
+            string id = radTxtID.Text;
+            string name = radTxtFullName.Text;
+            bool gender = radNam.IsChecked;
+            DateTime date = Convert.ToDateTime(radDTP.Text);
+            string email = radTxtEmail.Text;
+            string phone = radTxtAdress.Text;
+            string address = radTxtAdress.Text;
+            byte statuss = 0;
+            string selectedStatus = radListStaff.SelectedItem.Text;
+            if (selectedStatus != null && selectedStatus.StartsWith("Kích Hoạt"))
+            {
+                statuss = 1;
+            }
+            if (_service.UpDateStaff(id, name, gender, date, email, phone, address, statuss))
+            {
+                MessageBox.Show("Sửa Nhân Viên Thành Công");
+            }
+            else
+            {
+                MessageBox.Show("Thêm Nhân Viên Thất bại");
+            }
+            LoadData();
+        }
 
+        private void radBtnClear_Click(object sender, EventArgs e)
+        {
+            radTxtID.Text = " ";
+            radTxtFullName.Text = " ";
+            radTxtAdress.Text = " ";
+            radTxtEmail.Text = " ";
+            radTxtPhone.Text = " ";
+            radNam.IsChecked = true;
+            radListStaff.SelectedIndex = 0;
         }
     }
 }
