@@ -20,11 +20,13 @@ namespace Examination_PRL.Forms
         public Login()
         {
             InitializeComponent();
+            KeyPreview = true;
+            KeyPress += btnLogin_KeyPress;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if(txtPassword.Text=="" || txtUserName.Text == "")
+            if (txtPassword.Text == "" || txtUserName.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
                 return;
@@ -45,17 +47,17 @@ namespace Examination_PRL.Forms
                     List<UserPermission> userPermissions = new List<UserPermission>();
                     userPermissions = userPermissionServices.GetUserPermissionByAccountID(account.Id);
 
-                    foreach(var item in userPermissions)
+                    foreach (var item in userPermissions)
                     {
-                        if(item.PermissionId==1)
+                        if (item.PermissionId == 1)
                         {
                             Dashboard dashboard = new Dashboard();
                             dashboard.FormClosed += Dashboard_FormClosed;
                             dashboard.Show();
                             this.Hide();
                             return;
-                        }    
-                    }    
+                        }
+                    }
 
                     Dashboard_P dashboard_P = new Dashboard_P();
                     dashboard_P.FormClosed += Dashboard_FormClosed;
@@ -63,14 +65,22 @@ namespace Examination_PRL.Forms
                     this.Hide();
                     return;
 
-                }    
+                }
 
-            }    
+            }
         }
 
         private void Dashboard_FormClosed(object? sender, FormClosedEventArgs e)
         {
-           Application.Exit();
+            Application.Exit();
+        }
+
+        private void btnLogin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -563,6 +563,7 @@
             AutoScaleBaseSize = new Size(7, 15);
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(1192, 861);
             Controls.Add(radDock1);
             FormBorderStyle = FormBorderStyle.None;

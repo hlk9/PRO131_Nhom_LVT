@@ -30,7 +30,6 @@ namespace Examination_PRL
             rad_Staff.ColumnCount = 9;
             rad_Staff.Columns[0].HeaderText = "STT";
             rad_Staff.Columns[1].HeaderText = "ID";
-            rad_Staff.Columns[1].IsVisible = false;
             rad_Staff.Columns[2].HeaderText = "Họ Tên";
             rad_Staff.Columns[3].HeaderText = "Giới Tính";
             rad_Staff.Columns[4].HeaderText = "Ngày Sinh";
@@ -91,7 +90,7 @@ namespace Examination_PRL
             bool gender = radNam.IsChecked;
             DateTime date = Convert.ToDateTime(radDTP.Text);
             string email = radTxtEmail.Text;
-            string phone = radTxtAdress.Text;
+            string phone = radTxtPhone.Text;
             string address = radTxtAdress.Text;
             byte statuss = 0;
             string selectedStatus = radListStaff.SelectedItem.Text;
@@ -117,7 +116,7 @@ namespace Examination_PRL
             bool gender = radNam.IsChecked;
             DateTime date = Convert.ToDateTime(radDTP.Text);
             string email = radTxtEmail.Text;
-            string phone = radTxtAdress.Text;
+            string phone = radTxtPhone.Text;
             string address = radTxtAdress.Text;
             byte statuss = 0;
             string selectedStatus = radListStaff.SelectedItem.Text;
@@ -131,7 +130,7 @@ namespace Examination_PRL
             }
             else
             {
-                MessageBox.Show("Thêm Nhân Viên Thất Bại");
+                MessageBox.Show("Sửa Nhân Viên Thất Bại");
             }
             LoadData();
         }

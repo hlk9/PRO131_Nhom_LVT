@@ -25,10 +25,9 @@ namespace Examination_PRL
         public void LoadData()
         {
             int stt = 1;
-            radViewNV.ColumnCount = 8;
-            radViewNV.Columns[0].Name = "ID";
-            radViewNV.Columns[0].IsVisible = false;
-            radViewNV.Columns[1].HeaderText = "STT";
+            radViewNV.ColumnCount = 9;
+            radViewNV.Columns[0].Name = "STT";
+            radViewNV.Columns[1].HeaderText = "ID";
             radViewNV.Columns[2].HeaderText = "Tên NV";
             radViewNV.Columns[3].HeaderText = "Giới Tính";
             radViewNV.Columns[4].HeaderText = "Ngày Sinh";
@@ -37,9 +36,11 @@ namespace Examination_PRL
             radViewNV.Columns[7].HeaderText = "Địa chỉ";
             radViewNV.Columns[8].HeaderText = "Trạng Thái";
 
+            radViewNV.Rows.Clear();
+
             foreach (var item in _services.GetAll())
             {
-                radViewNV.Rows.Add(item.Id, stt++, item.FullName, (item.Gender == true ? "Nam" : "Nữ"), item.DateOfBirth, item.Email, item.PhoneNumber, item.Address, (item.Status == 0 ? "Vô Hiệu Hóa" : "Kích Hoạt"));
+                radViewNV.Rows.Add(stt++, item.Id, item.FullName, (item.Gender == true ? "Nam" : "Nữ"), item.DateOfBirth, item.Email, item.PhoneNumber, item.Address, (item.Status == 0 ? "Vô Hiệu Hóa" : "Kích Hoạt"));
             }
         }
 
@@ -50,11 +51,8 @@ namespace Examination_PRL
 
             if (obj != null)
             {
+                radLblID.Text = obj.Id;
                 radLblName.Text = obj.FullName;
-                radLblSDT.Text = obj.PhoneNumber;
-                radLblEmail.Text = obj.Email;
-                radLblAdress.Text = obj.Address;
-                radLblDate.Text = obj.DateOfBirth.ToString();
                 if (obj.Gender == true)
                 {
                     radLblGender.Text = "Nam";
@@ -63,7 +61,10 @@ namespace Examination_PRL
                 {
                     radLblGender.Text = "Nữ";
                 }
-
+                radLblDate.Text = obj.DateOfBirth.ToString();
+                radLblEmail.Text = obj.Email;
+                radLblSDT.Text = obj.PhoneNumber;
+                radLblAdress.Text = obj.Address;
                 if (obj.Status == 1)
                 {
                     radLblStatus.Text = "Hoạt Động";

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             radDock1 = new Telerik.WinControls.UI.Docking.RadDock();
             documentWindow1 = new Telerik.WinControls.UI.Docking.DocumentWindow();
@@ -37,13 +37,14 @@
             documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            radLblDate = new Telerik.WinControls.UI.RadLabel();
             radLblStatus = new Telerik.WinControls.UI.RadLabel();
             radLblAdress = new Telerik.WinControls.UI.RadLabel();
             radLblSDT = new Telerik.WinControls.UI.RadLabel();
             radLblEmail = new Telerik.WinControls.UI.RadLabel();
             radLblGender = new Telerik.WinControls.UI.RadLabel();
+            radLabel8 = new Telerik.WinControls.UI.RadLabel();
             radLblName = new Telerik.WinControls.UI.RadLabel();
-            radLblDate = new Telerik.WinControls.UI.RadLabel();
             radLabel6 = new Telerik.WinControls.UI.RadLabel();
             radLabel5 = new Telerik.WinControls.UI.RadLabel();
             radLblID = new Telerik.WinControls.UI.RadLabel();
@@ -52,7 +53,6 @@
             abc = new Telerik.WinControls.UI.RadLabel();
             radLabel4 = new Telerik.WinControls.UI.RadLabel();
             radLabel1 = new Telerik.WinControls.UI.RadLabel();
-            radLabel8 = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)radDock1).BeginInit();
             radDock1.SuspendLayout();
             documentWindow1.SuspendLayout();
@@ -65,13 +65,14 @@
             ((System.ComponentModel.ISupportInitialize)toolTabStrip1).BeginInit();
             toolTabStrip1.SuspendLayout();
             toolWindow1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)radLblDate).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLblStatus).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLblAdress).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLblSDT).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLblEmail).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLblGender).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLblName).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radLblDate).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLblID).BeginInit();
@@ -80,7 +81,6 @@
             ((System.ComponentModel.ISupportInitialize)abc).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
@@ -124,8 +124,9 @@
             // 
             // 
             // 
+            radViewNV.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             radViewNV.MasterTemplate.EnablePaging = true;
-            radViewNV.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            radViewNV.MasterTemplate.ViewDefinition = tableViewDefinition1;
             radViewNV.Name = "radViewNV";
             radViewNV.Size = new Size(501, 660);
             radViewNV.TabIndex = 0;
@@ -211,11 +212,22 @@
             toolWindow1.Text = "Thông Tin Chi Tiết";
             toolWindow1.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
+            // radLblDate
+            // 
+            radLblDate.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            radLblDate.ForeColor = Color.Teal;
+            radLblDate.Location = new Point(109, 138);
+            radLblDate.Name = "radLblDate";
+            radLblDate.Size = new Size(15, 21);
+            radLblDate.TabIndex = 5;
+            radLblDate.Text = "0";
+            radLblDate.ThemeName = "MaterialTeal";
+            // 
             // radLblStatus
             // 
             radLblStatus.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             radLblStatus.ForeColor = Color.Teal;
-            radLblStatus.Location = new Point(109, 262);
+            radLblStatus.Location = new Point(109, 318);
             radLblStatus.Name = "radLblStatus";
             radLblStatus.Size = new Size(15, 21);
             radLblStatus.TabIndex = 10;
@@ -226,7 +238,7 @@
             // 
             radLblAdress.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             radLblAdress.ForeColor = Color.Teal;
-            radLblAdress.Location = new Point(109, 225);
+            radLblAdress.Location = new Point(109, 273);
             radLblAdress.Name = "radLblAdress";
             radLblAdress.Size = new Size(15, 21);
             radLblAdress.TabIndex = 9;
@@ -237,7 +249,7 @@
             // 
             radLblSDT.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             radLblSDT.ForeColor = Color.Teal;
-            radLblSDT.Location = new Point(109, 188);
+            radLblSDT.Location = new Point(109, 228);
             radLblSDT.Name = "radLblSDT";
             radLblSDT.Size = new Size(15, 21);
             radLblSDT.TabIndex = 8;
@@ -248,7 +260,7 @@
             // 
             radLblEmail.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             radLblEmail.ForeColor = Color.Teal;
-            radLblEmail.Location = new Point(109, 151);
+            radLblEmail.Location = new Point(109, 183);
             radLblEmail.Name = "radLblEmail";
             radLblEmail.Size = new Size(15, 21);
             radLblEmail.TabIndex = 7;
@@ -259,40 +271,40 @@
             // 
             radLblGender.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             radLblGender.ForeColor = Color.Teal;
-            radLblGender.Location = new Point(109, 77);
+            radLblGender.Location = new Point(109, 93);
             radLblGender.Name = "radLblGender";
             radLblGender.Size = new Size(15, 21);
             radLblGender.TabIndex = 6;
             radLblGender.Text = "0";
             radLblGender.ThemeName = "MaterialTeal";
             // 
+            // radLabel8
+            // 
+            radLabel8.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            radLabel8.ForeColor = Color.Teal;
+            radLabel8.Location = new Point(3, 138);
+            radLabel8.Name = "radLabel8";
+            radLabel8.Size = new Size(75, 21);
+            radLabel8.TabIndex = 11;
+            radLabel8.Text = "Ngày Sinh:";
+            radLabel8.ThemeName = "MaterialTeal";
+            // 
             // radLblName
             // 
             radLblName.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             radLblName.ForeColor = Color.Teal;
-            radLblName.Location = new Point(109, 40);
+            radLblName.Location = new Point(109, 48);
             radLblName.Name = "radLblName";
             radLblName.Size = new Size(15, 21);
             radLblName.TabIndex = 4;
             radLblName.Text = "0";
             radLblName.ThemeName = "MaterialTeal";
             // 
-            // radLblDate
-            // 
-            radLblDate.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            radLblDate.ForeColor = Color.Teal;
-            radLblDate.Location = new Point(109, 114);
-            radLblDate.Name = "radLblDate";
-            radLblDate.Size = new Size(15, 21);
-            radLblDate.TabIndex = 5;
-            radLblDate.Text = "0";
-            radLblDate.ThemeName = "MaterialTeal";
-            // 
             // radLabel6
             // 
             radLabel6.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             radLabel6.ForeColor = Color.Teal;
-            radLabel6.Location = new Point(3, 262);
+            radLabel6.Location = new Point(3, 318);
             radLabel6.Name = "radLabel6";
             radLabel6.Size = new Size(79, 21);
             radLabel6.TabIndex = 5;
@@ -303,7 +315,7 @@
             // 
             radLabel5.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             radLabel5.ForeColor = Color.Teal;
-            radLabel5.Location = new Point(3, 225);
+            radLabel5.Location = new Point(3, 273);
             radLabel5.Name = "radLabel5";
             radLabel5.Size = new Size(55, 21);
             radLabel5.TabIndex = 4;
@@ -325,7 +337,7 @@
             // 
             radLabel3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             radLabel3.ForeColor = Color.Teal;
-            radLabel3.Location = new Point(3, 188);
+            radLabel3.Location = new Point(3, 228);
             radLabel3.Name = "radLabel3";
             radLabel3.Size = new Size(36, 21);
             radLabel3.TabIndex = 3;
@@ -336,7 +348,7 @@
             // 
             radLabel2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             radLabel2.ForeColor = Color.Teal;
-            radLabel2.Location = new Point(3, 151);
+            radLabel2.Location = new Point(3, 183);
             radLabel2.Name = "radLabel2";
             radLabel2.Size = new Size(45, 21);
             radLabel2.TabIndex = 2;
@@ -347,7 +359,7 @@
             // 
             abc.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             abc.ForeColor = Color.Teal;
-            abc.Location = new Point(3, 40);
+            abc.Location = new Point(3, 48);
             abc.Name = "abc";
             abc.Size = new Size(103, 21);
             abc.TabIndex = 1;
@@ -358,7 +370,7 @@
             // 
             radLabel4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             radLabel4.ForeColor = Color.Teal;
-            radLabel4.Location = new Point(3, 77);
+            radLabel4.Location = new Point(3, 93);
             radLabel4.Name = "radLabel4";
             radLabel4.Size = new Size(68, 21);
             radLabel4.TabIndex = 1;
@@ -375,17 +387,6 @@
             radLabel1.TabIndex = 0;
             radLabel1.Text = "Mã Nhân Viên:";
             radLabel1.ThemeName = "MaterialTeal";
-            // 
-            // radLabel8
-            // 
-            radLabel8.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            radLabel8.ForeColor = Color.Teal;
-            radLabel8.Location = new Point(3, 114);
-            radLabel8.Name = "radLabel8";
-            radLabel8.Size = new Size(75, 21);
-            radLabel8.TabIndex = 11;
-            radLabel8.Text = "Ngày Sinh:";
-            radLabel8.ThemeName = "MaterialTeal";
             // 
             // OverViewNhanVien
             // 
@@ -416,13 +417,14 @@
             toolTabStrip1.ResumeLayout(false);
             toolWindow1.ResumeLayout(false);
             toolWindow1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)radLblDate).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLblStatus).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLblAdress).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLblSDT).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLblEmail).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLblGender).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel8).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLblName).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radLblDate).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel6).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel5).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLblID).EndInit();
@@ -431,7 +433,6 @@
             ((System.ComponentModel.ISupportInitialize)abc).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel4).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel8).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }

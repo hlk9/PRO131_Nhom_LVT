@@ -124,6 +124,7 @@
             btnLogin.Text = "Đăng nhập";
             btnLogin.ThemeName = "MaterialTeal";
             btnLogin.Click += btnLogin_Click;
+            btnLogin.KeyPress += btnLogin_KeyPress;
             // 
             // radButton2
             // 
@@ -139,6 +140,7 @@
             // 
             // Login
             // 
+            AcceptButton = btnLogin;
             AutoScaleBaseSize = new Size(7, 15);
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
