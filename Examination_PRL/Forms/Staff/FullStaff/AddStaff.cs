@@ -27,6 +27,9 @@ namespace Examination_PRL
 
         public void LoadData()
         {
+            ConditionalFormattingObject formattingObject = new ConditionalFormattingObject("StatusFalse", ConditionTypes.Equal, "Vô Hiệu Hóa", "", true);
+            formattingObject.RowBackColor = Color.MistyRose;
+
             int stt = 1;
 
             rad_Staff.ColumnCount = 9;
@@ -44,17 +47,10 @@ namespace Examination_PRL
 
             foreach (var item in _service.GetAll())
             {
-                rad_Staff.Rows.Add(stt++, item.Id, item.FullName, (item.Gender == true ? "Nam" : "Nữ"), item.DateOfBirth, item.Email, item.PhoneNumber, item.Address, (item.Status == 1 ? "Kích Hoạt" : "Vô Hiệu Hóa"));
-
-                foreach (GridViewRowInfo rowInfo in rad_Staff.Rows)
-                {
-                    if (rowInfo.Cells[8].Value == "Vô Hiệu Hóa")
-                    {
-                        rowInfo.IsVisible = false;
-                    }
-                }
+                rad_Staff.Rows.Add(stt++, item.Id, item.FullName, (item.Gender == true ? "Nam" : "Nữ"), item.DateOfBirth, item.Email, item.PhoneNumber, item.Address, (item.Status == 1 ? "Kích Hoạt" : "Vô Hiệu Hóa"));             
             }
-            rad_Staff.Refresh();
+
+            this.rad_Staff.Columns[8].ConditionalFormattingObjectList.Add(formattingObject);
         }
 
         private void rad_Staff_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
@@ -163,20 +159,6 @@ namespace Examination_PRL
             RadMenuItem dele = new RadMenuItem("Vô Hiệu Hóa Nhân Viên Này");
             dele.Click += Dele_Click;
             e.ContextMenu.Items.Add(dele);
-
-            RadMenuItem restore = new RadMenuItem("Khôi Phục Nhân Viên");
-            restore.Click += Restore_Click; ;
-            e.ContextMenu.Items.Add(restore);
-        }
-
-        private void Restore_Click(object? sender, EventArgs e)
-        {
-            RestoreStaff restore = new RestoreStaff();
-            restore.ShowDialog();
-            //  MessageBox.Show("Ping");
-            Thread.Sleep(5000);
-           this.LoadData();
-
         }
 
         private void Restore_FormClosing(object? sender, FormClosingEventArgs e)

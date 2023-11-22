@@ -40,7 +40,15 @@ namespace Examination_PRL
 
             foreach (var item in _services.GetAll())
             {
-                radViewNV.Rows.Add(stt++, item.Id, item.FullName, (item.Gender == true ? "Nam" : "Nữ"), item.DateOfBirth, item.Email, item.PhoneNumber, item.Address, (item.Status == 0 ? "Vô Hiệu Hóa" : "Kích Hoạt"));
+                radViewNV.Rows.Add(stt++, item.Id, item.FullName, (item.Gender == true ? "Nam" : "Nữ"), item.DateOfBirth, item.Email, item.PhoneNumber, item.Address, (item.Status == 1 ? "Kích Hoạt" : "Vô Hiệu Hóa"));
+
+                foreach (GridViewRowInfo rowInfo in radViewNV.Rows)
+                {
+                    if (rowInfo.Cells[8].Value == "Vô Hiệu Hóa")
+                    {
+                        rowInfo.IsVisible = false;
+                    }
+                }
             }
         }
 
