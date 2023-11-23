@@ -39,7 +39,7 @@ namespace Examination_DAL.Context
         public DbSet<Models.ExamSchedule> ExamSchedules { get; set; }
         public DbSet<Models.ExamScheduleDetail> ExamScheduleDetails { get; set; }
         public DbSet<Models.ExamQuestion> ExamQuestions { get; set; }
-
+        public DbSet<Models.Feedback> Feedback { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
