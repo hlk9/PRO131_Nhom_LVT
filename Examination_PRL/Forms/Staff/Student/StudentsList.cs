@@ -42,6 +42,8 @@ namespace Examination_PRL.Forms.Staff
             examGridView.Columns[8].HeaderText = "Mã Lớp";
             examGridView.Columns[9].HeaderText = "Trạng Thái";
 
+            examGridView.Rows.Clear();
+
             foreach (var x in _ser.getAllStudents())
             {
                 examGridView.Rows.Add(stt++, x.Id, x.FullName, (x.Gender == true ? "Nam" : "Nữ"), x.DateOfBirth, x.PhoneNumber, x.Email, x.Address, x.ClassroomId, x.Status == 1 ? "Hoạt Động" : "Không Hoạt Động");
