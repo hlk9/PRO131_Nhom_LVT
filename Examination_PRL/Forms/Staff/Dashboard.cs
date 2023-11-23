@@ -27,17 +27,20 @@ namespace Examination_PRL.Forms.Staff
         void GenerateLayout()
         {
 
-
-
             RadPageViewPage homePage = new RadPageViewPage("Trang chủ");
+            homePage.ToolTipText = "Trang chủ";
 
-            //RadSvgImage homeIcon;
-            //homeIcon = RadSvgImage.Deserialize(File.ReadAllText(@"C:\Users\hlk\Downloads\icons\home.svg"));
-            //Size iconSize = homeIcon.Size;
-            //homePage.Item.Size = iconSize;
-            //homePage.Item.SvgImage = homeIcon;
+            Bitmap bitMapHomeIcon = new Bitmap(Properties.Resources.home);
+            Image homeIcon = bitMapHomeIcon;           
+            homePage.Image = homeIcon;     
+     
 
             RadPageViewPage schedulePage = new RadPageViewPage("Lịch thi"); //xem danh sách lịch thi
+            Bitmap bitMapScheduleIcon = new Bitmap(Properties.Resources.schedule);
+            Image scheduleIcon = bitMapScheduleIcon;
+            schedulePage.Image = scheduleIcon;
+            schedulePage.ToolTipText = "Lịch thi";
+
             ThoiGian thoiGian = new ThoiGian();
             thoiGian.TopLevel = false;
             schedulePage.Controls.Add(thoiGian);
@@ -50,6 +53,11 @@ namespace Examination_PRL.Forms.Staff
             schedulePage.SubPages.Add(manageSchedulePage);
 
             RadPageViewPage studentPage = new RadPageViewPage("Thí sinh"); //xem danh sách thí sinh
+            studentPage.ToolTipText = "Thí sinh";
+            Bitmap bitMapStudentIcon = new Bitmap(Properties.Resources.student);
+            Image studentIcon = bitMapStudentIcon;
+            studentPage.Image = studentIcon;
+
             StudentsList studentsList = new StudentsList();
             studentsList.TopLevel = false;
             studentPage.Controls.Add(studentsList);
@@ -68,6 +76,11 @@ namespace Examination_PRL.Forms.Staff
             studentPage.SubPages.Add(addStudentPage);
 
             RadPageViewPage examPage = new RadPageViewPage("Đề thi"); //xem danh sách đề thi
+            examPage.ToolTipText = "Đề thi";
+            Bitmap bitMapExamIcon = new Bitmap(Properties.Resources.exam);
+            Image examIcon = bitMapExamIcon;
+            examPage.Image = examIcon;
+
 
             Exam_Overview exam_Overview = new Exam_Overview();
             exam_Overview.TopLevel = false;
@@ -94,6 +107,10 @@ namespace Examination_PRL.Forms.Staff
             examPage.SubPages.Add(deleteExamPage);
 
             RadPageViewPage questionPage = new RadPageViewPage("Câu hỏi");
+            questionPage.ToolTipText = "Câu hỏi";
+            Bitmap bitMapQuestionIcon = new Bitmap(Properties.Resources.quest);
+            Image questionIcon = bitMapQuestionIcon;
+            questionPage.Image = questionIcon;
             QuestionOverview questionOverview = new QuestionOverview();
             questionOverview.TopLevel = false;
             questionPage.Controls.Add(questionOverview);
@@ -103,7 +120,11 @@ namespace Examination_PRL.Forms.Staff
 
 
 
-            RadPageViewPage subjectPage = new RadPageViewPage("Môn"); //xem danh sách môn       
+            RadPageViewPage subjectPage = new RadPageViewPage("Môn"); //xem danh sách môn
+            subjectPage.ToolTipText = "Môn";                                                      
+            Bitmap bitMapSubjectIcon = new Bitmap(Properties.Resources.book);
+            Image subjectIcon = bitMapSubjectIcon;
+            subjectPage.Image = subjectIcon;
             Subject subject = new Subject();
             subject.TopLevel = false;
             subjectPage.Controls.Add(subject);
@@ -113,6 +134,10 @@ namespace Examination_PRL.Forms.Staff
 
 
             RadPageViewPage classRoom = new RadPageViewPage("Lớp"); //xem danh sách lớp
+            Bitmap bitMapClassRoomIcon = new Bitmap(Properties.Resources.group);
+            Image classRoomIcon = bitMapClassRoomIcon;
+            classRoom.Image = classRoomIcon;
+            classRoom.ToolTipText = "Lớp";
             ClassRooms classRooms = new ClassRooms();
             classRooms.TopLevel = false;
             classRoom.Controls.Add(classRooms);
@@ -121,6 +146,12 @@ namespace Examination_PRL.Forms.Staff
             classRooms.Name = "classRoomsForm";
 
             RadPageViewPage roomPage = new RadPageViewPage("Phòng thi"); //xem danh sách phòng thi
+            roomPage.ToolTipText = "Phòng thi";
+            Bitmap bitMapRoomIcon = new Bitmap(Properties.Resources._class);
+            Image roomIcon = bitMapRoomIcon;
+            roomPage.Image = roomIcon;
+
+
             Room room = new Room();
             room.TopLevel = false;
             roomPage.Controls.Add(room);
@@ -129,6 +160,11 @@ namespace Examination_PRL.Forms.Staff
             room.Name = "roomForm";
 
             RadPageViewPage staffPage = new RadPageViewPage("Nhân viên"); //xem danh sách nhân viên
+
+            staffPage.ToolTipText = "Nhân viên";
+            Bitmap bitMapStaffIcon = new Bitmap(Properties.Resources.person);
+            Image staffIcon = bitMapStaffIcon;
+            staffPage.Image = staffIcon;
             OverViewNhanVien overViewNhanVien = new OverViewNhanVien();
             overViewNhanVien.TopLevel = false;
             staffPage.Controls.Add(overViewNhanVien);
@@ -147,6 +183,12 @@ namespace Examination_PRL.Forms.Staff
             staffPage.SubPages.Add(addStaffPage);
 
             RadPageViewPage resultPage = new RadPageViewPage("Kết quả");
+
+            resultPage.ToolTipText = "Kết quả";
+            Bitmap bitMapResultIcon = new Bitmap(Properties.Resources.result);
+            Image resultIcon = bitMapResultIcon;
+            resultPage.Image = resultIcon;
+
             RadPageViewPage resultByStudentPage = new RadPageViewPage("Kết quả của thí sinh");
             RadPageViewPage resultBySubjectPage = new RadPageViewPage("Kết quả theo môn");
             RadPageViewPage resultByExamPage = new RadPageViewPage("Kết quả theo đề thi");
@@ -157,6 +199,11 @@ namespace Examination_PRL.Forms.Staff
             resultPage.SubPages.Add(resultByRoomPage);
 
             RadPageViewPage reportPage = new RadPageViewPage("Báo cáo");
+            Bitmap bitMapReportIcon = new Bitmap(Properties.Resources.report);
+            Image reportIcon = bitMapReportIcon;
+            reportPage.Image = reportIcon;
+            reportPage.ToolTipText = "Báo cáo";
+
             RadPageViewPage reportByStudentPage = new RadPageViewPage("Báo cáo theo thí sinh");
             RadPageViewPage reportBySubjectPage = new RadPageViewPage("Báo cáo theo môn");
             RadPageViewPage reportByExamPage = new RadPageViewPage("Báo cáo theo đề thi");
@@ -176,12 +223,31 @@ namespace Examination_PRL.Forms.Staff
             pvDashboard.Pages.Add(staffPage);
             pvDashboard.Pages.Add(resultPage);
             pvDashboard.Pages.Add(reportPage);
-            pvDashboard.Pages.Add(questionPage);
-
-
+            pvDashboard.Pages.Add(questionPage);           
 
             pvDashboard.AutoScroll = true;
+            CollapseAllSubPages(pvDashboard);
+         
 
+        }
+
+        private void CollapseAllSubPages(RadPageView pageView)
+        {
+            foreach (RadPageViewPage item in pageView.Pages)
+            {
+                if (item is RadPageViewPage)
+                {
+                    RadPageViewPage page = (RadPageViewPage)item;
+
+                    foreach (Control control in page.Controls)
+                    {
+                        if (control is RadPageViewPage)
+                        {
+                            control.Visible = false;
+                        }
+                    }
+                }
+            }
         }
 
         private void AddQuestionPage_Click(object? sender, EventArgs e)

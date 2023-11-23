@@ -21,7 +21,7 @@ namespace Examination_PRL
         {
             InitializeComponent();
             LoadData();
-         
+            scheduleDetail.ActiveViewType = SchedulerViewType.Agenda;
         }
         public void LoadData()
         {
@@ -35,12 +35,11 @@ namespace Examination_PRL
                 item.EndTime,
                 item.Subject,
                 item.Description,
-                item.ExamRoomId);               
+                item.ExamRoomId);
                 appointments.Add(myAppointment);
             }
 
-            SchedulerBindingDataSource dataSource = new SchedulerBindingDataSource();
-            // map the MyAppointment properties to the scheduler
+            SchedulerBindingDataSource dataSource = new SchedulerBindingDataSource();         
             AppointmentMappingInfo appointmentMappingInfo = new AppointmentMappingInfo();
             appointmentMappingInfo.Start = "Start";
             appointmentMappingInfo.End = "End";
@@ -50,9 +49,11 @@ namespace Examination_PRL
             appointmentMappingInfo.UniqueId = "Id";
             appointmentMappingInfo.Exceptions = "Exceptions";
             dataSource.EventProvider.Mapping = appointmentMappingInfo;
-            // assign the generic List of CustomAppointment as the EventProvider data source
+          
             dataSource.EventProvider.DataSource = appointments;
             this.scheduleDetail.DataSource = dataSource;
+            scheduleDetail.ThemeName = "MaterialTeal";
+
 
         }
     }
