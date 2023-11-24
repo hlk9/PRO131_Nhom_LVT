@@ -16,6 +16,10 @@ namespace Examination_BUS.Services
         {
             
         }
+        public ExamRoom GetExamRoomById(string id)
+        {
+            return _res.getExamRoomById(id);
+        }
 
         public bool createExamRoom(string id, string name, string address, string note, int capacity, bool status) 
         {
