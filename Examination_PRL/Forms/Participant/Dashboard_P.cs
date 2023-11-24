@@ -86,7 +86,7 @@ namespace Examination_PRL.Forms.Participant
             this.listViewExam.GroupDescriptors.Add(groupByValue);
 
             this.listViewExam.ViewType = ListViewType.IconsView;
-            this.listViewExam.ItemSize = new Size(250, 150);
+            this.listViewExam.ItemSize = new Size(300, 150);
             this.listViewExam.ItemSpacing = 10;
             this.listViewExam.AllowEdit = false;
             this.listViewExam.EnableFiltering = true;
@@ -97,7 +97,7 @@ namespace Examination_PRL.Forms.Participant
             this.listViewExam.ListViewElement.DrawFill = false;
             this.listViewExam.ListViewElement.ViewElement.BackColor = Color.Transparent;
             this.listViewExam.ListViewElement.Padding = new Padding(-9, 0, 0, 0);
-
+            this.listViewExam.Margin = new Padding(20);
             this.listViewExam.RootElement.EnableElementShadow = false;
             this.listViewExam.GroupItemSize = new Size(0, 45);
             listViewExam.ItemSpacing = 40;

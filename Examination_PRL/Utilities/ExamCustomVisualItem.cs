@@ -183,7 +183,7 @@ namespace Examination_PRL.Utilities
             examDuration.Image = Properties.Resources.GlyphCalendar_small;
             examDuration.Text = dataItem.ExamStartTime.ToString("HH:mm") + " - " + dataItem.ExamEndTime.ToString("HH:mm") +"  "+ dataItem.ExamStartTime.ToString("dd/MM/yyyy");
             houseKeepingInfo.Text = "";
-            examReTest.Text = dataItem.ExamRepeat.ToString();
+            examReTest.Text ="Lượt thi: "+dataItem.ExamRepeat.ToString();
 
 
             houseKeepingInfo.Visibility = Telerik.WinControls.ElementVisibility.Hidden;
