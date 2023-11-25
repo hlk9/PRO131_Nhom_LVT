@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.SchedulerDailyPrintStyle schedulerDailyPrintStyle1 = new Telerik.WinControls.UI.SchedulerDailyPrintStyle();
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             radPageView1 = new Telerik.WinControls.UI.RadPageView();
             radPageViewPage1 = new Telerik.WinControls.UI.RadPageViewPage();
@@ -83,15 +82,10 @@
             radPageViewPage1.ItemSize = new SizeF(78F, 49F);
             radPageViewPage1.Location = new Point(6, 55);
             radPageViewPage1.Name = "radPageViewPage1";
-            radPageViewPage1.Size = new Size(1267, 500);
+            radPageViewPage1.Size = new Size(1265, 645);
             radPageViewPage1.Text = "Vào Thi";
             // 
             // radPageViewPage2
-            // 
-            // 
-            // radScheduler1
-            // 
-            // 
             // 
             radPageViewPage2.ItemSize = new SizeF(80F, 49F);
             radPageViewPage2.Location = new Point(6, 55);
@@ -104,7 +98,7 @@
             radPageViewPage3.ItemSize = new SizeF(80F, 49F);
             radPageViewPage3.Location = new Point(6, 55);
             radPageViewPage3.Name = "radPageViewPage3";
-            radPageViewPage3.Size = new Size(1267, 500);
+            radPageViewPage3.Size = new Size(1265, 645);
             radPageViewPage3.Text = "Kết Quả";
             // 
             // radPageViewPage4

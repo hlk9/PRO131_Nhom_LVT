@@ -76,7 +76,6 @@
             radDock1.Location = new Point(0, 0);
             radDock1.MainDocumentContainer = documentContainer1;
             radDock1.Name = "radDock1";
-            radDock1.Padding = new Padding(0);
             // 
             // 
             // 
@@ -95,7 +94,7 @@
             toolWindow1.Location = new Point(4, 4);
             toolWindow1.Name = "toolWindow1";
             toolWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            toolWindow1.Size = new Size(543, 559);
+            toolWindow1.Size = new Size(533, 549);
             toolWindow1.Text = "toolWindow2";
             // 
             // ClassRoomExamGridView
@@ -112,7 +111,7 @@
             ClassRoomExamGridView.MasterTemplate.ViewDefinition = tableViewDefinition1;
             ClassRoomExamGridView.Name = "ClassRoomExamGridView";
             ClassRoomExamGridView.ReadOnly = true;
-            ClassRoomExamGridView.Size = new Size(543, 559);
+            ClassRoomExamGridView.Size = new Size(533, 549);
             ClassRoomExamGridView.TabIndex = 0;
             ClassRoomExamGridView.ThemeName = "MaterialTeal";
             ClassRoomExamGridView.CellClick += ClassRoomExamGridView_CellClick;
@@ -143,7 +142,7 @@
             // 
             documentTabStrip1.RootElement.MinSize = new Size(25, 25);
             documentTabStrip1.SelectedIndex = 0;
-            documentTabStrip1.Size = new Size(551, 567);
+            documentTabStrip1.Size = new Size(541, 557);
             documentTabStrip1.TabIndex = 0;
             documentTabStrip1.TabStop = false;
             documentTabStrip1.TabStripVisible = false;
@@ -154,14 +153,14 @@
             toolTabStrip1.CanUpdateChildIndex = true;
             toolTabStrip1.CausesValidation = false;
             toolTabStrip1.Controls.Add(toolWindow2);
-            toolTabStrip1.Location = new Point(559, 0);
+            toolTabStrip1.Location = new Point(554, 5);
             toolTabStrip1.Name = "toolTabStrip1";
             // 
             // 
             // 
             toolTabStrip1.RootElement.MinSize = new Size(25, 25);
             toolTabStrip1.SelectedIndex = 0;
-            toolTabStrip1.Size = new Size(392, 567);
+            toolTabStrip1.Size = new Size(392, 557);
             toolTabStrip1.SizeInfo.AbsoluteSize = new Size(392, 200);
             toolTabStrip1.SizeInfo.SplitterCorrection = new Size(192, 0);
             toolTabStrip1.TabIndex = 1;
@@ -182,7 +181,7 @@
             toolWindow2.Location = new Point(4, 52);
             toolWindow2.Name = "toolWindow2";
             toolWindow2.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            toolWindow2.Size = new Size(384, 511);
+            toolWindow2.Size = new Size(384, 501);
             toolWindow2.Text = "Thông Tin Chi Tiết";
             toolWindow2.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
@@ -191,7 +190,7 @@
             radBtnUpdate.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radBtnUpdate.BackColor = Color.Teal;
             radBtnUpdate.ForeColor = Color.White;
-            radBtnUpdate.Location = new Point(3, 440);
+            radBtnUpdate.Location = new Point(3, 430);
             radBtnUpdate.Name = "radBtnUpdate";
             radBtnUpdate.Size = new Size(378, 58);
             radBtnUpdate.TabIndex = 5;
@@ -204,7 +203,7 @@
             radBtnAdd.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radBtnAdd.BackColor = Color.Teal;
             radBtnAdd.ForeColor = Color.White;
-            radBtnAdd.Location = new Point(3, 376);
+            radBtnAdd.Location = new Point(3, 366);
             radBtnAdd.Name = "radBtnAdd";
             radBtnAdd.Size = new Size(378, 58);
             radBtnAdd.TabIndex = 4;

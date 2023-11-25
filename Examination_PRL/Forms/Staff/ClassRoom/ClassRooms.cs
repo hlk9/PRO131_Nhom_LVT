@@ -92,7 +92,7 @@ namespace Examination_PRL.Forms.Staff.ClassRoom
 
         private void DeleteClassRoom_Click(object? sender, EventArgs e)
         {
-            if(_ser.RemoveClass(_idWhenClick))
+            if (_ser.RemoveClass(_idWhenClick))
             {
                 MessageBox.Show("Xóa Thành Công");
             }
