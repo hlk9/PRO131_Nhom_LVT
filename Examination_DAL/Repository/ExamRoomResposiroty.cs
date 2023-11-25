@@ -82,5 +82,10 @@ namespace Examination_DAL.Repository
                 return false;
             }
         }
+
+        public ExamRoom getExamRoomById(string id)
+        {
+            return _context.ExamRooms.Find(id);
+        }
     }
 }

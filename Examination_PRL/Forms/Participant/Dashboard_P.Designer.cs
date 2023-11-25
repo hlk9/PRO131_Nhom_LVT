@@ -31,6 +31,7 @@
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             radPageView1 = new Telerik.WinControls.UI.RadPageView();
             radPageViewPage1 = new Telerik.WinControls.UI.RadPageViewPage();
+            listViewExam = new Telerik.WinControls.UI.RadListView();
             radPageViewPage2 = new Telerik.WinControls.UI.RadPageViewPage();
             radPageViewPage3 = new Telerik.WinControls.UI.RadPageViewPage();
             radPageViewPage4 = new Telerik.WinControls.UI.RadPageViewPage();
@@ -47,6 +48,8 @@
             tbt_Title = new Telerik.WinControls.UI.RadTextBox();
             ((System.ComponentModel.ISupportInitialize)radPageView1).BeginInit();
             radPageView1.SuspendLayout();
+            radPageViewPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)listViewExam).BeginInit();
             radPageViewPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btn_Send).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btn_Reset).BeginInit();
@@ -71,7 +74,7 @@
             radPageView1.Dock = DockStyle.Fill;
             radPageView1.Location = new Point(0, 0);
             radPageView1.Name = "radPageView1";
-            radPageView1.SelectedPage = radPageViewPage4;
+            radPageView1.SelectedPage = radPageViewPage1;
             radPageView1.Size = new Size(1277, 706);
             radPageView1.TabIndex = 0;
             radPageView1.ThemeName = "MaterialTeal";
@@ -79,11 +82,25 @@
             // 
             // radPageViewPage1
             // 
+            radPageViewPage1.Controls.Add(listViewExam);
             radPageViewPage1.ItemSize = new SizeF(78F, 49F);
             radPageViewPage1.Location = new Point(6, 55);
             radPageViewPage1.Name = "radPageViewPage1";
             radPageViewPage1.Size = new Size(1265, 645);
             radPageViewPage1.Text = "Vào Thi";
+            // 
+            // listViewExam
+            // 
+            listViewExam.Dock = DockStyle.Fill;
+            listViewExam.FullRowSelect = false;
+            listViewExam.GroupItemSize = new Size(200, 36);
+            listViewExam.ItemSize = new Size(144, 60);
+            listViewExam.Location = new Point(0, 0);
+            listViewExam.Name = "listViewExam";
+            listViewExam.Size = new Size(1265, 645);
+            listViewExam.TabIndex = 0;
+            listViewExam.ThemeName = "MaterialTeal";
+            listViewExam.ViewType = Telerik.WinControls.UI.ListViewType.IconsView;
             // 
             // radPageViewPage2
             // 
@@ -131,7 +148,6 @@
             btn_Send.TabIndex = 19;
             btn_Send.Text = "Gửi phản hồi";
             btn_Send.ThemeName = "MaterialTeal";
-            btn_Send.Click += btn_Send_Click;
             // 
             // btn_Reset
             // 
@@ -144,7 +160,6 @@
             btn_Reset.TabIndex = 18;
             btn_Reset.Text = "Làm mới";
             btn_Reset.ThemeName = "MaterialTeal";
-            btn_Reset.Click += btn_Reset_Click;
             // 
             // radLabel7
             // 
@@ -203,7 +218,7 @@
             tbt_IDParticipant.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbt_IDParticipant.Location = new Point(432, 234);
             tbt_IDParticipant.Name = "tbt_IDParticipant";
-            tbt_IDParticipant.Size = new Size(394, 37);
+            tbt_IDParticipant.Size = new Size(394, 0);
             tbt_IDParticipant.TabIndex = 14;
             tbt_IDParticipant.ThemeName = "MaterialTeal";
             // 
@@ -212,7 +227,7 @@
             tbt_Name.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbt_Name.Location = new Point(432, 157);
             tbt_Name.Name = "tbt_Name";
-            tbt_Name.Size = new Size(394, 37);
+            tbt_Name.Size = new Size(394, 0);
             tbt_Name.TabIndex = 15;
             tbt_Name.ThemeName = "MaterialTeal";
             // 
@@ -231,7 +246,7 @@
             tbt_Title.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbt_Title.Location = new Point(432, 80);
             tbt_Title.Name = "tbt_Title";
-            tbt_Title.Size = new Size(394, 37);
+            tbt_Title.Size = new Size(394, 0);
             tbt_Title.TabIndex = 16;
             tbt_Title.ThemeName = "MaterialTeal";
             // 
@@ -251,6 +266,8 @@
             ThemeName = "MaterialTeal";
             ((System.ComponentModel.ISupportInitialize)radPageView1).EndInit();
             radPageView1.ResumeLayout(false);
+            radPageViewPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)listViewExam).EndInit();
             radPageViewPage4.ResumeLayout(false);
             radPageViewPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)btn_Send).EndInit();
@@ -287,5 +304,6 @@
         private Telerik.WinControls.UI.RadTextBox tbt_Name;
         private Telerik.WinControls.UI.RadLabel radLabel6;
         private Telerik.WinControls.UI.RadTextBox tbt_Title;
+        private Telerik.WinControls.UI.RadListView listViewExam;
     }
 }
