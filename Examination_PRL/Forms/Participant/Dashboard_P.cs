@@ -1,4 +1,5 @@
 ﻿using Examination_BUS.Services;
+using Examination_BUS.Utilities;
 using Examination_BUS.ViewModel;
 using Examination_DAL.Models;
 using Examination_PRL.Utilities;
@@ -19,6 +20,8 @@ namespace Examination_PRL.Forms.Participant
     {
         FeedbackServices _ser = new FeedbackServices();
 
+        ScheduleServices scheduleServices = new ScheduleServices();
+
         public string userName = "";
         ScheduleDetailServices scheduleDetailServices = new ScheduleDetailServices();
 
@@ -29,11 +32,43 @@ namespace Examination_PRL.Forms.Participant
             InitializeComponent();
             _ser = new FeedbackServices();
             this.userName = urs;
+            LoadData();
             LoadExamSchedule();
         }
 
+        public void LoadData()
+        {
+            BindingList<CustomAppointment> appointments = new BindingList<CustomAppointment>();
+
+            foreach (var item in scheduleServices.GetListSchedule())
+            {
+                CustomAppointment myAppointment =
+                new CustomAppointment(
+                item.StartTime,
+                item.EndTime,
+                item.Subject,
+                item.Description,
+                item.ExamRoomId);
+                appointments.Add(myAppointment);
+            }
+
+            SchedulerBindingDataSource dataSource = new SchedulerBindingDataSource();
+            AppointmentMappingInfo appointmentMappingInfo = new AppointmentMappingInfo();
+            appointmentMappingInfo.Start = "Start";
+            appointmentMappingInfo.End = "End";
+            appointmentMappingInfo.Summary = "Subject";
+            appointmentMappingInfo.Description = "Description";
+            appointmentMappingInfo.Location = "Location";
+            appointmentMappingInfo.UniqueId = "Id";
+            appointmentMappingInfo.Exceptions = "Exceptions";
+            dataSource.EventProvider.Mapping = appointmentMappingInfo;
+
+            dataSource.EventProvider.DataSource = appointments;
+            this.radViewScheduler.DataSource = dataSource;
+            radViewScheduler.ThemeName = "MaterialTeal";
 
 
+        }
 
         private void btn_Reset_Click(object sender, EventArgs e)
         {
@@ -67,11 +102,11 @@ namespace Examination_PRL.Forms.Participant
 
 
         }
-   
+
         public void LoadExamSchedule()
         {
 
-        
+
             listData = scheduleDetailServices.GetScheduleAndExamByParticipantID(userName);
 
             listViewExam.VisualItemCreating += ListViewExam_VisualItemCreating;
@@ -102,7 +137,7 @@ namespace Examination_PRL.Forms.Participant
             this.listViewExam.GroupItemSize = new Size(0, 45);
             listViewExam.ItemSpacing = 40;
 
-            foreach(var item in listData)
+            foreach (var item in listData)
             {
                 listViewExam.Items.Add(item);
             }
