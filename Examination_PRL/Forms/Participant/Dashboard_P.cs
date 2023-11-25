@@ -67,11 +67,9 @@ namespace Examination_PRL.Forms.Participant
 
 
         }
-   
+
         public void LoadExamSchedule()
         {
-
-        
             listData = scheduleDetailServices.GetScheduleAndExamByParticipantID(userName);
 
             listViewExam.VisualItemCreating += ListViewExam_VisualItemCreating;
@@ -102,7 +100,7 @@ namespace Examination_PRL.Forms.Participant
             this.listViewExam.GroupItemSize = new Size(0, 45);
             listViewExam.ItemSpacing = 40;
 
-            foreach(var item in listData)
+            foreach (var item in listData)
             {
                 listViewExam.Items.Add(item);
             }
