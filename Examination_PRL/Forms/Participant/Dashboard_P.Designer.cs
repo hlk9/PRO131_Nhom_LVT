@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Telerik.WinControls.UI.SchedulerDailyPrintStyle schedulerDailyPrintStyle2 = new Telerik.WinControls.UI.SchedulerDailyPrintStyle();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             radPageView1 = new Telerik.WinControls.UI.RadPageView();
@@ -58,6 +59,7 @@
             tbt_Name = new Telerik.WinControls.UI.RadTextBox();
             radLabel6 = new Telerik.WinControls.UI.RadLabel();
             tbt_Title = new Telerik.WinControls.UI.RadTextBox();
+            radViewScheduler = new Telerik.WinControls.UI.RadScheduler();
             radlblChuaDat = new Telerik.WinControls.UI.RadLabel();
             radlblDat = new Telerik.WinControls.UI.RadLabel();
             radlblSum = new Telerik.WinControls.UI.RadLabel();
@@ -93,6 +95,7 @@
             radPageView1.SuspendLayout();
             radPageViewPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)listViewExam).BeginInit();
+            radPageViewPage2.SuspendLayout();
             radPageViewPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)radDock1).BeginInit();
             radDock1.SuspendLayout();
@@ -122,6 +125,7 @@
             ((System.ComponentModel.ISupportInitialize)tbt_Name).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tbt_Title).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radViewScheduler).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radlblChuaDat).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radlblDat).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radlblSum).BeginInit();
@@ -166,6 +170,7 @@
             radPageView1.Dock = DockStyle.Fill;
             radPageView1.Location = new Point(0, 0);
             radPageView1.Name = "radPageView1";
+            radPageView1.SelectedPage = radPageViewPage2;
             radPageView1.SelectedPage = radPageViewPage3;
             radPageView1.Size = new Size(1277, 706);
             radPageView1.TabIndex = 0;
@@ -196,6 +201,7 @@
             // 
             // radPageViewPage2
             // 
+            radPageViewPage2.Controls.Add(radViewScheduler);
             radPageViewPage2.ItemSize = new SizeF(80F, 49F);
             radPageViewPage2.Location = new Point(6, 55);
             radPageViewPage2.Name = "radPageViewPage2";
@@ -529,6 +535,17 @@
             tbt_Title.TabIndex = 16;
             tbt_Title.ThemeName = "MaterialTeal";
             // 
+            // radViewScheduler
+            // 
+            radViewScheduler.ActiveViewType = Telerik.WinControls.UI.SchedulerViewType.Agenda;
+            radViewScheduler.Dock = DockStyle.Fill;
+            radViewScheduler.Location = new Point(0, 0);
+            radViewScheduler.Name = "radViewScheduler";
+            radViewScheduler.PrintStyle = schedulerDailyPrintStyle2;
+            radViewScheduler.Size = new Size(1265, 645);
+            radViewScheduler.TabIndex = 0;
+            radViewScheduler.ThemeName = "MaterialTeal";
+            // 
             // radlblChuaDat
             // 
             radlblChuaDat.ForeColor = Color.Teal;
@@ -858,6 +875,7 @@
             radPageView1.ResumeLayout(false);
             radPageViewPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)listViewExam).EndInit();
+            radPageViewPage2.ResumeLayout(false);
             radPageViewPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)radDock1).EndInit();
             radDock1.ResumeLayout(false);
@@ -889,6 +907,7 @@
             ((System.ComponentModel.ISupportInitialize)tbt_Name).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel6).EndInit();
             ((System.ComponentModel.ISupportInitialize)tbt_Title).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radViewScheduler).EndInit();
             ((System.ComponentModel.ISupportInitialize)radlblChuaDat).EndInit();
             ((System.ComponentModel.ISupportInitialize)radlblDat).EndInit();
             ((System.ComponentModel.ISupportInitialize)radlblSum).EndInit();
@@ -946,6 +965,7 @@
         private Telerik.WinControls.UI.RadLabel radLabel6;
         private Telerik.WinControls.UI.RadTextBox tbt_Title;
         private Telerik.WinControls.UI.RadListView listViewExam;
+        private Telerik.WinControls.UI.RadScheduler radViewScheduler;
         private Telerik.WinControls.UI.Docking.RadDock radDock1;
         private Telerik.WinControls.UI.Docking.DocumentWindow documentWindow1;
         private Telerik.WinControls.UI.Docking.DocumentContainer documentContainer1;
