@@ -27,6 +27,10 @@ namespace Examination_PRL.Forms.Participant
 
         List<ScheduleWithExamInforViewModel> listData;
 
+        ExamServices _serviceExam = new ExamServices();
+
+        int _idExamClick;
+
         public Dashboard_P(string urs)
         {
             InitializeComponent();
@@ -34,6 +38,7 @@ namespace Examination_PRL.Forms.Participant
             this.userName = urs;
             LoadData();
             LoadExamSchedule();
+            LoadDataExam();
         }
 
         public void LoadData()
@@ -66,23 +71,18 @@ namespace Examination_PRL.Forms.Participant
             dataSource.EventProvider.DataSource = appointments;
             this.radViewScheduler.DataSource = dataSource;
             radViewScheduler.ThemeName = "MaterialTeal";
-
-
         }
 
         private void btn_Reset_Click(object sender, EventArgs e)
         {
             tbt_Content.Text = "";
-
             tbt_IDParticipant.Text = "";
             tbt_Name.Text = "";
-
             tbt_Title.Text = "";
         }
 
         private void btn_Send_Click(object sender, EventArgs e)
         {
-
             Feedback fb = new Feedback()
             {
 
@@ -91,16 +91,10 @@ namespace Examination_PRL.Forms.Participant
                 IdParticipant = tbt_IDParticipant.Text,
                 Content = tbt_Content.Text,
                 Status = true,
-
-
             };
             bool add = (_ser.Send(fb));
             if (add) MessageBox.Show("Gửi thành công!");
             else MessageBox.Show("Gửi thất bại!");
-
-
-
-
         }
 
         public void LoadExamSchedule()
@@ -126,7 +120,6 @@ namespace Examination_PRL.Forms.Participant
             this.listViewExam.AllowEdit = false;
             this.listViewExam.EnableFiltering = true;
             this.listViewExam.HotTracking = false;
-
             this.listViewExam.RootElement.BackColor = Color.Transparent;
             this.listViewExam.BackColor = Color.Transparent;
             this.listViewExam.ListViewElement.DrawFill = false;
@@ -146,9 +139,8 @@ namespace Examination_PRL.Forms.Participant
                 listViewExam.Items[listViewExam.Items.Count - 1].Visible = false;
             }
             catch
-            { }
-
-
+            {
+            }
         }
 
         private void ListViewExam_VisualItemFormatting(object sender, ListViewVisualItemCreatingEventArgs e)
@@ -201,6 +193,48 @@ namespace Examination_PRL.Forms.Participant
                 {
                     return;
                 }
+            }
+        }
+        // radgridView Kết Quả
+        public void LoadDataExam()
+        {
+            int stt = 1;
+
+            radViewExam_Answers.ColumnCount = 5;
+
+            radViewExam_Answers.Columns[0].HeaderText = "STT";
+            radViewExam_Answers.Columns[1].HeaderText = "Mã Môn";
+            radViewExam_Answers.Columns[2].HeaderText = "Tên Môn";
+            radViewExam_Answers.Columns[3].HeaderText = "Điểm";
+            radViewExam_Answers.Columns[4].HeaderText = "Ghi Chú";
+
+            radViewExam_Answers.Rows.Clear();
+
+            foreach (var item in _serviceExam.GetAnswer_ResponsesViewModels("chiupp"))
+            {
+                radViewExam_Answers.Rows.Add(stt++, item.IdExam, item.NameExam, item.Score, item.Note);
+            }
+        }
+
+        private void radViewExam_Answers_CellClick(object sender, GridViewCellEventArgs e)
+        {
+            _idExamClick = Convert.ToInt32(radViewExam_Answers.Rows[e.RowIndex].Cells[1].Value);
+            var obj = _serviceExam.GetAnswer_ResponsesViewModels("chiupp").Where(x => x.Id == _idExamClick).FirstOrDefault();
+            if (obj != null)
+            {
+                radLblIDDe.Text = obj.IdExam.ToString();
+                radLblIdThiSinh.Text = obj.ParticipantId.ToString();
+                radLblIdMon.Text = obj.Id.ToString();
+                radLblName.Text = obj.NameExam.ToString();
+                radLblTime.Text = obj.SubmitTime.ToString();
+                radLablDiem.Text = obj.Score.ToString();
+                radLblStatus.Text = obj.Status.ToString();
+                radlblDat.Text = obj.IsPassed.ToString();
+                radLblDung.Text = obj.QuestionCorrect.ToString();
+                radLblSai.Text = obj.QuestionWrong.ToString();
+                radLblChuaLam.Text = obj.QuestionNotAnswered.ToString();
+                radLblTimeLamBai.Text = obj.FinishTime.ToString();
+                //radLblNote.Text = obj.Note.ToString();
             }
         }
     }
