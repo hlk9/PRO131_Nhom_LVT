@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
 using Telerik.WinControls.UI;
+using Telerik.Windows.Documents.Flow.Model.Fields;
 
 namespace Examination_PRL.Forms.Participant
 {
@@ -39,12 +40,13 @@ namespace Examination_PRL.Forms.Participant
             if (this.examCode != null)
             {
                 FillAllQuestion(this.examCode);
+
             }
             else
             {
                 MessageBox.Show("Không có bài thi nào");
             }
-
+          
 
         }
 
@@ -70,14 +72,16 @@ namespace Examination_PRL.Forms.Participant
         {
             QuestionWithAnswerViewModel question = questionServices.GetQuestionWithAnswer(questionID);
             RadPageViewPage pageQuestion = new RadPageViewPage();
+            pageQuestion.Name = "pageQuestion" + currentGenerateQuestion.ToString();
             pageQuestion.Text = "Câu hỏi " + currentGenerateQuestion.ToString();
             pageQuestion.BackColor = Color.Azure;
             RadPanel panelTopMost = new RadPanel();
             panelTopMost.Dock = DockStyle.Fill;
             panelTopMost.Height = pageViewHeight;
             panelTopMost.Width = pageViewWidth;
-            panelTopMost.Name = "panelTopMost" + currentGenerateQuestion.ToString();
+            panelTopMost.Name = "panelTopMost";
             panelTopMost.Padding = new Padding(10);
+            panelTopMost.ThemeName = "MaterialTeal";
 
             panelTopMost.BackColor = Color.White; ;
             pageQuestion.Controls.Add(panelTopMost);
@@ -100,10 +104,12 @@ namespace Examination_PRL.Forms.Participant
             panelAnswer.Width = pageWith;
             panelAnswer.BackColor = Color.Azure;
             panelTopMost.Controls.Add(panelAnswer);
+            panelAnswer.Name = "panelAnswer";
             panelQuestion.Text = questionTypeServices.GetQuestionTypeNameById(Convert.ToByte(question.QuestionType)) + "\n" + question.Content;
             panelAnswer.ThemeName = "MaterialTeal";
             panelAnswer.Padding = new Padding(10);
             FlowLayoutPanel flowPanel = new FlowLayoutPanel();
+            flowPanel.Name = "flowPanel";
             flowPanel.FlowDirection = FlowDirection.TopDown;
             flowPanel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             panelAnswer.Controls.Add(flowPanel);
@@ -156,6 +162,98 @@ namespace Examination_PRL.Forms.Participant
         private void listViewQuestion_ItemMouseClick(object sender, ListViewItemEventArgs e)
         {
             pageViewQuestion.SelectedPage = pageViewQuestion.Pages[listViewQuestion.SelectedIndex];
+        }
+
+        private void pageViewQuestion_SelectedPageChanged(object sender, EventArgs e)
+        {
+            Thread threadHightlight = new Thread(HighlightQuestion);
+            threadHightlight.Start();
+        }
+
+        void HighlightQuestion()
+        {
+
+            if (listViewQuestion.InvokeRequired)
+            {
+                listViewQuestion.Invoke(new Action(HighlightQuestion));
+                return;
+            }
+
+
+            try
+            {
+
+                for (int i = 0; i < pageViewQuestion.Pages.Count; i++)
+                {
+                    var panelTop = pageViewQuestion.Pages[i].Controls.Find("panelTopMost", true);
+                    if (panelTop.Length > 0)
+                    {
+                        var panelAnswer = panelTop[0].Controls.Find("panelAnswer", true);
+
+                        if (panelAnswer.Length > 0)
+                        {
+                            var flowPanel = panelAnswer[0].Controls.Find("flowPanel", true);
+                            if (flowPanel.Length > 0)
+                            {
+                                var radRadioButton = flowPanel[0].Controls.OfType<RadRadioButton>();
+                                if (radRadioButton.Count() > 0)
+                                {
+                                    int count = 0;
+                                    foreach (var item in radRadioButton)
+                                    {
+                                        if (item.IsChecked == true)
+                                        {
+                                            count++;
+                                        }
+
+                                    }
+
+                                    if (count > 0)
+                                        listViewQuestion.Items[i].BackColor = Color.Moccasin;
+
+                                    else
+                                        listViewQuestion.Items[i].BackColor = Color.MintCream;
+
+                                }
+                                else
+                                {
+                                    var checkBox = flowPanel[0].Controls.OfType<RadCheckBox>();
+                                    if (checkBox.Count() > 0)
+                                    {
+                                        int count = 0;
+                                        foreach (var item in checkBox)
+                                        {
+                                            if (item.IsChecked == true)
+                                            {
+                                                count++;
+                                            }
+                                        }
+
+                                        if (count > 0)
+                                            listViewQuestion.Items[i].BackColor = Color.Moccasin;
+
+                                        else
+                                            listViewQuestion.Items[i].BackColor = Color.MintCream;
+
+                                    }
+                                }
+
+
+
+                            }
+                        }
+
+
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
     }
 }

@@ -96,6 +96,7 @@
             pageViewQuestion.Size = new Size(1205, 681);
             pageViewQuestion.TabIndex = 0;
             pageViewQuestion.ThemeName = "MaterialTeal";
+            pageViewQuestion.SelectedPageChanged += pageViewQuestion_SelectedPageChanged;
             pageViewQuestion.SizeChanged += pageViewQuestion_SizeChanged;
             ((Telerik.WinControls.UI.RadPageViewStripElement)pageViewQuestion.GetChildAt(0)).StripButtons = Telerik.WinControls.UI.StripViewButtons.Scroll;
             // 
