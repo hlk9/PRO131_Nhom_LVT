@@ -1,5 +1,6 @@
 ﻿using Examination_BUS.Services;
 using Examination_BUS.ViewModel;
+using Examination_DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -127,6 +128,8 @@ namespace Examination_PRL.Forms.Participant
             panelTopMost.Controls.Add(panelQuestion);
             panelQuestion.ThemeName = "MaterialTeal";
             panelQuestion.TextAlignment = ContentAlignment.TopLeft;
+            panelQuestion.Padding = new Padding(10);
+            panelQuestion.Name = "panelQuestion" + question.Id;
 
             RadPanel panelAnswer = new RadPanel();
             panelAnswer.Padding = new Padding(10);
@@ -199,6 +202,7 @@ namespace Examination_PRL.Forms.Participant
         {
             Thread threadHightlight = new Thread(HighlightQuestion);
             threadHightlight.Start();
+            listViewQuestion.SelectedIndex = Convert.ToInt32(pageViewQuestion.SelectedPage.Text.Replace("Câu hỏi ", "")) - 1;
         }
 
         void HighlightQuestion()
@@ -282,6 +286,7 @@ namespace Examination_PRL.Forms.Participant
         {
             if (checkBoxComplete.Checked == true)
             {
+                ListAnsweredQuestion();
                 //MessageBox.Show("Bạn đã hoàn thành bài thi");
                 //return;
             }
@@ -291,5 +296,128 @@ namespace Examination_PRL.Forms.Participant
                 MessageBox.Show("Bạn chưa hoàn thành bài thi");
             }
         }
+
+        public List<AnswerResponse> ListAnsweredQuestion()
+        {
+            List<AnswerResponse> listAnR = new List<AnswerResponse>();
+            try
+            {
+
+
+                for (int i = 0; i < pageViewQuestion.Pages.Count; i++)
+                {
+
+
+
+
+                    var panelParent = pageViewQuestion.Pages[i].Controls.Find("panelTopMost", true);
+                    if (panelParent.Length > 0)
+                    {
+                        var panelQuestion = panelParent[0].Controls.OfType<RadPanel>().Where(x => x.Name.Contains("panelQuestion")).FirstOrDefault();
+
+                        var panelAnswer = panelParent[0].Controls.Find("panelAnswer", true);
+
+                        if (panelAnswer.Length > 0)
+                        {
+                            var flowPanel = panelAnswer[0].Controls.Find("flowPanel", true);
+                            if (flowPanel.Length > 0)
+                            {
+                                var radRadioButton = flowPanel[0].Controls.OfType<RadRadioButton>();
+                                if (radRadioButton.Count() > 0)
+                                {
+
+                                    foreach (var item in radRadioButton)
+                                    {
+                                        AnswerResponse answerResponse = new AnswerResponse();
+                                        try
+                                        {
+                                            if (item.IsChecked == true)
+                                            {
+                                                answerResponse.QuestionId = Convert.ToInt32(panelQuestion.Name.Replace("panelQuestion", ""));
+                                                answerResponse.AnswerId = Convert.ToInt32(item.Name);
+                                                answerResponse.AnswerAt = DateTime.Now;
+
+                                                if (answerServices.GetAnswerById(answerResponse.AnswerId).IsCorrect == true)
+                                                {
+                                                    answerResponse.IsCorrect = true;
+                                                }
+                                                else
+                                                {
+                                                    answerResponse.IsCorrect = false;
+                                                }
+
+                                                listAnR.Add(answerResponse);
+                                            }
+                                        }
+                                        catch
+                                        {
+
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    var checkBox = flowPanel[0].Controls.OfType<RadCheckBox>();
+                                    if (checkBox.Count() > 0)
+                                    {
+
+                                        foreach (var item in checkBox)
+                                        {
+                                            AnswerResponse answerResponse = new AnswerResponse();
+                                            try
+                                            {
+                                                if (item.IsChecked == true)
+                                                {
+                                                    answerResponse.QuestionId = Convert.ToInt32(panelQuestion.Name.Replace("panelQuestion", ""));
+                                                    answerResponse.AnswerId = Convert.ToInt32(item.Name);
+                                                    answerResponse.AnswerAt = DateTime.Now;
+
+                                                    if (answerServices.GetAnswerById(answerResponse.AnswerId).IsCorrect == true)
+                                                    {
+                                                        answerResponse.IsCorrect = true;
+                                                    }
+                                                    else
+                                                    {
+                                                        answerResponse.IsCorrect = false;
+                                                    }
+                                                    listAnR.Add(answerResponse);
+                                                }
+                                            }
+                                            catch
+                                            {
+
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+            foreach (var item in listAnR)
+            {
+               try
+                {
+                    MessageBox.Show("Câu: " + item.QuestionId + "  ID: " + item.AnswerId + " " + item.AnswerAt + "  Đúng: " + item.IsCorrect);
+                }
+                catch
+                {
+                    MessageBox.Show("Lỗi");
+                }
+            }
+
+            return null;
+
+        }
+
+
     }
 }
