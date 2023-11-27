@@ -19,16 +19,11 @@ namespace Examination_PRL.Forms.Participant
     public partial class Dashboard_P : Telerik.WinControls.UI.RadForm
     {
         FeedbackServices _ser = new FeedbackServices();
-
         ScheduleServices scheduleServices = new ScheduleServices();
-
         public string userName = "";
         ScheduleDetailServices scheduleDetailServices = new ScheduleDetailServices();
-
         List<ScheduleWithExamInforViewModel> listData;
-
         ExamServices _serviceExam = new ExamServices();
-
         int _idExamClick;
 
         public Dashboard_P(string urs)
@@ -67,7 +62,6 @@ namespace Examination_PRL.Forms.Participant
             appointmentMappingInfo.UniqueId = "Id";
             appointmentMappingInfo.Exceptions = "Exceptions";
             dataSource.EventProvider.Mapping = appointmentMappingInfo;
-
             dataSource.EventProvider.DataSource = appointments;
             this.radViewScheduler.DataSource = dataSource;
             radViewScheduler.ThemeName = "MaterialTeal";
@@ -99,10 +93,7 @@ namespace Examination_PRL.Forms.Participant
 
         public void LoadExamSchedule()
         {
-
-
             listData = scheduleDetailServices.GetScheduleAndExamByParticipantID(userName);
-
             listViewExam.VisualItemCreating += ListViewExam_VisualItemCreating;
             listViewExam.VisualItemCreating += ListViewExam_VisualItemFormatting;
             this.listViewExam.ShowGroups = true;
@@ -111,9 +102,7 @@ namespace Examination_PRL.Forms.Participant
             {
                 new SortDescriptor("Type", ListSortDirection.Ascending)
             });
-
             this.listViewExam.GroupDescriptors.Add(groupByValue);
-
             this.listViewExam.ViewType = ListViewType.IconsView;
             this.listViewExam.ItemSize = new Size(300, 150);
             this.listViewExam.ItemSpacing = 10;
@@ -129,7 +118,6 @@ namespace Examination_PRL.Forms.Participant
             this.listViewExam.RootElement.EnableElementShadow = false;
             this.listViewExam.GroupItemSize = new Size(0, 45);
             listViewExam.ItemSpacing = 40;
-
             foreach (var item in listData)
             {
                 listViewExam.Items.Add(item);
@@ -140,6 +128,7 @@ namespace Examination_PRL.Forms.Participant
             }
             catch
             {
+
             }
         }
 
@@ -156,7 +145,6 @@ namespace Examination_PRL.Forms.Participant
                 {
                     groupItem.Visibility = ElementVisibility.Collapsed;
                 }
-
                 e.VisualItem.CustomFontSize = 15;
                 e.VisualItem.CustomFontStyle = FontStyle.Regular;
                 groupItem.ToggleElement.Visibility = ElementVisibility.Collapsed;
@@ -199,9 +187,7 @@ namespace Examination_PRL.Forms.Participant
         public void LoadDataExam()
         {
             int stt = 1;
-
             radViewExam_Answers.ColumnCount = 5;
-
             radViewExam_Answers.Columns[0].HeaderText = "STT";
             radViewExam_Answers.Columns[1].HeaderText = "Mã Môn";
             radViewExam_Answers.Columns[2].HeaderText = "Tên Môn";
@@ -234,8 +220,9 @@ namespace Examination_PRL.Forms.Participant
                 radLblSai.Text = obj.QuestionWrong.ToString();
                 radLblChuaLam.Text = obj.QuestionNotAnswered.ToString();
                 radLblTimeLamBai.Text = obj.FinishTime.ToString();
-                //radLblNote.Text = obj.Note.ToString();
             }
         }
+
+      
     }
 }

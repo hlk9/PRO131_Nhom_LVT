@@ -81,7 +81,6 @@ namespace Examination_PRL.Forms.Staff
             examGridView.Columns[15].HeaderText = "Ngày tạo";
             examGridView.Columns[16].HeaderText = "Ngày cập nhật";
             examGridView.Columns[17].HeaderText = "Cập nhật bởi";
-
             examGridView.Columns[0].IsVisible = false;
             examGridView.Columns[1].IsVisible = false;
             for (int i = 9; i < 18; i++)
@@ -141,8 +140,8 @@ namespace Examination_PRL.Forms.Staff
         {
             if (curentExamDetailCode != "" && examGridView.SelectedRows.Count > 0)
             {
-                int examDetailId = Convert.ToInt32(examGridView.Rows[examGridView.SelectedRows[0].Index].Cells[1].Value);
-                ViewOneExam oneExam = new ViewOneExam(examDetailId);
+              
+                ViewOneExam oneExam = new ViewOneExam(curentExamDetailCode);
                 oneExam.ShowDialog();
             }
         }

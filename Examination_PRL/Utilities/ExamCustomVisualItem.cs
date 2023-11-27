@@ -1,6 +1,7 @@
 ﻿using Telerik.WinControls;
 using Telerik.WinControls.UI;
 using Examination_BUS.ViewModel;
+using Examination_PRL.Forms.Participant;
 
 namespace Examination_PRL.Utilities
 {
@@ -39,6 +40,9 @@ namespace Examination_PRL.Utilities
 
         protected override void CreateChildElements()
         {
+
+            this.Click += ExamCustomVisualItem_Click;
+
             base.CreateChildElements();
 
             verticalContainer.Orientation = System.Windows.Forms.Orientation.Vertical;
@@ -138,6 +142,12 @@ namespace Examination_PRL.Utilities
             this.Children.Add(this.verticalContainer);
         }
 
+        private void ExamCustomVisualItem_Click(object? sender, EventArgs e)
+        {
+            EnterExam enterExam = new EnterExam(this.Name);
+            enterExam.ShowDialog();
+        }
+
         protected override void SynchronizeProperties()
         {
 
@@ -162,8 +172,6 @@ namespace Examination_PRL.Utilities
             houseKeepingInfo.Layout.LeftPart.Margin = new System.Windows.Forms.Padding(0, -3, 0, 0);
             examReTest.ForeColor = Color.FromArgb(200, 0, 0, 0);
             examReTest.Layout.LeftPart.Margin = new System.Windows.Forms.Padding(0, -3, 0, 0);
-
-
 
             //generate random data
 
@@ -203,12 +211,12 @@ namespace Examination_PRL.Utilities
 
 
 
-
+           
 
             examReTest.Visibility = Telerik.WinControls.ElementVisibility.Visible;
 
 
-            this.Click += ExamCustomVisualItem_Click;
+            //this.Click += ExamCustomVisualItem_Click;
 
 
 
@@ -216,22 +224,7 @@ namespace Examination_PRL.Utilities
 
         }
 
-        private void ExamCustomVisualItem_Click(object? sender, EventArgs e)
-        {
-            if(isClicked == false)
-            {
-                MessageBox.Show("Đã chọn bài thi: " + this.Name);
-                isClicked = true;
-                return;
-            }
-            //else
-            //{
-            //    this.BackColor = Color.Teal;
-            //    isClicked = false;
-            //}
-
-          
-        }
+      
     }
 
 

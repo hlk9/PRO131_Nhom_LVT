@@ -26,7 +26,6 @@ namespace Examination_PRL.Forms.Staff.Exam
 
         ExamQuestionServices examQuestionServices = new ExamQuestionServices();
 
-        public event EventHandler UpdateDataEvent;
 
         int currentGenerateQuestion = 1;
         int pageViewWidth = -1;
@@ -302,7 +301,7 @@ namespace Examination_PRL.Forms.Staff.Exam
 
                     }
 
-                    UpdateDataEvent?.Invoke(this, EventArgs.Empty);
+                  
                 }
 
 

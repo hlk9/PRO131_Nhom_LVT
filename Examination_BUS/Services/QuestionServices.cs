@@ -14,11 +14,13 @@ namespace Examination_BUS.Services
         QuestionRepository questionRepository;
         ExamQuestionRepository examQuestionRepository;
         AnswerRepository answerRepository;
+        ExamDetailRepository examDetailRepository;
         public QuestionServices()
         {
             questionRepository = new QuestionRepository();
             examQuestionRepository = new ExamQuestionRepository();
             answerRepository = new AnswerRepository();
+            examDetailRepository = new ExamDetailRepository();
         }
         public bool AddQuestion(Question question)
         {
@@ -41,11 +43,14 @@ namespace Examination_BUS.Services
             return questionRepository.GetQuestionById(questionId);
         }
 
-        public QuestionsInExamViewModel GetQuestionsByExamCode(int id)
+        public QuestionsInExamViewModel GetQuestionsByExamCode(string code)
         {
             List<Question> allQuestion = (from eq in examQuestionRepository.GetAllExamQuestions()
-                                          join q in questionRepository.GetAllQuestions() on eq.QuestionId equals q.Id
-                                          where eq.ExamDetailId == id
+                                          join q in questionRepository.GetAllQuestions()
+                                          on eq.QuestionId equals q.Id
+                                          join ed in examDetailRepository.GetAll()
+                                          on eq.ExamDetailId equals ed.Id                                        
+                                          where ed.ExamDetailCode == code
                                           select q).ToList();
             List<Answer> allAnswer = (from q in allQuestion
                                       join a in answerRepository.GetAllAnswers()
@@ -55,7 +60,7 @@ namespace Examination_BUS.Services
             QuestionsInExamViewModel questionsInExamViewModel = new QuestionsInExamViewModel();
             questionsInExamViewModel.Questions = allQuestion;
             questionsInExamViewModel.Answers = allAnswer;
-            questionsInExamViewModel.ExamDetailID = id;
+            questionsInExamViewModel.ExamDetailCode = code;
             return questionsInExamViewModel;
 
 

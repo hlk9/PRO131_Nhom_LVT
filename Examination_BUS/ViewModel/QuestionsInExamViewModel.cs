@@ -9,7 +9,7 @@ namespace Examination_BUS.ViewModel
 {
     public class QuestionsInExamViewModel
     {
-        public int  ExamDetailID { get; set; }
+        public string  ExamDetailCode { get; set; }
         public List<Question> Questions { get; set; }
         public List<Answer> Answers { get; set; }
     }

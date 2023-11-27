@@ -14,11 +14,11 @@ namespace Examination_PRL.Forms.Staff.Exam
 {
     public partial class ViewOneExam : Telerik.WinControls.UI.RadForm
     {
-        public int examDetailCode;
+        public string examDetailCode;
         QuestionServices questionServices = new QuestionServices();
         QuestionsInExamViewModel QuestionsInExamViewModel = new QuestionsInExamViewModel();
         int currentQuestionId = -1;
-        public ViewOneExam(int examDetailCode)
+        public ViewOneExam(string examDetailCode)
         {
             InitializeComponent();
             this.examDetailCode = examDetailCode;
