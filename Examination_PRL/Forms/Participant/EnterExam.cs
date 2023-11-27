@@ -15,6 +15,8 @@ namespace Examination_PRL.Forms.Participant
 {
     public partial class EnterExam : Telerik.WinControls.UI.RadForm
     {
+        private System.Windows.Forms.Timer countDownTimer = new System.Windows.Forms.Timer();
+        public int timeLeft = 0;
         public string examCode;
         QuestionTypeServices questionTypeServices = new QuestionTypeServices();
         ExamServices examServices = new ExamServices();
@@ -41,13 +43,42 @@ namespace Examination_PRL.Forms.Participant
             {
                 FillAllQuestion(this.examCode);
 
+                var exam = examDetailServices.GetByCode(examCode);
+                this.timeLeft = exam.Duration * 60;
+                countDownTimer.Interval = 1000;
+                countDownTimer.Tick += CountDownTimer_Tick;
+                countDownTimer.Start();
+
+
             }
             else
             {
                 MessageBox.Show("Không có bài thi nào");
             }
-          
 
+
+        }
+
+        private void CountDownTimer_Tick(object? sender, EventArgs e)
+        {
+            timeLeft--;
+            if (timeLeft > 0)
+            {
+                lblTime.Text = FormatTime(timeLeft);
+            }
+            else
+            {
+                pageViewQuestion.Enabled = false;
+                countDownTimer.Stop();
+                lblTime.Text = "Hết giờ";
+                MessageBox.Show("Hết giờ làm bài");
+            }
+        }
+        private string FormatTime(int seconds)
+        {
+            // Format the remaining time as mm:ss
+            TimeSpan timeSpan = TimeSpan.FromSeconds(seconds);
+            return $"{timeSpan.Minutes:D2}:{timeSpan.Seconds:D2}";
         }
 
         public void FillAllQuestion(string examCode)
@@ -205,7 +236,6 @@ namespace Examination_PRL.Forms.Participant
                                         {
                                             count++;
                                         }
-
                                     }
 
                                     if (count > 0)
@@ -213,7 +243,6 @@ namespace Examination_PRL.Forms.Participant
 
                                     else
                                         listViewQuestion.Items[i].BackColor = Color.MintCream;
-
                                 }
                                 else
                                 {
@@ -234,19 +263,12 @@ namespace Examination_PRL.Forms.Participant
 
                                         else
                                             listViewQuestion.Items[i].BackColor = Color.MintCream;
-
                                     }
                                 }
-
-
-
                             }
                         }
-
-
                     }
                 }
-
             }
             catch (Exception)
             {
@@ -254,6 +276,20 @@ namespace Examination_PRL.Forms.Participant
                 throw;
             }
 
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if (checkBoxComplete.Checked == true)
+            {
+                //MessageBox.Show("Bạn đã hoàn thành bài thi");
+                //return;
+            }
+
+            else
+            {
+                MessageBox.Show("Bạn chưa hoàn thành bài thi");
+            }
         }
     }
 }

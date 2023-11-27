@@ -36,8 +36,12 @@
             documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            checkBoxComplete = new Telerik.WinControls.UI.RadCheckBox();
+            btnSubmit = new Telerik.WinControls.UI.RadButton();
             radScrollablePanel1 = new Telerik.WinControls.UI.RadScrollablePanel();
             listViewQuestion = new Telerik.WinControls.UI.RadListView();
+            radLabel1 = new Telerik.WinControls.UI.RadLabel();
+            lblTime = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)dockParent).BeginInit();
             dockParent.SuspendLayout();
             documentWindow1.SuspendLayout();
@@ -49,10 +53,14 @@
             ((System.ComponentModel.ISupportInitialize)toolTabStrip1).BeginInit();
             toolTabStrip1.SuspendLayout();
             toolWindow1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)checkBoxComplete).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnSubmit).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radScrollablePanel1).BeginInit();
             radScrollablePanel1.PanelContainer.SuspendLayout();
             radScrollablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)listViewQuestion).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lblTime).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
@@ -98,7 +106,7 @@
             pageViewQuestion.ThemeName = "MaterialTeal";
             pageViewQuestion.SelectedPageChanged += pageViewQuestion_SelectedPageChanged;
             pageViewQuestion.SizeChanged += pageViewQuestion_SizeChanged;
-            ((Telerik.WinControls.UI.RadPageViewStripElement)pageViewQuestion.GetChildAt(0)).StripButtons = Telerik.WinControls.UI.StripViewButtons.Scroll;
+            ((Telerik.WinControls.UI.RadPageViewStripElement)pageViewQuestion.GetChildAt(0)).StripButtons = Telerik.WinControls.UI.StripViewButtons.ItemList;
             // 
             // questionContainer
             // 
@@ -154,6 +162,10 @@
             // toolWindow1
             // 
             toolWindow1.Caption = null;
+            toolWindow1.Controls.Add(lblTime);
+            toolWindow1.Controls.Add(radLabel1);
+            toolWindow1.Controls.Add(checkBoxComplete);
+            toolWindow1.Controls.Add(btnSubmit);
             toolWindow1.Controls.Add(radScrollablePanel1);
             toolWindow1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             toolWindow1.Location = new Point(4, 52);
@@ -162,6 +174,29 @@
             toolWindow1.Size = new Size(332, 633);
             toolWindow1.Text = "Chi tiết";
             toolWindow1.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
+            // 
+            // checkBoxComplete
+            // 
+            checkBoxComplete.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            checkBoxComplete.Location = new Point(3, 606);
+            checkBoxComplete.Name = "checkBoxComplete";
+            checkBoxComplete.Size = new Size(162, 19);
+            checkBoxComplete.TabIndex = 2;
+            checkBoxComplete.Text = "Đã hoàn thành bài thi";
+            checkBoxComplete.ThemeName = "MaterialTeal";
+            // 
+            // btnSubmit
+            // 
+            btnSubmit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnSubmit.BackColor = Color.Teal;
+            btnSubmit.ForeColor = Color.White;
+            btnSubmit.Location = new Point(178, 594);
+            btnSubmit.Name = "btnSubmit";
+            btnSubmit.Size = new Size(151, 36);
+            btnSubmit.TabIndex = 1;
+            btnSubmit.Text = "Nộp bài";
+            btnSubmit.ThemeName = "MaterialTeal";
+            btnSubmit.Click += btnSubmit_Click;
             // 
             // radScrollablePanel1
             // 
@@ -197,6 +232,26 @@
             listViewQuestion.ViewType = Telerik.WinControls.UI.ListViewType.IconsView;
             listViewQuestion.ItemMouseClick += listViewQuestion_ItemMouseClick;
             // 
+            // radLabel1
+            // 
+            radLabel1.Anchor = AnchorStyles.Top;
+            radLabel1.Font = new Font("Roboto", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            radLabel1.ForeColor = Color.Teal;
+            radLabel1.Location = new Point(106, 3);
+            radLabel1.Name = "radLabel1";
+            radLabel1.Size = new Size(135, 40);
+            radLabel1.TabIndex = 3;
+            radLabel1.Text = "Thời gian";
+            // 
+            // lblTime
+            // 
+            lblTime.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTime.Location = new Point(145, 64);
+            lblTime.Name = "lblTime";
+            lblTime.Size = new Size(55, 30);
+            lblTime.TabIndex = 4;
+            lblTime.Text = "50:34";
+            // 
             // EnterExam
             // 
             AutoScaleBaseSize = new Size(7, 15);
@@ -223,10 +278,15 @@
             ((System.ComponentModel.ISupportInitialize)toolTabStrip1).EndInit();
             toolTabStrip1.ResumeLayout(false);
             toolWindow1.ResumeLayout(false);
+            toolWindow1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)checkBoxComplete).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnSubmit).EndInit();
             radScrollablePanel1.PanelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)radScrollablePanel1).EndInit();
             radScrollablePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)listViewQuestion).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lblTime).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }
@@ -243,5 +303,9 @@
         private Telerik.WinControls.UI.RadPageView pageViewQuestion;
         private Telerik.WinControls.UI.RadScrollablePanel radScrollablePanel1;
         private Telerik.WinControls.UI.RadListView listViewQuestion;
+        private Telerik.WinControls.UI.RadCheckBox checkBoxComplete;
+        private Telerik.WinControls.UI.RadButton btnSubmit;
+        private Telerik.WinControls.UI.RadLabel radLabel1;
+        private Telerik.WinControls.UI.RadLabel lblTime;
     }
 }
