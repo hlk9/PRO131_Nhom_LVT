@@ -20,5 +20,10 @@ namespace Examination_DAL.Repository
         {
             return _context.ExamResponses.ToList();
         }
+
+        public List<ExamResponse> getAllStudent(string id)
+        {
+            return _context.ExamResponses.Where(x => x.ParticipantId == id).ToList();
+        }
     }
 }
