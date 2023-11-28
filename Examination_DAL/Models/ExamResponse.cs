@@ -26,11 +26,11 @@ namespace Examination_DAL.Models
         [ForeignKey("ParticipantId")]
         public virtual Participant Participant { get; set; }
 
-        [Required]
-        public string SubjectId { get; set; }
+        [AllowNull]
+        public string? SubjectId { get; set; }
         [MaxLength(255)]
         [ForeignKey("SubjectId")]
-        public virtual Subject Subject { get; set; }
+        public virtual Subject? Subject { get; set; }
 
         [Required]
         public DateTime SubmitTime { get; set; }

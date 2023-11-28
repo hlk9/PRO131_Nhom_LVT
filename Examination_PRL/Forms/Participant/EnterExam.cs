@@ -29,6 +29,8 @@ namespace Examination_PRL.Forms.Participant
 
         ExamQuestionServices examQuestionServices = new ExamQuestionServices();
 
+        ExamResponseServices examResponseServices = new ExamResponseServices();
+
 
         int currentGenerateQuestion = 1;
         int pageViewWidth = -1;
@@ -287,7 +289,13 @@ namespace Examination_PRL.Forms.Participant
         {
             if (checkBoxComplete.Checked == true)
             {
-                ListAnsweredQuestion();
+
+                //ExamResponse examResponse = new ExamResponse();
+                //examResponse.ExamDetailId = 1;
+                //examResponse.ParticipantId = "longhd";
+                //examResponse.SubmitTime = DateTime.Now;
+                //MessageBox.Show(examResponseServices.AddExamResponseAndGetId(examResponse).ToString());
+                ScoreExam(ListAnsweredQuestion());
                 //MessageBox.Show("Bạn đã hoàn thành bài thi");
                 //return;
             }
@@ -298,9 +306,8 @@ namespace Examination_PRL.Forms.Participant
             }
         }
 
-        public List<AnswerResponse> ListAnsweredQuestion()
+        public List<QuestionAndAnswerResponse> ListAnsweredQuestion()
         {
-
 
             List<QuestionAndAnswerResponse> listQnA = new List<QuestionAndAnswerResponse>();
 
@@ -312,6 +319,7 @@ namespace Examination_PRL.Forms.Participant
                 {
 
                     QuestionAndAnswerResponse QnA = new QuestionAndAnswerResponse();
+                    List<AnswerResponse> listA = new List<AnswerResponse>();
 
                     var panelParent = pageViewQuestion.Pages[i].Controls.Find("panelTopMost", true);
                     if (panelParent.Length > 0)
@@ -340,7 +348,7 @@ namespace Examination_PRL.Forms.Participant
                                                 answerResponse.QuestionId = Convert.ToInt32(panelQuestion.Name.Replace("panelQuestion", ""));
                                                 answerResponse.AnswerId = Convert.ToInt32(item.Name);
                                                 answerResponse.AnswerAt = DateTime.Now;
-                                                QnA.AnswerResponses.Add(answerResponse);
+
 
                                                 if (answerServices.GetAnswerById(Convert.ToInt32(answerResponse.AnswerId)).IsCorrect == true)
                                                 {
@@ -349,10 +357,13 @@ namespace Examination_PRL.Forms.Participant
                                                 else
                                                 {
                                                     answerResponse.IsCorrect = false;
-                                                }                                             
-                                                listQnA.Add(QnA);
-                                            }
+                                                }
 
+
+                                                listA.Add(answerResponse);
+
+
+                                            }
 
 
                                         }
@@ -362,22 +373,12 @@ namespace Examination_PRL.Forms.Participant
                                         }
                                     }
 
-                                    if (count <= 0)
-                                    {
-
-                                        QnA.AnswerResponses = null;
-                                        listQnA.Add(QnA);
-                                    }
-                                    continue;
-
-
                                 }
                                 else
                                 {
                                     var checkBox = flowPanel[0].Controls.OfType<RadCheckBox>();
                                     if (checkBox.Count() > 0)
                                     {
-
                                         foreach (var item in checkBox)
                                         {
                                             AnswerResponse answerResponse = new AnswerResponse();
@@ -388,7 +389,7 @@ namespace Examination_PRL.Forms.Participant
                                                     answerResponse.QuestionId = Convert.ToInt32(panelQuestion.Name.Replace("panelQuestion", ""));
                                                     answerResponse.AnswerId = Convert.ToInt32(item.Name);
                                                     answerResponse.AnswerAt = DateTime.Now;
-                                                    QnA.AnswerResponses.Add(answerResponse);
+
 
                                                     if (answerServices.GetAnswerById(Convert.ToInt32(answerResponse.AnswerId)).IsCorrect == true)
                                                     {
@@ -398,9 +399,9 @@ namespace Examination_PRL.Forms.Participant
                                                     {
                                                         answerResponse.IsCorrect = false;
                                                     }
-                                               
-                                                    listQnA.Add(QnA);
-                                                    continue;
+
+                                                    listA.Add(answerResponse);
+
                                                 }
                                             }
                                             catch
@@ -410,6 +411,10 @@ namespace Examination_PRL.Forms.Participant
                                         }
                                     }
                                 }
+
+                                QnA.AnswerResponses = listA;
+                                listQnA.Add(QnA);
+
                             }
                         }
                     }
@@ -420,36 +425,98 @@ namespace Examination_PRL.Forms.Participant
                 throw;
             }
 
-            foreach(var item in listQnA)
-            {
-               try
+            //foreach (var item in listQnA)
+            //{
+            //    try
+            //    {
 
+            //        if(item.AnswerResponses.Count == 0)
+            //        {
+            //            MessageBox.Show("Câu " + item.QuestionId + " " + "Chưa trả lời");
+            //        }    
+
+            //        foreach (var item2 in item.AnswerResponses)
+            //        {
+            //            MessageBox.Show("Câu " + item.QuestionId + " " + item2.AnswerId.ToString() + " " + item2.AnswerAt.ToString() + " " + item2.IsCorrect.ToString());
+            //        }
+            //    }
+            //    catch
+            //    {
+
+            //    }
+
+            //}
+
+
+            return listQnA;
+
+        }
+
+        public void ScoreExam(List<QuestionAndAnswerResponse> listQnA)
+        {
+            ExamDetail exam = examDetailServices.GetByExamDetailCode(this.examCode);
+            int qFalse = 0;
+            int qTrue = 0;
+            int qNotAnswer = 0;
+            double score = 0;
+            double totalScore = exam.MaxiumMark;
+
+
+
+            foreach (var item in listQnA)
+            {
+                try
                 {
-                    foreach (var item2 in item.AnswerResponses)
+                    QuestionWithAnswerViewModel listTrueAnswer = questionServices.GetQuestionWithTRUEAnswer(item.QuestionId);
+
+                    if (item.AnswerResponses.Count == 0)
                     {
-                        MessageBox.Show("Câu " + item.QuestionId + " " + item2.AnswerId.ToString() + " " + item2.AnswerAt.ToString() + " " + item2.IsCorrect.ToString());
+                        qNotAnswer++;
+                    }
+                    else if (item.AnswerResponses.Count == 1)
+                    {
+                        foreach (var item2 in item.AnswerResponses)
+                        {
+                            if (item2.IsCorrect == true)
+                            {
+                                qTrue++;
+                            }
+                            else
+                            {
+                                qFalse++;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        bool allTrue = listTrueAnswer.Answers.Count == item.AnswerResponses.Where(x=>x.IsCorrect==true).Count();
+
+                        if (allTrue == true)
+                        {
+                            qTrue++;
+
+                        }
+                        else
+                        {
+                            qFalse++;
+                        }
+
                     }
                 }
                 catch
                 {
-                    MessageBox.Show("Câu " + item.QuestionId + " " + "Không trả lời");
+
                 }
+
             }
 
 
-            return null;
+            MessageBox.Show("TEST\nSố câu đúng: " + qTrue.ToString() + "\n" + "Số câu sai: " + qFalse.ToString() + "\n" + "Số câu chưa trả lời: " + qNotAnswer.ToString() + "\n" + "Tổng điểm: " + totalScore.ToString() + "\n" + "Điểm của bạn: " + score.ToString());
+
 
         }
 
-        public void ScroreExam(List<AnswerResponse> listAnswer)
-        {
-          
 
-          
-
-        }
-
-       
 
     }
 
