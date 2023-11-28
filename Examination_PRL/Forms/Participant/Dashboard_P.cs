@@ -217,7 +217,7 @@ namespace Examination_PRL.Forms.Participant
                 radLblName.Text = obj.NameExam.ToString();
                 radLblTime.Text = obj.SubmitTime.ToString();
                 radLablDiem.Text = obj.Score.ToString();
-                radLblStatus.Text = obj.Status.ToString();
+                //radLblStatus.Text = obj.Status.ToString();
                 radLblPass.Text = obj.IsPassed == true ? "Đạt" : "Chưa Đạt";
                 radLblDung.Text = obj.QuestionCorrect.ToString();
                 radLblSai.Text = obj.QuestionWrong.ToString();
