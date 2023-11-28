@@ -192,6 +192,13 @@ namespace Examination_PRL.Forms.Staff
             resultPage.Image = resultIcon;
 
             RadPageViewPage resultByStudentPage = new RadPageViewPage("Kết quả của thí sinh");
+            StudentResult studentResult = new StudentResult();
+            studentResult.TopLevel = false;
+            resultByStudentPage.Controls.Add(studentResult);
+            studentResult.Show();
+            studentResult.Dock = DockStyle.Fill;
+            studentResult.Name = "studentResult";
+
             RadPageViewPage resultBySubjectPage = new RadPageViewPage("Kết quả theo môn");
             RadPageViewPage resultByExamPage = new RadPageViewPage("Kết quả theo đề thi");
             RadPageViewPage resultByRoomPage = new RadPageViewPage("Kết quả theo phòng thi");
@@ -293,6 +300,12 @@ namespace Examination_PRL.Forms.Staff
                     case "addNhanViensForm":
                         (form as AddNhanVien).LoadData();
                         break;
+                    case "addThiSinhForm":
+                        (form as AddStudents).LoadData();
+                        break;
+                    //case "studentResult":
+                    //    (form as StudentResult).LoadData();
+                    //    break;
                     default:
                         break;
 

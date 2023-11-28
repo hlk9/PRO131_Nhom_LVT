@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             radDock1 = new Telerik.WinControls.UI.Docking.RadDock();
             toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
@@ -57,6 +57,7 @@
             radTxtId = new Telerik.WinControls.UI.RadTextBox();
             radLabel = new Telerik.WinControls.UI.RadLabel();
             radLabel1 = new Telerik.WinControls.UI.RadLabel();
+            radBtnExcel = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)radDock1).BeginInit();
             radDock1.SuspendLayout();
             toolWindow1.SuspendLayout();
@@ -89,6 +90,7 @@
             ((System.ComponentModel.ISupportInitialize)radTxtId).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radBtnExcel).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
@@ -137,7 +139,7 @@
             examGridView.MasterTemplate.AllowSearchRow = true;
             examGridView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             examGridView.MasterTemplate.EnablePaging = true;
-            examGridView.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            examGridView.MasterTemplate.ViewDefinition = tableViewDefinition2;
             examGridView.Name = "examGridView";
             examGridView.ReadOnly = true;
             examGridView.Size = new Size(501, 850);
@@ -201,6 +203,7 @@
             // toolWindow2
             // 
             toolWindow2.Caption = null;
+            toolWindow2.Controls.Add(radBtnExcel);
             toolWindow2.Controls.Add(radBtnClear);
             toolWindow2.Controls.Add(radBtnUpdate);
             toolWindow2.Controls.Add(radBtnAdd);
@@ -235,7 +238,7 @@
             radBtnClear.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radBtnClear.BackColor = Color.Teal;
             radBtnClear.ForeColor = Color.White;
-            radBtnClear.Location = new Point(3, 744);
+            radBtnClear.Location = new Point(3, 688);
             radBtnClear.Name = "radBtnClear";
             radBtnClear.Size = new Size(451, 50);
             radBtnClear.TabIndex = 29;
@@ -248,7 +251,7 @@
             radBtnUpdate.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radBtnUpdate.BackColor = Color.Teal;
             radBtnUpdate.ForeColor = Color.White;
-            radBtnUpdate.Location = new Point(3, 688);
+            radBtnUpdate.Location = new Point(3, 632);
             radBtnUpdate.Name = "radBtnUpdate";
             radBtnUpdate.Size = new Size(451, 50);
             radBtnUpdate.TabIndex = 29;
@@ -261,7 +264,7 @@
             radBtnAdd.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radBtnAdd.BackColor = Color.Teal;
             radBtnAdd.ForeColor = Color.White;
-            radBtnAdd.Location = new Point(3, 632);
+            radBtnAdd.Location = new Point(3, 576);
             radBtnAdd.Name = "radBtnAdd";
             radBtnAdd.Size = new Size(451, 50);
             radBtnAdd.TabIndex = 28;
@@ -439,6 +442,19 @@
             radLabel1.Text = "Mã Thí Sinh";
             radLabel1.ThemeName = "MaterialTeal";
             // 
+            // radBtnExcel
+            // 
+            radBtnExcel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            radBtnExcel.BackColor = Color.Teal;
+            radBtnExcel.ForeColor = Color.White;
+            radBtnExcel.Location = new Point(3, 744);
+            radBtnExcel.Name = "radBtnExcel";
+            radBtnExcel.Size = new Size(451, 50);
+            radBtnExcel.TabIndex = 29;
+            radBtnExcel.Text = "Thêm bằng Excel";
+            radBtnExcel.ThemeName = "MaterialTeal";
+            radBtnExcel.Click += radBtnExcel_Click;
+            // 
             // AddStudents
             // 
             AutoScaleBaseSize = new Size(7, 15);
@@ -488,6 +504,7 @@
             ((System.ComponentModel.ISupportInitialize)radTxtId).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radBtnExcel).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }
@@ -521,5 +538,6 @@
         private Telerik.WinControls.UI.RadButton radBtnAdd;
         private Telerik.WinControls.UI.RadButton radBtnClear;
         private Telerik.WinControls.UI.RadButton radBtnUpdate;
+        private Telerik.WinControls.UI.RadButton radBtnExcel;
     }
 }

@@ -207,5 +207,11 @@ namespace Examination_PRL.Forms
             }
             LoadData();
         }
+
+        private void radBtnExcel_Click(object sender, EventArgs e)
+        {
+            AddStudentExcel addStudentExcel = new AddStudentExcel();
+            addStudentExcel.ShowDialog();
+        }
     }
 }
