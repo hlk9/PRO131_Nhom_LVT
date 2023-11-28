@@ -89,6 +89,8 @@ namespace Examination_PRL.Forms.Staff
             exam_Overview.Dock = DockStyle.Fill;
             exam_Overview.Name = "exam_OverviewForm";
 
+            RadPageViewPage examGroup = new RadPageViewPage("Bài thi");
+
 
 
 
@@ -216,6 +218,7 @@ namespace Examination_PRL.Forms.Staff
             pvDashboard.Pages.Add(homePage);
             pvDashboard.Pages.Add(schedulePage);
             pvDashboard.Pages.Add(studentPage);
+            pvDashboard.Pages.Add(examGroup);
             pvDashboard.Pages.Add(examPage);
             pvDashboard.Pages.Add(subjectPage);
             pvDashboard.Pages.Add(roomPage);
