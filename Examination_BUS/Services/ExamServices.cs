@@ -31,6 +31,10 @@ namespace Examination_BUS.Services
            return _examRepos.GetAll();
         }
 
+        public IEnumerable<ExamResponse> GetExamResponses()
+        {
+            return _examResponses.GetAllExamResponse();
+        }
         public Exam GetById(int id)
         {
             return _examRepos.GetById(id);
@@ -63,7 +67,7 @@ namespace Examination_BUS.Services
 
         public List<ExamAnswer_ResponsesViewModel> GetAnswer_ResponsesViewModels(string idAnswer)
         {
-            var listExamRes = (from ex in _examResponses.GetAll()
+            var listExamRes = (from ex in _examResponses.GetAllExamResponse()
                                where ex.ParticipantId == idAnswer
                                select new ExamAnswer_ResponsesViewModel
                                {
@@ -85,7 +89,7 @@ namespace Examination_BUS.Services
                                    IdExam = _examDetailRepos.GetByID(ex.ExamDetailId).ExamId,
                                    NameExam = _examRepos.GetById(_examDetailRepos.GetByID(ex.ExamDetailId).ExamId).Name,
                                    ExamDetailcode = _examDetailRepos.GetByID(ex.ExamDetailId).ExamDetailCode,
-                                   answerResponses = (from exam in _examResponses.GetAll()
+                                   answerResponses = (from exam in _examResponses.GetAllExamResponse()
                                                       join answer in _AnswerResponese.GetAll()
                                                       on exam.Id equals answer.ExamResponseId
                                                       select answer).ToList()
