@@ -36,5 +36,10 @@ namespace Examination_BUS.Services
             return answerRepository.GetAnswerById(answerId);
         }
 
+        public List<Answer> GetAnswersByQuestionId(int questionId)
+        {
+            return answerRepository.GetAllAnswers().Where(x => x.QuestionId == questionId).ToList();
+        }
+
     }
 }

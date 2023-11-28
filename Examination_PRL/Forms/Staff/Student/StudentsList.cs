@@ -48,6 +48,14 @@ namespace Examination_PRL.Forms.Staff
             {
                 examGridView.Rows.Add(stt++, x.Id, x.FullName, (x.Gender == true ? "Nam" : "Nữ"), x.DateOfBirth, x.PhoneNumber, x.Email, x.Address, x.ClassroomId, x.Status == 1 ? "Hoạt Động" : "Không Hoạt Động");
             }
+
+            for (int i = 0; i < examGridView.Columns.Count; i++)
+            {
+                examGridView.Columns[i].TextAlignment = ContentAlignment.MiddleCenter;
+            }
+
+            examGridView.CurrentRow = examGridView.Rows[0];
+
         }
 
         private void examGridView_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)

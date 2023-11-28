@@ -47,6 +47,8 @@ namespace Examination_PRL.Forms.Staff.QuestionForm
             {
                 questionGridView.Columns[i].TextAlignment = ContentAlignment.MiddleCenter;
             }
+           
+            questionGridView.CurrentRow = questionGridView.Rows[0];
 
             lblTotal.Text = questionGridView.Rows.Count.ToString();
         }

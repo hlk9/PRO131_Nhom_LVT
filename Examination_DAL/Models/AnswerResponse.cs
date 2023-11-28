@@ -23,10 +23,10 @@ namespace Examination_DAL.Models
         [ForeignKey("QuestionId")]
         public virtual Question Question { get; set; }
 
-        [Required]
-        public int AnswerId { get; set; }
+        [AllowNull]
+        public int? AnswerId { get; set; }
         [ForeignKey("AnswerId")]
-        public virtual Answer Answer { get; set; }
+        public virtual Answer? Answer { get; set; }
 
         [Required]
         public int ExamResponseId { get; set; }

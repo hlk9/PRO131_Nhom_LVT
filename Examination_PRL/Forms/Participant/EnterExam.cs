@@ -1,5 +1,6 @@
 ﻿using Examination_BUS.Services;
 using Examination_BUS.ViewModel;
+using Examination_DAL.IRepository;
 using Examination_DAL.Models;
 using System;
 using System.Collections.Generic;
@@ -299,7 +300,10 @@ namespace Examination_PRL.Forms.Participant
 
         public List<AnswerResponse> ListAnsweredQuestion()
         {
-            List<AnswerResponse> listAnR = new List<AnswerResponse>();
+
+
+            List<QuestionAndAnswerResponse> listQnA = new List<QuestionAndAnswerResponse>();
+
             try
             {
 
@@ -307,14 +311,13 @@ namespace Examination_PRL.Forms.Participant
                 for (int i = 0; i < pageViewQuestion.Pages.Count; i++)
                 {
 
-
-
+                    QuestionAndAnswerResponse QnA = new QuestionAndAnswerResponse();
 
                     var panelParent = pageViewQuestion.Pages[i].Controls.Find("panelTopMost", true);
                     if (panelParent.Length > 0)
                     {
                         var panelQuestion = panelParent[0].Controls.OfType<RadPanel>().Where(x => x.Name.Contains("panelQuestion")).FirstOrDefault();
-
+                        QnA.QuestionId = Convert.ToInt32(panelQuestion.Name.Replace("panelQuestion", ""));
                         var panelAnswer = panelParent[0].Controls.Find("panelAnswer", true);
 
                         if (panelAnswer.Length > 0)
@@ -325,7 +328,7 @@ namespace Examination_PRL.Forms.Participant
                                 var radRadioButton = flowPanel[0].Controls.OfType<RadRadioButton>();
                                 if (radRadioButton.Count() > 0)
                                 {
-
+                                    int count = 0;
                                     foreach (var item in radRadioButton)
                                     {
                                         AnswerResponse answerResponse = new AnswerResponse();
@@ -333,27 +336,41 @@ namespace Examination_PRL.Forms.Participant
                                         {
                                             if (item.IsChecked == true)
                                             {
+                                                count++;
                                                 answerResponse.QuestionId = Convert.ToInt32(panelQuestion.Name.Replace("panelQuestion", ""));
                                                 answerResponse.AnswerId = Convert.ToInt32(item.Name);
                                                 answerResponse.AnswerAt = DateTime.Now;
+                                                QnA.AnswerResponses.Add(answerResponse);
 
-                                                if (answerServices.GetAnswerById(answerResponse.AnswerId).IsCorrect == true)
+                                                if (answerServices.GetAnswerById(Convert.ToInt32(answerResponse.AnswerId)).IsCorrect == true)
                                                 {
                                                     answerResponse.IsCorrect = true;
                                                 }
                                                 else
                                                 {
                                                     answerResponse.IsCorrect = false;
-                                                }
-
-                                                listAnR.Add(answerResponse);
+                                                }                                             
+                                                listQnA.Add(QnA);
                                             }
+
+
+
                                         }
                                         catch
                                         {
 
                                         }
                                     }
+
+                                    if (count <= 0)
+                                    {
+
+                                        QnA.AnswerResponses = null;
+                                        listQnA.Add(QnA);
+                                    }
+                                    continue;
+
+
                                 }
                                 else
                                 {
@@ -371,8 +388,9 @@ namespace Examination_PRL.Forms.Participant
                                                     answerResponse.QuestionId = Convert.ToInt32(panelQuestion.Name.Replace("panelQuestion", ""));
                                                     answerResponse.AnswerId = Convert.ToInt32(item.Name);
                                                     answerResponse.AnswerAt = DateTime.Now;
+                                                    QnA.AnswerResponses.Add(answerResponse);
 
-                                                    if (answerServices.GetAnswerById(answerResponse.AnswerId).IsCorrect == true)
+                                                    if (answerServices.GetAnswerById(Convert.ToInt32(answerResponse.AnswerId)).IsCorrect == true)
                                                     {
                                                         answerResponse.IsCorrect = true;
                                                     }
@@ -380,7 +398,9 @@ namespace Examination_PRL.Forms.Participant
                                                     {
                                                         answerResponse.IsCorrect = false;
                                                     }
-                                                    listAnR.Add(answerResponse);
+                                               
+                                                    listQnA.Add(QnA);
+                                                    continue;
                                                 }
                                             }
                                             catch
@@ -397,27 +417,46 @@ namespace Examination_PRL.Forms.Participant
             }
             catch (Exception)
             {
-
                 throw;
             }
 
-
-            foreach (var item in listAnR)
+            foreach(var item in listQnA)
             {
                try
+
                 {
-                    MessageBox.Show("Câu: " + item.QuestionId + "  ID: " + item.AnswerId + " " + item.AnswerAt + "  Đúng: " + item.IsCorrect);
+                    foreach (var item2 in item.AnswerResponses)
+                    {
+                        MessageBox.Show("Câu " + item.QuestionId + " " + item2.AnswerId.ToString() + " " + item2.AnswerAt.ToString() + " " + item2.IsCorrect.ToString());
+                    }
                 }
                 catch
                 {
-                    MessageBox.Show("Lỗi");
+                    MessageBox.Show("Câu " + item.QuestionId + " " + "Không trả lời");
                 }
             }
+
 
             return null;
 
         }
 
+        public void ScroreExam(List<AnswerResponse> listAnswer)
+        {
+          
+
+          
+
+        }
+
+       
+
+    }
+
+    public class QuestionAndAnswerResponse
+    {
+        public int QuestionId { get; set; }
+        public List<AnswerResponse> AnswerResponses { get; set; }
 
     }
 }

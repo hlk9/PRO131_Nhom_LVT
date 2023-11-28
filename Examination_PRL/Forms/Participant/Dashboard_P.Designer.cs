@@ -193,6 +193,7 @@
             listViewExam.ItemSize = new Size(144, 60);
             listViewExam.Location = new Point(0, 0);
             listViewExam.Name = "listViewExam";
+            listViewExam.Padding = new Padding(10);
             listViewExam.Size = new Size(1265, 645);
             listViewExam.TabIndex = 0;
             listViewExam.ThemeName = "MaterialTeal";
