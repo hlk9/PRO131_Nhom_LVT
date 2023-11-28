@@ -28,38 +28,78 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             radDock1 = new Telerik.WinControls.UI.Docking.RadDock();
-            toolWindow2 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            radGridViewStudent = new Telerik.WinControls.UI.RadGridView();
             radSplitContainer1 = new Telerik.WinControls.UI.RadSplitContainer();
             documentContainer1 = new Telerik.WinControls.UI.Docking.DocumentContainer();
             documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
-            toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
-            radGridViewStudent = new Telerik.WinControls.UI.RadGridView();
             toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
+            toolWindow2 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            radLabel6 = new Telerik.WinControls.UI.RadLabel();
+            radLabel7 = new Telerik.WinControls.UI.RadLabel();
+            radPanel1 = new Telerik.WinControls.UI.RadPanel();
+            radLabel5 = new Telerik.WinControls.UI.RadLabel();
+            radLabel4 = new Telerik.WinControls.UI.RadLabel();
+            radLabel1 = new Telerik.WinControls.UI.RadLabel();
+            radLabel3 = new Telerik.WinControls.UI.RadLabel();
+            radLabel2 = new Telerik.WinControls.UI.RadLabel();
+            radLabel10 = new Telerik.WinControls.UI.RadLabel();
+            radLabel9 = new Telerik.WinControls.UI.RadLabel();
             toolTabStrip2 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             toolWindow3 = new Telerik.WinControls.UI.Docking.ToolWindow();
             radGridViewExam = new Telerik.WinControls.UI.RadGridView();
+            radLabel8 = new Telerik.WinControls.UI.RadLabel();
+            radLblFailedExam = new Telerik.WinControls.UI.RadLabel();
+            radLblSumStudent = new Telerik.WinControls.UI.RadLabel();
+            radLblSumExam = new Telerik.WinControls.UI.RadLabel();
+            radLblPassedExam = new Telerik.WinControls.UI.RadLabel();
+            radLblIdStudent = new Telerik.WinControls.UI.RadLabel();
+            radLblSumExamStudent = new Telerik.WinControls.UI.RadLabel();
+            radLblPassedExamStudent = new Telerik.WinControls.UI.RadLabel();
+            radLblFailedExamStudent = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)radDock1).BeginInit();
             radDock1.SuspendLayout();
+            toolWindow1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)radGridViewStudent).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radGridViewStudent.MasterTemplate).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radSplitContainer1).BeginInit();
             radSplitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)documentContainer1).BeginInit();
             documentContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)documentTabStrip1).BeginInit();
             documentTabStrip1.SuspendLayout();
-            toolWindow1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)radGridViewStudent).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radGridViewStudent.MasterTemplate).BeginInit();
             ((System.ComponentModel.ISupportInitialize)toolTabStrip1).BeginInit();
             toolTabStrip1.SuspendLayout();
+            toolWindow2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)radLabel6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radPanel1).BeginInit();
+            radPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)radLabel5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel10).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)toolTabStrip2).BeginInit();
             toolTabStrip2.SuspendLayout();
             toolWindow3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)radGridViewExam).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radGridViewExam.MasterTemplate).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel8).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLblFailedExam).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLblSumStudent).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLblSumExam).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLblPassedExam).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLblIdStudent).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLblSumExamStudent).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLblPassedExamStudent).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLblFailedExamStudent).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
@@ -87,17 +127,35 @@
             radDock1.TabStop = false;
             radDock1.ThemeName = "MaterialTeal";
             // 
-            // toolWindow2
+            // toolWindow1
             // 
-            toolWindow2.Caption = null;
-            toolWindow2.DocumentButtons = Telerik.WinControls.UI.Docking.DocumentStripButtons.None;
-            toolWindow2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            toolWindow2.Location = new Point(4, 52);
-            toolWindow2.Name = "toolWindow2";
-            toolWindow2.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            toolWindow2.Size = new Size(375, 626);
-            toolWindow2.Text = "Thông Tin Chi Tiết";
-            toolWindow2.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
+            toolWindow1.Caption = null;
+            toolWindow1.Controls.Add(radGridViewStudent);
+            toolWindow1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            toolWindow1.Location = new Point(4, 4);
+            toolWindow1.Name = "toolWindow1";
+            toolWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
+            toolWindow1.Size = new Size(885, 602);
+            toolWindow1.Text = "toolWindow2";
+            // 
+            // radGridViewStudent
+            // 
+            radGridViewStudent.Dock = DockStyle.Fill;
+            radGridViewStudent.Location = new Point(0, 0);
+            // 
+            // 
+            // 
+            radGridViewStudent.MasterTemplate.AllowAddNewRow = false;
+            radGridViewStudent.MasterTemplate.AllowSearchRow = true;
+            radGridViewStudent.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            radGridViewStudent.MasterTemplate.EnablePaging = true;
+            radGridViewStudent.MasterTemplate.ViewDefinition = tableViewDefinition3;
+            radGridViewStudent.Name = "radGridViewStudent";
+            radGridViewStudent.ReadOnly = true;
+            radGridViewStudent.Size = new Size(885, 602);
+            radGridViewStudent.TabIndex = 0;
+            radGridViewStudent.ThemeName = "MaterialTeal";
+            radGridViewStudent.CellClick += radGridViewStudent_CellClick;
             // 
             // radSplitContainer1
             // 
@@ -112,9 +170,9 @@
             // 
             // 
             radSplitContainer1.RootElement.MinSize = new Size(25, 25);
-            radSplitContainer1.Size = new Size(1284, 682);
-            radSplitContainer1.SizeInfo.AbsoluteSize = new Size(200, 448);
-            radSplitContainer1.SizeInfo.SplitterCorrection = new Size(0, -210);
+            radSplitContainer1.Size = new Size(1284, 610);
+            radSplitContainer1.SizeInfo.AbsoluteSize = new Size(200, 376);
+            radSplitContainer1.SizeInfo.SplitterCorrection = new Size(0, -282);
             radSplitContainer1.SplitterWidth = 8;
             radSplitContainer1.TabIndex = 0;
             radSplitContainer1.TabStop = false;
@@ -147,41 +205,11 @@
             // 
             documentTabStrip1.RootElement.MinSize = new Size(25, 25);
             documentTabStrip1.SelectedIndex = 0;
-            documentTabStrip1.Size = new Size(893, 682);
+            documentTabStrip1.Size = new Size(893, 610);
             documentTabStrip1.TabIndex = 0;
             documentTabStrip1.TabStop = false;
             documentTabStrip1.TabStripVisible = false;
             documentTabStrip1.ThemeName = "MaterialTeal";
-            // 
-            // toolWindow1
-            // 
-            toolWindow1.Caption = null;
-            toolWindow1.Controls.Add(radGridViewStudent);
-            toolWindow1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            toolWindow1.Location = new Point(4, 4);
-            toolWindow1.Name = "toolWindow1";
-            toolWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            toolWindow1.Size = new Size(885, 674);
-            toolWindow1.Text = "toolWindow2";
-            // 
-            // radGridViewStudent
-            // 
-            radGridViewStudent.Dock = DockStyle.Fill;
-            radGridViewStudent.Location = new Point(0, 0);
-            // 
-            // 
-            // 
-            radGridViewStudent.MasterTemplate.AllowAddNewRow = false;
-            radGridViewStudent.MasterTemplate.AllowSearchRow = true;
-            radGridViewStudent.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            radGridViewStudent.MasterTemplate.EnablePaging = true;
-            radGridViewStudent.MasterTemplate.ViewDefinition = tableViewDefinition1;
-            radGridViewStudent.Name = "radGridViewStudent";
-            radGridViewStudent.ReadOnly = true;
-            radGridViewStudent.Size = new Size(885, 674);
-            radGridViewStudent.TabIndex = 0;
-            radGridViewStudent.ThemeName = "MaterialTeal";
-            radGridViewStudent.CellClick += radGridViewStudent_CellClick;
             // 
             // toolTabStrip1
             // 
@@ -194,28 +222,162 @@
             // 
             toolTabStrip1.RootElement.MinSize = new Size(25, 25);
             toolTabStrip1.SelectedIndex = 0;
-            toolTabStrip1.Size = new Size(383, 682);
+            toolTabStrip1.Size = new Size(383, 610);
             toolTabStrip1.SizeInfo.AbsoluteSize = new Size(383, 200);
             toolTabStrip1.SizeInfo.SplitterCorrection = new Size(183, 0);
             toolTabStrip1.TabIndex = 1;
             toolTabStrip1.TabStop = false;
             toolTabStrip1.ThemeName = "MaterialTeal";
             // 
+            // toolWindow2
+            // 
+            toolWindow2.Caption = null;
+            toolWindow2.Controls.Add(radLblFailedExamStudent);
+            toolWindow2.Controls.Add(radLblPassedExamStudent);
+            toolWindow2.Controls.Add(radLblSumExamStudent);
+            toolWindow2.Controls.Add(radLblIdStudent);
+            toolWindow2.Controls.Add(radLabel8);
+            toolWindow2.Controls.Add(radLabel6);
+            toolWindow2.Controls.Add(radLabel7);
+            toolWindow2.Controls.Add(radPanel1);
+            toolWindow2.Controls.Add(radLabel10);
+            toolWindow2.Controls.Add(radLabel9);
+            toolWindow2.DocumentButtons = Telerik.WinControls.UI.Docking.DocumentStripButtons.None;
+            toolWindow2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            toolWindow2.Location = new Point(4, 52);
+            toolWindow2.Name = "toolWindow2";
+            toolWindow2.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
+            toolWindow2.Size = new Size(375, 554);
+            toolWindow2.Text = "Thông Tin Chi Tiết";
+            toolWindow2.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
+            // 
+            // radLabel6
+            // 
+            radLabel6.Anchor = AnchorStyles.Top;
+            radLabel6.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            radLabel6.ForeColor = Color.Teal;
+            radLabel6.Location = new Point(103, 199);
+            radLabel6.Name = "radLabel6";
+            radLabel6.Size = new Size(158, 33);
+            radLabel6.TabIndex = 2;
+            radLabel6.Text = "Thông Chi Tiết";
+            radLabel6.ThemeName = "MaterialTeal";
+            // 
+            // radLabel7
+            // 
+            radLabel7.ForeColor = Color.Teal;
+            radLabel7.Location = new Point(3, 365);
+            radLabel7.Name = "radLabel7";
+            radLabel7.Size = new Size(160, 21);
+            radLabel7.TabIndex = 4;
+            radLabel7.Text = "Tổng Số Bài Không Đạt:";
+            radLabel7.ThemeName = "MaterialTeal";
+            // 
+            // radPanel1
+            // 
+            radPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radPanel1.Controls.Add(radLblPassedExam);
+            radPanel1.Controls.Add(radLblSumExam);
+            radPanel1.Controls.Add(radLblSumStudent);
+            radPanel1.Controls.Add(radLblFailedExam);
+            radPanel1.Controls.Add(radLabel5);
+            radPanel1.Controls.Add(radLabel4);
+            radPanel1.Controls.Add(radLabel1);
+            radPanel1.Controls.Add(radLabel3);
+            radPanel1.Controls.Add(radLabel2);
+            radPanel1.Location = new Point(-1, 0);
+            radPanel1.Name = "radPanel1";
+            radPanel1.Size = new Size(380, 193);
+            radPanel1.TabIndex = 2;
+            radPanel1.ThemeName = "MaterialTeal";
+            // 
+            // radLabel5
+            // 
+            radLabel5.Anchor = AnchorStyles.Top;
+            radLabel5.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            radLabel5.ForeColor = Color.Teal;
+            radLabel5.Location = new Point(92, 0);
+            radLabel5.Name = "radLabel5";
+            radLabel5.Size = new Size(185, 33);
+            radLabel5.TabIndex = 0;
+            radLabel5.Text = "Thông Tin Chung";
+            radLabel5.ThemeName = "MaterialTeal";
+            // 
+            // radLabel4
+            // 
+            radLabel4.ForeColor = Color.Teal;
+            radLabel4.Location = new Point(4, 164);
+            radLabel4.Name = "radLabel4";
+            radLabel4.Size = new Size(160, 21);
+            radLabel4.TabIndex = 1;
+            radLabel4.Text = "Tổng Số Bài Không Đạt:";
+            radLabel4.ThemeName = "MaterialTeal";
+            // 
+            // radLabel1
+            // 
+            radLabel1.ForeColor = Color.Teal;
+            radLabel1.Location = new Point(4, 39);
+            radLabel1.Name = "radLabel1";
+            radLabel1.Size = new Size(126, 21);
+            radLabel1.TabIndex = 0;
+            radLabel1.Text = "Tổng Số Học Sinh:";
+            radLabel1.ThemeName = "MaterialTeal";
+            // 
+            // radLabel3
+            // 
+            radLabel3.ForeColor = Color.Teal;
+            radLabel3.Location = new Point(4, 119);
+            radLabel3.Name = "radLabel3";
+            radLabel3.Size = new Size(115, 21);
+            radLabel3.TabIndex = 1;
+            radLabel3.Text = "Tổng Số Bài Đạt:";
+            radLabel3.ThemeName = "MaterialTeal";
+            // 
+            // radLabel2
+            // 
+            radLabel2.ForeColor = Color.Teal;
+            radLabel2.Location = new Point(4, 77);
+            radLabel2.Name = "radLabel2";
+            radLabel2.Size = new Size(134, 21);
+            radLabel2.TabIndex = 1;
+            radLabel2.Text = "Tổng Số Bài Đã Thi:";
+            radLabel2.ThemeName = "MaterialTeal";
+            // 
+            // radLabel10
+            // 
+            radLabel10.ForeColor = Color.Teal;
+            radLabel10.Location = new Point(3, 278);
+            radLabel10.Name = "radLabel10";
+            radLabel10.Size = new Size(134, 21);
+            radLabel10.TabIndex = 6;
+            radLabel10.Text = "Tổng Số Bài Đã Thi:";
+            radLabel10.ThemeName = "MaterialTeal";
+            // 
+            // radLabel9
+            // 
+            radLabel9.ForeColor = Color.Teal;
+            radLabel9.Location = new Point(3, 320);
+            radLabel9.Name = "radLabel9";
+            radLabel9.Size = new Size(115, 21);
+            radLabel9.TabIndex = 5;
+            radLabel9.Text = "Tổng Số Bài Đạt:";
+            radLabel9.ThemeName = "MaterialTeal";
+            // 
             // toolTabStrip2
             // 
             toolTabStrip2.CanUpdateChildIndex = true;
             toolTabStrip2.CausesValidation = false;
             toolTabStrip2.Controls.Add(toolWindow3);
-            toolTabStrip2.Location = new Point(0, 690);
+            toolTabStrip2.Location = new Point(0, 618);
             toolTabStrip2.Name = "toolTabStrip2";
             // 
             // 
             // 
             toolTabStrip2.RootElement.MinSize = new Size(25, 25);
             toolTabStrip2.SelectedIndex = 0;
-            toolTabStrip2.Size = new Size(1284, 410);
-            toolTabStrip2.SizeInfo.AbsoluteSize = new Size(200, 410);
-            toolTabStrip2.SizeInfo.SplitterCorrection = new Size(0, 210);
+            toolTabStrip2.Size = new Size(1284, 482);
+            toolTabStrip2.SizeInfo.AbsoluteSize = new Size(200, 482);
+            toolTabStrip2.SizeInfo.SplitterCorrection = new Size(0, 282);
             toolTabStrip2.TabIndex = 1;
             toolTabStrip2.TabStop = false;
             toolTabStrip2.ThemeName = "MaterialTeal";
@@ -229,7 +391,7 @@
             toolWindow3.Location = new Point(4, 52);
             toolWindow3.Name = "toolWindow3";
             toolWindow3.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            toolWindow3.Size = new Size(1276, 354);
+            toolWindow3.Size = new Size(1276, 426);
             toolWindow3.Text = "Danh Sách Bài Thi";
             toolWindow3.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
@@ -241,14 +403,105 @@
             // 
             // 
             radGridViewExam.MasterTemplate.AllowAddNewRow = false;
+            radGridViewExam.MasterTemplate.AllowDragToGroup = false;
             radGridViewExam.MasterTemplate.AllowSearchRow = true;
             radGridViewExam.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            radGridViewExam.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            radGridViewExam.MasterTemplate.ViewDefinition = tableViewDefinition4;
             radGridViewExam.Name = "radGridViewExam";
             radGridViewExam.ReadOnly = true;
-            radGridViewExam.Size = new Size(1276, 354);
+            radGridViewExam.Size = new Size(1276, 426);
             radGridViewExam.TabIndex = 0;
             radGridViewExam.ThemeName = "MaterialTeal";
+            // 
+            // radLabel8
+            // 
+            radLabel8.ForeColor = Color.Teal;
+            radLabel8.Location = new Point(3, 238);
+            radLabel8.Name = "radLabel8";
+            radLabel8.Size = new Size(96, 21);
+            radLabel8.TabIndex = 5;
+            radLabel8.Text = "Mã Sinh Viên:";
+            radLabel8.ThemeName = "MaterialTeal";
+            // 
+            // radLblFailedExam
+            // 
+            radLblFailedExam.ForeColor = Color.MediumSlateBlue;
+            radLblFailedExam.Location = new Point(170, 164);
+            radLblFailedExam.Name = "radLblFailedExam";
+            radLblFailedExam.Size = new Size(15, 21);
+            radLblFailedExam.TabIndex = 1;
+            radLblFailedExam.Text = "0";
+            radLblFailedExam.ThemeName = "MaterialTeal";
+            // 
+            // radLblSumStudent
+            // 
+            radLblSumStudent.ForeColor = Color.MediumSlateBlue;
+            radLblSumStudent.Location = new Point(170, 39);
+            radLblSumStudent.Name = "radLblSumStudent";
+            radLblSumStudent.Size = new Size(15, 21);
+            radLblSumStudent.TabIndex = 2;
+            radLblSumStudent.Text = "0";
+            radLblSumStudent.ThemeName = "MaterialTeal";
+            // 
+            // radLblSumExam
+            // 
+            radLblSumExam.ForeColor = Color.MediumSlateBlue;
+            radLblSumExam.Location = new Point(170, 77);
+            radLblSumExam.Name = "radLblSumExam";
+            radLblSumExam.Size = new Size(15, 21);
+            radLblSumExam.TabIndex = 2;
+            radLblSumExam.Text = "0";
+            radLblSumExam.ThemeName = "MaterialTeal";
+            // 
+            // radLblPassedExam
+            // 
+            radLblPassedExam.ForeColor = Color.MediumSlateBlue;
+            radLblPassedExam.Location = new Point(170, 119);
+            radLblPassedExam.Name = "radLblPassedExam";
+            radLblPassedExam.Size = new Size(15, 21);
+            radLblPassedExam.TabIndex = 2;
+            radLblPassedExam.Text = "0";
+            radLblPassedExam.ThemeName = "MaterialTeal";
+            // 
+            // radLblIdStudent
+            // 
+            radLblIdStudent.ForeColor = Color.MediumSlateBlue;
+            radLblIdStudent.Location = new Point(169, 238);
+            radLblIdStudent.Name = "radLblIdStudent";
+            radLblIdStudent.Size = new Size(15, 21);
+            radLblIdStudent.TabIndex = 2;
+            radLblIdStudent.Text = "0";
+            radLblIdStudent.ThemeName = "MaterialTeal";
+            // 
+            // radLblSumExamStudent
+            // 
+            radLblSumExamStudent.ForeColor = Color.MediumSlateBlue;
+            radLblSumExamStudent.Location = new Point(169, 278);
+            radLblSumExamStudent.Name = "radLblSumExamStudent";
+            radLblSumExamStudent.Size = new Size(15, 21);
+            radLblSumExamStudent.TabIndex = 2;
+            radLblSumExamStudent.Text = "0";
+            radLblSumExamStudent.ThemeName = "MaterialTeal";
+            // 
+            // radLblPassedExamStudent
+            // 
+            radLblPassedExamStudent.ForeColor = Color.MediumSlateBlue;
+            radLblPassedExamStudent.Location = new Point(169, 320);
+            radLblPassedExamStudent.Name = "radLblPassedExamStudent";
+            radLblPassedExamStudent.Size = new Size(15, 21);
+            radLblPassedExamStudent.TabIndex = 2;
+            radLblPassedExamStudent.Text = "0";
+            radLblPassedExamStudent.ThemeName = "MaterialTeal";
+            // 
+            // radLblFailedExamStudent
+            // 
+            radLblFailedExamStudent.ForeColor = Color.MediumSlateBlue;
+            radLblFailedExamStudent.Location = new Point(169, 365);
+            radLblFailedExamStudent.Name = "radLblFailedExamStudent";
+            radLblFailedExamStudent.Size = new Size(15, 21);
+            radLblFailedExamStudent.TabIndex = 2;
+            radLblFailedExamStudent.Text = "0";
+            radLblFailedExamStudent.ThemeName = "MaterialTeal";
             // 
             // StudentResult
             // 
@@ -267,22 +520,45 @@
             ThemeName = "MaterialTeal";
             ((System.ComponentModel.ISupportInitialize)radDock1).EndInit();
             radDock1.ResumeLayout(false);
+            toolWindow1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)radGridViewStudent.MasterTemplate).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radGridViewStudent).EndInit();
             ((System.ComponentModel.ISupportInitialize)radSplitContainer1).EndInit();
             radSplitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)documentContainer1).EndInit();
             documentContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)documentTabStrip1).EndInit();
             documentTabStrip1.ResumeLayout(false);
-            toolWindow1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)radGridViewStudent.MasterTemplate).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radGridViewStudent).EndInit();
             ((System.ComponentModel.ISupportInitialize)toolTabStrip1).EndInit();
             toolTabStrip1.ResumeLayout(false);
+            toolWindow2.ResumeLayout(false);
+            toolWindow2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)radLabel6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radPanel1).EndInit();
+            radPanel1.ResumeLayout(false);
+            radPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)radLabel5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel10).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel9).EndInit();
             ((System.ComponentModel.ISupportInitialize)toolTabStrip2).EndInit();
             toolTabStrip2.ResumeLayout(false);
             toolWindow3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)radGridViewExam.MasterTemplate).EndInit();
             ((System.ComponentModel.ISupportInitialize)radGridViewExam).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel8).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLblFailedExam).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLblSumStudent).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLblSumExam).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLblPassedExam).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLblIdStudent).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLblSumExamStudent).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLblPassedExamStudent).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLblFailedExamStudent).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }
@@ -301,5 +577,24 @@
         private Telerik.WinControls.UI.Docking.ToolTabStrip toolTabStrip2;
         private Telerik.WinControls.UI.RadGridView radGridViewExam;
         private Telerik.WinControls.UI.RadGridView radGridViewStudent;
+        private Telerik.WinControls.UI.RadPanel radPanel1;
+        private Telerik.WinControls.UI.RadLabel radLabel5;
+        private Telerik.WinControls.UI.RadLabel radLabel4;
+        private Telerik.WinControls.UI.RadLabel radLabel3;
+        private Telerik.WinControls.UI.RadLabel radLabel2;
+        private Telerik.WinControls.UI.RadLabel radLabel1;
+        private Telerik.WinControls.UI.RadLabel radLabel6;
+        private Telerik.WinControls.UI.RadLabel radLabel7;
+        private Telerik.WinControls.UI.RadLabel radLabel10;
+        private Telerik.WinControls.UI.RadLabel radLabel9;
+        private Telerik.WinControls.UI.RadLabel radLabel8;
+        private Telerik.WinControls.UI.RadLabel radLblFailedExamStudent;
+        private Telerik.WinControls.UI.RadLabel radLblPassedExamStudent;
+        private Telerik.WinControls.UI.RadLabel radLblSumExamStudent;
+        private Telerik.WinControls.UI.RadLabel radLblIdStudent;
+        private Telerik.WinControls.UI.RadLabel radLblPassedExam;
+        private Telerik.WinControls.UI.RadLabel radLblSumExam;
+        private Telerik.WinControls.UI.RadLabel radLblSumStudent;
+        private Telerik.WinControls.UI.RadLabel radLblFailedExam;
     }
 }

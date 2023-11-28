@@ -17,12 +17,18 @@ namespace Examination_PRL.Forms.Staff
         ParticipantService _serStudent = new ParticipantService();
 
         ExamServices _serExam = new ExamServices();
+  
+        ExamResponseServices _serAll = new ExamResponseServices();
 
         string _idWhenCLick;
 
         public StudentResult()
         {
             InitializeComponent();
+            radLblSumStudent.Text = _serStudent.getAllStudents().Count.ToString();
+            radLblSumExam.Text = _serAll.GetAllExamResponse().Count.ToString();
+            radLblPassedExam.Text = _serAll.GetAllExamResponse().Where(x => x.IsPassed == true).ToList().Count.ToString();
+            radLblFailedExam.Text = _serAll.GetAllExamResponse().Where(x => x.IsPassed == false).ToList().Count.ToString(); 
             LoadData();
         }
 
@@ -75,6 +81,10 @@ namespace Examination_PRL.Forms.Staff
         {
             _idWhenCLick = radGridViewStudent.CurrentRow.Cells[1].Value.ToString();
 
+            radLblIdStudent.Text = _idWhenCLick;    
+            radLblSumExamStudent.Text = _serAll.GetAllExamResponse().Where(x => x.ParticipantId == _idWhenCLick).ToList().Count.ToString();
+            radLblPassedExamStudent.Text = _serAll.GetExamResponseByParticipantId(_idWhenCLick).Where(x => x.IsPassed == true).ToList().Count.ToString();
+            radLblFailedExamStudent.Text = _serAll.GetExamResponseByParticipantId(_idWhenCLick).Where(x => x.IsPassed == false).ToList().Count.ToString();
             loadDataExam(_idWhenCLick);
         }
     }
