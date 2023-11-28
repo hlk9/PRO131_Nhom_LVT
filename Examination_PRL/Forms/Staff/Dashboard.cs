@@ -290,6 +290,9 @@ namespace Examination_PRL.Forms.Staff
                     case "addNhanViensForm":
                         (form as AddNhanVien).LoadData();
                         break;
+                    case "addThiSinhForm":
+                        (form as AddStudents).LoadData();
+                        break;
                     default:
                         break;
 
