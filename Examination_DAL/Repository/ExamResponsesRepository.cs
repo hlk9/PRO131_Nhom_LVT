@@ -16,7 +16,7 @@ namespace Examination_DAL.Repository
             _context = new ExaminationDbContext();
         }
 
-        public List<ExamResponse> GetAll()
+        public List<ExamResponse> GetAllExamResponse()
         {
             return _context.ExamResponses.ToList();
         }

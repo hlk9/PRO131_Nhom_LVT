@@ -33,6 +33,9 @@ namespace Examination_PRL.Forms.Participant
             this.userName = urs;
             LoadData();
             LoadExamSchedule();
+            radlblSum.Text = _serviceExam.GetExamResponses().Count().ToString();
+            radlblDat.Text = _serviceExam.GetExamResponses().Where(x => x.IsPassed == true).ToList().Count.ToString();
+            radlblChuaDat.Text = _serviceExam.GetExamResponses().Where(x => x.IsPassed == false).ToList().Count.ToString();
             LoadDataExam();
         }
 
@@ -215,14 +218,14 @@ namespace Examination_PRL.Forms.Participant
                 radLblTime.Text = obj.SubmitTime.ToString();
                 radLablDiem.Text = obj.Score.ToString();
                 radLblStatus.Text = obj.Status.ToString();
-                radlblDat.Text = obj.IsPassed.ToString();
+                radLblPass.Text = obj.IsPassed == true ? "Đạt" : "Chưa Đạt";
                 radLblDung.Text = obj.QuestionCorrect.ToString();
                 radLblSai.Text = obj.QuestionWrong.ToString();
                 radLblChuaLam.Text = obj.QuestionNotAnswered.ToString();
                 radLblTimeLamBai.Text = obj.FinishTime.ToString();
+                radLblNote.Text = obj.Note;
+
             }
         }
-
-      
     }
 }
