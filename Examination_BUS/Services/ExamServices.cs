@@ -8,10 +8,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Examination_BUS.Services
 {
-    public class ExamServices:IExam
+    public class ExamServices
     {
         ExamRepository _examRepos;
         AnswerResponeseRepository _AnswerResponese;
@@ -45,9 +46,16 @@ namespace Examination_BUS.Services
             return _examRepos.GetByCode(code);
         }
 
-        public bool Add(Exam exam)
+        public bool AddExam(int id, string name, string idExam, string subjectId)
         {
-            return _examRepos.Add(exam);
+            Exam exam = new Exam 
+            {
+                Id = id,
+                Name = name,
+                ExamCode = idExam,
+                SubjectId = subjectId
+            };
+            return _examRepos.Add(exam); 
         }
 
         public bool Update(Exam exam)

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Examination_DAL.Repository
 {
-    public class ExamRepository
+    public class ExamRepository 
     {
         ExaminationDbContext _context;
         public ExamRepository()
