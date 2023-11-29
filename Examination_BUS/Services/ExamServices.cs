@@ -46,20 +46,14 @@ namespace Examination_BUS.Services
             return _examRepos.GetByCode(code);
         }
 
-        public bool AddExam(string name, string idExam, string subjectId)
+        public bool AddExam(Exam exam)
         {
-            var exam = new Exam()
-            {
-                Name = name,
-                ExamCode = idExam,
-                SubjectId = subjectId
-            }; 
             return _examRepos.AddAllExam(exam);
         }
 
         public bool Update(Exam exam)
         {
-            return _examRepos.Update(exam);
+           return _examRepos.Update(exam);
         }
 
         public bool DeleteById(int id)

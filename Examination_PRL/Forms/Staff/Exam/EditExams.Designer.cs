@@ -38,17 +38,18 @@
             documentWindow2 = new Telerik.WinControls.UI.Docking.DocumentWindow();
             toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            radCMB = new Telerik.WinControls.UI.RadDropDownList();
+            radxtID = new Telerik.WinControls.UI.RadTextBox();
+            radLabel5 = new Telerik.WinControls.UI.RadLabel();
             radBtnSua = new Telerik.WinControls.UI.RadButton();
             radBtnThem = new Telerik.WinControls.UI.RadButton();
-            radTxtMaMon = new Telerik.WinControls.UI.RadTextBox();
             radTxtTenBaiThi = new Telerik.WinControls.UI.RadTextBox();
             radTxtIdBaiThi = new Telerik.WinControls.UI.RadTextBox();
             radLabel4 = new Telerik.WinControls.UI.RadLabel();
             radLabel3 = new Telerik.WinControls.UI.RadLabel();
             radLabel2 = new Telerik.WinControls.UI.RadLabel();
             radLabel1 = new Telerik.WinControls.UI.RadLabel();
-            radLabel5 = new Telerik.WinControls.UI.RadLabel();
-            radxtID = new Telerik.WinControls.UI.RadTextBox();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)radDock1).BeginInit();
             radDock1.SuspendLayout();
             documentWindow1.SuspendLayout();
@@ -61,17 +62,17 @@
             ((System.ComponentModel.ISupportInitialize)toolTabStrip1).BeginInit();
             toolTabStrip1.SuspendLayout();
             toolWindow1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)radCMB).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radxtID).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radBtnSua).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radBtnThem).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radTxtMaMon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radTxtTenBaiThi).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radTxtIdBaiThi).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radxtID).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
@@ -92,7 +93,7 @@
             // 
             // 
             radDock1.RootElement.MinSize = new Size(25, 25);
-            radDock1.Size = new Size(910, 538);
+            radDock1.Size = new Size(912, 575);
             radDock1.SplitterWidth = 8;
             radDock1.TabIndex = 0;
             radDock1.TabStop = false;
@@ -105,7 +106,7 @@
             documentWindow1.Location = new Point(4, 4);
             documentWindow1.Name = "documentWindow1";
             documentWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
-            documentWindow1.Size = new Size(630, 530);
+            documentWindow1.Size = new Size(632, 567);
             documentWindow1.Text = "documentWindow1";
             // 
             // radGrid_ExamEdit
@@ -119,7 +120,7 @@
             radGrid_ExamEdit.MasterTemplate.EnablePaging = true;
             radGrid_ExamEdit.MasterTemplate.ViewDefinition = tableViewDefinition1;
             radGrid_ExamEdit.Name = "radGrid_ExamEdit";
-            radGrid_ExamEdit.Size = new Size(630, 530);
+            radGrid_ExamEdit.Size = new Size(632, 567);
             radGrid_ExamEdit.TabIndex = 0;
             radGrid_ExamEdit.ThemeName = "MaterialTeal";
             radGrid_ExamEdit.CellClick += radGrid_ExamEdit_CellClick;
@@ -152,7 +153,7 @@
             // 
             documentTabStrip1.RootElement.MinSize = new Size(25, 25);
             documentTabStrip1.SelectedIndex = 1;
-            documentTabStrip1.Size = new Size(638, 538);
+            documentTabStrip1.Size = new Size(640, 575);
             documentTabStrip1.TabIndex = 0;
             documentTabStrip1.TabStop = false;
             documentTabStrip1.TabStripVisible = false;
@@ -171,14 +172,14 @@
             // 
             toolTabStrip1.CanUpdateChildIndex = true;
             toolTabStrip1.Controls.Add(toolWindow1);
-            toolTabStrip1.Location = new Point(646, 0);
+            toolTabStrip1.Location = new Point(648, 0);
             toolTabStrip1.Name = "toolTabStrip1";
             // 
             // 
             // 
             toolTabStrip1.RootElement.MinSize = new Size(25, 25);
             toolTabStrip1.SelectedIndex = 0;
-            toolTabStrip1.Size = new Size(264, 538);
+            toolTabStrip1.Size = new Size(264, 575);
             toolTabStrip1.SizeInfo.AbsoluteSize = new Size(264, 200);
             toolTabStrip1.SizeInfo.SplitterCorrection = new Size(64, 0);
             toolTabStrip1.TabIndex = 1;
@@ -188,11 +189,11 @@
             // toolWindow1
             // 
             toolWindow1.Caption = null;
+            toolWindow1.Controls.Add(radCMB);
             toolWindow1.Controls.Add(radxtID);
             toolWindow1.Controls.Add(radLabel5);
             toolWindow1.Controls.Add(radBtnSua);
             toolWindow1.Controls.Add(radBtnThem);
-            toolWindow1.Controls.Add(radTxtMaMon);
             toolWindow1.Controls.Add(radTxtTenBaiThi);
             toolWindow1.Controls.Add(radTxtIdBaiThi);
             toolWindow1.Controls.Add(radLabel4);
@@ -203,15 +204,43 @@
             toolWindow1.Location = new Point(4, 52);
             toolWindow1.Name = "toolWindow1";
             toolWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            toolWindow1.Size = new Size(256, 482);
+            toolWindow1.Size = new Size(256, 519);
             toolWindow1.Text = "Nhân Viên Chi Tiết";
             toolWindow1.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
+            // 
+            // radCMB
+            // 
+            radCMB.DropDownAnimationEnabled = true;
+            radCMB.Location = new Point(93, 89);
+            radCMB.Name = "radCMB";
+            radCMB.Size = new Size(160, 37);
+            radCMB.TabIndex = 14;
+            radCMB.Text = "radDropDownList1";
+            radCMB.ThemeName = "MaterialTeal";
+            radCMB.SelectedIndexChanged += radCMB_SelectedIndexChanged;
+            // 
+            // radxtID
+            // 
+            radxtID.Location = new Point(93, 3);
+            radxtID.Name = "radxtID";
+            radxtID.Size = new Size(160, 37);
+            radxtID.TabIndex = 10;
+            radxtID.ThemeName = "MaterialTeal";
+            // 
+            // radLabel5
+            // 
+            radLabel5.Location = new Point(3, 19);
+            radLabel5.Name = "radLabel5";
+            radLabel5.Size = new Size(24, 21);
+            radLabel5.TabIndex = 9;
+            radLabel5.Text = "ID:";
+            radLabel5.ThemeName = "MaterialTeal";
             // 
             // radBtnSua
             // 
             radBtnSua.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radBtnSua.BackColor = Color.Teal;
-            radBtnSua.Location = new Point(3, 429);
+            radBtnSua.Location = new Point(3, 466);
             radBtnSua.Name = "radBtnSua";
             radBtnSua.Size = new Size(250, 45);
             radBtnSua.TabIndex = 8;
@@ -223,7 +252,7 @@
             // 
             radBtnThem.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radBtnThem.BackColor = Color.Teal;
-            radBtnThem.Location = new Point(3, 378);
+            radBtnThem.Location = new Point(3, 415);
             radBtnThem.Name = "radBtnThem";
             radBtnThem.Size = new Size(250, 45);
             radBtnThem.TabIndex = 7;
@@ -231,17 +260,9 @@
             radBtnThem.ThemeName = "MaterialTeal";
             radBtnThem.Click += radBtnThem_Click;
             // 
-            // radTxtMaMon
-            // 
-            radTxtMaMon.Location = new Point(93, 132);
-            radTxtMaMon.Name = "radTxtMaMon";
-            radTxtMaMon.Size = new Size(160, 37);
-            radTxtMaMon.TabIndex = 6;
-            radTxtMaMon.ThemeName = "MaterialTeal";
-            // 
             // radTxtTenBaiThi
             // 
-            radTxtTenBaiThi.Location = new Point(93, 89);
+            radTxtTenBaiThi.Location = new Point(97, 132);
             radTxtTenBaiThi.Name = "radTxtTenBaiThi";
             radTxtTenBaiThi.Size = new Size(160, 37);
             radTxtTenBaiThi.TabIndex = 5;
@@ -257,7 +278,7 @@
             // 
             // radLabel4
             // 
-            radLabel4.Location = new Point(3, 148);
+            radLabel4.Location = new Point(3, 105);
             radLabel4.Name = "radLabel4";
             radLabel4.Size = new Size(64, 21);
             radLabel4.TabIndex = 3;
@@ -274,7 +295,7 @@
             // 
             // radLabel2
             // 
-            radLabel2.Location = new Point(3, 105);
+            radLabel2.Location = new Point(3, 148);
             radLabel2.Name = "radLabel2";
             radLabel2.Size = new Size(84, 21);
             radLabel2.TabIndex = 1;
@@ -290,30 +311,14 @@
             radLabel1.Text = "Mã Bài Thi:";
             radLabel1.ThemeName = "MaterialTeal";
             // 
-            // radLabel5
-            // 
-            radLabel5.Location = new Point(3, 19);
-            radLabel5.Name = "radLabel5";
-            radLabel5.Size = new Size(73, 21);
-            radLabel5.TabIndex = 9;
-            radLabel5.Text = "ID Bài Thi:";
-            radLabel5.ThemeName = "MaterialTeal";
-            // 
-            // radxtID
-            // 
-            radxtID.Location = new Point(93, 3);
-            radxtID.Name = "radxtID";
-            radxtID.Size = new Size(160, 37);
-            radxtID.TabIndex = 10;
-            radxtID.ThemeName = "MaterialTeal";
-            // 
             // EditExams
             // 
             AutoScaleBaseSize = new Size(7, 15);
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(910, 538);
+            ClientSize = new Size(912, 575);
             Controls.Add(radDock1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "EditExams";
             // 
             // 
@@ -334,17 +339,17 @@
             toolTabStrip1.ResumeLayout(false);
             toolWindow1.ResumeLayout(false);
             toolWindow1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)radCMB).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radxtID).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel5).EndInit();
             ((System.ComponentModel.ISupportInitialize)radBtnSua).EndInit();
             ((System.ComponentModel.ISupportInitialize)radBtnThem).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radTxtMaMon).EndInit();
             ((System.ComponentModel.ISupportInitialize)radTxtTenBaiThi).EndInit();
             ((System.ComponentModel.ISupportInitialize)radTxtIdBaiThi).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel4).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel3).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel2).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radxtID).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }
@@ -368,8 +373,9 @@
         private Telerik.WinControls.UI.RadTextBox radTxtIdBaiThi;
         private Telerik.WinControls.UI.RadButton radBtnSua;
         private Telerik.WinControls.UI.RadButton radBtnThem;
-        private Telerik.WinControls.UI.RadTextBox radTxtMaMon;
         private Telerik.WinControls.UI.RadTextBox radxtID;
         private Telerik.WinControls.UI.RadLabel radLabel5;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Telerik.WinControls.UI.RadDropDownList radCMB;
     }
 }

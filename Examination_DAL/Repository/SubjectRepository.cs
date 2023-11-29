@@ -82,5 +82,10 @@ namespace Examination_DAL.Repository
                 return false;
             }
         }
+
+        public Subject GetOneSubjectByID(string id)
+        {
+           return _context.Subjects.Find(id);
+        }
     }
 }

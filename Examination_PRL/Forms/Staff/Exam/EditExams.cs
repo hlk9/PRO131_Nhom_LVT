@@ -1,4 +1,5 @@
 ﻿using Examination_BUS.Services;
+using Examination_DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,11 +15,14 @@ namespace Examination_PRL.Forms
     public partial class EditExams : Telerik.WinControls.UI.RadForm
     {
         ExamServices _service = new ExamServices();
+        SubjectServices _subjectServices = new SubjectServices();
+        List<string> _lstSubjectID = new List<string>();
         int _idWhenClick;
         public EditExams()
         {
             InitializeComponent();
             LoadDataExam();
+            LoadCMB();
         }
 
         public void LoadDataExam()
@@ -29,23 +33,35 @@ namespace Examination_PRL.Forms
             radGrid_ExamEdit.Columns[0].HeaderText = "STT";
             radGrid_ExamEdit.Columns[1].HeaderText = "ID";
             radGrid_ExamEdit.Columns[2].HeaderText = "Mã Bài Thi";
-            radGrid_ExamEdit.Columns[3].HeaderText = "Tên Bài Thi";
-            radGrid_ExamEdit.Columns[4].HeaderText = "Mã Môn";
+            radGrid_ExamEdit.Columns[3].HeaderText = "Mã Môn";
+            radGrid_ExamEdit.Columns[4].HeaderText = "Tên Bài Thi";
 
             radGrid_ExamEdit.Rows.Clear();
 
             foreach (var item in _service.GetAll())
             {
-                radGrid_ExamEdit.Rows.Add(stt++, item.Id, item.ExamCode, item.Name, item.SubjectId);
+                radGrid_ExamEdit.Rows.Add(stt++, item.Id, item.ExamCode, item.SubjectId, item.Name);
             }
+            radGrid_ExamEdit.CurrentRow = radGrid_ExamEdit.Rows[0];
+        }
+        public void LoadCMB()
+        {
+            foreach (var item in _subjectServices.GetSubjects())
+            {
+                _lstSubjectID.Add(item.Id);
+                radCMB.Items.Add(item.Id);
+            }
+            radCMB.SelectedIndex = 0;
         }
 
         private void radBtnThem_Click(object sender, EventArgs e)
         {
-            string idDe = null;
-            string name = radTxtTenBaiThi.Text;
-            string idMon = null;
-            if (_service.AddExam(name, idDe, idMon))
+            Exam AddExam = new Exam();
+            AddExam.Id = _idWhenClick;
+            AddExam.ExamCode = radTxtIdBaiThi.Text;
+            AddExam.SubjectId = radCMB.SelectedItem.Text;
+            AddExam.Name = radTxtTenBaiThi.Text;
+            if (_service.AddExam(AddExam))
             {
                 MessageBox.Show("Thêm Bài Thi Thành Công");
             }
@@ -58,20 +74,24 @@ namespace Examination_PRL.Forms
 
         private void radBtnSua_Click(object sender, EventArgs e)
         {
-            //int id = Convert.ToInt32(radxtID.Text);
-            //string idDe = radTxtIdBaiThi.Text;
-            //string name = radTxtTenBaiThi.Text;
-            //string idMon = radTxtMaMon.Text;
-            //if (_service.Update())
-            //{
-            //    MessageBox.Show("Sửa Bài Thi Thành Công");
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Sửa Bài Thi Thất Bại");
-            //}
-            //LoadDataExam();
+            Exam updateExam = new Exam();
+            updateExam.Id = _idWhenClick;
+            updateExam.ExamCode = radTxtIdBaiThi.Text;
+            updateExam.SubjectId = radCMB.SelectedItem.Text;
+            updateExam.Name = radTxtTenBaiThi.Text;
+            if (_service.Update(updateExam))
+            {
+
+
+                MessageBox.Show("Sửa Bài Thi Thành Công");
+            }
+            else
+            {
+                MessageBox.Show("Sửa Bài Thi Thất Bại");
+            }
+            LoadDataExam();
         }
+
 
         private void radGrid_ExamEdit_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
@@ -81,10 +101,23 @@ namespace Examination_PRL.Forms
             {
                 radxtID.Text = obj.Id.ToString();
                 radTxtIdBaiThi.Text = obj.ExamCode;
+                var box = _lstSubjectID.FindIndex(x => x == obj.SubjectId);
+                radCMB.SelectedIndex = box;
                 radTxtTenBaiThi.Text = obj.Name;
-                radTxtMaMon.Text = obj.SubjectId;
             }
+        }
 
+        private void radCMB_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+            try
+            {
+                Subject subject = _subjectServices.GetOneWithID(radCMB.SelectedItem.Text);
+                radTxtTenBaiThi.Text = subject.Name;
+            }
+            catch
+            {
+                radTxtTenBaiThi.Text = "";
+            }
         }
     }
 }
