@@ -204,6 +204,13 @@ namespace Examination_PRL.Forms.Staff
             studentResult.Name = "studentResult";
 
             RadPageViewPage resultBySubjectPage = new RadPageViewPage("Kết quả theo môn");
+            SubjectResult subjectResult = new SubjectResult();
+            subjectResult.TopLevel = false;
+            resultBySubjectPage.Controls.Add(subjectResult);
+            subjectResult.Show();
+            subjectResult.Dock = DockStyle.Fill;
+            subjectResult.Name = "subjectResult";
+
             RadPageViewPage resultByExamPage = new RadPageViewPage("Kết quả theo đề thi");
             RadPageViewPage resultByRoomPage = new RadPageViewPage("Kết quả theo phòng thi");
             resultPage.SubPages.Add(resultByStudentPage);

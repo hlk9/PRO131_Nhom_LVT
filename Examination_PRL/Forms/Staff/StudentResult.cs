@@ -17,7 +17,7 @@ namespace Examination_PRL.Forms.Staff
         ParticipantService _serStudent = new ParticipantService();
 
         ExamServices _serExam = new ExamServices();
-  
+
         ExamResponseServices _serAll = new ExamResponseServices();
 
         string _idWhenCLick;
@@ -28,7 +28,7 @@ namespace Examination_PRL.Forms.Staff
             radLblSumStudent.Text = _serStudent.getAllStudents().Count.ToString();
             radLblSumExam.Text = _serAll.GetAllExamResponse().Count.ToString();
             radLblPassedExam.Text = _serAll.GetAllExamResponse().Where(x => x.IsPassed == true).ToList().Count.ToString();
-            radLblFailedExam.Text = _serAll.GetAllExamResponse().Where(x => x.IsPassed == false).ToList().Count.ToString(); 
+            radLblFailedExam.Text = _serAll.GetAllExamResponse().Where(x => x.IsPassed == false).ToList().Count.ToString();
             LoadData();
         }
 
@@ -73,15 +73,15 @@ namespace Examination_PRL.Forms.Staff
 
             foreach (var x in _serExam.GetAnswer_ResponsesViewModels(id))
             {
-                radGridViewExam.Rows.Add(stt++, x.NameExam, x.Score, x.SubjectId, x.SubmitTime, x.IsPassed == true ? "Có" : "Không", x.Note);
+                radGridViewExam.Rows.Add(stt++, x.NameExam, x.Score, x.SubjectId, x.SubmitTime, x.IsPassed == null ? "Không Xác Định" : (x.IsPassed == true ? "Có" : "Không"), x.Note);
             }
         }
 
-        private void radGridViewStudent_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
+        private void radGridViewStudent_CellClick_1(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
             _idWhenCLick = radGridViewStudent.CurrentRow.Cells[1].Value.ToString();
 
-            radLblIdStudent.Text = _idWhenCLick;    
+            radLblIdStudent.Text = _idWhenCLick;
             radLblSumExamStudent.Text = _serAll.GetAllExamResponse().Where(x => x.ParticipantId == _idWhenCLick).ToList().Count.ToString();
             radLblPassedExamStudent.Text = _serAll.GetExamResponseByParticipantId(_idWhenCLick).Where(x => x.IsPassed == true).ToList().Count.ToString();
             radLblFailedExamStudent.Text = _serAll.GetExamResponseByParticipantId(_idWhenCLick).Where(x => x.IsPassed == false).ToList().Count.ToString();
