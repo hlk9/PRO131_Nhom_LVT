@@ -22,6 +22,12 @@ namespace Examination_BUS.Services
             _repos = repos;
         }
        
+
+        public Subject GetOneWithID(string id)
+        {
+            return _repos.GetOneSubjectByID(id);
+        }
+
         public List<Subject> GetSubjects()
         {
             return _repos.GetSubjects().ToList();

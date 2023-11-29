@@ -85,7 +85,5 @@ namespace Examination_DAL.Repository
                 return false;
             }
         }
-
-
     }
 }
