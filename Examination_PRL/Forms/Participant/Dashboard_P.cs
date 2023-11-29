@@ -72,29 +72,7 @@ namespace Examination_PRL.Forms.Participant
             radViewScheduler.ThemeName = "MaterialTeal";
         }
 
-        private void btn_Reset_Click(object sender, EventArgs e)
-        {
-            tbt_Content.Text = "";
-            tbt_IDParticipant.Text = "";
-            tbt_Name.Text = "";
-            tbt_Title.Text = "";
-        }
-
-        private void btn_Send_Click(object sender, EventArgs e)
-        {
-            Feedback fb = new Feedback()
-            {
-
-                Title = tbt_Title.Text,
-                Name = tbt_Name.Text,
-                IdParticipant = tbt_IDParticipant.Text,
-                Content = tbt_Content.Text,
-                Status = true,
-            };
-            bool add = (_ser.Send(fb));
-            if (add) MessageBox.Show("Gửi thành công!");
-            else MessageBox.Show("Gửi thất bại!");
-        }
+      
 
         public void LoadExamSchedule()
         {
@@ -177,7 +155,7 @@ namespace Examination_PRL.Forms.Participant
                 {
                     foreach (var item in listData)
                     {
-                        e.VisualItem = new ExamCustomVisualItem(item,userAccount);
+                        e.VisualItem = new ExamCustomVisualItem(item, userAccount);
                         listData.Remove(item);
                         return;
                     }
@@ -228,6 +206,30 @@ namespace Examination_PRL.Forms.Participant
                 radLblNote.Text = obj.Note;
 
             }
+        }
+
+        private void btn_Send_Click_1(object sender, EventArgs e)
+        {
+            Feedback fb = new Feedback()
+            {
+
+                Title = tbt_Title.Text,
+                Name = tbt_Name.Text,
+                IdParticipant = tbt_IDParticipant.Text,
+                Content = tbt_Content.Text,
+                Status = true,
+            };
+            bool add = (_ser.Send(fb));
+            if (add) MessageBox.Show("Gửi thành công!");
+            else MessageBox.Show("Gửi thất bại!");
+        }
+
+        private void btn_Reset_Click_1(object sender, EventArgs e)
+        {
+            tbt_Content.Text = "";
+            tbt_IDParticipant.Text = "";
+            tbt_Name.Text = "";
+            tbt_Title.Text = "";
         }
     }
 }

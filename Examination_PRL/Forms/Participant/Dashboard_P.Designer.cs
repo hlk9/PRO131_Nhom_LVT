@@ -166,7 +166,7 @@
             radPageView1.Dock = DockStyle.Fill;
             radPageView1.Location = new Point(0, 0);
             radPageView1.Name = "radPageView1";
-            radPageView1.SelectedPage = radPageViewPage3;
+            radPageView1.SelectedPage = radPageViewPage4;
             radPageView1.Size = new Size(1277, 706);
             radPageView1.TabIndex = 0;
             radPageView1.ThemeName = "MaterialTeal";
@@ -279,6 +279,7 @@
             documentContainer1.CausesValidation = false;
             documentContainer1.Controls.Add(documentTabStrip1);
             documentContainer1.Name = "documentContainer1";
+            documentContainer1.Padding = new Padding(0);
             // 
             // 
             // 
@@ -287,7 +288,6 @@
             documentContainer1.SizeInfo.SizeMode = Telerik.WinControls.UI.Docking.SplitPanelSizeMode.Fill;
             documentContainer1.SizeInfo.SplitterCorrection = new Size(-135, 0);
             documentContainer1.SplitterWidth = 8;
-            documentContainer1.ThemeName = "MaterialTeal";
             // 
             // documentTabStrip1
             // 
@@ -362,10 +362,10 @@
             toolWindow1.Controls.Add(radLabel5);
             toolWindow1.Controls.Add(radLabel4);
             toolWindow1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            toolWindow1.Location = new Point(4, 52);
+            toolWindow1.Location = new Point(4, 4);
             toolWindow1.Name = "toolWindow1";
             toolWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            toolWindow1.Size = new Size(327, 589);
+            toolWindow1.Size = new Size(327, 637);
             toolWindow1.Text = "Thông Tin Chi Tiết";
             toolWindow1.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
@@ -731,6 +731,7 @@
             btn_Send.TabIndex = 19;
             btn_Send.Text = "Gửi phản hồi";
             btn_Send.ThemeName = "MaterialTeal";
+            btn_Send.Click += btn_Send_Click_1;
             // 
             // btn_Reset
             // 
@@ -743,6 +744,7 @@
             btn_Reset.TabIndex = 18;
             btn_Reset.Text = "Làm mới";
             btn_Reset.ThemeName = "MaterialTeal";
+            btn_Reset.Click += btn_Reset_Click_1;
             // 
             // radLabel7
             // 
@@ -801,7 +803,7 @@
             tbt_IDParticipant.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbt_IDParticipant.Location = new Point(432, 234);
             tbt_IDParticipant.Name = "tbt_IDParticipant";
-            tbt_IDParticipant.Size = new Size(394, 0);
+            tbt_IDParticipant.Size = new Size(394, 37);
             tbt_IDParticipant.TabIndex = 14;
             tbt_IDParticipant.ThemeName = "MaterialTeal";
             // 
@@ -810,7 +812,7 @@
             tbt_Name.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbt_Name.Location = new Point(432, 157);
             tbt_Name.Name = "tbt_Name";
-            tbt_Name.Size = new Size(394, 0);
+            tbt_Name.Size = new Size(394, 37);
             tbt_Name.TabIndex = 15;
             tbt_Name.ThemeName = "MaterialTeal";
             // 
@@ -829,7 +831,7 @@
             tbt_Title.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbt_Title.Location = new Point(432, 80);
             tbt_Title.Name = "tbt_Title";
-            tbt_Title.Size = new Size(394, 0);
+            tbt_Title.Size = new Size(394, 37);
             tbt_Title.TabIndex = 16;
             tbt_Title.ThemeName = "MaterialTeal";
             // 
