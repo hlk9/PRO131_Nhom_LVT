@@ -700,7 +700,7 @@ namespace Examination_DAL.Context
                 new QuestionType
                 {
                     Id = 2,
-                    Name = "Chọn CÁC đáp án đúng"
+                    Name = "Chọn các đáp án đúng"
                 },
                 new QuestionType
                 {
@@ -1366,7 +1366,7 @@ namespace Examination_DAL.Context
                 {
                     Id = 17,
                     QuestionId = 5,
-                    Content = "10",
+                    Content = "8",
                     IsCorrect = true,
                     Status = true,
                     CreatedBy = "admin",
@@ -1378,8 +1378,8 @@ namespace Examination_DAL.Context
                 {
                     Id = 18,
                     QuestionId = 5,
-                    Content = "11",
-                    IsCorrect = false,
+                    Content = "Tám",
+                    IsCorrect = true,
                     Status = true,
                     CreatedBy = "admin",
                     CreatedAt = DateTime.Now,
@@ -1464,7 +1464,7 @@ namespace Examination_DAL.Context
                 {
                     Id = 25,
                     QuestionId = 7,
-                    Content = "17",
+                    Content = "10",
                     IsCorrect = true,
                     Status = true,
                     CreatedBy = "admin",
@@ -1477,8 +1477,8 @@ namespace Examination_DAL.Context
                 {
                     Id = 26,
                     QuestionId = 7,
-                    Content = "18",
-                    IsCorrect = false,
+                    Content = "Mười",
+                    IsCorrect = true,
                     Status = true,
                     CreatedBy = "admin",
                     CreatedAt = DateTime.Now,
@@ -1501,8 +1501,8 @@ namespace Examination_DAL.Context
                 {
                     Id = 28,
                     QuestionId = 7,
-                    Content = "20",
-                    IsCorrect = false,
+                    Content = "Ten",
+                    IsCorrect = true,
                     Status = true,
                     CreatedBy = "admin",
                     CreatedAt = DateTime.Now,
@@ -1619,7 +1619,7 @@ namespace Examination_DAL.Context
                 {
                     Id = 37,
                     QuestionId = 10,
-                    Content = "29",
+                    Content = "XX",
                     IsCorrect = true,
                     Status = true,
                     CreatedBy = "admin",
@@ -1658,8 +1658,8 @@ namespace Examination_DAL.Context
                 {
                     Id = 40,
                     QuestionId = 10,
-                    Content = "32",
-                    IsCorrect = false,
+                    Content = "20",
+                    IsCorrect = true,
                     Status = true,
                     CreatedBy = "admin",
                     CreatedAt = DateTime.Now,
