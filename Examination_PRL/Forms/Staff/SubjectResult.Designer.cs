@@ -32,31 +32,31 @@
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             radDock1 = new Telerik.WinControls.UI.Docking.RadDock();
+            toolWindow2 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            radGridViewSubject = new Telerik.WinControls.UI.RadGridView();
             documentContainer1 = new Telerik.WinControls.UI.Docking.DocumentContainer();
             documentTabStrip2 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
-            toolWindow2 = new Telerik.WinControls.UI.Docking.ToolWindow();
-            radGridView2 = new Telerik.WinControls.UI.RadGridView();
-            toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
-            toolWindow3 = new Telerik.WinControls.UI.Docking.ToolWindow();
             documentTabStrip3 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             toolWindow4 = new Telerik.WinControls.UI.Docking.ToolWindow();
-            radGridView1 = new Telerik.WinControls.UI.RadGridView();
+            radGridViewExamSubject = new Telerik.WinControls.UI.RadGridView();
+            toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
+            toolWindow3 = new Telerik.WinControls.UI.Docking.ToolWindow();
             ((System.ComponentModel.ISupportInitialize)radDock1).BeginInit();
             radDock1.SuspendLayout();
+            toolWindow2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)radGridViewSubject).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radGridViewSubject.MasterTemplate).BeginInit();
             ((System.ComponentModel.ISupportInitialize)documentContainer1).BeginInit();
             documentContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)documentTabStrip2).BeginInit();
             documentTabStrip2.SuspendLayout();
-            toolWindow2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)radGridView2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radGridView2.MasterTemplate).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)toolTabStrip1).BeginInit();
-            toolTabStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)documentTabStrip3).BeginInit();
             documentTabStrip3.SuspendLayout();
             toolWindow4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)radGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radGridView1.MasterTemplate).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radGridViewExamSubject).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radGridViewExamSubject.MasterTemplate).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)toolTabStrip1).BeginInit();
+            toolTabStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
@@ -82,6 +82,36 @@
             radDock1.TabIndex = 0;
             radDock1.TabStop = false;
             radDock1.ThemeName = "MaterialTeal";
+            // 
+            // toolWindow2
+            // 
+            toolWindow2.Caption = null;
+            toolWindow2.Controls.Add(radGridViewSubject);
+            toolWindow2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            toolWindow2.Location = new Point(4, 4);
+            toolWindow2.Name = "toolWindow2";
+            toolWindow2.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
+            toolWindow2.Size = new Size(950, 281);
+            toolWindow2.Text = "toolWindow3";
+            // 
+            // radGridViewSubject
+            // 
+            radGridViewSubject.Dock = DockStyle.Fill;
+            radGridViewSubject.Location = new Point(0, 0);
+            // 
+            // 
+            // 
+            radGridViewSubject.MasterTemplate.AllowAddNewRow = false;
+            radGridViewSubject.MasterTemplate.AllowSearchRow = true;
+            radGridViewSubject.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            radGridViewSubject.MasterTemplate.EnablePaging = true;
+            radGridViewSubject.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            radGridViewSubject.Name = "radGridViewSubject";
+            radGridViewSubject.ReadOnly = true;
+            radGridViewSubject.Size = new Size(950, 281);
+            radGridViewSubject.TabIndex = 0;
+            radGridViewSubject.ThemeName = "MaterialTeal";
+            radGridViewSubject.CellClick += radGridViewSubject_CellClick;
             // 
             // documentContainer1
             // 
@@ -119,34 +149,52 @@
             documentTabStrip2.TabStripVisible = false;
             documentTabStrip2.ThemeName = "MaterialTeal";
             // 
-            // toolWindow2
+            // documentTabStrip3
             // 
-            toolWindow2.Caption = null;
-            toolWindow2.Controls.Add(radGridView2);
-            toolWindow2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            toolWindow2.Location = new Point(4, 4);
-            toolWindow2.Name = "toolWindow2";
-            toolWindow2.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            toolWindow2.Size = new Size(950, 281);
-            toolWindow2.Text = "toolWindow3";
-            // 
-            // radGridView2
-            // 
-            radGridView2.Dock = DockStyle.Fill;
-            radGridView2.Location = new Point(0, 0);
+            documentTabStrip3.CanUpdateChildIndex = true;
+            documentTabStrip3.CausesValidation = false;
+            documentTabStrip3.Controls.Add(toolWindow4);
+            documentTabStrip3.Location = new Point(0, 297);
+            documentTabStrip3.Name = "documentTabStrip3";
             // 
             // 
             // 
-            radGridView2.MasterTemplate.AllowAddNewRow = false;
-            radGridView2.MasterTemplate.AllowSearchRow = true;
-            radGridView2.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            radGridView2.MasterTemplate.EnablePaging = true;
-            radGridView2.MasterTemplate.ViewDefinition = tableViewDefinition1;
-            radGridView2.Name = "radGridView2";
-            radGridView2.ReadOnly = true;
-            radGridView2.Size = new Size(950, 281);
-            radGridView2.TabIndex = 0;
-            radGridView2.ThemeName = "MaterialTeal";
+            documentTabStrip3.RootElement.MinSize = new Size(25, 25);
+            documentTabStrip3.SelectedIndex = 0;
+            documentTabStrip3.Size = new Size(958, 289);
+            documentTabStrip3.TabIndex = 1;
+            documentTabStrip3.TabStop = false;
+            documentTabStrip3.TabStripVisible = false;
+            documentTabStrip3.ThemeName = "MaterialTeal";
+            // 
+            // toolWindow4
+            // 
+            toolWindow4.Caption = null;
+            toolWindow4.Controls.Add(radGridViewExamSubject);
+            toolWindow4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            toolWindow4.Location = new Point(4, 4);
+            toolWindow4.Name = "toolWindow4";
+            toolWindow4.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Floating;
+            toolWindow4.Size = new Size(950, 281);
+            toolWindow4.Text = "toolWindow4";
+            // 
+            // radGridViewExamSubject
+            // 
+            radGridViewExamSubject.Dock = DockStyle.Fill;
+            radGridViewExamSubject.Location = new Point(0, 0);
+            // 
+            // 
+            // 
+            radGridViewExamSubject.MasterTemplate.AllowAddNewRow = false;
+            radGridViewExamSubject.MasterTemplate.AllowSearchRow = true;
+            radGridViewExamSubject.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            radGridViewExamSubject.MasterTemplate.EnablePaging = true;
+            radGridViewExamSubject.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            radGridViewExamSubject.Name = "radGridViewExamSubject";
+            radGridViewExamSubject.ReadOnly = true;
+            radGridViewExamSubject.Size = new Size(950, 281);
+            radGridViewExamSubject.TabIndex = 0;
+            radGridViewExamSubject.ThemeName = "MaterialTeal";
             // 
             // toolTabStrip1
             // 
@@ -178,53 +226,6 @@
             toolWindow3.Text = "Thông Tin Chi Tiết";
             toolWindow3.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
-            // documentTabStrip3
-            // 
-            documentTabStrip3.CanUpdateChildIndex = true;
-            documentTabStrip3.CausesValidation = false;
-            documentTabStrip3.Controls.Add(toolWindow4);
-            documentTabStrip3.Location = new Point(0, 297);
-            documentTabStrip3.Name = "documentTabStrip3";
-            // 
-            // 
-            // 
-            documentTabStrip3.RootElement.MinSize = new Size(25, 25);
-            documentTabStrip3.SelectedIndex = 0;
-            documentTabStrip3.Size = new Size(958, 289);
-            documentTabStrip3.TabIndex = 1;
-            documentTabStrip3.TabStop = false;
-            documentTabStrip3.TabStripVisible = false;
-            documentTabStrip3.ThemeName = "MaterialTeal";
-            // 
-            // toolWindow4
-            // 
-            toolWindow4.Caption = null;
-            toolWindow4.Controls.Add(radGridView1);
-            toolWindow4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            toolWindow4.Location = new Point(4, 4);
-            toolWindow4.Name = "toolWindow4";
-            toolWindow4.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Floating;
-            toolWindow4.Size = new Size(950, 281);
-            toolWindow4.Text = "toolWindow4";
-            // 
-            // radGridView1
-            // 
-            radGridView1.Dock = DockStyle.Fill;
-            radGridView1.Location = new Point(0, 0);
-            // 
-            // 
-            // 
-            radGridView1.MasterTemplate.AllowAddNewRow = false;
-            radGridView1.MasterTemplate.AllowSearchRow = true;
-            radGridView1.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            radGridView1.MasterTemplate.EnablePaging = true;
-            radGridView1.MasterTemplate.ViewDefinition = tableViewDefinition2;
-            radGridView1.Name = "radGridView1";
-            radGridView1.ReadOnly = true;
-            radGridView1.Size = new Size(950, 281);
-            radGridView1.TabIndex = 0;
-            radGridView1.ThemeName = "MaterialTeal";
-            // 
             // SubjectResult
             // 
             AutoScaleBaseSize = new Size(7, 15);
@@ -242,20 +243,20 @@
             ThemeName = "MaterialTeal";
             ((System.ComponentModel.ISupportInitialize)radDock1).EndInit();
             radDock1.ResumeLayout(false);
+            toolWindow2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)radGridViewSubject.MasterTemplate).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radGridViewSubject).EndInit();
             ((System.ComponentModel.ISupportInitialize)documentContainer1).EndInit();
             documentContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)documentTabStrip2).EndInit();
             documentTabStrip2.ResumeLayout(false);
-            toolWindow2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)radGridView2.MasterTemplate).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radGridView2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)toolTabStrip1).EndInit();
-            toolTabStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)documentTabStrip3).EndInit();
             documentTabStrip3.ResumeLayout(false);
             toolWindow4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)radGridView1.MasterTemplate).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radGridViewExamSubject.MasterTemplate).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radGridViewExamSubject).EndInit();
+            ((System.ComponentModel.ISupportInitialize)toolTabStrip1).EndInit();
+            toolTabStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }
@@ -269,9 +270,9 @@
         private Telerik.WinControls.UI.Docking.ToolWindow toolWindow2;
         private Telerik.WinControls.UI.Docking.ToolTabStrip toolTabStrip1;
         private Telerik.WinControls.UI.Docking.ToolWindow toolWindow3;
-        private Telerik.WinControls.UI.RadGridView radGridView2;
+        private Telerik.WinControls.UI.RadGridView radGridViewSubject;
         private Telerik.WinControls.UI.Docking.DocumentTabStrip documentTabStrip3;
         private Telerik.WinControls.UI.Docking.ToolWindow toolWindow4;
-        private Telerik.WinControls.UI.RadGridView radGridView1;
+        private Telerik.WinControls.UI.RadGridView radGridViewExamSubject;
     }
 }

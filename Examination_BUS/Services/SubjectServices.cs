@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Examination_BUS.ViewModel;
 using Examination_DAL.Models;
 using Examination_DAL.Repository;
 
@@ -12,6 +13,10 @@ namespace Examination_BUS.Services
     public class SubjectServices
     {
         SubjectRepository _repos = new SubjectRepository();
+
+        ExamResponsesRepository _reposExamResponses = new ExamResponsesRepository();
+
+        ExamDetailRepository _reposExamDetail = new ExamDetailRepository();
         public SubjectServices()
         {
             
@@ -61,6 +66,28 @@ namespace Examination_BUS.Services
 
             };
             return _repos.UpdateSub(subject);
+        }
+
+        public List<ExamResponses_DetailViewModel> GetSubject_ViewModel(string id)
+        {
+            var all = from exam in _reposExamResponses.GetAllExamResponse()
+                      where exam.SubjectId == id
+                      select new ExamResponses_DetailViewModel
+                      {
+                          participantId = exam.ParticipantId,
+                          SubjectId = exam.SubjectId,
+                          idExamResponses = exam.Id,
+                          SubmitTime = exam.SubmitTime,
+                          Score = Convert.ToDouble(exam.Score),
+                          Ispassed = Convert.ToBoolean(exam.IsPassed),
+                          examDetailId = exam.ExamDetailId,
+                          ExamDetailCode = (from ex in _reposExamResponses.GetAllExamResponse()
+                                            join exD in _reposExamDetail.GetAll()
+                                            on ex.ExamDetailId equals exD.Id
+                                            select exD).ToList()
+                      };
+
+            return all.ToList();
         }
     }
 }
