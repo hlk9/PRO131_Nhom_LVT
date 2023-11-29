@@ -30,6 +30,8 @@ namespace Examination_DAL.Models
         [Column(TypeName = "NVARCHAR")]
         [MaxLength(1000)]
         public string Content { get; set; }
+        [Required]
+        public DateTime SubmitTime { get; set; }
         [AllowNull]
          public bool ? Status { get; set; }
 

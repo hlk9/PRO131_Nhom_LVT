@@ -464,7 +464,6 @@ namespace Examination_PRL.Forms.Participant
             {
                 btnSubmit.Enabled  = false;
                 countDownTimer.Stop();
-
                 ExamResponse examResponse = new ExamResponse();
                 ExamDetail exam = examDetailServices.GetByExamDetailCode(this.examCode);
                 int qFalse = 0;
@@ -517,7 +516,6 @@ namespace Examination_PRL.Forms.Participant
                         }
 
                     }
-
 
                 }
 
