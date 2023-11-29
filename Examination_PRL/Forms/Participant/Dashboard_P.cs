@@ -25,8 +25,9 @@ namespace Examination_PRL.Forms.Participant
         List<ScheduleWithExamInforViewModel> listData;
         ExamServices _serviceExam = new ExamServices();
         int _idExamClick;
+        Account userAccount;
 
-        public Dashboard_P(string urs)
+        public Dashboard_P(string urs, Account userAccount)
         {
             InitializeComponent();
             _ser = new FeedbackServices();
@@ -37,6 +38,7 @@ namespace Examination_PRL.Forms.Participant
             radlblDat.Text = _serviceExam.GetExamResponses().Where(x => x.IsPassed == true).ToList().Count.ToString();
             radlblChuaDat.Text = _serviceExam.GetExamResponses().Where(x => x.IsPassed == false).ToList().Count.ToString();
             LoadDataExam();
+            this.userAccount = userAccount;
         }
 
         public void LoadData()
@@ -175,7 +177,7 @@ namespace Examination_PRL.Forms.Participant
                 {
                     foreach (var item in listData)
                     {
-                        e.VisualItem = new ExamCustomVisualItem(item);
+                        e.VisualItem = new ExamCustomVisualItem(item,userAccount);
                         listData.Remove(item);
                         return;
                     }

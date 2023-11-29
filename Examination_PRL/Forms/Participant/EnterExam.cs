@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
@@ -19,6 +20,7 @@ namespace Examination_PRL.Forms.Participant
     {
         private System.Windows.Forms.Timer countDownTimer = new System.Windows.Forms.Timer();
         public int timeLeft = 0;
+        public int timeDoExam = 0;
         public string examCode;
         QuestionTypeServices questionTypeServices = new QuestionTypeServices();
         ExamServices examServices = new ExamServices();
@@ -26,12 +28,13 @@ namespace Examination_PRL.Forms.Participant
         AnswerServices answerServices = new AnswerServices();
         QuestionLevelService questionLevelService = new QuestionLevelService();
         ExamDetailServices examDetailServices = new ExamDetailServices();
-
         ExamQuestionServices examQuestionServices = new ExamQuestionServices();
-
         ExamResponseServices examResponseServices = new ExamResponseServices();
+        AnswerResponseServices answerResponseServices = new AnswerResponseServices();
 
-
+        Account userAccount = new Account();
+        
+        
         int currentGenerateQuestion = 1;
         int pageViewWidth = -1;
         int pageViewHeight = -1;
@@ -39,7 +42,7 @@ namespace Examination_PRL.Forms.Participant
         int CurrentQuestionCount = 0;
         int QuestionLimit = -1;
 
-        public EnterExam(string examCode)
+        public EnterExam(string examCode, Account account)
         {
             InitializeComponent();
             this.examCode = examCode;
@@ -52,6 +55,7 @@ namespace Examination_PRL.Forms.Participant
                 countDownTimer.Interval = 1000;
                 countDownTimer.Tick += CountDownTimer_Tick;
                 countDownTimer.Start();
+                this.userAccount = account;
 
 
             }
@@ -66,6 +70,7 @@ namespace Examination_PRL.Forms.Participant
         private void CountDownTimer_Tick(object? sender, EventArgs e)
         {
             timeLeft--;
+            timeDoExam++;
             if (timeLeft > 0)
             {
                 lblTime.Text = FormatTime(timeLeft);
@@ -454,23 +459,31 @@ namespace Examination_PRL.Forms.Participant
 
         public void ScoreExam(List<QuestionAndAnswerResponse> listQnA)
         {
-            ExamDetail exam = examDetailServices.GetByExamDetailCode(this.examCode);
-            int qFalse = 0;
-            int qTrue = 0;
-            int qNotAnswer = 0;
-            double score = 0;
-            double totalScore = exam.MaxiumMark;
 
-
-
-            foreach (var item in listQnA)
+            try
             {
-                try
+                btnSubmit.Enabled  = false;
+                countDownTimer.Stop();
+
+                ExamResponse examResponse = new ExamResponse();
+                ExamDetail exam = examDetailServices.GetByExamDetailCode(this.examCode);
+                int qFalse = 0;
+                int qTrue = 0;
+                int qNotAnswer = 0;
+                double score = 0;
+                double totalScore = exam.MaxiumMark;
+                score = totalScore;
+                bool isPass = false;
+                float secondTaken = timeDoExam;
+                List<ExamQuestionWithPointViewModel> listQAnP = examQuestionServices.GetQuestionInExamWithPoint(this.examCode);
+                foreach (var item in listQnA)
                 {
+
                     QuestionWithAnswerViewModel listTrueAnswer = questionServices.GetQuestionWithTRUEAnswer(item.QuestionId);
 
                     if (item.AnswerResponses.Count == 0)
                     {
+                        score -= listQAnP.Where(x => x.QuestionId == item.QuestionId).FirstOrDefault().Point;
                         qNotAnswer++;
                     }
                     else if (item.AnswerResponses.Count == 1)
@@ -483,13 +496,14 @@ namespace Examination_PRL.Forms.Participant
                             }
                             else
                             {
+                                score -= listQAnP.Where(x => x.QuestionId == item.QuestionId).FirstOrDefault().Point;
                                 qFalse++;
                             }
                         }
                     }
                     else
                     {
-                        bool allTrue = listTrueAnswer.Answers.Count == item.AnswerResponses.Where(x=>x.IsCorrect==true).Count();
+                        bool allTrue = listTrueAnswer.Answers.Count == item.AnswerResponses.Where(x => x.IsCorrect == true).Count();
 
                         if (allTrue == true)
                         {
@@ -498,20 +512,88 @@ namespace Examination_PRL.Forms.Participant
                         }
                         else
                         {
+                            score -= listQAnP.Where(x => x.QuestionId == item.QuestionId).FirstOrDefault().Point;
                             qFalse++;
                         }
 
                     }
+
+
                 }
-                catch
+
+
+                if (score < exam.PassMark)
                 {
-
+                    isPass = false;
+                }
+                else
+                {
+                    isPass = true;
                 }
 
+                examResponse.ExamDetailId = exam.Id;
+                examResponse.IsPassed = isPass;
+                examResponse.Score = score;
+                examResponse.FinishTime = secondTaken;
+                examResponse.SubmitTime = DateTime.Now;
+                examResponse.ParticipantId = userAccount.Id;
+                examResponse.SubjectId = examServices.GetById(exam.ExamId).SubjectId;
+                examResponse.Status = 1;
+                examResponse.QuestionCorrect = qTrue;
+                examResponse.QuestionWrong = qFalse;
+                examResponse.QuestionNotAnswered = qNotAnswer;
+                examResponse.ScoredMethod = true; //true is automatic , false is manual
+                examResponse.Note = null;
+                int idExResponse = examResponseServices.AddExamResponseAndGetId(examResponse);
+                if (idExResponse != -1)
+                {
+                    foreach (var item in listQnA)
+                    {
+                        foreach (var item2 in item.AnswerResponses)
+                        {
+                            if (item2 != null)
+                            {
+                                AnswerResponse ar = new AnswerResponse();
+                                ar.IsCorrect = item2.IsCorrect;
+                                ar.AnswerAt = null;
+                                ar.QuestionId = item.QuestionId;
+                                ar.AnswerId = item2.AnswerId;
+                                ar.ExamResponseId = idExResponse;
+                                answerResponseServices.AddAnswerResponse(ar);
+                            }
+
+                        }
+                    }
+                }
+
+
+
+                MessageBox.Show("Nộp bài thành công");
+                
+                //foreach(var page in pageViewQuestion.Pages)
+                //{
+                //    page.Enabled = false;
+                //}    
+                //convert second to minute ,
+                //TimeSpan timeSpan = TimeSpan.FromSeconds(timeDoExam);
+
+                //DateTime baseDate = new DateTime(1, 1, 1);
+                //DateTime resultDateTime = baseDate.Add(timeSpan);
+
+                //MessageBox.Show(resultDateTime.Minute.ToString()+":"+resultDateTime.Second.ToString());
+
+
+            }
+            catch
+            {
+                MessageBox.Show("Xảy ra lỗi khi nộp bài, hãy thử lại");
+                btnSubmit.Enabled = true;
+                countDownTimer.Start();
             }
 
 
-            MessageBox.Show("TEST\nSố câu đúng: " + qTrue.ToString() + "\n" + "Số câu sai: " + qFalse.ToString() + "\n" + "Số câu chưa trả lời: " + qNotAnswer.ToString() + "\n" + "Tổng điểm: " + totalScore.ToString() + "\n" + "Điểm của bạn: " + score.ToString());
+
+           // MessageBox.Show("TEST\nSố câu đúng: " + qTrue.ToString() + "\n" + "Số câu sai: " + qFalse.ToString() + "\n" + "Số câu chưa trả lời: " + qNotAnswer.ToString() + "\n" + "Tổng điểm: " + totalScore.ToString() + "\n" + "Điểm của bạn: " + score.ToString());
 
 
         }

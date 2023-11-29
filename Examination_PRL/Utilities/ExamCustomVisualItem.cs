@@ -2,6 +2,7 @@
 using Telerik.WinControls.UI;
 using Examination_BUS.ViewModel;
 using Examination_PRL.Forms.Participant;
+using Examination_DAL.Models;
 
 namespace Examination_PRL.Utilities
 {
@@ -27,13 +28,15 @@ namespace Examination_PRL.Utilities
         private StackLayoutElement roomHeaderContainer = new StackLayoutElement();
         private StackLayoutElement roomFooterContainer = new StackLayoutElement();
         private ScheduleWithExamInforViewModel dataItem;
+        Account userAccount;
 
         bool isClicked = false;
 
 
-        public ExamCustomVisualItem(ScheduleWithExamInforViewModel s )
+        public ExamCustomVisualItem(ScheduleWithExamInforViewModel s,Account account )
         {
             this.dataItem = s;
+            this.userAccount = account;
         }
 
 
@@ -144,7 +147,7 @@ namespace Examination_PRL.Utilities
 
         private void ExamCustomVisualItem_Click(object? sender, EventArgs e)
         {
-            EnterExam enterExam = new EnterExam(this.Name);
+            EnterExam enterExam = new EnterExam(this.Name,userAccount);
             enterExam.ShowDialog();
         }
 
