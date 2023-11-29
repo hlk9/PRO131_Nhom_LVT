@@ -90,8 +90,12 @@ namespace Examination_PRL.Forms.Staff
             exam_Overview.Name = "exam_OverviewForm";
 
             RadPageViewPage examGroup = new RadPageViewPage("Bài thi");
-
-
+            EditExams editExams = new EditExams();
+            editExams.TopLevel = false;
+            examGroup.Controls.Add(editExams);
+            editExams.Show();
+            editExams.Dock = DockStyle.Fill;
+            editExams.Name = "editExam";
 
 
             RadPageViewPage addExamPage = new RadPageViewPage("Thêm đề thi");
@@ -174,7 +178,7 @@ namespace Examination_PRL.Forms.Staff
             overViewNhanVien.Dock = DockStyle.Fill;
             overViewNhanVien.Name = "overViewNhanVienForm";
 
-            RadPageViewPage addStaffPage = new RadPageViewPage("Thêm nhân viên");
+            RadPageViewPage addStaffPage = new RadPageViewPage("Edit nhân viên");
             AddNhanVien addNhanViens = new AddNhanVien();
             addNhanViens.TopLevel = false;
             addStaffPage.Controls.Add(addNhanViens);
