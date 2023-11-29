@@ -10,10 +10,10 @@ namespace Examination_DAL.Repository
 {
     public class ExamRepository 
     {
-        ExaminationDbContext _context;
+        ExaminationDbContext _context = new ExaminationDbContext();
         public ExamRepository()
         {
-            _context = new ExaminationDbContext();
+            
         }
         public IEnumerable<Exam> GetAll()
         {
@@ -27,7 +27,7 @@ namespace Examination_DAL.Repository
         {
             return _context.Exams.Where(e => e.ExamCode == code).FirstOrDefault();
         }
-        public bool Add(Exam exam)
+        public bool AddAllExam(Exam exam)
         {
             try
             {

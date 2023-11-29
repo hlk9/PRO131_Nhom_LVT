@@ -42,11 +42,10 @@ namespace Examination_PRL.Forms
 
         private void radBtnThem_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(radxtID.Text);
-            string idDe = radTxtIdBaiThi.Text;
+            string idDe = null;
             string name = radTxtTenBaiThi.Text;
-            string idMon = radTxtIdBaiThi.Text;
-            if (_service.AddExam(id, idDe, name, idMon))
+            string idMon = null;
+            if (_service.AddExam(name, idDe, idMon))
             {
                 MessageBox.Show("Thêm Bài Thi Thành Công");
             }
@@ -59,19 +58,19 @@ namespace Examination_PRL.Forms
 
         private void radBtnSua_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(radxtID.Text);
-            string idDe = radTxtIdBaiThi.Text;
-            string name = radTxtTenBaiThi.Text;
-            string idMon = radTxtMaMon.Text;
-            if (_service.AddExam(id, idDe, name, idMon))
-            {
-                MessageBox.Show("Sửa Bài Thi Thành Công");
-            }
-            else
-            {
-                MessageBox.Show("Sửa Bài Thi Thất Bại");
-            }
-            LoadDataExam();
+            //int id = Convert.ToInt32(radxtID.Text);
+            //string idDe = radTxtIdBaiThi.Text;
+            //string name = radTxtTenBaiThi.Text;
+            //string idMon = radTxtMaMon.Text;
+            //if (_service.Update())
+            //{
+            //    MessageBox.Show("Sửa Bài Thi Thành Công");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Sửa Bài Thi Thất Bại");
+            //}
+            //LoadDataExam();
         }
 
         private void radGrid_ExamEdit_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
