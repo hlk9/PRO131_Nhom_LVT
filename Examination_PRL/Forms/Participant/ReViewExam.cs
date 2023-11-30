@@ -143,6 +143,7 @@ namespace Examination_PRL.Forms.Participant
                     if (item.IsCorrect == true)
                     {
                         radRadioButton.ForeColor = Color.Green;
+                        radRadioButton.Font = new Font(radRadioButton.Font, FontStyle.Bold);
                     }
 
                     if(listAnswered.Where(x=>x.AnswerId==item.Id).ToList().Count>0)
@@ -151,6 +152,7 @@ namespace Examination_PRL.Forms.Participant
                         if(item.IsCorrect==true)
                         {
                             radRadioButton.ForeColor = Color.Green;
+                            radRadioButton.Font = new Font(radRadioButton.Font, FontStyle.Bold);
                         }
                         else
                         {
@@ -171,6 +173,7 @@ namespace Examination_PRL.Forms.Participant
                     if (item.IsCorrect == true)
                     {
                         radCheckBox.ForeColor = Color.Green;
+                        radCheckBox.Font = new Font(radCheckBox.Font, FontStyle.Bold);
                     }
                     if (listAnswered.Where(x => x.AnswerId == item.Id).ToList().Count > 0)
                     {
@@ -178,6 +181,7 @@ namespace Examination_PRL.Forms.Participant
                         if (item.IsCorrect == true)
                         {
                             radCheckBox.ForeColor = Color.Green;
+                            radCheckBox.Font = new Font(radCheckBox.Font, FontStyle.Bold);
                         }
                         else
                         {
@@ -204,6 +208,7 @@ namespace Examination_PRL.Forms.Participant
                         if (item.IsCorrect == true)
                         {
                             radRadioButton.ForeColor = Color.Green;
+                            radRadioButton.Font = new Font(radRadioButton.Font, FontStyle.Bold);
                         }
                         else
                         {

@@ -4,6 +4,7 @@ using Examination_BUS.ViewModel;
 using Examination_PRL.Forms.Participant;
 using Examination_DAL.Models;
 using Examination_BUS.Services;
+using System.Linq;
 
 namespace Examination_PRL.Utilities
 {
@@ -151,8 +152,8 @@ namespace Examination_PRL.Utilities
             ExamDetailServices examDetailServices = new ExamDetailServices();
             var examDetail = examDetailServices.GetByExamDetailCode(dataItem.ExamDetailCode);
             ExamResponseServices examResponseServices = new ExamResponseServices();
-            
-            if(examResponseServices.GetAllExamResponse().Where(x=>x.ExamDetailId == examDetail.Id).ToList().Count>examDetail.ReTestNumber)
+            var lis = examResponseServices.GetAllExamResponse().Where(x => x.ExamDetailId == examDetail.Id && x.ParticipantId == userAccount.Id).ToList();
+            if (lis.Count>=examDetail.ReTestNumber)
             {
                 MessageBox.Show("Bạn đã hết số lần thi lại cho bài thi này!","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 return;
