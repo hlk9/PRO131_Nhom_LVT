@@ -56,7 +56,7 @@ namespace Examination_PRL.Forms.Staff
             }
         }
 
-        private void loadDataExam(string id)
+        public void loadDataExam(string id)
         {
             int stt = 1;
             radGridViewExam.ColumnCount = 7;

@@ -31,9 +31,9 @@ namespace Examination_PRL.Forms.Staff
             homePage.ToolTipText = "Trang chủ";
 
             Bitmap bitMapHomeIcon = new Bitmap(Properties.Resources.home);
-            Image homeIcon = bitMapHomeIcon;           
-            homePage.Image = homeIcon;     
-     
+            Image homeIcon = bitMapHomeIcon;
+            homePage.Image = homeIcon;
+
 
             RadPageViewPage schedulePage = new RadPageViewPage("Lịch thi"); //xem danh sách lịch thi
             Bitmap bitMapScheduleIcon = new Bitmap(Properties.Resources.schedule);
@@ -127,7 +127,7 @@ namespace Examination_PRL.Forms.Staff
 
 
             RadPageViewPage subjectPage = new RadPageViewPage("Môn"); //xem danh sách môn
-            subjectPage.ToolTipText = "Môn";                                                      
+            subjectPage.ToolTipText = "Môn";
             Bitmap bitMapSubjectIcon = new Bitmap(Properties.Resources.book);
             Image subjectIcon = bitMapSubjectIcon;
             subjectPage.Image = subjectIcon;
@@ -211,12 +211,17 @@ namespace Examination_PRL.Forms.Staff
             subjectResult.Dock = DockStyle.Fill;
             subjectResult.Name = "subjectResult";
 
-            RadPageViewPage resultByExamPage = new RadPageViewPage("Kết quả theo đề thi");
-            RadPageViewPage resultByRoomPage = new RadPageViewPage("Kết quả theo phòng thi");
+            RadPageViewPage resultByExamPage = new RadPageViewPage("Kết quả theo bài thi");
+            ExamResult examResult = new ExamResult();
+            examResult.TopLevel = false;
+            resultByExamPage.Controls.Add(examResult);
+            examResult.Show();
+            examResult.Dock = DockStyle.Fill;
+            examResult.Name = "examResult";
+
             resultPage.SubPages.Add(resultByStudentPage);
             resultPage.SubPages.Add(resultBySubjectPage);
             resultPage.SubPages.Add(resultByExamPage);
-            resultPage.SubPages.Add(resultByRoomPage);
 
             RadPageViewPage reportPage = new RadPageViewPage("Báo cáo");
             Bitmap bitMapReportIcon = new Bitmap(Properties.Resources.report);
@@ -244,11 +249,11 @@ namespace Examination_PRL.Forms.Staff
             pvDashboard.Pages.Add(staffPage);
             pvDashboard.Pages.Add(resultPage);
             pvDashboard.Pages.Add(reportPage);
-            pvDashboard.Pages.Add(questionPage);           
+            pvDashboard.Pages.Add(questionPage);
 
             pvDashboard.AutoScroll = true;
             CollapseAllSubPages(pvDashboard);
-         
+
 
         }
 
@@ -314,13 +319,21 @@ namespace Examination_PRL.Forms.Staff
                     case "addThiSinhForm":
                         (form as AddStudents).LoadData();
                         break;
-                    //case "studentResult":
-                    //    (form as StudentResult).LoadData();
-                    //    break;
+                    case "studentResult":
+                        (form as StudentResult).LoadData();
+                        (form as StudentResult).loadDataExam(null);
+                        break;
+                    case "subjectResult":
+                        (form as SubjectResult).loadData();
+                        (form as SubjectResult).loadExamSubject(null);
+                        break;
+                    case "examResult":
+                        (form as ExamResult).loadData();
+                        (form as ExamResult).loadExamDetail(-1);
+                        break;
                     default:
                         break;
-
-                }               
+                }
 
             }
             catch
