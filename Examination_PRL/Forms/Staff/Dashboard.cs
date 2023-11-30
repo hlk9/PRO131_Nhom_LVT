@@ -230,6 +230,12 @@ namespace Examination_PRL.Forms.Staff
             resultPage.SubPages.Add(resultByExamPage);
 
             RadPageViewPage reportPage = new RadPageViewPage("Báo cáo");
+            Report_Overview report_Overview = new Report_Overview();
+            report_Overview.TopLevel = false;
+            reportPage.Controls.Add(report_Overview);
+            report_Overview.Show();
+            reportPage.Dock = DockStyle.Fill;
+
             Bitmap bitMapReportIcon = new Bitmap(Properties.Resources.report);
             Image reportIcon = bitMapReportIcon;
             reportPage.Image = reportIcon;
