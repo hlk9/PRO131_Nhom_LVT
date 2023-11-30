@@ -11,7 +11,7 @@ namespace Examination_BUS.ViewModel
     {
         public string participantId { get; set; }
 
-        public List<ExamDetail> ExamDetailCode { get; set; }
+        public string ExamDetailCode { get; set; }
 
         public int idExamResponses { get; set; }
 

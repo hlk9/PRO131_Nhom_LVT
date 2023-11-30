@@ -70,8 +70,9 @@ namespace Examination_BUS.Services
 
         public List<ExamResponses_DetailViewModel> GetSubject_ViewModel(string id)
         {
-            var all = from exam in _reposExamResponses.GetAllExamResponse()
-                      where exam.SubjectId == id
+            var examDetail = from exam in _reposExamResponses.GetAllExamResponse()
+                      join exD in _reposExamDetail.GetAll()
+                      on exam.ExamDetailId equals exD.Id
                       select new ExamResponses_DetailViewModel
                       {
                           participantId = exam.ParticipantId,
@@ -81,13 +82,17 @@ namespace Examination_BUS.Services
                           Score = Convert.ToDouble(exam.Score),
                           Ispassed = Convert.ToBoolean(exam.IsPassed),
                           examDetailId = exam.ExamDetailId,
-                          ExamDetailCode = (from ex in _reposExamResponses.GetAllExamResponse()
-                                            join exD in _reposExamDetail.GetAll()
-                                            on ex.ExamDetailId equals exD.Id
-                                            select exD).ToList()
+                          ExamDetailCode = exD.ExamDetailCode
                       };
 
-            return all.ToList();
+            if(id == null)
+            {
+                return examDetail.ToList();
+            }
+            else
+            {
+                return examDetail.Where(x => x.SubjectId == id).ToList();
+            }
         }
     }
 }
