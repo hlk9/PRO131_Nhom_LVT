@@ -3,6 +3,7 @@ using Examination_DAL.IRepository;
 using Examination_DAL.Models;
 using Examination_DAL.Repository;
 using Microsoft.EntityFrameworkCore.Query.Internal;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,10 +67,10 @@ namespace Examination_BUS.Services
             return _examRepos.DeleteByCode(code);
         }
 
-        public List<ExamAnswer_ResponsesViewModel> GetAnswer_ResponsesViewModels(string idAnswer)
+        public List<ExamAnswer_ResponsesViewModel> GetAnswer_ResponsesViewModels(string participantID)
         {
             var listExamRes = (from ex in _examResponses.GetAllExamResponse()
-                               where ex.ParticipantId == idAnswer
+                               where ex.ParticipantId == participantID
                                select new ExamAnswer_ResponsesViewModel
                                {
                                    Id = ex.Id,
@@ -97,6 +98,32 @@ namespace Examination_BUS.Services
                                    
                                }).ToList();
             return listExamRes;
+        }
+
+        public List<Exam_DetailViewModel> getExam_DetailViewModelss(int id)
+        {
+            var all = from ex in _examRepos.GetAll()
+                      join exD in _examDetailRepos.GetAll()
+                      on ex.Id equals exD.ExamId
+                      select new Exam_DetailViewModel
+                      {
+                          Id = ex.Id,
+                          examDetailCode = exD.ExamDetailCode,
+                          duration = exD.Duration,
+                          passMark = exD.PassMark,
+                          maxiumMark = exD.MaxiumMark,
+                          totalQuestion = exD.TotalQuestion,
+                          reTestNumber = Convert.ToInt32(exD.ReTestNumber)
+                      };
+
+            if(id == null)
+            {
+                return all.ToList();
+            }
+            else
+            {
+                return all.Where(x => x.Id == id).ToList();
+            }
         }
     }
 }

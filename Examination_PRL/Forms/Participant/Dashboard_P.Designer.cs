@@ -44,6 +44,7 @@
             documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            radlblSum = new Telerik.WinControls.UI.RadLabel();
             radLblIDDe = new Telerik.WinControls.UI.RadLabel();
             radLblIdThiSinh = new Telerik.WinControls.UI.RadLabel();
             radLblIdMon = new Telerik.WinControls.UI.RadLabel();
@@ -70,7 +71,6 @@
             radLabel15 = new Telerik.WinControls.UI.RadLabel();
             radLabel14 = new Telerik.WinControls.UI.RadLabel();
             radLabel13 = new Telerik.WinControls.UI.RadLabel();
-            radlblSum = new Telerik.WinControls.UI.RadLabel();
             radlblDat = new Telerik.WinControls.UI.RadLabel();
             radlblChuaDat = new Telerik.WinControls.UI.RadLabel();
             radLabel9 = new Telerik.WinControls.UI.RadLabel();
@@ -108,6 +108,7 @@
             ((System.ComponentModel.ISupportInitialize)toolTabStrip1).BeginInit();
             toolTabStrip1.SuspendLayout();
             toolWindow1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)radlblSum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLblIDDe).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLblIdThiSinh).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLblIdMon).BeginInit();
@@ -135,7 +136,6 @@
             ((System.ComponentModel.ISupportInitialize)radLabel15).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel14).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel13).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radlblSum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radlblDat).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radlblChuaDat).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel9).BeginInit();
@@ -166,7 +166,7 @@
             radPageView1.Dock = DockStyle.Fill;
             radPageView1.Location = new Point(0, 0);
             radPageView1.Name = "radPageView1";
-            radPageView1.SelectedPage = radPageViewPage4;
+            radPageView1.SelectedPage = radPageViewPage3;
             radPageView1.Size = new Size(1277, 706);
             radPageView1.TabIndex = 0;
             radPageView1.ThemeName = "MaterialTeal";
@@ -279,7 +279,6 @@
             documentContainer1.CausesValidation = false;
             documentContainer1.Controls.Add(documentTabStrip1);
             documentContainer1.Name = "documentContainer1";
-            documentContainer1.Padding = new Padding(0);
             // 
             // 
             // 
@@ -288,6 +287,7 @@
             documentContainer1.SizeInfo.SizeMode = Telerik.WinControls.UI.Docking.SplitPanelSizeMode.Fill;
             documentContainer1.SizeInfo.SplitterCorrection = new Size(-135, 0);
             documentContainer1.SplitterWidth = 8;
+            documentContainer1.ThemeName = "MaterialTeal";
             // 
             // documentTabStrip1
             // 
@@ -329,6 +329,7 @@
             // toolWindow1
             // 
             toolWindow1.Caption = null;
+            toolWindow1.Controls.Add(radlblSum);
             toolWindow1.Controls.Add(radLblIDDe);
             toolWindow1.Controls.Add(radLblIdThiSinh);
             toolWindow1.Controls.Add(radLblIdMon);
@@ -354,7 +355,6 @@
             toolWindow1.Controls.Add(radLabel15);
             toolWindow1.Controls.Add(radLabel14);
             toolWindow1.Controls.Add(radLabel13);
-            toolWindow1.Controls.Add(radlblSum);
             toolWindow1.Controls.Add(radlblDat);
             toolWindow1.Controls.Add(radlblChuaDat);
             toolWindow1.Controls.Add(radLabel9);
@@ -362,12 +362,22 @@
             toolWindow1.Controls.Add(radLabel5);
             toolWindow1.Controls.Add(radLabel4);
             toolWindow1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            toolWindow1.Location = new Point(4, 4);
+            toolWindow1.Location = new Point(4, 52);
             toolWindow1.Name = "toolWindow1";
             toolWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            toolWindow1.Size = new Size(327, 637);
+            toolWindow1.Size = new Size(327, 589);
             toolWindow1.Text = "Thông Tin Chi Tiết";
             toolWindow1.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
+            // 
+            // radlblSum
+            // 
+            radlblSum.ForeColor = Color.Teal;
+            radlblSum.Location = new Point(158, 45);
+            radlblSum.Name = "radlblSum";
+            radlblSum.Size = new Size(15, 21);
+            radlblSum.TabIndex = 6;
+            radlblSum.Text = "0";
+            radlblSum.ThemeName = "MaterialTeal";
             // 
             // radLblIDDe
             // 
@@ -502,7 +512,7 @@
             // radLabel25
             // 
             radLabel25.ForeColor = Color.Teal;
-            radLabel25.Location = new Point(43, 510);
+            radLabel25.Location = new Point(12, 510);
             radLabel25.Name = "radLabel25";
             radLabel25.Size = new Size(62, 21);
             radLabel25.TabIndex = 21;
@@ -512,7 +522,7 @@
             // radLabel26
             // 
             radLabel26.ForeColor = Color.Teal;
-            radLabel26.Location = new Point(8, 483);
+            radLabel26.Location = new Point(12, 483);
             radLabel26.Name = "radLabel26";
             radLabel26.Size = new Size(128, 21);
             radLabel26.TabIndex = 20;
@@ -522,7 +532,7 @@
             // radLabel24
             // 
             radLabel24.ForeColor = Color.Teal;
-            radLabel24.Location = new Point(10, 456);
+            radLabel24.Location = new Point(12, 456);
             radLabel24.Name = "radLabel24";
             radLabel24.Size = new Size(126, 21);
             radLabel24.TabIndex = 18;
@@ -532,7 +542,7 @@
             // radLabel23
             // 
             radLabel23.ForeColor = Color.Teal;
-            radLabel23.Location = new Point(34, 429);
+            radLabel23.Location = new Point(12, 429);
             radLabel23.Name = "radLabel23";
             radLabel23.Size = new Size(80, 21);
             radLabel23.TabIndex = 17;
@@ -542,7 +552,7 @@
             // radLabel22
             // 
             radLabel22.ForeColor = Color.Teal;
-            radLabel22.Location = new Point(31, 402);
+            radLabel22.Location = new Point(12, 402);
             radLabel22.Name = "radLabel22";
             radLabel22.Size = new Size(94, 21);
             radLabel22.TabIndex = 16;
@@ -552,7 +562,7 @@
             // radLabel21
             // 
             radLabel21.ForeColor = Color.Teal;
-            radLabel21.Location = new Point(50, 375);
+            radLabel21.Location = new Point(12, 375);
             radLabel21.Name = "radLabel21";
             radLabel21.Size = new Size(50, 21);
             radLabel21.TabIndex = 15;
@@ -562,7 +572,7 @@
             // radLabel19
             // 
             radLabel19.ForeColor = Color.Teal;
-            radLabel19.Location = new Point(40, 261);
+            radLabel19.Location = new Point(12, 261);
             radLabel19.Name = "radLabel19";
             radLabel19.Size = new Size(64, 21);
             radLabel19.TabIndex = 13;
@@ -572,7 +582,7 @@
             // radLabel18
             // 
             radLabel18.ForeColor = Color.Teal;
-            radLabel18.Location = new Point(28, 232);
+            radLabel18.Location = new Point(12, 232);
             radLabel18.Name = "radLabel18";
             radLabel18.Size = new Size(88, 21);
             radLabel18.TabIndex = 12;
@@ -582,7 +592,7 @@
             // radLabel17
             // 
             radLabel17.ForeColor = Color.Teal;
-            radLabel17.Location = new Point(34, 203);
+            radLabel17.Location = new Point(12, 203);
             radLabel17.Name = "radLabel17";
             radLabel17.Size = new Size(76, 21);
             radLabel17.TabIndex = 11;
@@ -592,7 +602,7 @@
             // radLabel16
             // 
             radLabel16.ForeColor = Color.Teal;
-            radLabel16.Location = new Point(9, 319);
+            radLabel16.Location = new Point(12, 319);
             radLabel16.Name = "radLabel16";
             radLabel16.Size = new Size(127, 21);
             radLabel16.TabIndex = 10;
@@ -602,7 +612,7 @@
             // radLabel15
             // 
             radLabel15.ForeColor = Color.Teal;
-            radLabel15.Location = new Point(50, 348);
+            radLabel15.Location = new Point(12, 348);
             radLabel15.Name = "radLabel15";
             radLabel15.Size = new Size(45, 21);
             radLabel15.TabIndex = 9;
@@ -612,7 +622,7 @@
             // radLabel14
             // 
             radLabel14.ForeColor = Color.Teal;
-            radLabel14.Location = new Point(31, 290);
+            radLabel14.Location = new Point(12, 290);
             radLabel14.Name = "radLabel14";
             radLabel14.Size = new Size(83, 21);
             radLabel14.TabIndex = 8;
@@ -623,27 +633,17 @@
             // 
             radLabel13.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             radLabel13.ForeColor = Color.Teal;
-            radLabel13.Location = new Point(43, 161);
+            radLabel13.Location = new Point(58, 161);
             radLabel13.Name = "radLabel13";
             radLabel13.Size = new Size(248, 36);
             radLabel13.TabIndex = 7;
             radLabel13.Text = "Thông Tin Chi Tiết";
             radLabel13.ThemeName = "MaterialTeal";
             // 
-            // radlblSum
-            // 
-            radlblSum.ForeColor = Color.Teal;
-            radlblSum.Location = new Point(196, 45);
-            radlblSum.Name = "radlblSum";
-            radlblSum.Size = new Size(15, 21);
-            radlblSum.TabIndex = 6;
-            radlblSum.Text = "0";
-            radlblSum.ThemeName = "MaterialTeal";
-            // 
             // radlblDat
             // 
             radlblDat.ForeColor = Color.Teal;
-            radlblDat.Location = new Point(196, 82);
+            radlblDat.Location = new Point(158, 82);
             radlblDat.Name = "radlblDat";
             radlblDat.Size = new Size(15, 21);
             radlblDat.TabIndex = 5;
@@ -653,7 +653,7 @@
             // radlblChuaDat
             // 
             radlblChuaDat.ForeColor = Color.Teal;
-            radlblChuaDat.Location = new Point(196, 119);
+            radlblChuaDat.Location = new Point(158, 119);
             radlblChuaDat.Name = "radlblChuaDat";
             radlblChuaDat.Size = new Size(15, 21);
             radlblChuaDat.TabIndex = 4;
@@ -663,7 +663,7 @@
             // radLabel9
             // 
             radLabel9.ForeColor = Color.Teal;
-            radLabel9.Location = new Point(29, 119);
+            radLabel9.Location = new Point(12, 119);
             radLabel9.Name = "radLabel9";
             radLabel9.Size = new Size(140, 21);
             radLabel9.TabIndex = 3;
@@ -673,7 +673,7 @@
             // radLabel8
             // 
             radLabel8.ForeColor = Color.Teal;
-            radLabel8.Location = new Point(48, 82);
+            radLabel8.Location = new Point(12, 82);
             radLabel8.Name = "radLabel8";
             radLabel8.Size = new Size(102, 21);
             radLabel8.TabIndex = 2;
@@ -683,7 +683,7 @@
             // radLabel5
             // 
             radLabel5.ForeColor = Color.Teal;
-            radLabel5.Location = new Point(43, 45);
+            radLabel5.Location = new Point(12, 45);
             radLabel5.Name = "radLabel5";
             radLabel5.Size = new Size(113, 21);
             radLabel5.TabIndex = 1;
@@ -694,7 +694,7 @@
             // 
             radLabel4.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             radLabel4.ForeColor = Color.Teal;
-            radLabel4.Location = new Point(43, 3);
+            radLabel4.Location = new Point(58, 3);
             radLabel4.Name = "radLabel4";
             radLabel4.Size = new Size(233, 36);
             radLabel4.TabIndex = 0;
@@ -803,7 +803,7 @@
             tbt_IDParticipant.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbt_IDParticipant.Location = new Point(432, 234);
             tbt_IDParticipant.Name = "tbt_IDParticipant";
-            tbt_IDParticipant.Size = new Size(394, 37);
+            tbt_IDParticipant.Size = new Size(394, 0);
             tbt_IDParticipant.TabIndex = 14;
             tbt_IDParticipant.ThemeName = "MaterialTeal";
             // 
@@ -812,7 +812,7 @@
             tbt_Name.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbt_Name.Location = new Point(432, 157);
             tbt_Name.Name = "tbt_Name";
-            tbt_Name.Size = new Size(394, 37);
+            tbt_Name.Size = new Size(394, 0);
             tbt_Name.TabIndex = 15;
             tbt_Name.ThemeName = "MaterialTeal";
             // 
@@ -831,7 +831,7 @@
             tbt_Title.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbt_Title.Location = new Point(432, 80);
             tbt_Title.Name = "tbt_Title";
-            tbt_Title.Size = new Size(394, 37);
+            tbt_Title.Size = new Size(394, 0);
             tbt_Title.TabIndex = 16;
             tbt_Title.ThemeName = "MaterialTeal";
             // 
@@ -869,6 +869,7 @@
             toolTabStrip1.ResumeLayout(false);
             toolWindow1.ResumeLayout(false);
             toolWindow1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)radlblSum).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLblIDDe).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLblIdThiSinh).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLblIdMon).EndInit();
@@ -897,7 +898,6 @@
             ((System.ComponentModel.ISupportInitialize)radLabel15).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel14).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel13).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radlblSum).EndInit();
             ((System.ComponentModel.ISupportInitialize)radlblDat).EndInit();
             ((System.ComponentModel.ISupportInitialize)radlblChuaDat).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel9).EndInit();
