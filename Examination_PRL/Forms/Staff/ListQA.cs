@@ -26,7 +26,7 @@ namespace Examination_PRL.Forms.Staff
         {
             radGridView1.Rows.Clear();
             int stt = 1;
-            radGridView1.ColumnCount = 7;
+            radGridView1.ColumnCount = 8;
             radGridView1.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             radGridView1.Columns[0].HeaderText = "Số thứ tự";
             radGridView1.Columns[1].HeaderText = "ID";
@@ -34,12 +34,14 @@ namespace Examination_PRL.Forms.Staff
             radGridView1.Columns[3].HeaderText = "Tên";
             radGridView1.Columns[4].HeaderText = "ID Thí sinh";
             radGridView1.Columns[5].HeaderText = "Nội dung";
-            radGridView1.Columns[6].IsVisible = false;
+            radGridView1.Columns[6].HeaderText = "Ngày đăng";
+            radGridView1.Columns[7].IsVisible = false;
+            
           
 
             foreach(var item in data)
             {
-                radGridView1.Rows.Add(stt++, item.Id, item.Title, item.Name, item.IdParticipant, item.Content);
+                radGridView1.Rows.Add(stt++, item.Id, item.Title, item.Name, item.IdParticipant, item.Content,item.SubmitTime);
             }
            
         }
