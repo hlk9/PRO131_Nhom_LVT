@@ -16,7 +16,7 @@ namespace Examination_BUS.Services
         {
             
         }
-        public List<ExamSchedule> GetListSchedule()
+        public List<ExamSchedule> GetAllSchedule()
         {
             return scheduleRepository.GetListSchedule();
         }
