@@ -197,6 +197,12 @@ namespace Examination_PRL.Forms.Staff
             staffPage.SubPages.Add(addStaffPage);
 
             RadPageViewPage resultPage = new RadPageViewPage("Kết quả");
+            Result_Overview result_Overview = new Result_Overview();
+            result_Overview.TopLevel = false;
+            resultPage.Controls.Add(result_Overview);
+            result_Overview.Show();
+            result_Overview.Dock = DockStyle.Fill;
+            result_Overview.Name = "resul_Overview";
 
             resultPage.ToolTipText = "Kết quả";
             Bitmap bitMapResultIcon = new Bitmap(Properties.Resources.result);

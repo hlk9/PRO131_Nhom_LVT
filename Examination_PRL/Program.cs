@@ -17,7 +17,6 @@ namespace Examination_PRL
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Login());
-            Application.Run(new Login()); 
         }
     }
 }
