@@ -52,7 +52,12 @@ namespace Examination_DAL.Models
         [AllowNull]
         public string? CreatedBy { get; set; }
         [ForeignKey("CreatedBy")]
-        public virtual Staff Staff { get; set; }
+        public virtual Staff? Staff { get; set; }
+
+        [AllowNull]
+        public string? ClassRoomId { get; set; }
+        [ForeignKey("ClassRoomId")]
+        public virtual Classroom? ClassRoom { get; set; }
         
 
         public virtual ICollection<ExamScheduleDetail> ExamScheduleDetail { get; set;}
