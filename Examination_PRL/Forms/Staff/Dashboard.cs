@@ -1,6 +1,7 @@
 ﻿using Examination_PRL.Forms.Staff.ClassRoom;
 using Examination_PRL.Forms.Staff.Exam;
 using Examination_PRL.Forms.Staff.QuestionForm;
+using Examination_PRL.Forms.Staff.Schedule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -51,6 +52,13 @@ namespace Examination_PRL.Forms.Staff
             RadPageViewPage manageSchedulePage = new RadPageViewPage("Quản lý lịch thi"); //sửa, xoá
             schedulePage.SubPages.Add(createSchedulePage);
             schedulePage.SubPages.Add(manageSchedulePage);
+            ScheduleManagement scheduleManagement = new ScheduleManagement();
+            scheduleManagement.TopLevel = false;
+            manageSchedulePage.Controls.Add(scheduleManagement);
+            scheduleManagement.Show();
+            scheduleManagement.Dock = DockStyle.Fill;
+            scheduleManagement.Name = "scheduleManagementForm";
+
 
             RadPageViewPage studentPage = new RadPageViewPage("Thí sinh"); //xem danh sách thí sinh
             studentPage.ToolTipText = "Thí sinh";
@@ -342,6 +350,9 @@ namespace Examination_PRL.Forms.Staff
                     case "examResult":
                         (form as ExamResult).loadData();
                         (form as ExamResult).loadExamDetail(-1);
+                        break;
+                    case "scheduleManagementForm":
+                        (form as ScheduleManagement).LoadData();
                         break;
                     default:
                         break;

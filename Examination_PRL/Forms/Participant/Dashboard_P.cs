@@ -30,23 +30,22 @@ namespace Examination_PRL.Forms.Participant
         public Dashboard_P(string urs, Account userAccount)
         {
             InitializeComponent();
-            this.userAccount = userAccount;
             _ser = new FeedbackServices();
             this.userName = urs;
             LoadData();
             LoadExamSchedule();
-            radlblSum.Text = _serviceExam.GetExamResponses().Where(x => x.ParticipantId == userAccount.Id).Count().ToString();  
-            var obj = _serviceExam.GetExamResponses().Where(x => x.ParticipantId == userAccount.Id && x.IsPassed == true).ToList().Count.ToString();
-            radlblDat.Text = obj;
-            radlblChuaDat.Text = _serviceExam.GetExamResponses().Where(x => x.ParticipantId == userAccount.Id && x.IsPassed == false).ToList().Count.ToString();
+            radlblSum.Text = _serviceExam.GetExamResponses().Count().ToString();
+            radlblDat.Text = _serviceExam.GetExamResponses().Where(x => x.IsPassed == true).ToList().Count.ToString();
+            radlblChuaDat.Text = _serviceExam.GetExamResponses().Where(x => x.IsPassed == false).ToList().Count.ToString();
             LoadDataExam();
+            this.userAccount = userAccount;
         }
-        
+
         public void LoadData()
         {
             BindingList<CustomAppointment> appointments = new BindingList<CustomAppointment>();
 
-            foreach (var item in scheduleServices.GetListSchedule())
+            foreach (var item in scheduleServices.GetAllSchedule())
             {
                 CustomAppointment myAppointment =
                 new CustomAppointment(
@@ -73,7 +72,7 @@ namespace Examination_PRL.Forms.Participant
             radViewScheduler.ThemeName = "MaterialTeal";
         }
 
-
+      
 
         public void LoadExamSchedule()
         {
@@ -171,27 +170,25 @@ namespace Examination_PRL.Forms.Participant
         public void LoadDataExam()
         {
             int stt = 1;
-            radViewExam_Answers.ColumnCount = 6;
+            radViewExam_Answers.ColumnCount = 5;
             radViewExam_Answers.Columns[0].HeaderText = "STT";
-            radViewExam_Answers.Columns[1].HeaderText = "ID";
-            radViewExam_Answers.Columns[1].IsVisible = false;
-            radViewExam_Answers.Columns[2].HeaderText = "Mã Môn";
-            radViewExam_Answers.Columns[3].HeaderText = "Tên Môn";
-            radViewExam_Answers.Columns[4].HeaderText = "Điểm";
-            radViewExam_Answers.Columns[5].HeaderText = "Ghi Chú";
+            radViewExam_Answers.Columns[1].HeaderText = "Mã Môn";
+            radViewExam_Answers.Columns[2].HeaderText = "Tên Môn";
+            radViewExam_Answers.Columns[3].HeaderText = "Điểm";
+            radViewExam_Answers.Columns[4].HeaderText = "Ghi Chú";
 
             radViewExam_Answers.Rows.Clear();
 
-            foreach (var item in _serviceExam.GetAnswer_ResponsesViewModels(userAccount.Id))
+            foreach (var item in _serviceExam.GetAnswer_ResponsesViewModels("chiupp"))
             {
-                radViewExam_Answers.Rows.Add(stt++, item.Id, item.SubjectId , item.NameExam, item.Score, item.Note);
+                radViewExam_Answers.Rows.Add(stt++, item.IdExam, item.NameExam, item.Score, item.Note);
             }
         }
 
         private void radViewExam_Answers_CellClick(object sender, GridViewCellEventArgs e)
         {
             _idExamClick = Convert.ToInt32(radViewExam_Answers.Rows[e.RowIndex].Cells[1].Value);
-            var obj = _serviceExam.GetAnswer_ResponsesViewModels(userAccount.Id).Where(x => x.Id == _idExamClick).FirstOrDefault();
+            var obj = _serviceExam.GetAnswer_ResponsesViewModels("chiupp").Where(x => x.Id == _idExamClick).FirstOrDefault();
             if (obj != null)
             {
                 radLblIDDe.Text = obj.IdExam.ToString();
@@ -200,21 +197,15 @@ namespace Examination_PRL.Forms.Participant
                 radLblName.Text = obj.NameExam.ToString();
                 radLblTime.Text = obj.SubmitTime.ToString();
                 radLablDiem.Text = obj.Score.ToString();
+                //radLblStatus.Text = obj.Status.ToString();
                 radLblPass.Text = obj.IsPassed == true ? "Đạt" : "Chưa Đạt";
                 radLblDung.Text = obj.QuestionCorrect.ToString();
                 radLblSai.Text = obj.QuestionWrong.ToString();
                 radLblChuaLam.Text = obj.QuestionNotAnswered.ToString();
-                radLblTimeLamBai.Text = FormatTime(Convert.ToInt32(obj.FinishTime));
+                radLblTimeLamBai.Text = obj.FinishTime.ToString();
                 radLblNote.Text = obj.Note;
 
             }
-        }
-
-        private string FormatTime(int seconds)
-        {
-            // Format the remaining time as mm:ss
-            TimeSpan timeSpan = TimeSpan.FromSeconds(seconds);
-            return $"{timeSpan.Minutes:D2}:{timeSpan.Seconds:D2}";
         }
 
         private void btn_Send_Click_1(object sender, EventArgs e)

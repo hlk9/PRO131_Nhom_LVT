@@ -31,23 +31,42 @@
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             radDock1 = new Telerik.WinControls.UI.Docking.RadDock();
+            toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            scheduleGridView = new Telerik.WinControls.UI.RadGridView();
             dockParent = new Telerik.WinControls.UI.Docking.DocumentContainer();
             documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
-            toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
             toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             toolWindow2 = new Telerik.WinControls.UI.Docking.ToolWindow();
-            scheduleGridView = new Telerik.WinControls.UI.RadGridView();
+            radLabel1 = new Telerik.WinControls.UI.RadLabel();
+            radLabel2 = new Telerik.WinControls.UI.RadLabel();
+            radLabel3 = new Telerik.WinControls.UI.RadLabel();
+            radLabel4 = new Telerik.WinControls.UI.RadLabel();
+            radLabel5 = new Telerik.WinControls.UI.RadLabel();
+            lblTotal = new Telerik.WinControls.UI.RadLabel();
+            lblIncoming = new Telerik.WinControls.UI.RadLabel();
+            lblCurrent = new Telerik.WinControls.UI.RadLabel();
+            lblEnd = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)radDock1).BeginInit();
             radDock1.SuspendLayout();
+            toolWindow1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)scheduleGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)scheduleGridView.MasterTemplate).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dockParent).BeginInit();
             dockParent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)documentTabStrip1).BeginInit();
             documentTabStrip1.SuspendLayout();
-            toolWindow1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)toolTabStrip1).BeginInit();
             toolTabStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)scheduleGridView).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)scheduleGridView.MasterTemplate).BeginInit();
+            toolWindow2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)radLabel1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lblTotal).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lblIncoming).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lblCurrent).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lblEnd).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
@@ -72,6 +91,35 @@
             radDock1.TabIndex = 0;
             radDock1.TabStop = false;
             radDock1.ThemeName = "MaterialTeal";
+            // 
+            // toolWindow1
+            // 
+            toolWindow1.Caption = null;
+            toolWindow1.Controls.Add(scheduleGridView);
+            toolWindow1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            toolWindow1.Location = new Point(4, 4);
+            toolWindow1.Name = "toolWindow1";
+            toolWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
+            toolWindow1.Size = new Size(1325, 720);
+            toolWindow1.Text = "toolWindow1";
+            // 
+            // scheduleGridView
+            // 
+            scheduleGridView.Dock = DockStyle.Fill;
+            scheduleGridView.Location = new Point(0, 0);
+            // 
+            // 
+            // 
+            scheduleGridView.MasterTemplate.AllowAddNewRow = false;
+            scheduleGridView.MasterTemplate.AllowDeleteRow = false;
+            scheduleGridView.MasterTemplate.AllowEditRow = false;
+            scheduleGridView.MasterTemplate.AllowSearchRow = true;
+            scheduleGridView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            scheduleGridView.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            scheduleGridView.Name = "scheduleGridView";
+            scheduleGridView.Size = new Size(1325, 720);
+            scheduleGridView.TabIndex = 0;
+            scheduleGridView.ThemeName = "MaterialTeal";
             // 
             // dockParent
             // 
@@ -104,17 +152,6 @@
             documentTabStrip1.TabStripVisible = false;
             documentTabStrip1.ThemeName = "MaterialTeal";
             // 
-            // toolWindow1
-            // 
-            toolWindow1.Caption = null;
-            toolWindow1.Controls.Add(scheduleGridView);
-            toolWindow1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            toolWindow1.Location = new Point(4, 4);
-            toolWindow1.Name = "toolWindow1";
-            toolWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            toolWindow1.Size = new Size(1325, 720);
-            toolWindow1.Text = "toolWindow1";
-            // 
             // toolTabStrip1
             // 
             toolTabStrip1.CanUpdateChildIndex = true;
@@ -137,6 +174,15 @@
             // toolWindow2
             // 
             toolWindow2.Caption = null;
+            toolWindow2.Controls.Add(lblEnd);
+            toolWindow2.Controls.Add(lblCurrent);
+            toolWindow2.Controls.Add(lblIncoming);
+            toolWindow2.Controls.Add(lblTotal);
+            toolWindow2.Controls.Add(radLabel5);
+            toolWindow2.Controls.Add(radLabel4);
+            toolWindow2.Controls.Add(radLabel3);
+            toolWindow2.Controls.Add(radLabel2);
+            toolWindow2.Controls.Add(radLabel1);
             toolWindow2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             toolWindow2.Location = new Point(4, 52);
             toolWindow2.Name = "toolWindow2";
@@ -144,18 +190,96 @@
             toolWindow2.Size = new Size(417, 672);
             toolWindow2.Text = "Thông tin và Thao tác";
             // 
-            // scheduleGridView
+            // radLabel1
             // 
-            scheduleGridView.Dock = DockStyle.Fill;
-            scheduleGridView.Location = new Point(0, 0);
+            radLabel1.Anchor = AnchorStyles.Top;
+            radLabel1.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            radLabel1.ForeColor = Color.Teal;
+            radLabel1.Location = new Point(108, 23);
+            radLabel1.Name = "radLabel1";
+            radLabel1.Size = new Size(220, 41);
+            radLabel1.TabIndex = 0;
+            radLabel1.Text = "Thông tin chung";
             // 
+            // radLabel2
             // 
+            radLabel2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            radLabel2.ForeColor = Color.Teal;
+            radLabel2.Location = new Point(24, 101);
+            radLabel2.Name = "radLabel2";
+            radLabel2.Size = new Size(91, 30);
+            radLabel2.TabIndex = 1;
+            radLabel2.Text = "Số lượng:";
             // 
-            scheduleGridView.MasterTemplate.ViewDefinition = tableViewDefinition1;
-            scheduleGridView.Name = "scheduleGridView";
-            scheduleGridView.Size = new Size(1325, 720);
-            scheduleGridView.TabIndex = 0;
-            scheduleGridView.ThemeName = "MaterialTeal";
+            // radLabel3
+            // 
+            radLabel3.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            radLabel3.ForeColor = Color.Teal;
+            radLabel3.Location = new Point(24, 147);
+            radLabel3.Name = "radLabel3";
+            radLabel3.Size = new Size(110, 30);
+            radLabel3.TabIndex = 2;
+            radLabel3.Text = "Sắp diễn ra:";
+            // 
+            // radLabel4
+            // 
+            radLabel4.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            radLabel4.ForeColor = Color.Teal;
+            radLabel4.Location = new Point(24, 199);
+            radLabel4.Name = "radLabel4";
+            radLabel4.Size = new Size(124, 30);
+            radLabel4.TabIndex = 3;
+            radLabel4.Text = "Đang diễn ra:";
+            // 
+            // radLabel5
+            // 
+            radLabel5.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            radLabel5.ForeColor = Color.Teal;
+            radLabel5.Location = new Point(24, 245);
+            radLabel5.Name = "radLabel5";
+            radLabel5.Size = new Size(112, 30);
+            radLabel5.TabIndex = 4;
+            radLabel5.Text = "Đã kết thúc:";
+            // 
+            // lblTotal
+            // 
+            lblTotal.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTotal.ForeColor = Color.DarkOrchid;
+            lblTotal.Location = new Point(128, 101);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(20, 30);
+            lblTotal.TabIndex = 5;
+            lblTotal.Text = "0";
+            // 
+            // lblIncoming
+            // 
+            lblIncoming.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblIncoming.ForeColor = Color.DarkOrchid;
+            lblIncoming.Location = new Point(140, 147);
+            lblIncoming.Name = "lblIncoming";
+            lblIncoming.Size = new Size(20, 30);
+            lblIncoming.TabIndex = 6;
+            lblIncoming.Text = "0";
+            // 
+            // lblCurrent
+            // 
+            lblCurrent.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblCurrent.ForeColor = Color.DarkOrchid;
+            lblCurrent.Location = new Point(154, 199);
+            lblCurrent.Name = "lblCurrent";
+            lblCurrent.Size = new Size(20, 30);
+            lblCurrent.TabIndex = 6;
+            lblCurrent.Text = "0";
+            // 
+            // lblEnd
+            // 
+            lblEnd.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblEnd.ForeColor = Color.DarkOrchid;
+            lblEnd.Location = new Point(142, 245);
+            lblEnd.Name = "lblEnd";
+            lblEnd.Size = new Size(20, 30);
+            lblEnd.TabIndex = 6;
+            lblEnd.Text = "0";
             // 
             // ScheduleManagement
             // 
@@ -174,15 +298,26 @@
             ThemeName = "MaterialTeal";
             ((System.ComponentModel.ISupportInitialize)radDock1).EndInit();
             radDock1.ResumeLayout(false);
+            toolWindow1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)scheduleGridView.MasterTemplate).EndInit();
+            ((System.ComponentModel.ISupportInitialize)scheduleGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)dockParent).EndInit();
             dockParent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)documentTabStrip1).EndInit();
             documentTabStrip1.ResumeLayout(false);
-            toolWindow1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)toolTabStrip1).EndInit();
             toolTabStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)scheduleGridView.MasterTemplate).EndInit();
-            ((System.ComponentModel.ISupportInitialize)scheduleGridView).EndInit();
+            toolWindow2.ResumeLayout(false);
+            toolWindow2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)radLabel1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lblTotal).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lblIncoming).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lblCurrent).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lblEnd).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }
@@ -197,5 +332,14 @@
         private Telerik.WinControls.UI.Docking.ToolTabStrip toolTabStrip1;
         private Telerik.WinControls.UI.Docking.ToolWindow toolWindow2;
         private Telerik.WinControls.UI.RadGridView scheduleGridView;
+        private Telerik.WinControls.UI.RadLabel radLabel2;
+        private Telerik.WinControls.UI.RadLabel radLabel3;
+        private Telerik.WinControls.UI.RadLabel radLabel1;
+        private Telerik.WinControls.UI.RadLabel radLabel5;
+        private Telerik.WinControls.UI.RadLabel radLabel4;
+        private Telerik.WinControls.UI.RadLabel lblEnd;
+        private Telerik.WinControls.UI.RadLabel lblCurrent;
+        private Telerik.WinControls.UI.RadLabel lblIncoming;
+        private Telerik.WinControls.UI.RadLabel lblTotal;
     }
 }

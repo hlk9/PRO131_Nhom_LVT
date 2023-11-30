@@ -27,7 +27,7 @@ namespace Examination_PRL
         {
             BindingList<CustomAppointment> appointments = new BindingList<CustomAppointment>();
 
-            foreach (var item in scheduleServices.GetListSchedule())
+            foreach (var item in scheduleServices.GetAllSchedule())
             {
                 CustomAppointment myAppointment =
                 new CustomAppointment(
@@ -39,7 +39,7 @@ namespace Examination_PRL
                 appointments.Add(myAppointment);
             }
 
-            SchedulerBindingDataSource dataSource = new SchedulerBindingDataSource();         
+            SchedulerBindingDataSource dataSource = new SchedulerBindingDataSource();
             AppointmentMappingInfo appointmentMappingInfo = new AppointmentMappingInfo();
             appointmentMappingInfo.Start = "Start";
             appointmentMappingInfo.End = "End";
@@ -49,7 +49,7 @@ namespace Examination_PRL
             appointmentMappingInfo.UniqueId = "Id";
             appointmentMappingInfo.Exceptions = "Exceptions";
             dataSource.EventProvider.Mapping = appointmentMappingInfo;
-          
+
             dataSource.EventProvider.DataSource = appointments;
             this.scheduleDetail.DataSource = dataSource;
             scheduleDetail.ThemeName = "MaterialTeal";
