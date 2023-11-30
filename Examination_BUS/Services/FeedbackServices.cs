@@ -37,6 +37,7 @@ namespace Examination_BUS.Services
                 IdParticipant = fback.IdParticipant,
                 Content = fback.Content,
                 Status = fback.Status,
+                SubmitTime = fback.SubmitTime
             };
             return _repos.SendFeedback(fb);
         }

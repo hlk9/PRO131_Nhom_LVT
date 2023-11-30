@@ -33,8 +33,8 @@ namespace Examination_PRL.Forms.Participant
         AnswerResponseServices answerResponseServices = new AnswerResponseServices();
 
         Account userAccount = new Account();
-        
-        
+
+
         int currentGenerateQuestion = 1;
         int pageViewWidth = -1;
         int pageViewHeight = -1;
@@ -304,7 +304,6 @@ namespace Examination_PRL.Forms.Participant
                 //MessageBox.Show("Bạn đã hoàn thành bài thi");
                 //return;
             }
-
             else
             {
                 MessageBox.Show("Bạn chưa hoàn thành bài thi");
@@ -318,8 +317,6 @@ namespace Examination_PRL.Forms.Participant
 
             try
             {
-
-
                 for (int i = 0; i < pageViewQuestion.Pages.Count; i++)
                 {
 
@@ -363,14 +360,8 @@ namespace Examination_PRL.Forms.Participant
                                                 {
                                                     answerResponse.IsCorrect = false;
                                                 }
-
-
                                                 listA.Add(answerResponse);
-
-
                                             }
-
-
                                         }
                                         catch
                                         {
@@ -462,7 +453,7 @@ namespace Examination_PRL.Forms.Participant
 
             try
             {
-                btnSubmit.Enabled  = false;
+                btnSubmit.Enabled = false;
                 countDownTimer.Stop();
                 ExamResponse examResponse = new ExamResponse();
                 ExamDetail exam = examDetailServices.GetByExamDetailCode(this.examCode);
@@ -528,7 +519,6 @@ namespace Examination_PRL.Forms.Participant
                 {
                     isPass = true;
                 }
-
                 examResponse.ExamDetailId = exam.Id;
                 examResponse.IsPassed = isPass;
                 examResponse.Score = score;
@@ -563,11 +553,10 @@ namespace Examination_PRL.Forms.Participant
                         }
                     }
                 }
-
-
-
                 MessageBox.Show("Nộp bài thành công");
-                
+                MessageBox.Show("TEST\nSố câu đúng: " + qTrue.ToString() + "\n" + "Số câu sai: " + qFalse.ToString() + "\n" + "Số câu chưa trả lời: " + qNotAnswer.ToString() + "\n" + "Tổng điểm: " + totalScore.ToString() + "\n" + "Điểm của bạn: " + score.ToString());
+                btnExit.Enabled = true;
+                btnExit.Visible = true;
                 //foreach(var page in pageViewQuestion.Pages)
                 //{
                 //    page.Enabled = false;
@@ -587,11 +576,11 @@ namespace Examination_PRL.Forms.Participant
                 MessageBox.Show("Xảy ra lỗi khi nộp bài, hãy thử lại");
                 btnSubmit.Enabled = true;
                 countDownTimer.Start();
+                btnExit.Visible = false;
             }
 
 
 
-           // MessageBox.Show("TEST\nSố câu đúng: " + qTrue.ToString() + "\n" + "Số câu sai: " + qFalse.ToString() + "\n" + "Số câu chưa trả lời: " + qNotAnswer.ToString() + "\n" + "Tổng điểm: " + totalScore.ToString() + "\n" + "Điểm của bạn: " + score.ToString());
 
 
         }

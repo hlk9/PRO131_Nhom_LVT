@@ -227,6 +227,7 @@ namespace Examination_PRL.Forms.Participant
                 IdParticipant = tbt_IDParticipant.Text,
                 Content = tbt_Content.Text,
                 Status = true,
+                SubmitTime = DateTime.Now,
             };
             bool add = (_ser.Send(fb));
             if (add) MessageBox.Show("Gửi thành công!");

@@ -72,6 +72,15 @@ namespace Examination_PRL.Forms.Staff
         {
             _idWhenClick = radGridViewSubject.CurrentRow.Cells[1].Value.ToString();
 
+            radLblSumExam.Text = _serSubject.GetSubject_ViewModel(_idWhenClick).Count.ToString();
+            radLblSumExamPass.Text = _serSubject.GetSubject_ViewModel(_idWhenClick).Where(x => x.Ispassed == true).ToList().Count.ToString();
+            radLblSumExamFailed.Text = _serSubject.GetSubject_ViewModel(_idWhenClick).Where(x => x.Ispassed == false).ToList().Count.ToString();
+            double sumScore = 0;
+            foreach (var x in _serSubject.GetSubject_ViewModel(_idWhenClick))
+            {
+                sumScore += x.Score;
+            }
+            radLblSumScore.Text = sumScore.ToString();
             loadExamSubject(_idWhenClick);
         }
     }

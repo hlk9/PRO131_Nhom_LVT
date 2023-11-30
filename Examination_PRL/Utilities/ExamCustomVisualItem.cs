@@ -3,6 +3,8 @@ using Telerik.WinControls.UI;
 using Examination_BUS.ViewModel;
 using Examination_PRL.Forms.Participant;
 using Examination_DAL.Models;
+using Examination_BUS.Services;
+using System.Linq;
 
 namespace Examination_PRL.Utilities
 {
@@ -147,6 +149,16 @@ namespace Examination_PRL.Utilities
 
         private void ExamCustomVisualItem_Click(object? sender, EventArgs e)
         {
+            ExamDetailServices examDetailServices = new ExamDetailServices();
+            var examDetail = examDetailServices.GetByExamDetailCode(dataItem.ExamDetailCode);
+            ExamResponseServices examResponseServices = new ExamResponseServices();
+            var lis = examResponseServices.GetAllExamResponse().Where(x => x.ExamDetailId == examDetail.Id && x.ParticipantId == userAccount.Id).ToList();
+            if (lis.Count>=examDetail.ReTestNumber)
+            {
+                MessageBox.Show("Bạn đã hết số lần thi lại cho bài thi này!","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return;
+            }    
+
             EnterExam enterExam = new EnterExam(this.Name,userAccount);
             enterExam.ShowDialog();
         }
@@ -182,12 +194,26 @@ namespace Examination_PRL.Utilities
             examRoomId.Font = new Font("Segoe UI", 8, FontStyle.Bold);
             examRoomId.ForeColor = Color.White;
 
-            examStatus.Text = "Đang diễn ra";
+
+            if(DateTime.Now>dataItem.ExamStartTime && DateTime.Now < dataItem.ExamEndTime)
+            {
+                examStatus.Text = "Đang diễn ra";
+            }    
+            else if(DateTime.Now<dataItem.ExamStartTime)
+            {
+                examStatus.Text = "Sắp diễn ra";
+            }    
+            else
+            {
+                examStatus.Text = "Đã kết thúc";
+            }
+
+        
             examStatus.Font = new Font("Segoe UI", 8, FontStyle.Bold);
             examStatus.ForeColor = Color.White;
 
             examName.Text = dataItem.ExamName;
-
+            
             examName.Font = new Font("Segoe UI", 10, FontStyle.Regular);
             examName.ForeColor = Color.White;
 

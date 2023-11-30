@@ -1,6 +1,6 @@
 ﻿namespace Examination_PRL.Forms.Participant
 {
-    partial class EnterExam
+    partial class ReViewExam
     {
         /// <summary>
         /// Required designer variable.
@@ -36,13 +36,12 @@
             documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
-            lblTime = new Telerik.WinControls.UI.RadLabel();
+            btnEx = new Telerik.WinControls.UI.RadButton();
+            listViewQuestion = new Telerik.WinControls.UI.RadListView();
+            btnExit = new Telerik.WinControls.UI.RadButton();
             radLabel1 = new Telerik.WinControls.UI.RadLabel();
             checkBoxComplete = new Telerik.WinControls.UI.RadCheckBox();
             btnSubmit = new Telerik.WinControls.UI.RadButton();
-            radScrollablePanel1 = new Telerik.WinControls.UI.RadScrollablePanel();
-            listViewQuestion = new Telerik.WinControls.UI.RadListView();
-            btnExit = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)dockParent).BeginInit();
             dockParent.SuspendLayout();
             documentWindow1.SuspendLayout();
@@ -54,21 +53,18 @@
             ((System.ComponentModel.ISupportInitialize)toolTabStrip1).BeginInit();
             toolTabStrip1.SuspendLayout();
             toolWindow1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)lblTime).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnEx).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)listViewQuestion).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnExit).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)checkBoxComplete).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnSubmit).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radScrollablePanel1).BeginInit();
-            radScrollablePanel1.PanelContainer.SuspendLayout();
-            radScrollablePanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)listViewQuestion).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)btnExit).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
             // dockParent
             // 
-            dockParent.ActiveWindow = toolWindow1;
+            dockParent.ActiveWindow = documentWindow1;
             dockParent.CausesValidation = false;
             dockParent.Controls.Add(questionContainer);
             dockParent.Controls.Add(toolTabStrip1);
@@ -84,7 +80,7 @@
             dockParent.RootElement.MinSize = new Size(25, 25);
             dockParent.Size = new Size(1561, 689);
             dockParent.SplitterWidth = 8;
-            dockParent.TabIndex = 0;
+            dockParent.TabIndex = 1;
             dockParent.TabStop = false;
             dockParent.ThemeName = "MaterialTeal";
             // 
@@ -164,12 +160,12 @@
             // toolWindow1
             // 
             toolWindow1.Caption = null;
+            toolWindow1.Controls.Add(btnEx);
+            toolWindow1.Controls.Add(listViewQuestion);
             toolWindow1.Controls.Add(btnExit);
-            toolWindow1.Controls.Add(lblTime);
             toolWindow1.Controls.Add(radLabel1);
             toolWindow1.Controls.Add(checkBoxComplete);
             toolWindow1.Controls.Add(btnSubmit);
-            toolWindow1.Controls.Add(radScrollablePanel1);
             toolWindow1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             toolWindow1.Location = new Point(4, 52);
             toolWindow1.Name = "toolWindow1";
@@ -178,31 +174,66 @@
             toolWindow1.Text = "Chi tiết";
             toolWindow1.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
-            // lblTime
+            // btnEx
             // 
-            lblTime.Anchor = AnchorStyles.Top;
-            lblTime.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblTime.Location = new Point(117, 64);
-            lblTime.Name = "lblTime";
-            lblTime.Size = new Size(55, 30);
-            lblTime.TabIndex = 4;
-            lblTime.Text = "50:34";
+            btnEx.Anchor = AnchorStyles.Bottom;
+            btnEx.BackColor = Color.Brown;
+            btnEx.ForeColor = Color.White;
+            btnEx.Location = new Point(3, 594);
+            btnEx.Name = "btnEx";
+            btnEx.Size = new Size(270, 36);
+            btnEx.TabIndex = 5;
+            btnEx.Text = "Thoát";
+            btnEx.ThemeName = "MaterialTeal";
+            btnEx.Visible = false;
+            btnEx.Click += btnEx_Click;
+            // 
+            // listViewQuestion
+            // 
+            listViewQuestion.AllowEdit = false;
+            listViewQuestion.AllowRemove = false;
+            listViewQuestion.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            listViewQuestion.AutoSizeColumnsMode = Telerik.WinControls.UI.ListViewAutoSizeColumnsMode.Fill;
+            listViewQuestion.FullRowSelect = false;
+            listViewQuestion.GroupItemSize = new Size(200, 36);
+            listViewQuestion.ItemSize = new Size(60, 60);
+            listViewQuestion.ItemSpacing = 10;
+            listViewQuestion.Location = new Point(3, 60);
+            listViewQuestion.Name = "listViewQuestion";
+            listViewQuestion.Size = new Size(270, 478);
+            listViewQuestion.TabIndex = 4;
+            listViewQuestion.ThemeName = "MaterialTeal";
+            listViewQuestion.ViewType = Telerik.WinControls.UI.ListViewType.IconsView;
+            listViewQuestion.ItemMouseClick += listViewQuestion_ItemMouseClick;
+            // 
+            // btnExit
+            // 
+            btnExit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnExit.BackColor = Color.Brown;
+            btnExit.ForeColor = Color.White;
+            btnExit.Location = new Point(174, 981);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(175, 36);
+            btnExit.TabIndex = 2;
+            btnExit.Text = "Thoát";
+            btnExit.ThemeName = "MaterialTeal";
+            btnExit.Visible = false;
             // 
             // radLabel1
             // 
             radLabel1.Anchor = AnchorStyles.Top;
-            radLabel1.Font = new Font("Roboto", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
+            radLabel1.Font = new Font("Roboto", 18F, FontStyle.Regular, GraphicsUnit.Point);
             radLabel1.ForeColor = Color.Teal;
-            radLabel1.Location = new Point(78, 3);
+            radLabel1.Location = new Point(24, 3);
             radLabel1.Name = "radLabel1";
-            radLabel1.Size = new Size(135, 40);
+            radLabel1.Size = new Size(212, 34);
             radLabel1.TabIndex = 3;
-            radLabel1.Text = "Thời gian";
+            radLabel1.Text = "Danh sách câu hỏi";
             // 
             // checkBoxComplete
             // 
             checkBoxComplete.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            checkBoxComplete.Location = new Point(3, 555);
+            checkBoxComplete.Location = new Point(3, 988);
             checkBoxComplete.Name = "checkBoxComplete";
             checkBoxComplete.Size = new Size(162, 19);
             checkBoxComplete.TabIndex = 2;
@@ -214,76 +245,27 @@
             btnSubmit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnSubmit.BackColor = Color.Teal;
             btnSubmit.ForeColor = Color.White;
-            btnSubmit.Location = new Point(3, 593);
+            btnSubmit.Location = new Point(3, 1026);
             btnSubmit.Name = "btnSubmit";
-            btnSubmit.Size = new Size(270, 37);
+            btnSubmit.Size = new Size(346, 37);
             btnSubmit.TabIndex = 1;
             btnSubmit.Text = "Nộp bài";
             btnSubmit.ThemeName = "MaterialTeal";
-            btnSubmit.Click += btnSubmit_Click;
             // 
-            // radScrollablePanel1
-            // 
-            radScrollablePanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            radScrollablePanel1.Location = new Point(3, 154);
-            radScrollablePanel1.Name = "radScrollablePanel1";
-            radScrollablePanel1.Padding = new Padding(0);
-            // 
-            // radScrollablePanel1.PanelContainer
-            // 
-            radScrollablePanel1.PanelContainer.Controls.Add(listViewQuestion);
-            radScrollablePanel1.PanelContainer.Location = new Point(0, 0);
-            radScrollablePanel1.PanelContainer.Size = new Size(270, 354);
-            radScrollablePanel1.Size = new Size(270, 354);
-            radScrollablePanel1.TabIndex = 0;
-            radScrollablePanel1.ThemeName = "MaterialTeal";
-            // 
-            // listViewQuestion
-            // 
-            listViewQuestion.AllowEdit = false;
-            listViewQuestion.AllowRemove = false;
-            listViewQuestion.AutoSizeColumnsMode = Telerik.WinControls.UI.ListViewAutoSizeColumnsMode.Fill;
-            listViewQuestion.Dock = DockStyle.Fill;
-            listViewQuestion.FullRowSelect = false;
-            listViewQuestion.GroupItemSize = new Size(200, 36);
-            listViewQuestion.ItemSize = new Size(60, 60);
-            listViewQuestion.ItemSpacing = 10;
-            listViewQuestion.Location = new Point(0, 0);
-            listViewQuestion.Name = "listViewQuestion";
-            listViewQuestion.Size = new Size(270, 354);
-            listViewQuestion.TabIndex = 0;
-            listViewQuestion.ThemeName = "MaterialTeal";
-            listViewQuestion.ViewType = Telerik.WinControls.UI.ListViewType.IconsView;
-            listViewQuestion.ItemMouseClick += listViewQuestion_ItemMouseClick;
-            // 
-            // btnExit
-            // 
-            btnExit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnExit.BackColor = Color.Brown;
-            btnExit.ForeColor = Color.White;
-            btnExit.Location = new Point(174, 548);
-            btnExit.Name = "btnExit";
-            btnExit.Size = new Size(99, 27);
-            btnExit.TabIndex = 2;
-            btnExit.Text = "Thoát";
-            btnExit.ThemeName = "MaterialTeal";
-            btnExit.Visible = false;
-            // 
-            // EnterExam
+            // ReViewExam
             // 
             AutoScaleBaseSize = new Size(7, 15);
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1561, 689);
             Controls.Add(dockParent);
-            Name = "EnterExam";
+            Name = "ReViewExam";
             // 
             // 
             // 
             RootElement.ApplyShapeToControl = true;
-            Text = "Vào thi";
+            Text = "ReViewExam";
             ThemeName = "MaterialTeal";
-            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)dockParent).EndInit();
             dockParent.ResumeLayout(false);
             documentWindow1.ResumeLayout(false);
@@ -296,15 +278,12 @@
             toolTabStrip1.ResumeLayout(false);
             toolWindow1.ResumeLayout(false);
             toolWindow1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)lblTime).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnEx).EndInit();
+            ((System.ComponentModel.ISupportInitialize)listViewQuestion).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnExit).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).EndInit();
             ((System.ComponentModel.ISupportInitialize)checkBoxComplete).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnSubmit).EndInit();
-            radScrollablePanel1.PanelContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)radScrollablePanel1).EndInit();
-            radScrollablePanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)listViewQuestion).EndInit();
-            ((System.ComponentModel.ISupportInitialize)btnExit).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }
@@ -313,18 +292,17 @@
 
         private Telerik.WinControls.Themes.MaterialTealTheme materialTealTheme1;
         private Telerik.WinControls.UI.Docking.RadDock dockParent;
-        private Telerik.WinControls.UI.Docking.DocumentWindow documentWindow1;
-        private Telerik.WinControls.UI.Docking.DocumentContainer questionContainer;
-        private Telerik.WinControls.UI.Docking.DocumentTabStrip documentTabStrip1;
-        private Telerik.WinControls.UI.Docking.ToolTabStrip toolTabStrip1;
         private Telerik.WinControls.UI.Docking.ToolWindow toolWindow1;
-        private Telerik.WinControls.UI.RadPageView pageViewQuestion;
-        private Telerik.WinControls.UI.RadScrollablePanel radScrollablePanel1;
-        private Telerik.WinControls.UI.RadListView listViewQuestion;
+        private Telerik.WinControls.UI.RadButton btnExit;
+        private Telerik.WinControls.UI.RadLabel radLabel1;
         private Telerik.WinControls.UI.RadCheckBox checkBoxComplete;
         private Telerik.WinControls.UI.RadButton btnSubmit;
-        private Telerik.WinControls.UI.RadLabel radLabel1;
-        private Telerik.WinControls.UI.RadLabel lblTime;
-        private Telerik.WinControls.UI.RadButton btnExit;
+        private Telerik.WinControls.UI.Docking.DocumentContainer questionContainer;
+        private Telerik.WinControls.UI.Docking.DocumentTabStrip documentTabStrip1;
+        private Telerik.WinControls.UI.Docking.DocumentWindow documentWindow1;
+        private Telerik.WinControls.UI.RadPageView pageViewQuestion;
+        private Telerik.WinControls.UI.Docking.ToolTabStrip toolTabStrip1;
+        private Telerik.WinControls.UI.RadListView listViewQuestion;
+        private Telerik.WinControls.UI.RadButton btnEx;
     }
 }
