@@ -66,10 +66,10 @@ namespace Examination_BUS.Services
             return _examRepos.DeleteByCode(code);
         }
 
-        public List<ExamAnswer_ResponsesViewModel> GetAnswer_ResponsesViewModels(string idAnswer)
+        public List<ExamAnswer_ResponsesViewModel> GetAnswer_ResponsesViewModels(string participantID)
         {
             var listExamRes = (from ex in _examResponses.GetAllExamResponse()
-                               where ex.ParticipantId == idAnswer
+                               where ex.ParticipantId == participantID
                                select new ExamAnswer_ResponsesViewModel
                                {
                                    Id = ex.Id,
