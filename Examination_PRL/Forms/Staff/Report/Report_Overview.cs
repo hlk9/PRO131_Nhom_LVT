@@ -16,6 +16,7 @@ namespace Examination_PRL.Forms.Staff
         ExamResponseServices examResponseServices = new ExamResponseServices();
         QuestionServices questionServices = new QuestionServices();
         QuestionTypeServices questionTypeServices = new QuestionTypeServices();
+        ExamDetailServices examDetailServices = new ExamDetailServices();
         QuestionLevelService questionLevelService = new QuestionLevelService();
         public Report_Overview()
         {
@@ -35,6 +36,12 @@ namespace Examination_PRL.Forms.Staff
         }
         public void LoadData()
         {
+
+            chartColumn.Series.Clear();
+            chartPie.Series.Clear();
+
+            chartLevelQuestion.Series.Clear();
+            chartQuestionType.Series.Clear();
 
             double pass = 0, fail = 0, total = 0, passRate = 0, failRate = 0, unknown = 0, unknownRate = 0;
 
@@ -62,7 +69,7 @@ namespace Examination_PRL.Forms.Staff
             chartPie.Series.Add(pieSeries);
             chartPie.ShowLegend = true;
             chartPie.ShowTitle = true;
-            chartPie.Title = "Tỉ lệ bài làm Đạt và Trượt\nTổng số: "+ list.Count;
+            chartPie.Title = "Tỉ lệ bài làm Đạt và Trượt\nTổng số: " + list.Count;
             chartPie.ShowSmartLabels = true;
             pieSeries.DrawLinesToLabels = true;
             pieSeries.SyncLinesToLabelsColor = true;
@@ -73,7 +80,10 @@ namespace Examination_PRL.Forms.Staff
             List<double> listPoint = new List<double>();
             foreach (var item in list)
             {
-                listPoint.Add(Convert.ToDouble(item.Score));
+                double point = Convert.ToDouble(item.Score);
+                double maxScore = examDetailServices.GetById(item.ExamDetailId).MaxiumMark;
+                listPoint.Add(ChuanHoaDiem(point, maxScore, 10));
+
             }
 
             var listDauDiem = listPoint.Distinct().OrderBy(x => x);
@@ -106,7 +116,7 @@ namespace Examination_PRL.Forms.Staff
             chartColumn.Series.Add(lineSeries);
             chartColumn.Area.View.Palette = KnownPalette.Arctic;
             chartColumn.ShowTitle = true;
-            chartColumn.Title = "Phổ điểm\nTổng số: "+ list.Count;
+            chartColumn.Title = "Phổ điểm\nTổng số: " + list.Count;
 
             //question type
             List<QuestionTypeTotal> questionTypeTotals = new List<QuestionTypeTotal>();
@@ -134,7 +144,7 @@ namespace Examination_PRL.Forms.Staff
             var listQnL = questionLevelService.GetAll();
             List<QuestionLevelTotal> questionLevelTotals = new List<QuestionLevelTotal>();
 
-            foreach(var item in listQnL)
+            foreach (var item in listQnL)
             {
                 var listLevel = questionServices.GetListQuestionWithLevel(item.Id);
                 questionLevelTotals.Add(new QuestionLevelTotal() { QuestionLevel = item.Name, Total = listLevel.Count });
@@ -149,12 +159,12 @@ namespace Examination_PRL.Forms.Staff
             chartLevelQuestion.Series.Add(pieLevelQ);
             chartLevelQuestion.ShowLegend = true;
             chartLevelQuestion.ShowTitle = true;
-            chartLevelQuestion.Title = "Tỉ lệ câu hỏi theo mức độ\nTổng số: "+listQnL.Count();
+            chartLevelQuestion.Title = "Tỉ lệ câu hỏi theo mức độ\nTổng số: " + listQnL.Count();
             chartLevelQuestion.ShowSmartLabels = true;
             pieLevelQ.DrawLinesToLabels = true;
-            pieLevelQ.SyncLinesToLabelsColor = true;    
+            pieLevelQ.SyncLinesToLabelsColor = true;
             pieLevelQ.ShowLabels = true;
-        
+
             chartLevelQuestion.Area.View.Palette = KnownPalette.Ground;
 
 

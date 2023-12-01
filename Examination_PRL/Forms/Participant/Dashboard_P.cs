@@ -179,7 +179,7 @@ namespace Examination_PRL.Forms.Participant
 
             radViewExam_Answers.Rows.Clear();
 
-            foreach (var item in _serviceExam.GetAnswer_ResponsesViewModels("chiupp"))
+            foreach (var item in _serviceExam.GetAnswer_ResponsesViewModels(userAccount.Id))
             {
                 radViewExam_Answers.Rows.Add(stt++, item.IdExam, item.NameExam, item.Score, item.Note);
             }
@@ -188,7 +188,7 @@ namespace Examination_PRL.Forms.Participant
         private void radViewExam_Answers_CellClick(object sender, GridViewCellEventArgs e)
         {
             _idExamClick = Convert.ToInt32(radViewExam_Answers.Rows[e.RowIndex].Cells[1].Value);
-            var obj = _serviceExam.GetAnswer_ResponsesViewModels("chiupp").Where(x => x.Id == _idExamClick).FirstOrDefault();
+            var obj = _serviceExam.GetAnswer_ResponsesViewModels(userAccount.Id).Where(x => x.Id == _idExamClick).FirstOrDefault();
             if (obj != null)
             {
                 radLblIDDe.Text = obj.IdExam.ToString();

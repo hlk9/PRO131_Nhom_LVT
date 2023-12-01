@@ -37,15 +37,16 @@
             documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             toolWindow2 = new Telerik.WinControls.UI.Docking.ToolWindow();
-            radLabel1 = new Telerik.WinControls.UI.RadLabel();
-            radLabel2 = new Telerik.WinControls.UI.RadLabel();
-            radLabel3 = new Telerik.WinControls.UI.RadLabel();
-            radLabel4 = new Telerik.WinControls.UI.RadLabel();
-            radLabel5 = new Telerik.WinControls.UI.RadLabel();
-            lblTotal = new Telerik.WinControls.UI.RadLabel();
-            lblIncoming = new Telerik.WinControls.UI.RadLabel();
-            lblCurrent = new Telerik.WinControls.UI.RadLabel();
+            btnViewDetail = new Telerik.WinControls.UI.RadButton();
             lblEnd = new Telerik.WinControls.UI.RadLabel();
+            lblCurrent = new Telerik.WinControls.UI.RadLabel();
+            lblIncoming = new Telerik.WinControls.UI.RadLabel();
+            lblTotal = new Telerik.WinControls.UI.RadLabel();
+            radLabel5 = new Telerik.WinControls.UI.RadLabel();
+            radLabel4 = new Telerik.WinControls.UI.RadLabel();
+            radLabel3 = new Telerik.WinControls.UI.RadLabel();
+            radLabel2 = new Telerik.WinControls.UI.RadLabel();
+            radLabel1 = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)radDock1).BeginInit();
             radDock1.SuspendLayout();
             toolWindow1.SuspendLayout();
@@ -58,15 +59,16 @@
             ((System.ComponentModel.ISupportInitialize)toolTabStrip1).BeginInit();
             toolTabStrip1.SuspendLayout();
             toolWindow2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)radLabel1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)lblTotal).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)lblIncoming).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)lblCurrent).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnViewDetail).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lblEnd).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lblCurrent).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lblIncoming).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lblTotal).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
@@ -174,6 +176,7 @@
             // toolWindow2
             // 
             toolWindow2.Caption = null;
+            toolWindow2.Controls.Add(btnViewDetail);
             toolWindow2.Controls.Add(lblEnd);
             toolWindow2.Controls.Add(lblCurrent);
             toolWindow2.Controls.Add(lblIncoming);
@@ -190,6 +193,96 @@
             toolWindow2.Size = new Size(417, 672);
             toolWindow2.Text = "Thông tin và Thao tác";
             // 
+            // btnViewDetail
+            // 
+            btnViewDetail.Location = new Point(24, 394);
+            btnViewDetail.Name = "btnViewDetail";
+            btnViewDetail.Size = new Size(367, 44);
+            btnViewDetail.TabIndex = 7;
+            btnViewDetail.Text = "Xếp lịch tới các lớp/Sinh viên";
+            btnViewDetail.ThemeName = "MaterialTeal";
+            btnViewDetail.Click += btnViewDetail_Click;
+            // 
+            // lblEnd
+            // 
+            lblEnd.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblEnd.ForeColor = Color.DarkOrchid;
+            lblEnd.Location = new Point(133, 245);
+            lblEnd.Name = "lblEnd";
+            lblEnd.Size = new Size(17, 25);
+            lblEnd.TabIndex = 6;
+            lblEnd.Text = "0";
+            // 
+            // lblCurrent
+            // 
+            lblCurrent.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblCurrent.ForeColor = Color.DarkOrchid;
+            lblCurrent.Location = new Point(145, 199);
+            lblCurrent.Name = "lblCurrent";
+            lblCurrent.Size = new Size(17, 25);
+            lblCurrent.TabIndex = 6;
+            lblCurrent.Text = "0";
+            // 
+            // lblIncoming
+            // 
+            lblIncoming.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblIncoming.ForeColor = Color.DarkOrchid;
+            lblIncoming.Location = new Point(131, 147);
+            lblIncoming.Name = "lblIncoming";
+            lblIncoming.Size = new Size(17, 25);
+            lblIncoming.TabIndex = 6;
+            lblIncoming.Text = "0";
+            // 
+            // lblTotal
+            // 
+            lblTotal.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTotal.ForeColor = Color.DarkOrchid;
+            lblTotal.Location = new Point(119, 101);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(17, 25);
+            lblTotal.TabIndex = 5;
+            lblTotal.Text = "0";
+            // 
+            // radLabel5
+            // 
+            radLabel5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            radLabel5.ForeColor = Color.Teal;
+            radLabel5.Location = new Point(24, 245);
+            radLabel5.Name = "radLabel5";
+            radLabel5.Size = new Size(95, 25);
+            radLabel5.TabIndex = 4;
+            radLabel5.Text = "Đã kết thúc:";
+            // 
+            // radLabel4
+            // 
+            radLabel4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            radLabel4.ForeColor = Color.Teal;
+            radLabel4.Location = new Point(24, 199);
+            radLabel4.Name = "radLabel4";
+            radLabel4.Size = new Size(105, 25);
+            radLabel4.TabIndex = 3;
+            radLabel4.Text = "Đang diễn ra:";
+            // 
+            // radLabel3
+            // 
+            radLabel3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            radLabel3.ForeColor = Color.Teal;
+            radLabel3.Location = new Point(24, 147);
+            radLabel3.Name = "radLabel3";
+            radLabel3.Size = new Size(93, 25);
+            radLabel3.TabIndex = 2;
+            radLabel3.Text = "Sắp diễn ra:";
+            // 
+            // radLabel2
+            // 
+            radLabel2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            radLabel2.ForeColor = Color.Teal;
+            radLabel2.Location = new Point(24, 101);
+            radLabel2.Name = "radLabel2";
+            radLabel2.Size = new Size(77, 25);
+            radLabel2.TabIndex = 1;
+            radLabel2.Text = "Số lượng:";
+            // 
             // radLabel1
             // 
             radLabel1.Anchor = AnchorStyles.Top;
@@ -200,86 +293,6 @@
             radLabel1.Size = new Size(220, 41);
             radLabel1.TabIndex = 0;
             radLabel1.Text = "Thông tin chung";
-            // 
-            // radLabel2
-            // 
-            radLabel2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            radLabel2.ForeColor = Color.Teal;
-            radLabel2.Location = new Point(24, 101);
-            radLabel2.Name = "radLabel2";
-            radLabel2.Size = new Size(91, 30);
-            radLabel2.TabIndex = 1;
-            radLabel2.Text = "Số lượng:";
-            // 
-            // radLabel3
-            // 
-            radLabel3.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            radLabel3.ForeColor = Color.Teal;
-            radLabel3.Location = new Point(24, 147);
-            radLabel3.Name = "radLabel3";
-            radLabel3.Size = new Size(110, 30);
-            radLabel3.TabIndex = 2;
-            radLabel3.Text = "Sắp diễn ra:";
-            // 
-            // radLabel4
-            // 
-            radLabel4.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            radLabel4.ForeColor = Color.Teal;
-            radLabel4.Location = new Point(24, 199);
-            radLabel4.Name = "radLabel4";
-            radLabel4.Size = new Size(124, 30);
-            radLabel4.TabIndex = 3;
-            radLabel4.Text = "Đang diễn ra:";
-            // 
-            // radLabel5
-            // 
-            radLabel5.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            radLabel5.ForeColor = Color.Teal;
-            radLabel5.Location = new Point(24, 245);
-            radLabel5.Name = "radLabel5";
-            radLabel5.Size = new Size(112, 30);
-            radLabel5.TabIndex = 4;
-            radLabel5.Text = "Đã kết thúc:";
-            // 
-            // lblTotal
-            // 
-            lblTotal.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTotal.ForeColor = Color.DarkOrchid;
-            lblTotal.Location = new Point(128, 101);
-            lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(20, 30);
-            lblTotal.TabIndex = 5;
-            lblTotal.Text = "0";
-            // 
-            // lblIncoming
-            // 
-            lblIncoming.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblIncoming.ForeColor = Color.DarkOrchid;
-            lblIncoming.Location = new Point(140, 147);
-            lblIncoming.Name = "lblIncoming";
-            lblIncoming.Size = new Size(20, 30);
-            lblIncoming.TabIndex = 6;
-            lblIncoming.Text = "0";
-            // 
-            // lblCurrent
-            // 
-            lblCurrent.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblCurrent.ForeColor = Color.DarkOrchid;
-            lblCurrent.Location = new Point(154, 199);
-            lblCurrent.Name = "lblCurrent";
-            lblCurrent.Size = new Size(20, 30);
-            lblCurrent.TabIndex = 6;
-            lblCurrent.Text = "0";
-            // 
-            // lblEnd
-            // 
-            lblEnd.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblEnd.ForeColor = Color.DarkOrchid;
-            lblEnd.Location = new Point(142, 245);
-            lblEnd.Name = "lblEnd";
-            lblEnd.Size = new Size(20, 30);
-            lblEnd.TabIndex = 6;
-            lblEnd.Text = "0";
             // 
             // ScheduleManagement
             // 
@@ -309,15 +322,16 @@
             toolTabStrip1.ResumeLayout(false);
             toolWindow2.ResumeLayout(false);
             toolWindow2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)radLabel1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)lblTotal).EndInit();
-            ((System.ComponentModel.ISupportInitialize)lblIncoming).EndInit();
-            ((System.ComponentModel.ISupportInitialize)lblCurrent).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnViewDetail).EndInit();
             ((System.ComponentModel.ISupportInitialize)lblEnd).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lblCurrent).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lblIncoming).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lblTotal).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel1).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }
@@ -341,5 +355,6 @@
         private Telerik.WinControls.UI.RadLabel lblCurrent;
         private Telerik.WinControls.UI.RadLabel lblIncoming;
         private Telerik.WinControls.UI.RadLabel lblTotal;
+        private Telerik.WinControls.UI.RadButton btnViewDetail;
     }
 }

@@ -243,11 +243,13 @@ namespace Examination_PRL.Forms.Staff
             reportPage.Controls.Add(report_Overview);
             report_Overview.Show();
             reportPage.Dock = DockStyle.Fill;
+            report_Overview.Name = "report_Overview";
 
             Bitmap bitMapReportIcon = new Bitmap(Properties.Resources.report);
             Image reportIcon = bitMapReportIcon;
             reportPage.Image = reportIcon;
             reportPage.ToolTipText = "Báo cáo";
+
 
             RadPageViewPage reportByStudentPage = new RadPageViewPage("Báo cáo theo thí sinh");
             RadPageViewPage reportBySubjectPage = new RadPageViewPage("Báo cáo theo môn");
@@ -353,6 +355,9 @@ namespace Examination_PRL.Forms.Staff
                         break;
                     case "scheduleManagementForm":
                         (form as ScheduleManagement).LoadData();
+                        break;
+                    case "report_Overview":
+                        (form as Report_Overview).LoadData();
                         break;
                     default:
                         break;

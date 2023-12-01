@@ -15,6 +15,7 @@ namespace Examination_PRL.Forms.Staff.Schedule
     public partial class ScheduleManagement : Telerik.WinControls.UI.RadForm
     {
         ScheduleServices scheduleServices = new ScheduleServices();
+        ScheduleDetailServices scheduleDetailServices = new ScheduleDetailServices();
         public ScheduleManagement()
         {
             InitializeComponent();
@@ -33,10 +34,9 @@ namespace Examination_PRL.Forms.Staff.Schedule
             scheduleGridView.Columns[6].HeaderText = "Mô tả";
             scheduleGridView.Columns[7].HeaderText = "Trạng thái";
             scheduleGridView.Columns[8].HeaderText = "Người tạo";
-            scheduleGridView.Columns[9].HeaderText = "Lớp";
-            scheduleGridView.Columns[10].HeaderText = "Bài thi";
+            scheduleGridView.Columns[9].HeaderText = "Số lượng thí sinh";
+            scheduleGridView.Columns[10].HeaderText = "Mã Bài thi";
             scheduleGridView.Columns[11].HeaderText = "Id";
-
             scheduleGridView.Columns[11].IsVisible = false;
             scheduleGridView.Columns[7].IsVisible = false;
             scheduleGridView.Columns[8].IsVisible = false;
@@ -47,7 +47,7 @@ namespace Examination_PRL.Forms.Staff.Schedule
             int stt = 1;
             foreach (var item in list)
             {
-                scheduleGridView.Rows.Add(stt++, item.Name, item.ExamRoomId, item.StartTime, item.EndTime, item.Subject, item.Description, item.Status, item.CreatedBy, item.ClassRoomId, item.ExamId, item.Id);
+                scheduleGridView.Rows.Add(stt++, item.Name, item.ExamRoomId, item.StartTime, item.EndTime, item.Subject, item.Description, item.Status, item.CreatedBy, scheduleDetailServices.GetAllScheduleDetails().Where(x => x.ExamScheduleId == item.Id).Count(), item.ExamId, item.Id);
 
             }
 
@@ -55,6 +55,12 @@ namespace Examination_PRL.Forms.Staff.Schedule
 
 
 
+        }
+
+        private void btnViewDetail_Click(object sender, EventArgs e)
+        {
+            AddScheduleTo addToClass = new AddScheduleTo();
+            addToClass.ShowDialog();
         }
     }
 }
