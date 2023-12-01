@@ -15,6 +15,8 @@ namespace Examination_PRL.Forms.Staff
     {
         ExamResponseServices examResponseServices = new ExamResponseServices();
         QuestionServices questionServices = new QuestionServices();
+        QuestionTypeServices questionTypeServices = new QuestionTypeServices();
+        QuestionLevelService questionLevelService = new QuestionLevelService();
         public Report_Overview()
         {
             // var list= examResponseServices.GetAllExamResponse();
@@ -60,12 +62,12 @@ namespace Examination_PRL.Forms.Staff
             chartPie.Series.Add(pieSeries);
             chartPie.ShowLegend = true;
             chartPie.ShowTitle = true;
-            chartPie.Title = "Tỉ lệ sinh viên Đạt và Trượt";
+            chartPie.Title = "Tỉ lệ bài làm Đạt và Trượt\nTổng số: "+ list.Count;
             chartPie.ShowSmartLabels = true;
             pieSeries.DrawLinesToLabels = true;
             pieSeries.SyncLinesToLabelsColor = true;
-        
-            chartPie.Area.View.Palette = KnownPalette.Forest;
+
+            chartPie.Area.View.Palette = KnownPalette.Sun;
 
             //phổ điểm
             List<double> listPoint = new List<double>();
@@ -87,22 +89,76 @@ namespace Examination_PRL.Forms.Staff
             lineSeries.ValueMember = "Total";
             lineSeries.CategoryMember = "Point";
             lineSeries.DataSource = examPointTotals;
-          //  lineSeries.PointSize = new SizeF(0, 0);
-          
+            //  lineSeries.PointSize = new SizeF(0, 0);
+
             lineSeries.BorderWidth = 1;
             LinearAxis verticalAxis = new LinearAxis();
             verticalAxis.AxisType = Telerik.Charting.AxisType.Second;
-           // verticalAxis.LogarithmBase = 10;
-            
-            verticalAxis.Title = "Điểm";
-          
+            // verticalAxis.LogarithmBase = 10;
+
+            verticalAxis.Title = "Số lượng thí sinh";
+
             lineSeries.VerticalAxis = verticalAxis;
             verticalAxis.Minimum = 0;
-            verticalAxis.Maximum = 10;
+
             verticalAxis.LabelOffset = 0;
 
             chartColumn.Series.Add(lineSeries);
             chartColumn.Area.View.Palette = KnownPalette.Arctic;
+            chartColumn.ShowTitle = true;
+            chartColumn.Title = "Phổ điểm\nTổng số: "+ list.Count;
+
+            //question type
+            List<QuestionTypeTotal> questionTypeTotals = new List<QuestionTypeTotal>();
+            var listQnT = questionTypeServices.GetAll();
+
+
+            foreach (var item in listQnT)
+            {
+                var listType = questionServices.GetListQuestionWithType(item.Id);
+                questionTypeTotals.Add(new QuestionTypeTotal() { QuestionType = item.Name, Total = listType.Count });
+
+            }
+
+            DonutSeries pieTypeQ = new DonutSeries();
+            pieTypeQ.ShowLabels = true;
+            pieTypeQ.ValueMember = "Total";
+            pieTypeQ.LegendTitleMember = "QuestionType";
+            pieTypeQ.DataSource = questionTypeTotals;
+            chartQuestionType.Series.Add(pieTypeQ);
+            chartQuestionType.ShowLegend = true;
+            chartQuestionType.ShowTitle = true;
+            chartQuestionType.Title = "Tỉ lệ câu hỏi theo loại\nTổng số: " + listQnT.Count();
+
+            //question Level
+            var listQnL = questionLevelService.GetAll();
+            List<QuestionLevelTotal> questionLevelTotals = new List<QuestionLevelTotal>();
+
+            foreach(var item in listQnL)
+            {
+                var listLevel = questionServices.GetListQuestionWithLevel(item.Id);
+                questionLevelTotals.Add(new QuestionLevelTotal() { QuestionLevel = item.Name, Total = listLevel.Count });
+
+            }
+
+            DonutSeries pieLevelQ = new DonutSeries();
+            pieLevelQ.ShowLabels = true;
+            pieLevelQ.ValueMember = "Total";
+            pieLevelQ.LegendTitleMember = "QuestionLevel";
+            pieLevelQ.DataSource = questionLevelTotals;
+            chartLevelQuestion.Series.Add(pieLevelQ);
+            chartLevelQuestion.ShowLegend = true;
+            chartLevelQuestion.ShowTitle = true;
+            chartLevelQuestion.Title = "Tỉ lệ câu hỏi theo mức độ\nTổng số: "+listQnL.Count();
+            chartLevelQuestion.ShowSmartLabels = true;
+            pieLevelQ.DrawLinesToLabels = true;
+            pieLevelQ.SyncLinesToLabelsColor = true;    
+            pieLevelQ.ShowLabels = true;
+        
+            chartLevelQuestion.Area.View.Palette = KnownPalette.Ground;
+
+
+
 
 
 
@@ -122,6 +178,18 @@ namespace Examination_PRL.Forms.Staff
     public class ExamPointTotal
     {
         public string Point { get; set; }
+        public int Total { get; set; }
+    }
+
+    public class QuestionTypeTotal
+    {
+        public string QuestionType { get; set; }
+        public int Total { get; set; }
+    }
+
+    public class QuestionLevelTotal
+    {
+        public string QuestionLevel { get; set; }
         public int Total { get; set; }
     }
 
