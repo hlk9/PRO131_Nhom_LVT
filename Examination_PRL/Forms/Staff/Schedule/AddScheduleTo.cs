@@ -1,4 +1,5 @@
 ﻿using Examination_BUS.Services;
+using Examination_DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,12 +16,15 @@ namespace Examination_PRL.Forms.Staff.Schedule
 
         ClassroomServices classroomServices = new ClassroomServices();
         ParticipantService participantService = new ParticipantService();
-
+        ScheduleDetailServices scheduleDetailServices = new ScheduleDetailServices();
+        ScheduleServices scheduleServices = new ScheduleServices();
         string _idClassrom;
-        string _idSchedule;
+
         string _idParticipant;
-        public AddScheduleTo()
+        int _idSchedule;
+        public AddScheduleTo(int id)
         {
+            this._idSchedule = id;
             InitializeComponent();
             LoadData();
         }
@@ -94,6 +98,44 @@ namespace Examination_PRL.Forms.Staff.Schedule
                 _idParticipant = "";
                 lblCurrentParti.Text = "";
             }
+        }
+
+        private void btnAddClass_Click(object sender, EventArgs e)
+        {
+            var listPart = participantService.GetListInClass(_idClassrom);
+            int count = 0;
+            foreach (var item in listPart)
+            {
+                ExamScheduleDetail scheduleDetail = new ExamScheduleDetail()
+                {
+                    ParticipantId = item.Id,
+                    ExamScheduleId = _idSchedule
+                };
+                if(scheduleDetailServices.AddScheduleDetail(scheduleDetail) == true)
+                {
+                    count++;
+                }
+               
+            }
+            MessageBox.Show("Thêm thành công " + count + " sinh viên của lớp "+_idClassrom);
+        }
+
+        private void radButton1_Click(object sender, EventArgs e)
+        {
+            ExamScheduleDetail scheduleDetail = new ExamScheduleDetail()
+            {
+                ParticipantId = _idParticipant,
+                ExamScheduleId = _idSchedule
+            };
+            if (scheduleDetailServices.AddScheduleDetail(scheduleDetail)==true)
+            {
+                MessageBox.Show("Thêm thành công");
+            }
+            else
+            {
+                MessageBox.Show("Thêm thất bại");
+            }
+          
         }
     }
 }

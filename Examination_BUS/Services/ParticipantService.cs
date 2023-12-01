@@ -73,5 +73,10 @@ namespace Examination_BUS.Services
 
             return _respos.deleteStudents(student);
         }
+
+        public List<Participant> GetListInClass(string classID)
+        {
+            return this.getAllStudents().Where(x => x.ClassroomId==classID).ToList();
+        }
     }
 }

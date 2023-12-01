@@ -72,7 +72,7 @@ namespace Examination_PRL.Forms.Participant
             radViewScheduler.ThemeName = "MaterialTeal";
         }
 
-      
+
 
         public void LoadExamSchedule()
         {
@@ -103,7 +103,10 @@ namespace Examination_PRL.Forms.Participant
             listViewExam.ItemSpacing = 40;
             foreach (var item in listData)
             {
+                if (listViewExam.Items.Contains(item))
+                    continue;
                 listViewExam.Items.Add(item);
+
             }
             try
             {
@@ -179,9 +182,16 @@ namespace Examination_PRL.Forms.Participant
 
             radViewExam_Answers.Rows.Clear();
 
-            foreach (var item in _serviceExam.GetAnswer_ResponsesViewModels(userAccount.Id))
+           try
             {
-                radViewExam_Answers.Rows.Add(stt++, item.IdExam, item.NameExam, item.Score, item.Note);
+                foreach (var item in _serviceExam.GetAnswer_ResponsesViewModels(userAccount.Id))
+                {
+                    radViewExam_Answers.Rows.Add(stt++, item.IdExam, item.NameExam, item.Score, item.Note);
+                }
+            }
+            catch
+            {
+
             }
         }
 

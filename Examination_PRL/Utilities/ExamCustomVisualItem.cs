@@ -157,10 +157,31 @@ namespace Examination_PRL.Utilities
             {
                 MessageBox.Show("Bạn đã hết số lần thi lại cho bài thi này!","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 return;
-            }    
+            }
 
-            EnterExam enterExam = new EnterExam(this.Name,userAccount);
-            enterExam.ShowDialog();
+
+            if(dataItem.ExamStartTime > DateTime.Now)
+            {
+                MessageBox.Show("Bài thi chưa được mở!","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return;
+            }
+            if (dataItem.ExamEndTime < DateTime.Now)
+            {
+                MessageBox.Show("Bài thi đã hết hạn!","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return;
+            }
+
+
+          
+
+            if (MessageBox.Show("Xác nhận vào thi?","Thông báo",MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                EnterExam enterExam = new EnterExam(this.Name,userAccount);
+                enterExam.ShowDialog();
+            }
+            
+            //EnterExam enterExam = new EnterExam(this.Name,userAccount);
+            //enterExam.ShowDialog();
         }
 
         protected override void SynchronizeProperties()

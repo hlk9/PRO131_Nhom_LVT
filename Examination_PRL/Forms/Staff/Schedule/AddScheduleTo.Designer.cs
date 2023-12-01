@@ -279,6 +279,8 @@
             // 
             // radButton2
             // 
+            radButton2.Anchor = AnchorStyles.Bottom;
+            radButton2.BackColor = Color.LightCoral;
             radButton2.Location = new Point(3, 566);
             radButton2.Name = "radButton2";
             radButton2.Size = new Size(310, 36);
@@ -294,6 +296,7 @@
             radButton1.TabIndex = 7;
             radButton1.Text = "Thêm Thí sinh đang chọn vào đợt thi";
             radButton1.ThemeName = "MaterialTeal";
+            radButton1.Click += radButton1_Click;
             // 
             // radLabel9
             // 
@@ -358,6 +361,7 @@
             btnAddClass.TabIndex = 6;
             btnAddClass.Text = "Thêm lớp đang chọn vào đợt thi";
             btnAddClass.ThemeName = "MaterialTeal";
+            btnAddClass.Click += btnAddClass_Click;
             // 
             // radLabel6
             // 

@@ -19,6 +19,7 @@ namespace Examination_BUS.ViewModel
         public int? ExamRepeat { get; set; }
         public string ExamDetailCode { get; set; }
         public string ExamDes { get; set; }
+        public int ExamID { get; set; }
 
     }
 }

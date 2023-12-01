@@ -16,6 +16,7 @@ namespace Examination_PRL.Forms.Staff.Schedule
     {
         ScheduleServices scheduleServices = new ScheduleServices();
         ScheduleDetailServices scheduleDetailServices = new ScheduleDetailServices();
+        string _idSchedule;
         public ScheduleManagement()
         {
             InitializeComponent();
@@ -59,8 +60,29 @@ namespace Examination_PRL.Forms.Staff.Schedule
 
         private void btnViewDetail_Click(object sender, EventArgs e)
         {
-            AddScheduleTo addToClass = new AddScheduleTo();
-            addToClass.ShowDialog();
+           if(_idSchedule != null)
+            {
+                AddScheduleTo addToClass = new AddScheduleTo(int.Parse(_idSchedule));
+                addToClass.ShowDialog();
+           
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn lịch thi");
+            }
+        }
+
+        private void scheduleGridView_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
+        {
+            try
+            {
+                _idSchedule = scheduleGridView.Rows[e.RowIndex].Cells[11].Value.ToString();
+            }
+            catch (Exception)
+            {
+
+                _idSchedule = null;
+            }
         }
     }
 }

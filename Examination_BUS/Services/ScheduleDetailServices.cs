@@ -88,8 +88,22 @@ namespace Examination_BUS.Services
                            ParticipantId = scheduleDetail.ParticipantId,
                            ExamRepeat = examDetail.ReTestNumber,
                            ExamDetailCode = examDetail.ExamDetailCode,
+                           ExamID = exam.Id
                        }).ToList();
-            return data;
+
+
+            return FilterAndRandomize(data);
+        }
+
+        static List<ScheduleWithExamInforViewModel> FilterAndRandomize(List<ScheduleWithExamInforViewModel> list)
+        {
+            // Lọc danh sách và chọn ngẫu nhiên giữa các phần tử trùng nhau
+            Random random = new Random();
+            List<ScheduleWithExamInforViewModel> filteredList = list.GroupBy(x => x.ExamID)
+                                       .Select(g => g.OrderBy(y => random.Next()).First())
+                                       .ToList();
+
+            return filteredList;
         }
 
     }
