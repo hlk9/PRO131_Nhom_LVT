@@ -249,14 +249,10 @@ namespace Examination_PRL.Forms.Staff
             reportPage.Image = reportIcon;
             reportPage.ToolTipText = "Báo cáo";
 
-            RadPageViewPage reportByStudentPage = new RadPageViewPage("Báo cáo theo thí sinh");
-            RadPageViewPage reportBySubjectPage = new RadPageViewPage("Báo cáo theo môn");
-            RadPageViewPage reportByExamPage = new RadPageViewPage("Báo cáo theo đề thi");
-            RadPageViewPage reportByRoomPage = new RadPageViewPage("Báo cáo theo phòng thi");
-            reportPage.SubPages.Add(reportByStudentPage);
-            reportPage.SubPages.Add(reportBySubjectPage);
-            reportPage.SubPages.Add(reportByExamPage);
-            reportPage.SubPages.Add(reportByRoomPage);
+            RadPageViewPage reportByScorePage = new RadPageViewPage("Phổ điểm");
+            reportPage.SubPages.Add(reportByScorePage);
+
+            RadPageViewPage createAccountParticipantPage = new RadPageViewPage("Quản lý tài quản");
 
             pvDashboard.Pages.Add(homePage);
             pvDashboard.Pages.Add(schedulePage);
@@ -270,6 +266,7 @@ namespace Examination_PRL.Forms.Staff
             pvDashboard.Pages.Add(resultPage);
             pvDashboard.Pages.Add(reportPage);
             pvDashboard.Pages.Add(questionPage);
+            pvDashboard.Pages.Add(createAccountParticipantPage);
 
             pvDashboard.AutoScroll = true;
             CollapseAllSubPages(pvDashboard);
