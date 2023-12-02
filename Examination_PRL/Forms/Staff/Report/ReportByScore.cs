@@ -68,7 +68,6 @@ namespace Examination_PRL.Forms
             {
                 //var list = _serExamResponses.GetExamResponseByExamDetailId(x.Id);
                 //examResponses.AddRange(list);
-
                 examResponses.AddRange(_serExamResponses.GetExamResponseByExamDetailId(x.Id));
             }
 
@@ -181,7 +180,7 @@ namespace Examination_PRL.Forms
             chartColumnScore.Area.View.Palette = KnownPalette.Arctic;
             chartColumnScore.ShowTitle = true;
             chartColumnScore.Title = "Phổ điểm\nTổng số: " + examResponses.Count;
-            MessageBox.Show("Hi");
+
         }
 
         private void radGridViewExam_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
