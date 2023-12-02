@@ -1,5 +1,6 @@
 ﻿using Examination_PRL.Forms.Staff.ClassRoom;
 using Examination_PRL.Forms.Staff.Exam;
+using Examination_PRL.Forms.Staff.FullStaff;
 using Examination_PRL.Forms.Staff.QuestionForm;
 using Examination_PRL.Forms.Staff.Schedule;
 using System;
@@ -263,7 +264,12 @@ namespace Examination_PRL.Forms.Staff
             reportPage.SubPages.Add(reportByScorePage);
 
             RadPageViewPage createAccountParticipantPage = new RadPageViewPage("Quản lý tài quản");
-
+            CrudTK crudTK = new CrudTK();
+            crudTK.TopLevel = false;
+            createAccountParticipantPage.Controls.Add(crudTK);
+            crudTK.Show();
+            crudTK.Dock = DockStyle.Fill;
+            crudTK.Name = "report_Overview";
             pvDashboard.Pages.Add(homePage);
             pvDashboard.Pages.Add(schedulePage);
             pvDashboard.Pages.Add(studentPage);

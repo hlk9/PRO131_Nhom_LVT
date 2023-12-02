@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Examination_BUS.Services
 {
@@ -15,13 +16,25 @@ namespace Examination_BUS.Services
         {
             accountRepository = new AccountRepository();
         }
-        public bool AddAccount(Account account)
+        public bool AddAccount(string id, string name, string passWord)
         {
+            Account account = new Account
+            {
+                Id = id,
+                UserName = name,
+                Password = passWord
+            };
             return accountRepository.Add(account);
         }
 
-        public bool UpdateAccount(Account account)
+        public bool UpdateAccount(string id, string name, string passWord)
         {
+            Account account = new Account
+            {
+                Id = id,
+                UserName = name,
+                Password = passWord
+            };
             return accountRepository.Update(account);
         }
 

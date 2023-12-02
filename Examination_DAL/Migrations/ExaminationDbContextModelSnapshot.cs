@@ -123,7 +123,7 @@ namespace Examination_DAL.Migrations
                         {
                             Id = 1,
                             Content = "4",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3118),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2109),
                             CreatedBy = "admin",
                             IsCorrect = true,
                             QuestionId = 1,
@@ -133,7 +133,7 @@ namespace Examination_DAL.Migrations
                         {
                             Id = 2,
                             Content = "5",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3120),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2112),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 1,
@@ -143,7 +143,7 @@ namespace Examination_DAL.Migrations
                         {
                             Id = 3,
                             Content = "6",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3122),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2116),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 1,
@@ -153,7 +153,7 @@ namespace Examination_DAL.Migrations
                         {
                             Id = 4,
                             Content = "7",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3123),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2117),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 1,
@@ -163,7 +163,7 @@ namespace Examination_DAL.Migrations
                         {
                             Id = 5,
                             Content = "5",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3127),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2119),
                             CreatedBy = "admin",
                             IsCorrect = true,
                             QuestionId = 2,
@@ -173,7 +173,7 @@ namespace Examination_DAL.Migrations
                         {
                             Id = 6,
                             Content = "6",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3128),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2123),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 2,
@@ -183,7 +183,7 @@ namespace Examination_DAL.Migrations
                         {
                             Id = 7,
                             Content = "7",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3130),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2126),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 2,
@@ -193,7 +193,7 @@ namespace Examination_DAL.Migrations
                         {
                             Id = 8,
                             Content = "8",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3135),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2132),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 2,
@@ -203,103 +203,103 @@ namespace Examination_DAL.Migrations
                         {
                             Id = 9,
                             Content = "6",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3137),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2134),
                             CreatedBy = "admin",
                             IsCorrect = true,
                             QuestionId = 3,
                             Status = true,
-                            UpdatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3137),
+                            UpdatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2134),
                             UpdatedBy = "admin"
                         },
                         new
                         {
                             Id = 10,
                             Content = "7",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3139),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2135),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 3,
                             Status = true,
-                            UpdatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3139),
+                            UpdatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2136),
                             UpdatedBy = "admin"
                         },
                         new
                         {
                             Id = 11,
                             Content = "8",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3141),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2137),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 3,
                             Status = true,
-                            UpdatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3141),
+                            UpdatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2138),
                             UpdatedBy = "admin"
                         },
                         new
                         {
                             Id = 12,
                             Content = "9",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3143),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2139),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 3,
                             Status = true,
-                            UpdatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3143),
+                            UpdatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2140),
                             UpdatedBy = "admin"
                         },
                         new
                         {
                             Id = 13,
                             Content = "7",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3144),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2141),
                             CreatedBy = "admin",
                             IsCorrect = true,
                             QuestionId = 4,
                             Status = true,
-                            UpdatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3145),
+                            UpdatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2142),
                             UpdatedBy = "admin"
                         },
                         new
                         {
                             Id = 14,
                             Content = "8",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3146),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2143),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 4,
                             Status = true,
-                            UpdatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3147),
+                            UpdatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2144),
                             UpdatedBy = "admin"
                         },
                         new
                         {
                             Id = 15,
                             Content = "9",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3148),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2145),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 4,
                             Status = true,
-                            UpdatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3149),
+                            UpdatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2145),
                             UpdatedBy = "admin"
                         },
                         new
                         {
                             Id = 16,
                             Content = "10",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3150),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2147),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 4,
                             Status = true,
-                            UpdatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3151),
+                            UpdatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2147),
                             UpdatedBy = "admin"
                         },
                         new
                         {
                             Id = 17,
-                            Content = "10",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3152),
+                            Content = "8",
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2152),
                             CreatedBy = "admin",
                             IsCorrect = true,
                             QuestionId = 5,
@@ -308,10 +308,10 @@ namespace Examination_DAL.Migrations
                         new
                         {
                             Id = 18,
-                            Content = "11",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3254),
+                            Content = "Tám",
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2154),
                             CreatedBy = "admin",
-                            IsCorrect = false,
+                            IsCorrect = true,
                             QuestionId = 5,
                             Status = true
                         },
@@ -319,7 +319,7 @@ namespace Examination_DAL.Migrations
                         {
                             Id = 19,
                             Content = "12",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3256),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2155),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 5,
@@ -329,7 +329,7 @@ namespace Examination_DAL.Migrations
                         {
                             Id = 20,
                             Content = "13",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3257),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2156),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 5,
@@ -339,55 +339,55 @@ namespace Examination_DAL.Migrations
                         {
                             Id = 21,
                             Content = "13",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3258),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2157),
                             CreatedBy = "admin",
                             IsCorrect = true,
                             QuestionId = 6,
                             Status = true,
-                            UpdatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3259),
+                            UpdatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2158),
                             UpdatedBy = "admin"
                         },
                         new
                         {
                             Id = 22,
                             Content = "14",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3260),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2159),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 6,
                             Status = true,
-                            UpdatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3261),
+                            UpdatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2160),
                             UpdatedBy = "admin"
                         },
                         new
                         {
                             Id = 23,
                             Content = "15",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3262),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2161),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 6,
                             Status = true,
-                            UpdatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3262),
+                            UpdatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2162),
                             UpdatedBy = "admin"
                         },
                         new
                         {
                             Id = 24,
                             Content = "16",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3264),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2166),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 6,
                             Status = true,
-                            UpdatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3265),
+                            UpdatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2167),
                             UpdatedBy = "admin"
                         },
                         new
                         {
                             Id = 25,
-                            Content = "17",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3266),
+                            Content = "10",
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2168),
                             CreatedBy = "admin",
                             IsCorrect = true,
                             QuestionId = 7,
@@ -396,10 +396,10 @@ namespace Examination_DAL.Migrations
                         new
                         {
                             Id = 26,
-                            Content = "18",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3268),
+                            Content = "Mười",
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2169),
                             CreatedBy = "admin",
-                            IsCorrect = false,
+                            IsCorrect = true,
                             QuestionId = 7,
                             Status = true
                         },
@@ -407,7 +407,7 @@ namespace Examination_DAL.Migrations
                         {
                             Id = 27,
                             Content = "19",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3269),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2174),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 7,
@@ -416,10 +416,10 @@ namespace Examination_DAL.Migrations
                         new
                         {
                             Id = 28,
-                            Content = "20",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3270),
+                            Content = "Ten",
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2176),
                             CreatedBy = "admin",
-                            IsCorrect = false,
+                            IsCorrect = true,
                             QuestionId = 7,
                             Status = true
                         },
@@ -427,55 +427,55 @@ namespace Examination_DAL.Migrations
                         {
                             Id = 29,
                             Content = "21",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3272),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2177),
                             CreatedBy = "admin",
                             IsCorrect = true,
                             QuestionId = 8,
                             Status = true,
-                            UpdatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3272),
+                            UpdatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2177),
                             UpdatedBy = "admin"
                         },
                         new
                         {
                             Id = 30,
                             Content = "22",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3274),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2179),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 8,
                             Status = true,
-                            UpdatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3274),
+                            UpdatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2179),
                             UpdatedBy = "admin"
                         },
                         new
                         {
                             Id = 31,
                             Content = "23",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3275),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2180),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 8,
                             Status = true,
-                            UpdatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3276),
+                            UpdatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2181),
                             UpdatedBy = "admin"
                         },
                         new
                         {
                             Id = 32,
                             Content = "24",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3277),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2182),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 8,
                             Status = true,
-                            UpdatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3278),
+                            UpdatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2183),
                             UpdatedBy = "admin"
                         },
                         new
                         {
                             Id = 33,
                             Content = "25",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3279),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2185),
                             CreatedBy = "admin",
                             IsCorrect = true,
                             QuestionId = 9,
@@ -485,7 +485,7 @@ namespace Examination_DAL.Migrations
                         {
                             Id = 34,
                             Content = "26",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3283),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2186),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 9,
@@ -495,7 +495,7 @@ namespace Examination_DAL.Migrations
                         {
                             Id = 35,
                             Content = "27",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3284),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2187),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 9,
@@ -505,7 +505,7 @@ namespace Examination_DAL.Migrations
                         {
                             Id = 36,
                             Content = "28",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3286),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2189),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 9,
@@ -514,49 +514,49 @@ namespace Examination_DAL.Migrations
                         new
                         {
                             Id = 37,
-                            Content = "29",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3287),
+                            Content = "XX",
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2194),
                             CreatedBy = "admin",
                             IsCorrect = true,
                             QuestionId = 10,
                             Status = true,
-                            UpdatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3287),
+                            UpdatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2195),
                             UpdatedBy = "admin"
                         },
                         new
                         {
                             Id = 38,
                             Content = "30",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3289),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2196),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 10,
                             Status = true,
-                            UpdatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3289),
+                            UpdatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2196),
                             UpdatedBy = "admin"
                         },
                         new
                         {
                             Id = 39,
                             Content = "31",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3291),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2198),
                             CreatedBy = "admin",
                             IsCorrect = false,
                             QuestionId = 10,
                             Status = true,
-                            UpdatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3291),
+                            UpdatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2200),
                             UpdatedBy = "admin"
                         },
                         new
                         {
                             Id = 40,
-                            Content = "32",
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3293),
+                            Content = "20",
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2202),
                             CreatedBy = "admin",
-                            IsCorrect = false,
+                            IsCorrect = true,
                             QuestionId = 10,
                             Status = true,
-                            UpdatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3293),
+                            UpdatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2202),
                             UpdatedBy = "admin"
                         });
                 });
@@ -572,7 +572,7 @@ namespace Examination_DAL.Migrations
                     b.Property<DateTime?>("AnswerAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("AnswerId")
+                    b.Property<int?>("AnswerId")
                         .HasColumnType("int");
 
                     b.Property<int>("ExamResponseId")
@@ -598,7 +598,7 @@ namespace Examination_DAL.Migrations
                         new
                         {
                             Id = 1,
-                            AnswerAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3346),
+                            AnswerAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2309),
                             AnswerId = 1,
                             ExamResponseId = 1,
                             IsCorrect = true,
@@ -607,7 +607,7 @@ namespace Examination_DAL.Migrations
                         new
                         {
                             Id = 2,
-                            AnswerAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3347),
+                            AnswerAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2311),
                             AnswerId = 5,
                             ExamResponseId = 1,
                             IsCorrect = true,
@@ -616,7 +616,7 @@ namespace Examination_DAL.Migrations
                         new
                         {
                             Id = 3,
-                            AnswerAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3348),
+                            AnswerAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2312),
                             AnswerId = 9,
                             ExamResponseId = 1,
                             IsCorrect = true,
@@ -625,7 +625,7 @@ namespace Examination_DAL.Migrations
                         new
                         {
                             Id = 4,
-                            AnswerAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3349),
+                            AnswerAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2313),
                             AnswerId = 13,
                             ExamResponseId = 1,
                             IsCorrect = true,
@@ -634,7 +634,7 @@ namespace Examination_DAL.Migrations
                         new
                         {
                             Id = 5,
-                            AnswerAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3350),
+                            AnswerAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2314),
                             AnswerId = 17,
                             ExamResponseId = 1,
                             IsCorrect = true,
@@ -643,7 +643,7 @@ namespace Examination_DAL.Migrations
                         new
                         {
                             Id = 6,
-                            AnswerAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3351),
+                            AnswerAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2316),
                             AnswerId = 21,
                             ExamResponseId = 1,
                             IsCorrect = false,
@@ -652,7 +652,7 @@ namespace Examination_DAL.Migrations
                         new
                         {
                             Id = 7,
-                            AnswerAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3353),
+                            AnswerAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2317),
                             AnswerId = 25,
                             ExamResponseId = 1,
                             IsCorrect = false,
@@ -661,7 +661,7 @@ namespace Examination_DAL.Migrations
                         new
                         {
                             Id = 8,
-                            AnswerAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3354),
+                            AnswerAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2318),
                             AnswerId = 29,
                             ExamResponseId = 1,
                             IsCorrect = false,
@@ -670,7 +670,7 @@ namespace Examination_DAL.Migrations
                         new
                         {
                             Id = 9,
-                            AnswerAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3355),
+                            AnswerAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2319),
                             AnswerId = 33,
                             ExamResponseId = 1,
                             IsCorrect = false,
@@ -679,7 +679,7 @@ namespace Examination_DAL.Migrations
                         new
                         {
                             Id = 10,
-                            AnswerAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3356),
+                            AnswerAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2320),
                             AnswerId = 37,
                             ExamResponseId = 1,
                             IsCorrect = false,
@@ -747,7 +747,6 @@ namespace Examination_DAL.Migrations
                         .HasColumnType("NVARCHAR(255)");
 
                     b.Property<string>("SubjectId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(255)");
 
                     b.HasKey("Id");
@@ -942,6 +941,13 @@ namespace Examination_DAL.Migrations
                             ExamCode = "2028_Com1071",
                             Name = "Đề thi môn Tin học",
                             SubjectId = "COM1071"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            ExamCode = "2028_Math_03",
+                            Name = "Đề thi môn Toán SIEEU nâng cao",
+                            SubjectId = "MATH-03"
                         });
                 });
 
@@ -975,8 +981,8 @@ namespace Examination_DAL.Migrations
                     b.Property<int>("ExamId")
                         .HasColumnType("int");
 
-                    b.Property<int>("MaxiumMark")
-                        .HasColumnType("int");
+                    b.Property<double>("MaxiumMark")
+                        .HasColumnType("float");
 
                     b.Property<double>("PassMark")
                         .HasColumnType("float");
@@ -1011,13 +1017,73 @@ namespace Examination_DAL.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3033),
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1751),
                             CreatedBy = "admin",
                             Description = "Ma de 01",
                             Duration = 90,
                             ExamDetailCode = "001",
                             ExamId = 1,
-                            MaxiumMark = 10,
+                            MaxiumMark = 10.0,
+                            PassMark = 5.0,
+                            ReTestNumber = 1,
+                            Status = true,
+                            TotalQuestion = 10
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1780),
+                            CreatedBy = "admin",
+                            Description = "Ma de 02 - MATH 03",
+                            Duration = 90,
+                            ExamDetailCode = "MATH-03_002",
+                            ExamId = 27,
+                            MaxiumMark = 10.0,
+                            PassMark = 5.0,
+                            ReTestNumber = 1,
+                            Status = true,
+                            TotalQuestion = 10
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1784),
+                            CreatedBy = "admin",
+                            Description = "Ma de 02",
+                            Duration = 90,
+                            ExamDetailCode = "002",
+                            ExamId = 2,
+                            MaxiumMark = 10.0,
+                            PassMark = 5.0,
+                            ReTestNumber = 1,
+                            Status = true,
+                            TotalQuestion = 10
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1786),
+                            CreatedBy = "admin",
+                            Description = "Ma de 03",
+                            Duration = 90,
+                            ExamDetailCode = "003",
+                            ExamId = 3,
+                            MaxiumMark = 10.0,
+                            PassMark = 5.0,
+                            ReTestNumber = 1,
+                            Status = true,
+                            TotalQuestion = 10
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreatedAt = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1792),
+                            CreatedBy = "admin",
+                            Description = "Ma de 04",
+                            Duration = 90,
+                            ExamDetailCode = "004",
+                            ExamId = 4,
+                            MaxiumMark = 10.0,
                             PassMark = 5.0,
                             ReTestNumber = 1,
                             Status = true,
@@ -1042,12 +1108,14 @@ namespace Examination_DAL.Migrations
                         .HasColumnType("int")
                         .HasColumnOrder(3);
 
+                    b.Property<double?>("Score")
+                        .HasColumnType("float");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ExamDetailId");
 
-                    b.HasIndex("QuestionId")
-                        .IsUnique();
+                    b.HasIndex("QuestionId");
 
                     b.ToTable("ExamQuestions");
 
@@ -1111,6 +1179,246 @@ namespace Examination_DAL.Migrations
                             Id = 10,
                             ExamDetailId = 1,
                             QuestionId = 10
+                        },
+                        new
+                        {
+                            Id = 11,
+                            ExamDetailId = 2,
+                            QuestionId = 11
+                        },
+                        new
+                        {
+                            Id = 12,
+                            ExamDetailId = 2,
+                            QuestionId = 12
+                        },
+                        new
+                        {
+                            Id = 13,
+                            ExamDetailId = 2,
+                            QuestionId = 13
+                        },
+                        new
+                        {
+                            Id = 14,
+                            ExamDetailId = 2,
+                            QuestionId = 14
+                        },
+                        new
+                        {
+                            Id = 15,
+                            ExamDetailId = 2,
+                            QuestionId = 15
+                        },
+                        new
+                        {
+                            Id = 16,
+                            ExamDetailId = 2,
+                            QuestionId = 16
+                        },
+                        new
+                        {
+                            Id = 17,
+                            ExamDetailId = 2,
+                            QuestionId = 17
+                        },
+                        new
+                        {
+                            Id = 18,
+                            ExamDetailId = 2,
+                            QuestionId = 18
+                        },
+                        new
+                        {
+                            Id = 19,
+                            ExamDetailId = 2,
+                            QuestionId = 19
+                        },
+                        new
+                        {
+                            Id = 20,
+                            ExamDetailId = 2,
+                            QuestionId = 20
+                        },
+                        new
+                        {
+                            Id = 21,
+                            ExamDetailId = 3,
+                            QuestionId = 1
+                        },
+                        new
+                        {
+                            Id = 22,
+                            ExamDetailId = 3,
+                            QuestionId = 2
+                        },
+                        new
+                        {
+                            Id = 23,
+                            ExamDetailId = 3,
+                            QuestionId = 3
+                        },
+                        new
+                        {
+                            Id = 24,
+                            ExamDetailId = 3,
+                            QuestionId = 4
+                        },
+                        new
+                        {
+                            Id = 25,
+                            ExamDetailId = 3,
+                            QuestionId = 5
+                        },
+                        new
+                        {
+                            Id = 26,
+                            ExamDetailId = 3,
+                            QuestionId = 6
+                        },
+                        new
+                        {
+                            Id = 27,
+                            ExamDetailId = 3,
+                            QuestionId = 7
+                        },
+                        new
+                        {
+                            Id = 28,
+                            ExamDetailId = 3,
+                            QuestionId = 8
+                        },
+                        new
+                        {
+                            Id = 29,
+                            ExamDetailId = 3,
+                            QuestionId = 9
+                        },
+                        new
+                        {
+                            Id = 30,
+                            ExamDetailId = 3,
+                            QuestionId = 10
+                        },
+                        new
+                        {
+                            Id = 31,
+                            ExamDetailId = 4,
+                            QuestionId = 1
+                        },
+                        new
+                        {
+                            Id = 32,
+                            ExamDetailId = 4,
+                            QuestionId = 2
+                        },
+                        new
+                        {
+                            Id = 33,
+                            ExamDetailId = 4,
+                            QuestionId = 3
+                        },
+                        new
+                        {
+                            Id = 34,
+                            ExamDetailId = 4,
+                            QuestionId = 4
+                        },
+                        new
+                        {
+                            Id = 35,
+                            ExamDetailId = 4,
+                            QuestionId = 5
+                        },
+                        new
+                        {
+                            Id = 36,
+                            ExamDetailId = 4,
+                            QuestionId = 6
+                        },
+                        new
+                        {
+                            Id = 37,
+                            ExamDetailId = 4,
+                            QuestionId = 7
+                        },
+                        new
+                        {
+                            Id = 38,
+                            ExamDetailId = 4,
+                            QuestionId = 8
+                        },
+                        new
+                        {
+                            Id = 39,
+                            ExamDetailId = 4,
+                            QuestionId = 9
+                        },
+                        new
+                        {
+                            Id = 40,
+                            ExamDetailId = 4,
+                            QuestionId = 10
+                        },
+                        new
+                        {
+                            Id = 41,
+                            ExamDetailId = 5,
+                            QuestionId = 1
+                        },
+                        new
+                        {
+                            Id = 42,
+                            ExamDetailId = 5,
+                            QuestionId = 2
+                        },
+                        new
+                        {
+                            Id = 43,
+                            ExamDetailId = 5,
+                            QuestionId = 3
+                        },
+                        new
+                        {
+                            Id = 44,
+                            ExamDetailId = 5,
+                            QuestionId = 4
+                        },
+                        new
+                        {
+                            Id = 45,
+                            ExamDetailId = 5,
+                            QuestionId = 5
+                        },
+                        new
+                        {
+                            Id = 46,
+                            ExamDetailId = 5,
+                            QuestionId = 6
+                        },
+                        new
+                        {
+                            Id = 47,
+                            ExamDetailId = 5,
+                            QuestionId = 7
+                        },
+                        new
+                        {
+                            Id = 48,
+                            ExamDetailId = 5,
+                            QuestionId = 8
+                        },
+                        new
+                        {
+                            Id = 49,
+                            ExamDetailId = 5,
+                            QuestionId = 9
+                        },
+                        new
+                        {
+                            Id = 50,
+                            ExamDetailId = 5,
+                            QuestionId = 10
                         });
                 });
 
@@ -1165,7 +1473,6 @@ namespace Examination_DAL.Migrations
                         .HasColumnType("tinyint");
 
                     b.Property<string>("SubjectId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(255)");
 
                     b.Property<DateTime>("SubmitTime")
@@ -1192,7 +1499,7 @@ namespace Examination_DAL.Migrations
                             IsPassed = false,
                             ParticipantId = "chiupp",
                             SubjectId = "MATH-01",
-                            SubmitTime = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3331)
+                            SubmitTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2291)
                         });
                 });
 
@@ -1272,6 +1579,9 @@ namespace Examination_DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("ClassRoomId")
+                        .HasColumnType("nvarchar(255)");
+
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(255)");
 
@@ -1286,7 +1596,6 @@ namespace Examination_DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ExamRoomId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Name")
@@ -1305,6 +1614,8 @@ namespace Examination_DAL.Migrations
                         .HasColumnType("NVARCHAR(255)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ClassRoomId");
 
                     b.HasIndex("CreatedBy");
 
@@ -1367,6 +1678,44 @@ namespace Examination_DAL.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Examination_DAL.Models.Feedback", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("NVARCHAR(1000)");
+
+                    b.Property<string>("IdParticipant")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("NVARCHAR(255)");
+
+                    b.Property<bool?>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("SubmitTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("NVARCHAR(255)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Feedback");
+                });
+
             modelBuilder.Entity("Examination_DAL.Models.Participant", b =>
                 {
                     b.Property<string>("Id")
@@ -1375,14 +1724,13 @@ namespace Examination_DAL.Migrations
                         .HasColumnOrder(1);
 
                     b.Property<string>("AccountId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Address")
                         .HasMaxLength(255)
                         .HasColumnType("NVARCHAR(255)");
 
                     b.Property<string>("ClassroomId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(255)");
 
                     b.Property<DateTime>("DateOfBirth")
@@ -1409,6 +1757,8 @@ namespace Examination_DAL.Migrations
                         .HasColumnType("tinyint");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AccountId");
 
                     b.HasIndex("ClassroomId");
 
@@ -1551,8 +1901,8 @@ namespace Examination_DAL.Migrations
                             Id = 1,
                             Content = "2 + 2 = ?",
                             CreatedBy = "admin",
-                            CreatedTime = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3086),
-                            Point = 1.0,
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1936),
+                            Point = 0.25,
                             QuestionLevelId = (byte)1,
                             QuestionTypeId = (byte)1,
                             Status = true,
@@ -1563,8 +1913,8 @@ namespace Examination_DAL.Migrations
                             Id = 2,
                             Content = "2 + 3 = ?",
                             CreatedBy = "admin",
-                            CreatedTime = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3089),
-                            Point = 1.0,
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1939),
+                            Point = 0.25,
                             QuestionLevelId = (byte)1,
                             QuestionTypeId = (byte)1,
                             Status = true,
@@ -1575,8 +1925,8 @@ namespace Examination_DAL.Migrations
                             Id = 3,
                             Content = "2 + 4 = ?",
                             CreatedBy = "admin",
-                            CreatedTime = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3090),
-                            Point = 1.0,
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1942),
+                            Point = 0.25,
                             QuestionLevelId = (byte)1,
                             QuestionTypeId = (byte)1,
                             Status = true,
@@ -1587,8 +1937,8 @@ namespace Examination_DAL.Migrations
                             Id = 4,
                             Content = "2 + 5 = ?",
                             CreatedBy = "admin",
-                            CreatedTime = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3092),
-                            Point = 1.0,
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1944),
+                            Point = 0.25,
                             QuestionLevelId = (byte)1,
                             QuestionTypeId = (byte)1,
                             Status = true,
@@ -1599,8 +1949,8 @@ namespace Examination_DAL.Migrations
                             Id = 5,
                             Content = "2 + 6 = ?",
                             CreatedBy = "admin",
-                            CreatedTime = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3094),
-                            Point = 1.0,
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1947),
+                            Point = 0.75,
                             QuestionLevelId = (byte)3,
                             QuestionTypeId = (byte)2,
                             Status = true,
@@ -1611,8 +1961,8 @@ namespace Examination_DAL.Migrations
                             Id = 6,
                             Content = "2 + 7 = ?",
                             CreatedBy = "admin",
-                            CreatedTime = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3096),
-                            Point = 1.0,
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1952),
+                            Point = 0.25,
                             QuestionLevelId = (byte)1,
                             QuestionTypeId = (byte)3,
                             Status = true,
@@ -1623,8 +1973,8 @@ namespace Examination_DAL.Migrations
                             Id = 7,
                             Content = "2 + 8 = ?",
                             CreatedBy = "admin",
-                            CreatedTime = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3097),
-                            Point = 1.0,
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1954),
+                            Point = 0.5,
                             QuestionLevelId = (byte)2,
                             QuestionTypeId = (byte)2,
                             Status = true,
@@ -1635,8 +1985,8 @@ namespace Examination_DAL.Migrations
                             Id = 8,
                             Content = "2 + 9 = ?",
                             CreatedBy = "admin",
-                            CreatedTime = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3099),
-                            Point = 1.0,
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1956),
+                            Point = 0.75,
                             QuestionLevelId = (byte)3,
                             QuestionTypeId = (byte)3,
                             Status = true,
@@ -1647,8 +1997,8 @@ namespace Examination_DAL.Migrations
                             Id = 9,
                             Content = "2 + 10 = ?",
                             CreatedBy = "admin",
-                            CreatedTime = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3101),
-                            Point = 1.0,
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1960),
+                            Point = 0.5,
                             QuestionLevelId = (byte)2,
                             QuestionTypeId = (byte)3,
                             Status = true,
@@ -1659,14 +2009,268 @@ namespace Examination_DAL.Migrations
                             Id = 10,
                             Content = "10 + 10 = ?",
                             CreatedBy = "admin",
-                            CreatedTime = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3102),
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1962),
                             ModifiedBy = "admin",
-                            ModifiedTime = new DateTime(2023, 11, 12, 12, 11, 8, 868, DateTimeKind.Local).AddTicks(3103),
-                            Point = 1.0,
+                            ModifiedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1963),
+                            Point = 0.75,
                             QuestionLevelId = (byte)3,
                             QuestionTypeId = (byte)2,
                             Status = true,
                             SubjectId = "MATH-01"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Content = "2 + 2 = ?",
+                            CreatedBy = "admin",
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1972),
+                            ModifiedBy = "admin",
+                            ModifiedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1973),
+                            Point = 0.25,
+                            QuestionLevelId = (byte)1,
+                            QuestionTypeId = (byte)1,
+                            Status = true,
+                            SubjectId = "MATH-02"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Content = "2 + 3 = ?",
+                            CreatedBy = "admin",
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1975),
+                            ModifiedBy = "admin",
+                            ModifiedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1975),
+                            Point = 0.25,
+                            QuestionLevelId = (byte)1,
+                            QuestionTypeId = (byte)1,
+                            Status = true,
+                            SubjectId = "MATH-02"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Content = "2 + 4 = ?",
+                            CreatedBy = "admin",
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2026),
+                            ModifiedBy = "admin",
+                            ModifiedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2027),
+                            Point = 0.25,
+                            QuestionLevelId = (byte)1,
+                            QuestionTypeId = (byte)1,
+                            Status = true,
+                            SubjectId = "MATH-02"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Content = "2 + 5 = ?",
+                            CreatedBy = "admin",
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2028),
+                            ModifiedBy = "admin",
+                            ModifiedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2031),
+                            Point = 0.25,
+                            QuestionLevelId = (byte)1,
+                            QuestionTypeId = (byte)1,
+                            Status = true,
+                            SubjectId = "MATH-02"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Content = "2 + 6 = ?",
+                            CreatedBy = "admin",
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2033),
+                            ModifiedBy = "admin",
+                            ModifiedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2033),
+                            Point = 0.25,
+                            QuestionLevelId = (byte)1,
+                            QuestionTypeId = (byte)1,
+                            Status = true,
+                            SubjectId = "MATH-02"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Content = "2 + 7 = ?",
+                            CreatedBy = "admin",
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2037),
+                            ModifiedBy = "admin",
+                            ModifiedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2038),
+                            Point = 0.25,
+                            QuestionLevelId = (byte)1,
+                            QuestionTypeId = (byte)1,
+                            Status = true,
+                            SubjectId = "MATH-02"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Content = "2 + 8 = ?",
+                            CreatedBy = "admin",
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2039),
+                            Point = 0.25,
+                            QuestionLevelId = (byte)1,
+                            QuestionTypeId = (byte)1,
+                            Status = true,
+                            SubjectId = "MATH-02"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Content = "2 + 9 = ?",
+                            CreatedBy = "admin",
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2047),
+                            Point = 0.25,
+                            QuestionLevelId = (byte)1,
+                            QuestionTypeId = (byte)1,
+                            Status = true,
+                            SubjectId = "MATH-02"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Content = "2 + 10 = ?",
+                            CreatedBy = "admin",
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2051),
+                            Point = 0.25,
+                            QuestionLevelId = (byte)1,
+                            QuestionTypeId = (byte)1,
+                            Status = true,
+                            SubjectId = "MATH-02"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Content = "10 + 10 = ?",
+                            CreatedBy = "admin",
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2053),
+                            Point = 0.25,
+                            QuestionLevelId = (byte)1,
+                            QuestionTypeId = (byte)2,
+                            Status = true,
+                            SubjectId = "MATH-02"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Content = "2 + 2 = ?",
+                            CreatedBy = "admin",
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2058),
+                            Point = 0.25,
+                            QuestionLevelId = (byte)1,
+                            QuestionTypeId = (byte)1,
+                            Status = true,
+                            SubjectId = "MATH-03"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Content = "2 + 3 = ?",
+                            CreatedBy = "admin",
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2060),
+                            Point = 0.25,
+                            QuestionLevelId = (byte)1,
+                            QuestionTypeId = (byte)1,
+                            Status = true,
+                            SubjectId = "MATH-03"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Content = "2 + 4 = ?",
+                            CreatedBy = "admin",
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2062),
+                            ModifiedBy = "admin",
+                            ModifiedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2062),
+                            Point = 0.25,
+                            QuestionLevelId = (byte)1,
+                            QuestionTypeId = (byte)1,
+                            Status = true,
+                            SubjectId = "MATH-03"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Content = "2 + 5 = ?",
+                            CreatedBy = "admin",
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2064),
+                            ModifiedBy = "admin",
+                            ModifiedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2064),
+                            Point = 0.25,
+                            QuestionLevelId = (byte)1,
+                            QuestionTypeId = (byte)1,
+                            Status = true,
+                            SubjectId = "MATH-03"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Content = "2 + 6 = ?",
+                            CreatedBy = "admin",
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2066),
+                            ModifiedBy = "admin",
+                            ModifiedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2066),
+                            Point = 0.25,
+                            QuestionLevelId = (byte)1,
+                            QuestionTypeId = (byte)1,
+                            Status = true,
+                            SubjectId = "MATH-03"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Content = "2 + 7 = ?",
+                            CreatedBy = "admin",
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2068),
+                            ModifiedBy = "admin",
+                            ModifiedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2068),
+                            Point = 0.25,
+                            QuestionLevelId = (byte)1,
+                            QuestionTypeId = (byte)1,
+                            Status = true,
+                            SubjectId = "MATH-03"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Content = "2 + 8 = ?",
+                            CreatedBy = "admin",
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2070),
+                            ModifiedBy = "admin",
+                            ModifiedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2072),
+                            Point = 0.25,
+                            QuestionLevelId = (byte)1,
+                            QuestionTypeId = (byte)1,
+                            Status = true,
+                            SubjectId = "MATH-03"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Content = "2 + 9 = ?",
+                            CreatedBy = "admin",
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2078),
+                            ModifiedBy = "admin",
+                            ModifiedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2079),
+                            Point = 0.25,
+                            QuestionLevelId = (byte)1,
+                            QuestionTypeId = (byte)1,
+                            Status = true,
+                            SubjectId = "MATH-03"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Content = "2 + 10 = ?",
+                            CreatedBy = "admin",
+                            CreatedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2080),
+                            ModifiedBy = "admin",
+                            ModifiedTime = new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2081),
+                            Point = 0.25,
+                            QuestionLevelId = (byte)1,
+                            QuestionTypeId = (byte)1,
+                            Status = true,
+                            SubjectId = "MATH-03"
                         });
                 });
 
@@ -1698,7 +2302,12 @@ namespace Examination_DAL.Migrations
                         new
                         {
                             Id = (byte)3,
-                            Name = "Khó"
+                            Name = "Nâng cao"
+                        },
+                        new
+                        {
+                            Id = (byte)4,
+                            Name = "Vận dụng cao"
                         });
                 });
 
@@ -1725,7 +2334,7 @@ namespace Examination_DAL.Migrations
                         new
                         {
                             Id = (byte)2,
-                            Name = "Chọn CÁC đáp án đúng"
+                            Name = "Chọn các đáp án đúng"
                         },
                         new
                         {
@@ -1841,6 +2450,12 @@ namespace Examination_DAL.Migrations
                             Id = "ENG-01",
                             Name = "Tiếng Anh sơ cấp",
                             Status = (byte)0
+                        },
+                        new
+                        {
+                            Id = "MATH-03",
+                            Name = "Toán Sieu cao cấp",
+                            Status = (byte)0
                         });
                 });
 
@@ -1905,9 +2520,7 @@ namespace Examination_DAL.Migrations
                 {
                     b.HasOne("Examination_DAL.Models.Answer", "Answer")
                         .WithMany("AnswerResponses")
-                        .HasForeignKey("AnswerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AnswerId");
 
                     b.HasOne("Examination_DAL.Models.ExamResponse", "ExamResponse")
                         .WithMany("AnswerResponses")
@@ -1932,9 +2545,7 @@ namespace Examination_DAL.Migrations
                 {
                     b.HasOne("Examination_DAL.Models.Subject", "Subject")
                         .WithMany("Exams")
-                        .HasForeignKey("SubjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SubjectId");
 
                     b.Navigation("Subject");
                 });
@@ -1998,8 +2609,7 @@ namespace Examination_DAL.Migrations
                     b.HasOne("Examination_DAL.Models.Subject", "Subject")
                         .WithMany("ExamResponses")
                         .HasForeignKey("SubjectId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("ExamDetail");
 
@@ -2010,6 +2620,10 @@ namespace Examination_DAL.Migrations
 
             modelBuilder.Entity("Examination_DAL.Models.ExamSchedule", b =>
                 {
+                    b.HasOne("Examination_DAL.Models.Classroom", "ClassRoom")
+                        .WithMany()
+                        .HasForeignKey("ClassRoomId");
+
                     b.HasOne("Examination_DAL.Models.Staff", "Staff")
                         .WithMany("ExamSchedules")
                         .HasForeignKey("CreatedBy");
@@ -2022,9 +2636,9 @@ namespace Examination_DAL.Migrations
 
                     b.HasOne("Examination_DAL.Models.ExamRoom", "ExamRoom")
                         .WithMany("ExamSchedules")
-                        .HasForeignKey("ExamRoomId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ExamRoomId");
+
+                    b.Navigation("ClassRoom");
 
                     b.Navigation("Exam");
 
@@ -2054,17 +2668,13 @@ namespace Examination_DAL.Migrations
 
             modelBuilder.Entity("Examination_DAL.Models.Participant", b =>
                 {
-                    b.HasOne("Examination_DAL.Models.Classroom", "Classroom")
-                        .WithMany("Participants")
-                        .HasForeignKey("ClassroomId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Examination_DAL.Models.Account", "Account")
                         .WithMany()
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AccountId");
+
+                    b.HasOne("Examination_DAL.Models.Classroom", "Classroom")
+                        .WithMany("Participants")
+                        .HasForeignKey("ClassroomId");
 
                     b.Navigation("Account");
 
