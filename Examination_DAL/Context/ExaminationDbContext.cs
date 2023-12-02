@@ -45,7 +45,7 @@ namespace Examination_DAL.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseSqlServer("Data Source=XPK4\\SQLEXPRESS;Initial Catalog=QuanLyThiTracNghiem;Integrated Security=True");
+            optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=QuanLyThiTracNghiem;Integrated Security=True");
 
 
           // optionsBuilder.UseSqlServer(@"server=db-test-for-pro131.australiaeast.cloudapp.azure.com;database=QuanLyThiTracNghiem;uid=VM;password=123456789Aa@");
@@ -90,11 +90,16 @@ namespace Examination_DAL.Context
                .OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<ExamQuestion>().HasIndex(eq => eq.QuestionId).IsUnique(false);
 
-         //   modelBuilder.Entity<Account>()
+         //modelBuilder.Entity<Account>()
          //.HasOne(a => a.UserPermission)
          //.WithOne(up => up.Account)
          //.HasForeignKey<UserPermission>(up => up.AccountId)
          //.OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<ExamSchedule>()
+                .HasMany(exr => exr.ExamResponse)
+                .WithOne(ExamSchedule => ExamSchedule.ExamSchedule)
+                .OnDelete(DeleteBehavior.Restrict);
 
 
             #region seed data
@@ -2001,6 +2006,7 @@ namespace Examination_DAL.Context
                     FinishTime = 30,
                     ScoredMethod = null,
                     Note = null,
+                    ExamScheduleId= 1
                 }
                 );
 

@@ -69,6 +69,11 @@ namespace Examination_DAL.Models
         [MaxLength(255)]
         public string? Note { get; set; }
 
+        [AllowNull]
+        public int ExamScheduleId { get; set; }
+        [ForeignKey("ExamScheduleId")]
+        public virtual ExamSchedule? ExamSchedule { get; set; }
+
         public virtual ICollection<AnswerResponse> AnswerResponses { get; set; }     
 
     }
