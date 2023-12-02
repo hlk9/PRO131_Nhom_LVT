@@ -41,7 +41,7 @@
             pvDashboard.Location = new Point(0, 0);
             pvDashboard.Name = "pvDashboard";
             pvDashboard.Padding = new Padding(0, 0, 15, 0);
-            pvDashboard.Size = new Size(998, 663);
+            pvDashboard.Size = new Size(996, 661);
             pvDashboard.TabIndex = 0;
             pvDashboard.ThemeName = "MaterialTeal";
             pvDashboard.ViewMode = Telerik.WinControls.UI.PageViewMode.NavigationView;
@@ -52,7 +52,7 @@
             AutoScaleBaseSize = new Size(7, 15);
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(998, 663);
+            ClientSize = new Size(996, 661);
             Controls.Add(pvDashboard);
             Name = "Dashboard";
             // 

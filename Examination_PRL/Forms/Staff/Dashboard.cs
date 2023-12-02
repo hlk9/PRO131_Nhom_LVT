@@ -254,6 +254,13 @@ namespace Examination_PRL.Forms.Staff
             reportPage.ToolTipText = "Báo cáo";
 
             RadPageViewPage reportByScorePage = new RadPageViewPage("Phổ điểm");
+            ReportByScore reportByScore = new ReportByScore();
+            reportByScore.TopLevel = false;
+            reportByScorePage.Controls.Add(reportByScore);
+            reportByScore.Show();
+            reportByScore.Dock = DockStyle.Fill;
+            reportByScore.Name = "reportByScore";
+
             reportPage.SubPages.Add(reportByScorePage);
 
             RadPageViewPage createAccountParticipantPage = new RadPageViewPage("Quản lý tài quản");

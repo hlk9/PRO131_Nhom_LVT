@@ -34,6 +34,11 @@ namespace Examination_BUS.Services
             return _examDetailRepos.GetByCode(code);
         }
 
+        public List<ExamDetail> getByExamIds(int id)
+        {
+            return _examDetailRepos.getByExamId(id);
+        }
+
         public IEnumerable<ExamDetailViewModel> GetExamDetailWithExam()
         {
             var data = from examDetail in _examDetailRepos.GetAll()

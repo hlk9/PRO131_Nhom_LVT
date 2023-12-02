@@ -57,6 +57,11 @@ namespace Examination_DAL.Repository
             return _context.ExamDetails.Find(id);
         }
 
+        public List<ExamDetail> getByExamId(int id)
+        {
+            return _context.ExamDetails.Where(x => x.ExamId == id).ToList();
+        }
+
         public bool Update(ExamDetail obj)
         {
             throw new NotImplementedException();
