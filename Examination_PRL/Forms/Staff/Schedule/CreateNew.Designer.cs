@@ -43,7 +43,7 @@
             radLabel6 = new Telerik.WinControls.UI.RadLabel();
             btnClose = new Telerik.WinControls.UI.RadButton();
             btnAdd = new Telerik.WinControls.UI.RadButton();
-            radTextBox1 = new Telerik.WinControls.UI.RadTextBox();
+            txtExamID = new Telerik.WinControls.UI.RadTextBox();
             radButton1 = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)dateStart).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).BeginInit();
@@ -59,7 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)radLabel6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnClose).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnAdd).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radTextBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtExamID).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radButton1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
@@ -202,13 +202,13 @@
             btnAdd.ThemeName = "MaterialTeal";
             btnAdd.Click += btnAdd_Click;
             // 
-            // radTextBox1
+            // txtExamID
             // 
-            radTextBox1.Location = new Point(157, 356);
-            radTextBox1.Name = "radTextBox1";
-            radTextBox1.Size = new Size(244, 37);
-            radTextBox1.TabIndex = 8;
-            radTextBox1.ThemeName = "MaterialTeal";
+            txtExamID.Location = new Point(157, 356);
+            txtExamID.Name = "txtExamID";
+            txtExamID.Size = new Size(244, 37);
+            txtExamID.TabIndex = 8;
+            txtExamID.ThemeName = "MaterialTeal";
             // 
             // radButton1
             // 
@@ -218,6 +218,7 @@
             radButton1.TabIndex = 9;
             radButton1.Text = "Chọn bài thi";
             radButton1.ThemeName = "MaterialTeal";
+            radButton1.Click += radButton1_Click;
             // 
             // CreateNew
             // 
@@ -226,7 +227,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(425, 492);
             Controls.Add(radButton1);
-            Controls.Add(radTextBox1);
+            Controls.Add(txtExamID);
             Controls.Add(btnClose);
             Controls.Add(btnAdd);
             Controls.Add(txtDes);
@@ -262,7 +263,7 @@
             ((System.ComponentModel.ISupportInitialize)radLabel6).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnClose).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnAdd).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radTextBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtExamID).EndInit();
             ((System.ComponentModel.ISupportInitialize)radButton1).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
@@ -286,7 +287,7 @@
         private Telerik.WinControls.UI.RadLabel radLabel6;
         private Telerik.WinControls.UI.RadButton btnClose;
         private Telerik.WinControls.UI.RadButton btnAdd;
-        private Telerik.WinControls.UI.RadTextBox radTextBox1;
+        private Telerik.WinControls.UI.RadTextBox txtExamID;
         private Telerik.WinControls.UI.RadButton radButton1;
     }
 }

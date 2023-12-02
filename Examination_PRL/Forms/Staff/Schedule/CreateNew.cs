@@ -1,5 +1,6 @@
 ﻿using Examination_BUS.Services;
 using Examination_DAL.Models;
+using Examination_PRL.Forms.Staff.Exam;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,17 +38,25 @@ namespace Examination_PRL.Forms.Staff.Schedule
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (txtExamID.Text == null)
+            {
+                MessageBox.Show("Hãy chọn bài thi");
+                return;
+            }
             ExamSchedule examSchedule = new ExamSchedule();
-
             examSchedule.StartTime = Convert.ToDateTime(dateStart.Value);
             examSchedule.EndTime = Convert.ToDateTime(dateEnd.Value);
             examSchedule.Name = txtName.Text;
             examSchedule.Description = txtDes.Text;
             examSchedule.ExamRoomId = dropdownClass.SelectedItem.Text;
             examSchedule.Status = true;
-            examSchedule.CreatedBy = usrAccount.Id;
+            examSchedule.CreatedBy = usrAccount.Id;          
+            examSchedule.ExamId = Convert.ToInt32(txtExamID.Text);
 
-            scheduleServices.AddSchedule(examSchedule);
+           if(scheduleServices.AddSchedule(examSchedule)==true)
+                MessageBox.Show("Thêm thành công");
+           else
+                MessageBox.Show("Thêm thất bại");
 
             OnDataAdded(EventArgs.Empty);
 
@@ -63,6 +72,14 @@ namespace Examination_PRL.Forms.Staff.Schedule
         private void btnClose_Click(object sender, EventArgs e)
         {
             OnDataAdded(EventArgs.Empty);
+        }
+
+        private void radButton1_Click(object sender, EventArgs e)
+        {
+            SelectOrAddNewExam selectOrAddNewExam = new SelectOrAddNewExam();
+            selectOrAddNewExam.ShowDialog();
+            MessageBox.Show("Select: " + selectOrAddNewExam.curentExamID);
+            txtExamID.Text = selectOrAddNewExam.curentExamID.ToString();
         }
     }
 }
