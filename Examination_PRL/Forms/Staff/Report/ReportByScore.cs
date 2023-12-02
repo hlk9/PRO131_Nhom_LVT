@@ -123,16 +123,37 @@ namespace Examination_PRL.Forms
                 }
                            
             }          
+            List<Question> questionResult = new List<Question>();
 
             totalQuestion = correct + wrong + notAnswered;
+
             correctRate = (correct / totalQuestion) * 100;
+
             wrongRate = (wrong / totalQuestion) * 100;
+
             notAnsweredRate = 100 - correctRate - wrongRate;
 
-            List<Question> questionResult = new List<Question>();
+            if(totalQuestion == 0)
+            {
+                correctRate = 0;
+                wrongRate = 0;
+                notAnsweredRate = 0;
+            }
+            else
+            {
+                if(double.IsNaN(correctRate))
+                    correctRate = 0;
+                if (double.IsNaN(wrongRate))
+                    wrongRate = 0;
+                if (double.IsNaN(notAnsweredRate))
+                    notAnsweredRate = 0;
+            }
+
+         
             questionResult.Add(new Question() { Name = "Câu đúng", Total = correctRate});
             questionResult.Add(new Question() { Name = "Câu sai", Total = wrongRate});
             questionResult.Add(new Question() { Name = "Câu chưa chọn", Total = notAnsweredRate});
+         
 
             PieSeries pieSeriesQuestion = new PieSeries();
             pieSeriesQuestion.ShowLabels = true;
