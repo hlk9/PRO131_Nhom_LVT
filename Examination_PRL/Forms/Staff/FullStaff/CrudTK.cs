@@ -79,7 +79,7 @@ namespace Examination_PRL.Forms.Staff.FullStaff
             string name = radTxtName.Text;
             string passWord = radTextMK.Text;
 
-            if (_service.UpdateAccount(id, name, passWord))
+            if (_service.UpdateAccount(id, name, passWord,null))
             {
                 MessageBox.Show("Sửa Tài Khoản Thành Công");
             }

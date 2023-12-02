@@ -44,6 +44,8 @@ namespace Examination_PRL.Forms
                         return;
                     }
 
+                    account.LastLogin = DateTime.Now;
+                    accountServices.UpdateAccount(account.Id,account.UserName,account.Password,Convert.ToDateTime(account.LastLogin));
 
                     List<UserPermission> userPermissions = new List<UserPermission>();
                     userPermissions = userPermissionServices.GetUserPermissionByAccountID(account.Id);
@@ -52,7 +54,7 @@ namespace Examination_PRL.Forms
                     {
                         if (item.PermissionId == 1)
                         {
-                            Dashboard dashboard = new Dashboard();
+                            Dashboard dashboard = new Dashboard(account);
                             dashboard.FormClosed += Dashboard_FormClosed;
                             dashboard.Show();
                             this.Hide();

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             radDock1 = new Telerik.WinControls.UI.Docking.RadDock();
             toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
@@ -47,6 +47,7 @@
             radLabel3 = new Telerik.WinControls.UI.RadLabel();
             radLabel2 = new Telerik.WinControls.UI.RadLabel();
             radLabel1 = new Telerik.WinControls.UI.RadLabel();
+            btnNew = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)radDock1).BeginInit();
             radDock1.SuspendLayout();
             toolWindow1.SuspendLayout();
@@ -69,6 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)radLabel3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnNew).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
@@ -117,7 +119,7 @@
             scheduleGridView.MasterTemplate.AllowEditRow = false;
             scheduleGridView.MasterTemplate.AllowSearchRow = true;
             scheduleGridView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            scheduleGridView.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            scheduleGridView.MasterTemplate.ViewDefinition = tableViewDefinition2;
             scheduleGridView.Name = "scheduleGridView";
             scheduleGridView.Size = new Size(1325, 720);
             scheduleGridView.TabIndex = 0;
@@ -177,6 +179,7 @@
             // toolWindow2
             // 
             toolWindow2.Caption = null;
+            toolWindow2.Controls.Add(btnNew);
             toolWindow2.Controls.Add(btnViewDetail);
             toolWindow2.Controls.Add(lblEnd);
             toolWindow2.Controls.Add(lblCurrent);
@@ -196,7 +199,7 @@
             // 
             // btnViewDetail
             // 
-            btnViewDetail.Location = new Point(24, 394);
+            btnViewDetail.Location = new Point(24, 617);
             btnViewDetail.Name = "btnViewDetail";
             btnViewDetail.Size = new Size(367, 44);
             btnViewDetail.TabIndex = 7;
@@ -295,6 +298,16 @@
             radLabel1.TabIndex = 0;
             radLabel1.Text = "Thông tin chung";
             // 
+            // btnNew
+            // 
+            btnNew.Location = new Point(24, 567);
+            btnNew.Name = "btnNew";
+            btnNew.Size = new Size(367, 44);
+            btnNew.TabIndex = 8;
+            btnNew.Text = "Tạo lịch mới";
+            btnNew.ThemeName = "MaterialTeal";
+            btnNew.Click += btnNew_Click;
+            // 
             // ScheduleManagement
             // 
             AutoScaleBaseSize = new Size(7, 15);
@@ -333,6 +346,7 @@
             ((System.ComponentModel.ISupportInitialize)radLabel3).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel2).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnNew).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }
@@ -357,5 +371,6 @@
         private Telerik.WinControls.UI.RadLabel lblIncoming;
         private Telerik.WinControls.UI.RadLabel lblTotal;
         private Telerik.WinControls.UI.RadButton btnViewDetail;
+        private Telerik.WinControls.UI.RadButton btnNew;
     }
 }

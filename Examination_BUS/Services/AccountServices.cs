@@ -27,13 +27,14 @@ namespace Examination_BUS.Services
             return accountRepository.Add(account);
         }
 
-        public bool UpdateAccount(string id, string name, string passWord)
+        public bool UpdateAccount(string id, string name, string passWord,DateTime? lastLogin)
         {
             Account account = new Account
             {
                 Id = id,
                 UserName = name,
-                Password = passWord
+                Password = passWord,
+                LastLogin = lastLogin
             };
             return accountRepository.Update(account);
         }

@@ -1,4 +1,5 @@
 ﻿using Examination_BUS.Services;
+using Examination_DAL.Models;
 using Examination_PRL.Forms.Participant;
 using System;
 using System.Collections.Generic;
@@ -17,8 +18,10 @@ namespace Examination_PRL.Forms.Staff.Schedule
         ScheduleServices scheduleServices = new ScheduleServices();
         ScheduleDetailServices scheduleDetailServices = new ScheduleDetailServices();
         string _idSchedule;
-        public ScheduleManagement()
+        Account usrAccount;
+        public ScheduleManagement(Account account)
         {
+            this.usrAccount = account;
             InitializeComponent();
             LoadData();
         }
@@ -46,12 +49,32 @@ namespace Examination_PRL.Forms.Staff.Schedule
 
             var list = scheduleServices.GetAllSchedule();
             int stt = 1;
+            int notStart = 0;
+            int inProgress = 0;
+            int finished = 0;
             foreach (var item in list)
             {
-                scheduleGridView.Rows.Add(stt++, item.Name, item.ExamRoomId, item.StartTime, item.EndTime, item.Subject, item.Description, item.Status, item.CreatedBy, scheduleDetailServices.GetAllScheduleDetails().Where(x => x.ExamScheduleId == item.Id).Count(), item.ExamId, item.Id);
+                if (item.StartTime > DateTime.Now)
+                {
+
+                    notStart++;
+                }
+                else if (item.StartTime <= DateTime.Now && item.EndTime >= DateTime.Now)
+                {
+
+                    inProgress++;
+                }
+                else
+                {
+
+                    finished++;
+                }
+                scheduleGridView.Rows.Add(stt++, item.Name, item.ExamRoomId, item.StartTime, item.EndTime, item.Subject, item.Description, item.Status, item.CreatedBy, scheduleDetailServices.GetAllScheduleDetails().Where(x => x.ExamScheduleId == item.Id).ToList().DistinctBy(x => x.ParticipantId).Count(), item.ExamId, item.Id);
 
             }
-
+            lblEnd.Text = finished.ToString();
+            lblIncoming.Text = notStart.ToString();
+            lblCurrent.Text = inProgress.ToString();
             lblTotal.Text = list.Count.ToString();
 
 
@@ -60,11 +83,11 @@ namespace Examination_PRL.Forms.Staff.Schedule
 
         private void btnViewDetail_Click(object sender, EventArgs e)
         {
-           if(_idSchedule != null)
+            if (_idSchedule != null)
             {
                 AddScheduleTo addToClass = new AddScheduleTo(int.Parse(_idSchedule));
                 addToClass.ShowDialog();
-           
+
             }
             else
             {
@@ -83,6 +106,19 @@ namespace Examination_PRL.Forms.Staff.Schedule
 
                 _idSchedule = null;
             }
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            CreateNew createNewSchedule = new CreateNew(usrAccount);
+            createNewSchedule.DataAdded += CreateNewSchedule_DataAdded;
+            createNewSchedule.ShowDialog();
+        }
+
+        private void CreateNewSchedule_DataAdded(object? sender, EventArgs e)
+        {
+            MessageBox.Show("Ping");
+            LoadData();
         }
     }
 }

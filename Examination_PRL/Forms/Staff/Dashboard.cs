@@ -1,4 +1,5 @@
-﻿using Examination_PRL.Forms.Staff.ClassRoom;
+﻿using Examination_DAL.Models;
+using Examination_PRL.Forms.Staff.ClassRoom;
 using Examination_PRL.Forms.Staff.Exam;
 using Examination_PRL.Forms.Staff.FullStaff;
 using Examination_PRL.Forms.Staff.QuestionForm;
@@ -20,9 +21,10 @@ namespace Examination_PRL.Forms.Staff
 
         public delegate void UpdateDataDelegate();
         public event UpdateDataDelegate UpdateDataEvent = delegate { };
-
-        public Dashboard()
+        Account usrAccount;
+        public Dashboard(Account account)
         {
+            usrAccount = account;
             InitializeComponent();
             GenerateLayout();
         }
@@ -53,7 +55,7 @@ namespace Examination_PRL.Forms.Staff
             RadPageViewPage manageSchedulePage = new RadPageViewPage("Quản lý lịch thi"); //sửa, xoá
             schedulePage.SubPages.Add(createSchedulePage);
             schedulePage.SubPages.Add(manageSchedulePage);
-            ScheduleManagement scheduleManagement = new ScheduleManagement();
+            ScheduleManagement scheduleManagement = new ScheduleManagement(usrAccount);
             scheduleManagement.TopLevel = false;
             manageSchedulePage.Controls.Add(scheduleManagement);
             scheduleManagement.Show();
