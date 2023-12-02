@@ -253,15 +253,6 @@ namespace Examination_PRL.Forms.Staff
             reportPage.Image = reportIcon;
             reportPage.ToolTipText = "Báo cáo";
 
-
-            RadPageViewPage reportByStudentPage = new RadPageViewPage("Báo cáo theo thí sinh");
-            RadPageViewPage reportBySubjectPage = new RadPageViewPage("Báo cáo theo môn");
-            RadPageViewPage reportByExamPage = new RadPageViewPage("Báo cáo theo đề thi");
-            RadPageViewPage reportByRoomPage = new RadPageViewPage("Báo cáo theo phòng thi");
-            reportPage.SubPages.Add(reportByStudentPage);
-            reportPage.SubPages.Add(reportBySubjectPage);
-            reportPage.SubPages.Add(reportByExamPage);
-            reportPage.SubPages.Add(reportByRoomPage);
             RadPageViewPage reportByScorePage = new RadPageViewPage("Phổ điểm");
             reportPage.SubPages.Add(reportByScorePage);
 
