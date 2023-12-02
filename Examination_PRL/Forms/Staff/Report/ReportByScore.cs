@@ -106,13 +106,23 @@ namespace Examination_PRL.Forms
 
             foreach (var x in examResponses)
             {
-                if(x.QuestionCorrect != null || x.QuestionNotAnswered != null || x.QuestionWrong != null)
+                try
                 {
-                    correct += x.QuestionCorrect.Value;
-                    wrong += x.QuestionWrong.Value;
-                    notAnswered += x.QuestionNotAnswered.Value;
-                }              
-            }
+                    if (x.QuestionCorrect != null || x.QuestionNotAnswered != null || x.QuestionWrong != null)
+                    {
+                        correct += x.QuestionCorrect.Value;
+                        wrong += x.QuestionWrong.Value;
+                        notAnswered += x.QuestionNotAnswered.Value;
+                    }
+                }
+                catch 
+                {
+                    correct += 0;
+                    wrong += 0;
+                    notAnswered += 0;
+                }
+                           
+            }          
 
             totalQuestion = correct + wrong + notAnswered;
             correctRate = (correct / totalQuestion) * 100;
