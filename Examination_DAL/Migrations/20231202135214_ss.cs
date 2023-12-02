@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Examination_DAL.Migrations
 {
-    public partial class ssss : Migration
+    public partial class ss : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,8 +17,7 @@ namespace Examination_DAL.Migrations
                     UserName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     Password = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     LastLogin = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Status = table.Column<byte>(type: "tinyint", nullable: true),
-                    UserPermissionId = table.Column<int>(type: "int", nullable: false)
+                    Status = table.Column<byte>(type: "tinyint", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -193,7 +192,7 @@ namespace Examination_DAL.Migrations
                         column: x => x.AccountId,
                         principalTable: "Accounts",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_UserPermissions_Permissions_PermissionId",
                         column: x => x.PermissionId,
@@ -508,12 +507,12 @@ namespace Examination_DAL.Migrations
 
             migrationBuilder.InsertData(
                 table: "Accounts",
-                columns: new[] { "Id", "LastLogin", "Password", "Status", "UserName", "UserPermissionId" },
+                columns: new[] { "Id", "LastLogin", "Password", "Status", "UserName" },
                 values: new object[,]
                 {
-                    { "admin", null, "123456", (byte)1, "admin", 1 },
-                    { "chiupp", null, "123456", (byte)1, "chiupp", 4 },
-                    { "longhd", null, "123456", (byte)1, "longhd", 4 }
+                    { "admin", null, "123456", (byte)1, "admin" },
+                    { "chiupp", null, "123456", (byte)1, "chiupp" },
+                    { "longhd", null, "123456", (byte)1, "longhd" }
                 });
 
             migrationBuilder.InsertData(
@@ -632,19 +631,19 @@ namespace Examination_DAL.Migrations
                 columns: new[] { "Id", "Content", "CreatedBy", "CreatedTime", "Docs", "ModifiedBy", "ModifiedTime", "Point", "QuestionLevelId", "QuestionTypeId", "Status", "SubjectId" },
                 values: new object[,]
                 {
-                    { 1, "2 + 2 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1936), null, null, null, 0.25, (byte)1, (byte)1, true, "MATH-01" },
-                    { 2, "2 + 3 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1939), null, null, null, 0.25, (byte)1, (byte)1, true, "MATH-01" },
-                    { 3, "2 + 4 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1942), null, null, null, 0.25, (byte)1, (byte)1, true, "MATH-01" },
-                    { 4, "2 + 5 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1944), null, null, null, 0.25, (byte)1, (byte)1, true, "MATH-01" },
-                    { 5, "2 + 6 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1947), null, null, null, 0.75, (byte)3, (byte)2, true, "MATH-01" },
-                    { 6, "2 + 7 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1952), null, null, null, 0.25, (byte)1, (byte)3, true, "MATH-01" },
-                    { 7, "2 + 8 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1954), null, null, null, 0.5, (byte)2, (byte)2, true, "MATH-01" },
-                    { 8, "2 + 9 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1956), null, null, null, 0.75, (byte)3, (byte)3, true, "MATH-01" },
-                    { 9, "2 + 10 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1960), null, null, null, 0.5, (byte)2, (byte)3, true, "MATH-01" },
-                    { 10, "10 + 10 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1962), null, "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1963), 0.75, (byte)3, (byte)2, true, "MATH-01" },
-                    { 11, "2 + 2 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1972), null, "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1973), 0.25, (byte)1, (byte)1, true, "MATH-02" },
-                    { 12, "2 + 3 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1975), null, "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1975), 0.25, (byte)1, (byte)1, true, "MATH-02" },
-                    { 13, "2 + 4 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2026), null, "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2027), 0.25, (byte)1, (byte)1, true, "MATH-02" }
+                    { 1, "2 + 2 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1359), null, null, null, 0.25, (byte)1, (byte)1, true, "MATH-01" },
+                    { 2, "2 + 3 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1362), null, null, null, 0.25, (byte)1, (byte)1, true, "MATH-01" },
+                    { 3, "2 + 4 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1364), null, null, null, 0.25, (byte)1, (byte)1, true, "MATH-01" },
+                    { 4, "2 + 5 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1366), null, null, null, 0.25, (byte)1, (byte)1, true, "MATH-01" },
+                    { 5, "2 + 6 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1369), null, null, null, 0.75, (byte)3, (byte)2, true, "MATH-01" },
+                    { 6, "2 + 7 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1371), null, null, null, 0.25, (byte)1, (byte)3, true, "MATH-01" },
+                    { 7, "2 + 8 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1374), null, null, null, 0.5, (byte)2, (byte)2, true, "MATH-01" },
+                    { 8, "2 + 9 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1376), null, null, null, 0.75, (byte)3, (byte)3, true, "MATH-01" },
+                    { 9, "2 + 10 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1378), null, null, null, 0.5, (byte)2, (byte)3, true, "MATH-01" },
+                    { 10, "10 + 10 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1380), null, "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1381), 0.75, (byte)3, (byte)2, true, "MATH-01" },
+                    { 11, "2 + 2 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1384), null, "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1385), 0.25, (byte)1, (byte)1, true, "MATH-02" },
+                    { 12, "2 + 3 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1387), null, "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1388), 0.25, (byte)1, (byte)1, true, "MATH-02" },
+                    { 13, "2 + 4 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1389), null, "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1390), 0.25, (byte)1, (byte)1, true, "MATH-02" }
                 });
 
             migrationBuilder.InsertData(
@@ -652,22 +651,22 @@ namespace Examination_DAL.Migrations
                 columns: new[] { "Id", "Content", "CreatedBy", "CreatedTime", "Docs", "ModifiedBy", "ModifiedTime", "Point", "QuestionLevelId", "QuestionTypeId", "Status", "SubjectId" },
                 values: new object[,]
                 {
-                    { 14, "2 + 5 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2028), null, "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2031), 0.25, (byte)1, (byte)1, true, "MATH-02" },
-                    { 15, "2 + 6 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2033), null, "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2033), 0.25, (byte)1, (byte)1, true, "MATH-02" },
-                    { 16, "2 + 7 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2037), null, "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2038), 0.25, (byte)1, (byte)1, true, "MATH-02" },
-                    { 17, "2 + 8 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2039), null, null, null, 0.25, (byte)1, (byte)1, true, "MATH-02" },
-                    { 18, "2 + 9 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2047), null, null, null, 0.25, (byte)1, (byte)1, true, "MATH-02" },
-                    { 19, "2 + 10 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2051), null, null, null, 0.25, (byte)1, (byte)1, true, "MATH-02" },
-                    { 20, "10 + 10 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2053), null, null, null, 0.25, (byte)1, (byte)2, true, "MATH-02" },
-                    { 21, "2 + 2 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2058), null, null, null, 0.25, (byte)1, (byte)1, true, "MATH-03" },
-                    { 22, "2 + 3 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2060), null, null, null, 0.25, (byte)1, (byte)1, true, "MATH-03" },
-                    { 23, "2 + 4 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2062), null, "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2062), 0.25, (byte)1, (byte)1, true, "MATH-03" },
-                    { 24, "2 + 5 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2064), null, "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2064), 0.25, (byte)1, (byte)1, true, "MATH-03" },
-                    { 25, "2 + 6 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2066), null, "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2066), 0.25, (byte)1, (byte)1, true, "MATH-03" },
-                    { 26, "2 + 7 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2068), null, "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2068), 0.25, (byte)1, (byte)1, true, "MATH-03" },
-                    { 27, "2 + 8 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2070), null, "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2072), 0.25, (byte)1, (byte)1, true, "MATH-03" },
-                    { 28, "2 + 9 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2078), null, "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2079), 0.25, (byte)1, (byte)1, true, "MATH-03" },
-                    { 29, "2 + 10 = ?", "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2080), null, "admin", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2081), 0.25, (byte)1, (byte)1, true, "MATH-03" }
+                    { 14, "2 + 5 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1392), null, "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1393), 0.25, (byte)1, (byte)1, true, "MATH-02" },
+                    { 15, "2 + 6 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1394), null, "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1395), 0.25, (byte)1, (byte)1, true, "MATH-02" },
+                    { 16, "2 + 7 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1397), null, "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1398), 0.25, (byte)1, (byte)1, true, "MATH-02" },
+                    { 17, "2 + 8 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1399), null, null, null, 0.25, (byte)1, (byte)1, true, "MATH-02" },
+                    { 18, "2 + 9 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1401), null, null, null, 0.25, (byte)1, (byte)1, true, "MATH-02" },
+                    { 19, "2 + 10 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1405), null, null, null, 0.25, (byte)1, (byte)1, true, "MATH-02" },
+                    { 20, "10 + 10 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1407), null, null, null, 0.25, (byte)1, (byte)2, true, "MATH-02" },
+                    { 21, "2 + 2 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1409), null, null, null, 0.25, (byte)1, (byte)1, true, "MATH-03" },
+                    { 22, "2 + 3 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1411), null, null, null, 0.25, (byte)1, (byte)1, true, "MATH-03" },
+                    { 23, "2 + 4 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1415), null, "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1415), 0.25, (byte)1, (byte)1, true, "MATH-03" },
+                    { 24, "2 + 5 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1417), null, "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1418), 0.25, (byte)1, (byte)1, true, "MATH-03" },
+                    { 25, "2 + 6 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1420), null, "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1421), 0.25, (byte)1, (byte)1, true, "MATH-03" },
+                    { 26, "2 + 7 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1423), null, "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1423), 0.25, (byte)1, (byte)1, true, "MATH-03" },
+                    { 27, "2 + 8 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1425), null, "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1426), 0.25, (byte)1, (byte)1, true, "MATH-03" },
+                    { 28, "2 + 9 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1429), null, "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1430), 0.25, (byte)1, (byte)1, true, "MATH-03" },
+                    { 29, "2 + 10 = ?", "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1432), null, "admin", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1432), 0.25, (byte)1, (byte)1, true, "MATH-03" }
                 });
 
             migrationBuilder.InsertData(
@@ -690,46 +689,46 @@ namespace Examination_DAL.Migrations
                 columns: new[] { "Id", "Content", "CreatedAt", "CreatedBy", "IsCorrect", "QuestionId", "Status", "UpdatedAt", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { 1, "4", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2109), "admin", true, 1, true, null, null },
-                    { 2, "5", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2112), "admin", false, 1, true, null, null },
-                    { 3, "6", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2116), "admin", false, 1, true, null, null },
-                    { 4, "7", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2117), "admin", false, 1, true, null, null },
-                    { 5, "5", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2119), "admin", true, 2, true, null, null },
-                    { 6, "6", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2123), "admin", false, 2, true, null, null },
-                    { 7, "7", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2126), "admin", false, 2, true, null, null },
-                    { 8, "8", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2132), "admin", false, 2, true, null, null },
-                    { 9, "6", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2134), "admin", true, 3, true, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2134), "admin" },
-                    { 10, "7", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2135), "admin", false, 3, true, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2136), "admin" },
-                    { 11, "8", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2137), "admin", false, 3, true, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2138), "admin" },
-                    { 12, "9", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2139), "admin", false, 3, true, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2140), "admin" },
-                    { 13, "7", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2141), "admin", true, 4, true, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2142), "admin" },
-                    { 14, "8", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2143), "admin", false, 4, true, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2144), "admin" },
-                    { 15, "9", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2145), "admin", false, 4, true, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2145), "admin" },
-                    { 16, "10", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2147), "admin", false, 4, true, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2147), "admin" },
-                    { 17, "8", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2152), "admin", true, 5, true, null, null },
-                    { 18, "Tám", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2154), "admin", true, 5, true, null, null },
-                    { 19, "12", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2155), "admin", false, 5, true, null, null },
-                    { 20, "13", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2156), "admin", false, 5, true, null, null },
-                    { 21, "13", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2157), "admin", true, 6, true, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2158), "admin" },
-                    { 22, "14", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2159), "admin", false, 6, true, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2160), "admin" },
-                    { 23, "15", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2161), "admin", false, 6, true, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2162), "admin" },
-                    { 24, "16", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2166), "admin", false, 6, true, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2167), "admin" },
-                    { 25, "10", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2168), "admin", true, 7, true, null, null },
-                    { 26, "Mười", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2169), "admin", true, 7, true, null, null },
-                    { 27, "19", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2174), "admin", false, 7, true, null, null },
-                    { 28, "Ten", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2176), "admin", true, 7, true, null, null },
-                    { 29, "21", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2177), "admin", true, 8, true, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2177), "admin" },
-                    { 30, "22", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2179), "admin", false, 8, true, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2179), "admin" },
-                    { 31, "23", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2180), "admin", false, 8, true, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2181), "admin" },
-                    { 32, "24", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2182), "admin", false, 8, true, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2183), "admin" },
-                    { 33, "25", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2185), "admin", true, 9, true, null, null },
-                    { 34, "26", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2186), "admin", false, 9, true, null, null },
-                    { 35, "27", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2187), "admin", false, 9, true, null, null },
-                    { 36, "28", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2189), "admin", false, 9, true, null, null },
-                    { 37, "XX", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2194), "admin", true, 10, true, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2195), "admin" },
-                    { 38, "30", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2196), "admin", false, 10, true, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2196), "admin" },
-                    { 39, "31", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2198), "admin", false, 10, true, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2200), "admin" },
-                    { 40, "20", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2202), "admin", true, 10, true, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2202), "admin" }
+                    { 1, "4", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1457), "admin", true, 1, true, null, null },
+                    { 2, "5", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1459), "admin", false, 1, true, null, null },
+                    { 3, "6", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1460), "admin", false, 1, true, null, null },
+                    { 4, "7", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1462), "admin", false, 1, true, null, null },
+                    { 5, "5", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1464), "admin", true, 2, true, null, null },
+                    { 6, "6", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1465), "admin", false, 2, true, null, null },
+                    { 7, "7", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1467), "admin", false, 2, true, null, null },
+                    { 8, "8", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1468), "admin", false, 2, true, null, null },
+                    { 9, "6", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1471), "admin", true, 3, true, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1471), "admin" },
+                    { 10, "7", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1473), "admin", false, 3, true, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1474), "admin" },
+                    { 11, "8", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1475), "admin", false, 3, true, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1476), "admin" },
+                    { 12, "9", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1478), "admin", false, 3, true, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1478), "admin" },
+                    { 13, "7", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1481), "admin", true, 4, true, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1481), "admin" },
+                    { 14, "8", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1483), "admin", false, 4, true, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1484), "admin" },
+                    { 15, "9", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1486), "admin", false, 4, true, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1487), "admin" },
+                    { 16, "10", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1489), "admin", false, 4, true, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1490), "admin" },
+                    { 17, "8", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1499), "admin", true, 5, true, null, null },
+                    { 18, "Tám", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1502), "admin", true, 5, true, null, null },
+                    { 19, "12", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1503), "admin", false, 5, true, null, null },
+                    { 20, "13", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1505), "admin", false, 5, true, null, null },
+                    { 21, "13", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1507), "admin", true, 6, true, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1508), "admin" },
+                    { 22, "14", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1509), "admin", false, 6, true, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1510), "admin" },
+                    { 23, "15", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1511), "admin", false, 6, true, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1512), "admin" },
+                    { 24, "16", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1516), "admin", false, 6, true, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1517), "admin" },
+                    { 25, "10", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1518), "admin", true, 7, true, null, null },
+                    { 26, "Mười", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1523), "admin", true, 7, true, null, null },
+                    { 27, "19", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1525), "admin", false, 7, true, null, null },
+                    { 28, "Ten", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1527), "admin", true, 7, true, null, null },
+                    { 29, "21", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1528), "admin", true, 8, true, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1529), "admin" },
+                    { 30, "22", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1531), "admin", false, 8, true, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1531), "admin" },
+                    { 31, "23", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1533), "admin", false, 8, true, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1534), "admin" },
+                    { 32, "24", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1535), "admin", false, 8, true, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1536), "admin" },
+                    { 33, "25", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1538), "admin", true, 9, true, null, null },
+                    { 34, "26", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1539), "admin", false, 9, true, null, null },
+                    { 35, "27", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1541), "admin", false, 9, true, null, null },
+                    { 36, "28", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1543), "admin", false, 9, true, null, null },
+                    { 37, "XX", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1544), "admin", true, 10, true, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1545), "admin" },
+                    { 38, "30", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1547), "admin", false, 10, true, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1547), "admin" },
+                    { 39, "31", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1549), "admin", false, 10, true, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1550), "admin" },
+                    { 40, "20", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1551), "admin", true, 10, true, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1552), "admin" }
                 });
 
             migrationBuilder.InsertData(
@@ -737,8 +736,8 @@ namespace Examination_DAL.Migrations
                 columns: new[] { "Id", "CreatedAt", "CreatedBy", "Description", "Duration", "ExamDetailCode", "ExamId", "MaxiumMark", "PassMark", "ReTestNumber", "Status", "TotalQuestion", "UpdatedAt", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1751), "admin", "Ma de 01", 90, "001", 1, 10.0, 5.0, 1, true, 10, null, null },
-                    { 2, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1780), "admin", "Ma de 02 - MATH 03", 90, "MATH-03_002", 27, 10.0, 5.0, 1, true, 10, null, null }
+                    { 1, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1272), "admin", "Ma de 01", 90, "001", 1, 10.0, 5.0, 1, true, 10, null, null },
+                    { 2, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1286), "admin", "Ma de 02 - MATH 03", 90, "MATH-03_002", 27, 10.0, 5.0, 1, true, 10, null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -746,9 +745,9 @@ namespace Examination_DAL.Migrations
                 columns: new[] { "Id", "CreatedAt", "CreatedBy", "Description", "Duration", "ExamDetailCode", "ExamId", "MaxiumMark", "PassMark", "ReTestNumber", "Status", "TotalQuestion", "UpdatedAt", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { 3, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1784), "admin", "Ma de 02", 90, "002", 2, 10.0, 5.0, 1, true, 10, null, null },
-                    { 4, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1786), "admin", "Ma de 03", 90, "003", 3, 10.0, 5.0, 1, true, 10, null, null },
-                    { 5, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(1792), "admin", "Ma de 04", 90, "004", 4, 10.0, 5.0, 1, true, 10, null, null }
+                    { 3, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1288), "admin", "Ma de 02", 90, "002", 2, 10.0, 5.0, 1, true, 10, null, null },
+                    { 4, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1291), "admin", "Ma de 03", 90, "003", 3, 10.0, 5.0, 1, true, 10, null, null },
+                    { 5, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1293), "admin", "Ma de 04", 90, "004", 4, 10.0, 5.0, 1, true, 10, null, null }
                 });
 
             migrationBuilder.InsertData(
@@ -823,7 +822,7 @@ namespace Examination_DAL.Migrations
             migrationBuilder.InsertData(
                 table: "ExamResponses",
                 columns: new[] { "Id", "ExamDetailId", "FinishTime", "IsPassed", "Note", "ParticipantId", "QuestionCorrect", "QuestionNotAnswered", "QuestionWrong", "Score", "ScoredBy", "ScoredMethod", "StaffId", "Status", "SubjectId", "SubmitTime" },
-                values: new object[] { 1, 1, 30.0, false, null, "chiupp", null, null, null, null, null, null, null, null, "MATH-01", new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2291) });
+                values: new object[] { 1, 1, 30.0, false, null, "chiupp", null, null, null, null, null, null, null, null, "MATH-01", new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1635) });
 
             migrationBuilder.InsertData(
                 table: "ExamScheduleDetails",
@@ -839,16 +838,16 @@ namespace Examination_DAL.Migrations
                 columns: new[] { "Id", "AnswerAt", "AnswerId", "ExamResponseId", "IsCorrect", "QuestionId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2309), 1, 1, true, 1 },
-                    { 2, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2311), 5, 1, true, 2 },
-                    { 3, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2312), 9, 1, true, 3 },
-                    { 4, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2313), 13, 1, true, 4 },
-                    { 5, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2314), 17, 1, true, 5 },
-                    { 6, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2316), 21, 1, false, 6 },
-                    { 7, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2317), 25, 1, false, 7 },
-                    { 8, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2318), 29, 1, false, 8 },
-                    { 9, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2319), 33, 1, false, 9 },
-                    { 10, new DateTime(2023, 12, 1, 22, 44, 23, 521, DateTimeKind.Local).AddTicks(2320), 37, 1, false, 10 }
+                    { 1, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1658), 1, 1, true, 1 },
+                    { 2, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1660), 5, 1, true, 2 },
+                    { 3, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1664), 9, 1, true, 3 },
+                    { 4, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1666), 13, 1, true, 4 },
+                    { 5, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1667), 17, 1, true, 5 },
+                    { 6, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1669), 21, 1, false, 6 },
+                    { 7, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1670), 25, 1, false, 7 },
+                    { 8, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1671), 29, 1, false, 8 },
+                    { 9, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1673), 33, 1, false, 9 },
+                    { 10, new DateTime(2023, 12, 2, 20, 52, 13, 600, DateTimeKind.Local).AddTicks(1675), 37, 1, false, 10 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -992,8 +991,7 @@ namespace Examination_DAL.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_UserPermissions_AccountId",
                 table: "UserPermissions",
-                column: "AccountId",
-                unique: true);
+                column: "AccountId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserPermissions_PermissionId",

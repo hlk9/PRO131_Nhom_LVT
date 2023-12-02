@@ -116,8 +116,7 @@ namespace Examination_PRL.Forms.Staff.Schedule
         }
 
         private void CreateNewSchedule_DataAdded(object? sender, EventArgs e)
-        {
-            MessageBox.Show("Ping");
+        {          
             LoadData();
         }
     }

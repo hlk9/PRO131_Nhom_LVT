@@ -90,11 +90,11 @@ namespace Examination_DAL.Context
                .OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<ExamQuestion>().HasIndex(eq => eq.QuestionId).IsUnique(false);
 
-            modelBuilder.Entity<Account>()
-         .HasOne(a => a.UserPermission)
-         .WithOne(up => up.Account)
-         .HasForeignKey<UserPermission>(up => up.AccountId)
-         .OnDelete(DeleteBehavior.Restrict);
+         //   modelBuilder.Entity<Account>()
+         //.HasOne(a => a.UserPermission)
+         //.WithOne(up => up.Account)
+         //.HasForeignKey<UserPermission>(up => up.AccountId)
+         //.OnDelete(DeleteBehavior.Restrict);
 
 
             #region seed data
@@ -108,8 +108,7 @@ namespace Examination_DAL.Context
                     UserName = "longhd",
                     Password = "123456",
                     LastLogin = null,
-                    Status = 1,
-                    UserPermissionId = 4
+                    Status = 1
                 },
                  new Account
                  {
@@ -117,8 +116,7 @@ namespace Examination_DAL.Context
                      UserName = "chiupp",
                      Password = "123456",
                      LastLogin = null,
-                     Status = 1,
-                     UserPermissionId = 4
+                     Status = 1
                  },
                  new Account
                  {
@@ -126,8 +124,7 @@ namespace Examination_DAL.Context
                      UserName = "admin",
                      Password = "123456",
                      LastLogin = null,
-                     Status = 1,
-                     UserPermissionId = 1
+                     Status = 1
                  }
 
                 );

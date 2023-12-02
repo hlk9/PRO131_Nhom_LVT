@@ -51,9 +51,8 @@ namespace Examination_PRL.Forms.Staff
             thoiGian.Show();
             thoiGian.Dock = DockStyle.Fill;
 
-            RadPageViewPage createSchedulePage = new RadPageViewPage("Tạo lịch thi");
-            RadPageViewPage manageSchedulePage = new RadPageViewPage("Quản lý lịch thi"); //sửa, xoá
-            schedulePage.SubPages.Add(createSchedulePage);
+
+            RadPageViewPage manageSchedulePage = new RadPageViewPage("Quản lý lịch thi"); //sửa, xoá  
             schedulePage.SubPages.Add(manageSchedulePage);
             ScheduleManagement scheduleManagement = new ScheduleManagement(usrAccount);
             scheduleManagement.TopLevel = false;

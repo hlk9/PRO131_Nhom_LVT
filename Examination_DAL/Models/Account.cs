@@ -30,10 +30,9 @@ namespace Examination_DAL.Models
         [AllowNull]
         public byte? Status { get; set; }
 
-        [Required]
-        public int UserPermissionId { get; set; }
-        [ForeignKey("UserPermissionId")]
-        public virtual UserPermission UserPermission { get; set; }
+        public virtual ICollection<UserPermission> UserPermissions { get; set; }
+
+ 
 
 
     }
