@@ -45,9 +45,9 @@ namespace Examination_PRL.Forms
 
             radGridViewExam.Columns[1].IsVisible = false;
 
-            foreach (var x in _serExamSchedule.getExamResponses_ScheduleViewModels(start, end))
+            foreach (var x in _serExamSchedule.getAllByDateTimes(start, end))
             {
-                radGridViewExam.Rows.Add(stt++, x.idExamSchedule, x.nameSchedule, x.subject, x.StartTime, x.EndTime);
+                radGridViewExam.Rows.Add(stt++, x.Id, x.Name, x.Subject, x.StartTime, x.EndTime);
             }
         }
 
