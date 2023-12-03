@@ -57,8 +57,8 @@ namespace Examination_PRL.Forms
             chartPieIsPassed.Series.Clear();
 
             var lstExamResponses = _serExamResponses.GetExamResponseByExamScheduleId(id);
-            
-            double pass = 0, fail = 0, total = 0, passRate = 0, failRate = 0, unknown = 0, unknownRate = 0;         
+
+            double pass = 0, fail = 0, total = 0, passRate = 0, failRate = 0, unknown = 0, unknownRate = 0;
 
             pass = lstExamResponses.FindAll(x => x.IsPassed == true).Count;
             fail = lstExamResponses.FindAll(x => x.IsPassed == false).Count;
@@ -102,14 +102,14 @@ namespace Examination_PRL.Forms
                         notAnswered += x.QuestionNotAnswered.Value;
                     }
                 }
-                catch 
+                catch
                 {
                     correct += 0;
                     wrong += 0;
                     notAnswered += 0;
                 }
-                           
-            }          
+
+            }
             List<Question> questionResult = new List<Question>();
 
             totalQuestion = correct + wrong + notAnswered;
@@ -120,7 +120,7 @@ namespace Examination_PRL.Forms
 
             notAnsweredRate = 100 - correctRate - wrongRate;
 
-            if(totalQuestion == 0)
+            if (totalQuestion == 0)
             {
                 correctRate = 0;
                 wrongRate = 0;
@@ -128,7 +128,7 @@ namespace Examination_PRL.Forms
             }
             else
             {
-                if(double.IsNaN(correctRate))
+                if (double.IsNaN(correctRate))
                     correctRate = 0;
                 if (double.IsNaN(wrongRate))
                     wrongRate = 0;
@@ -136,11 +136,11 @@ namespace Examination_PRL.Forms
                     notAnsweredRate = 0;
             }
 
-         
-            questionResult.Add(new Question() { Name = "Câu đúng", Total = correctRate});
-            questionResult.Add(new Question() { Name = "Câu sai", Total = wrongRate});
-            questionResult.Add(new Question() { Name = "Câu chưa chọn", Total = notAnsweredRate});
-         
+
+            questionResult.Add(new Question() { Name = "Câu đúng", Total = correctRate });
+            questionResult.Add(new Question() { Name = "Câu sai", Total = wrongRate });
+            questionResult.Add(new Question() { Name = "Câu chưa chọn", Total = notAnsweredRate });
+
 
             PieSeries pieSeriesQuestion = new PieSeries();
             pieSeriesQuestion.ShowLabels = true;
@@ -224,7 +224,5 @@ namespace Examination_PRL.Forms
             public string Name { get; set; }
             public double Total { get; set; }
         }
-
-        
     }
 }

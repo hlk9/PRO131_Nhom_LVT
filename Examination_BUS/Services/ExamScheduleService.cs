@@ -25,7 +25,7 @@ namespace Examination_BUS.Services
 
         public List<ExamSchedule_ResponsesViewModel> getExamResponses_ScheduleViewModels(string start, string end)
         {
-            var lst = from exS in _resExamSchedule.getAll()
+            var lst = (from exS in _resExamSchedule.getAll()
                       join exR in _resExamResponses.GetAllExamResponse()
                       on exS.Id equals exR.ExamScheduleId
                       select new ExamSchedule_ResponsesViewModel
@@ -40,9 +40,9 @@ namespace Examination_BUS.Services
                           QuestionCorrect = Convert.ToInt32(exR.QuestionCorrect),
                           QuestionWrong = Convert.ToInt32(exR.QuestionWrong),
                           QuestionNotAnswered = Convert.ToInt32(exR.QuestionNotAnswered)
-                      };
+                      }).ToList();
 
-            return lst.ToList();
+            return lst;
         }
     }
 }
