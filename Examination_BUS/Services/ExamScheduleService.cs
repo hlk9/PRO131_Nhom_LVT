@@ -23,34 +23,9 @@ namespace Examination_BUS.Services
             return _resExamSchedule.getAll();
         }
 
-        public List<ExamSchedule_ResponsesViewModel> getExamResponses_ScheduleViewModels(DateTime start, DateTime end)
+        public List<ExamSchedule> getAllByDateTimes(DateTime start, DateTime end)
         {
-            var lst = (from exS in _resExamSchedule.getAll()
-                      join exR in _resExamResponses.GetAllExamResponse()
-                      on exS.Id equals exR.ExamScheduleId
-                      select new ExamSchedule_ResponsesViewModel
-                      {
-                          idExamSchedule = exS.Id,
-                          idExamResponses = exR.Id,
-                          nameSchedule = exS.Name,
-                          subject = exS.Subject,
-                          StartTime = exS.StartTime,
-                          EndTime = exS.EndTime,
-                          Score = Convert.ToDouble(exR.Score),
-                          QuestionCorrect = Convert.ToInt32(exR.QuestionCorrect),
-                          QuestionWrong = Convert.ToInt32(exR.QuestionWrong),
-                          QuestionNotAnswered = Convert.ToInt32(exR.QuestionNotAnswered)
-                      }).ToList();
-
-            if(start == null && end == null)
-            {
-                return lst;
-            }
-            else
-            {
-                return lst.Where(x => x.StartTime >= start && x.EndTime <= end).ToList();
-            }
-            
-        }
+            return _resExamSchedule.getAllByDateTime(start, end);
+        }       
     }
 }

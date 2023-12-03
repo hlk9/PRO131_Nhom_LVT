@@ -21,5 +21,17 @@ namespace Examination_DAL.Repository
         {
             return _context.ExamSchedules.ToList();
         }
+
+        public List<ExamSchedule> getAllByDateTime(DateTime start, DateTime end)
+        {
+            if (start == null && end == null)
+            {
+                return _context.ExamSchedules.ToList();
+            }
+            else
+            {
+                return _context.ExamSchedules.Where(x => x.StartTime >= start && x.EndTime <= end).ToList();
+            }
+        }
     }
 }
