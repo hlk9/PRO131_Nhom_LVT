@@ -186,11 +186,17 @@ namespace Examination_PRL.Forms.Staff.Exam
                 MessageBox.Show("Số lượng câu hỏi đã đạt tối đa");
                 return;
             }
-
-          GetListQnA getQnA = new GetListQnA();
+            var exmDetail = examDetailServices.GetByExamDetailCode(this.examDetailCode);
+          GetListQnA getQnA = new GetListQnA(exmDetail.Id);
+            getQnA.DataAdded += GetQnA_DataAdded;
             getQnA.ShowDialog();
-            GetData();
+         //   GetData();
 
+        }
+
+        private void GetQnA_DataAdded(object? sender, EventArgs e)
+        {
+            GetData();
         }
 
         private void DeleteQuestion_Click(object? sender, EventArgs e)

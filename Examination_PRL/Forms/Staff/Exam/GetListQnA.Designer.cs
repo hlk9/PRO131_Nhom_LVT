@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             gridViewQ = new Telerik.WinControls.UI.RadGridView();
             ((System.ComponentModel.ISupportInitialize)gridViewQ).BeginInit();
@@ -43,11 +43,12 @@
             // 
             // 
             // 
-            gridViewQ.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            gridViewQ.MasterTemplate.ViewDefinition = tableViewDefinition1;
             gridViewQ.Name = "gridViewQ";
             gridViewQ.Size = new Size(1354, 633);
             gridViewQ.TabIndex = 0;
             gridViewQ.ThemeName = "MaterialTeal";
+            gridViewQ.ContextMenuOpening += gridViewQ_ContextMenuOpening;
             // 
             // GetListQnA
             // 
