@@ -43,8 +43,13 @@
             // 
             // 
             // 
+            radGridView1.MasterTemplate.AllowAddNewRow = false;
+            radGridView1.MasterTemplate.AllowSearchRow = true;
+            radGridView1.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            radGridView1.MasterTemplate.EnablePaging = true;
             radGridView1.MasterTemplate.ViewDefinition = tableViewDefinition1;
             radGridView1.Name = "radGridView1";
+            radGridView1.ReadOnly = true;
             radGridView1.Size = new Size(1133, 622);
             radGridView1.TabIndex = 0;
             radGridView1.ThemeName = "MaterialTeal";
