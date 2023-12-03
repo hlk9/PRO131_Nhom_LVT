@@ -24,10 +24,11 @@ namespace Examination_PRL.Forms
         public ReportByScore()
         {
             InitializeComponent();
-            loadGrid(null, null);
+            
+            loadGrid(DateTime.MinValue, DateTime.Now);
         }
 
-        public void loadGrid(string start, string end)
+        public void loadGrid(DateTime start, DateTime end)
         {
             radGridViewExam.Rows.Clear();
 
@@ -223,6 +224,26 @@ namespace Examination_PRL.Forms
         {
             public string Name { get; set; }
             public double Total { get; set; }
+        }
+
+        private void radDtpStar_ValueChanged(object sender, EventArgs e)
+        {
+            loadGrid(radDtpStar.Value, radDtpEnd.Value);
+        }
+
+        private void radDtpEnd_ValueChanged(object sender, EventArgs e)
+        {
+            loadGrid(radDtpStar.Value, radDtpEnd.Value);
+        }
+
+        private void radDtpStar_ValueChanging(object sender, ValueChangingEventArgs e)
+        {
+            loadGrid(radDtpStar.Value, radDtpEnd.Value);
+        }
+
+        private void radDtpEnd_ValueChanging(object sender, ValueChangingEventArgs e)
+        {
+            loadGrid(radDtpStar.Value, radDtpEnd.Value);
         }
     }
 }

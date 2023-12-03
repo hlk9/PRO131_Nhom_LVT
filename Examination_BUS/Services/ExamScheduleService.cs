@@ -23,7 +23,7 @@ namespace Examination_BUS.Services
             return _resExamSchedule.getAll();
         }
 
-        public List<ExamSchedule_ResponsesViewModel> getExamResponses_ScheduleViewModels(string start, string end)
+        public List<ExamSchedule_ResponsesViewModel> getExamResponses_ScheduleViewModels(DateTime start, DateTime end)
         {
             var lst = (from exS in _resExamSchedule.getAll()
                       join exR in _resExamResponses.GetAllExamResponse()
@@ -42,7 +42,15 @@ namespace Examination_BUS.Services
                           QuestionNotAnswered = Convert.ToInt32(exR.QuestionNotAnswered)
                       }).ToList();
 
-            return lst;
+            if(start == null && end == null)
+            {
+                return lst;
+            }
+            else
+            {
+                return lst.Where(x => x.StartTime >= start && x.EndTime <= end).ToList();
+            }
+            
         }
     }
 }

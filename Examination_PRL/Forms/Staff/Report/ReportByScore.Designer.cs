@@ -93,7 +93,7 @@
             radGridViewExam.MasterTemplate.ViewDefinition = tableViewDefinition1;
             radGridViewExam.Name = "radGridViewExam";
             radGridViewExam.ReadOnly = true;
-            radGridViewExam.Size = new Size(622, 272);
+            radGridViewExam.Size = new Size(622, 354);
             radGridViewExam.TabIndex = 0;
             radGridViewExam.ThemeName = "MaterialTeal";
             radGridViewExam.CellClick += radGridViewExam_CellClick;
@@ -150,7 +150,7 @@
             linearAxis1.TickOrigin = null;
             linearAxis1.Title = "";
             chartColumnScore.Axes.AddRange(new Telerik.WinControls.UI.Axis[] { categoricalAxis1, linearAxis1 });
-            chartColumnScore.Location = new Point(12, 393);
+            chartColumnScore.Location = new Point(12, 441);
             chartColumnScore.Name = "chartColumnScore";
             categoricalDataPoint1.Category = "A";
             categoricalDataPoint1.Label = 92D;
@@ -193,7 +193,7 @@
             barSeries2.VerticalAxis = linearAxis1;
             chartColumnScore.Series.AddRange(new Telerik.WinControls.UI.ChartSeries[] { barSeries1, barSeries2 });
             chartColumnScore.ShowGrid = false;
-            chartColumnScore.Size = new Size(1607, 551);
+            chartColumnScore.Size = new Size(1607, 503);
             chartColumnScore.TabIndex = 2;
             chartColumnScore.ThemeName = "MaterialTeal";
             // 
@@ -239,26 +239,32 @@
             // radDtpStar
             // 
             radDtpStar.CalendarSize = new Size(290, 320);
+            radDtpStar.Culture = new System.Globalization.CultureInfo("vi-VN");
             radDtpStar.Location = new Point(12, 39);
             radDtpStar.Name = "radDtpStar";
             radDtpStar.Size = new Size(300, 36);
             radDtpStar.TabIndex = 3;
             radDtpStar.TabStop = false;
-            radDtpStar.Text = "Sunday, December 3, 2023";
+            radDtpStar.Text = "Chủ Nhật, 3 tháng 12, 2023";
             radDtpStar.ThemeName = "MaterialTeal";
             radDtpStar.Value = new DateTime(2023, 12, 3, 13, 11, 41, 430);
+            radDtpStar.ValueChanged += radDtpStar_ValueChanged;
+            radDtpStar.ValueChanging += radDtpStar_ValueChanging;
             // 
             // radDtpEnd
             // 
             radDtpEnd.CalendarSize = new Size(290, 320);
+            radDtpEnd.Culture = new System.Globalization.CultureInfo("vi-VN");
             radDtpEnd.Location = new Point(338, 39);
             radDtpEnd.Name = "radDtpEnd";
             radDtpEnd.Size = new Size(296, 36);
             radDtpEnd.TabIndex = 4;
             radDtpEnd.TabStop = false;
-            radDtpEnd.Text = "Sunday, December 3, 2023";
+            radDtpEnd.Text = "Chủ Nhật, 3 tháng 12, 2023";
             radDtpEnd.ThemeName = "MaterialTeal";
             radDtpEnd.Value = new DateTime(2023, 12, 3, 13, 12, 16, 869);
+            radDtpEnd.ValueChanged += radDtpEnd_ValueChanged;
+            radDtpEnd.ValueChanging += radDtpEnd_ValueChanging;
             // 
             // radLabel1
             // 
