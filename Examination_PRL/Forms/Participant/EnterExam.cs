@@ -41,11 +41,12 @@ namespace Examination_PRL.Forms.Participant
         List<int> QuestionList = new List<int>();
         int CurrentQuestionCount = 0;
         int QuestionLimit = -1;
-
-        public EnterExam(string examCode, Account account)
+        int scheduleId = -1;
+        public EnterExam(string examCode,int scheduleId, Account account)
         {
             InitializeComponent();
             this.examCode = examCode;
+            this.scheduleId = scheduleId;
             if (this.examCode != null)
             {
                 FillAllQuestion(this.examCode);
@@ -532,6 +533,7 @@ namespace Examination_PRL.Forms.Participant
                 examResponse.QuestionNotAnswered = qNotAnswer;
                 examResponse.ScoredMethod = true; //true is automatic , false is manual
                 examResponse.Note = null;
+                examResponse.ExamScheduleId = this.scheduleId;
                 int idExResponse = examResponseServices.AddExamResponseAndGetId(examResponse);
                 if (idExResponse != -1)
                 {

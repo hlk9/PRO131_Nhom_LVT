@@ -166,7 +166,7 @@
             radPageView1.Dock = DockStyle.Fill;
             radPageView1.Location = new Point(0, 0);
             radPageView1.Name = "radPageView1";
-            radPageView1.SelectedPage = radPageViewPage1;
+            radPageView1.SelectedPage = radPageViewPage3;
             radPageView1.Size = new Size(1277, 706);
             radPageView1.TabIndex = 0;
             radPageView1.ThemeName = "MaterialTeal";
@@ -206,7 +206,8 @@
             // 
             // radViewScheduler
             // 
-            radViewScheduler.ActiveViewType = Telerik.WinControls.UI.SchedulerViewType.Agenda;
+            radViewScheduler.ActiveViewType = Telerik.WinControls.UI.SchedulerViewType.Month;
+            radViewScheduler.Culture = new System.Globalization.CultureInfo("vi-VN");
             radViewScheduler.Dock = DockStyle.Fill;
             radViewScheduler.Location = new Point(0, 0);
             radViewScheduler.Name = "radViewScheduler";
@@ -273,6 +274,7 @@
             radViewExam_Answers.TabIndex = 0;
             radViewExam_Answers.ThemeName = "MaterialTeal";
             radViewExam_Answers.CellClick += radViewExam_Answers_CellClick;
+            radViewExam_Answers.ContextMenuOpening += radViewExam_Answers_ContextMenuOpening;
             // 
             // documentContainer1
             // 
