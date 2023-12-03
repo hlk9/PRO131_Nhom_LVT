@@ -100,7 +100,7 @@ namespace Examination_PRL.Forms.Staff.ClassRoom
 
                 foreach (GridViewRowInfo row in radGridViewParticipant.Rows)
                 {
-                    if (row.Cells[5].Value != null)
+                    if (row.Cells[4].Value != null)
                     {
                         row.IsVisible = false;
                     }
