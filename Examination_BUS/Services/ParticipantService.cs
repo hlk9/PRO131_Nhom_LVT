@@ -27,6 +27,11 @@ namespace Examination_BUS.Services
             return _respos.getAllRemove();
         }
 
+        public List<Participant> GetAllParByClassIds(string classId)
+        {
+            return _respos.GetAllByClassId(classId);
+        }
+
         public bool createStudents(string id, string name, string address, string email, string phone, bool gender, byte status, DateTime dateOfBirth, string classRoomId)
         {
             var student = new Participant()
@@ -63,6 +68,17 @@ namespace Examination_BUS.Services
             return _respos.updateStudents(student);
         }
 
+        public bool updateClassIdOfPars(string id, string classId)
+        {
+            Participant participant = new Participant()
+            {
+                Id = id,
+                ClassroomId = classId
+            };
+
+            return _respos.updateClasIdOfPar(participant);
+        }
+             
         public bool deleteStudents(string id, byte status)
         {
             Participant student = new Participant()
