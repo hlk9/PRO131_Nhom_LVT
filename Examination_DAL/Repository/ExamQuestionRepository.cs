@@ -33,7 +33,18 @@ namespace Examination_DAL.Repository
 
         public bool DeleteExamQuestion(int examQuestionId)
         {
-            throw new NotImplementedException();
+            try
+            {
+            _context.ExamQuestions.Remove(GetExamQuestionById(examQuestionId));
+                _context.SaveChanges();
+                return true;
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+           
         }
 
         public List<ExamQuestion> GetAllExamQuestions()

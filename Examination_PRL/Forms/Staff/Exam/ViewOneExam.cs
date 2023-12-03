@@ -18,6 +18,9 @@ namespace Examination_PRL.Forms.Staff.Exam
         QuestionServices questionServices = new QuestionServices();
         QuestionsInExamViewModel QuestionsInExamViewModel = new QuestionsInExamViewModel();
         int currentQuestionId = -1;
+        double pointPerQuestion = -1;
+        ExamQuestionServices examQuestionServices = new ExamQuestionServices();
+        ExamDetailServices examDetailServices = new ExamDetailServices();
         public ViewOneExam(string examDetailCode)
         {
             InitializeComponent();
@@ -26,18 +29,41 @@ namespace Examination_PRL.Forms.Staff.Exam
         }
         public void GetData()
         {
+
             QuestionsInExamViewModel = questionServices.GetQuestionsByExamCode(this.examDetailCode);
             if (QuestionsInExamViewModel != null)
             {
                 LoadGrid();
+                this.pointPerQuestion = GetPointOfQ();
             }
             else
             {
                 MessageBox.Show("Không có câu hỏi nào trong bài thi này");
             }
         }
+
+        public QuestionsInExamViewModel GetPointOfQuesiton(QuestionsInExamViewModel questionsInExamViewModel)
+        {
+            ExamQuestionServices examQuestionServices = new ExamQuestionServices();
+
+            var listK = examQuestionServices.GetQuestionInExamWithPoint(questionsInExamViewModel.ExamDetailCode);
+
+            foreach (var question in questionsInExamViewModel.Questions)
+            {
+                question.Point = listK.Where(x => x.QuestionId == question.Id).Select(x => x.Point).FirstOrDefault();
+            }
+
+            return questionsInExamViewModel;
+        }
+
+        public double GetPointOfQ()
+        {
+            return Convert.ToDouble(examGridView.Rows[2].Cells[3].Value);
+
+        }
         void LoadGrid()
         {
+            examGridView.Rows.Clear();
             examGridView.ColumnCount = 7;
             int stt = 1;
             examGridView.Columns[0].HeaderText = "STT";
@@ -47,7 +73,11 @@ namespace Examination_PRL.Forms.Staff.Exam
             examGridView.Columns[4].HeaderText = "Loại câu hỏi";
             examGridView.Columns[5].HeaderText = "Mức độ";
             examGridView.Columns[6].HeaderText = "Mã môn";
-            foreach (var question in QuestionsInExamViewModel.Questions)
+
+            var listQ = GetPointOfQuesiton(QuestionsInExamViewModel);
+
+
+            foreach (var question in listQ.Questions)
             {
                 string questionType = "";
                 byte type = Convert.ToByte(question.QuestionTypeId);
@@ -124,12 +154,54 @@ namespace Examination_PRL.Forms.Staff.Exam
                         isCorrect = "Sai";
                     }
                     gridAnswer.Rows.Add(answer.Id, answer.Content, isCorrect);
-                   
+
                 }
 
             }
             gridAnswer.Columns[2].ConditionalFormattingObjectList.Add(formattingObject);
 
+        }
+
+        private void examGridView_ContextMenuOpening(object sender, ContextMenuOpeningEventArgs e)
+        {
+            e.ContextMenu.Items.Clear();
+            RadMenuItem currentExam = new RadMenuItem("Đang chọn câu hỏi có ID: " + currentQuestionId.ToString());
+            currentExam.ForeColor = Color.Teal;
+            e.ContextMenu.Items.Add(currentExam);
+            RadMenuSeparatorItem separator = new RadMenuSeparatorItem();
+            e.ContextMenu.Items.Add(separator);
+            RadMenuItem deleteQuestion = new RadMenuItem("Xóa câu hỏi khỏi đề thi này");
+            deleteQuestion.Click += DeleteQuestion_Click;
+            e.ContextMenu.Items.Add(deleteQuestion);
+            RadMenuItem addQuestion = new RadMenuItem("Thêm câu hỏi vào đề thi này");
+            addQuestion.Click += AddQuestion_Click;
+            e.ContextMenu.Items.Add(addQuestion);
+
+        }
+
+        private void AddQuestion_Click(object? sender, EventArgs e)
+        {
+            if (examDetailServices.GetByExamDetailCode(this.examDetailCode).TotalQuestion < examGridView.Rows.Count)
+            {
+                MessageBox.Show("Số lượng câu hỏi đã đạt tối đa");
+                return;
+            }
+
+          GetListQnA getQnA = new GetListQnA();
+            getQnA.ShowDialog();
+            GetData();
+
+        }
+
+        private void DeleteQuestion_Click(object? sender, EventArgs e)
+        {
+
+            var examDetail = examDetailServices.GetByExamDetailCode(this.examDetailCode);
+
+            var eq = examQuestionServices.GetAllExamQuestions().Where(x => x.ExamDetailId == examDetail.Id && x.QuestionId == currentQuestionId).FirstOrDefault();
+            if (examQuestionServices.DeleteExamQuestion(eq.Id) == true)
+                MessageBox.Show("Xóa câu hỏi khỏi đề thành công");
+            GetData();
         }
     }
 }

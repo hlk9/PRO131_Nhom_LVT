@@ -300,6 +300,7 @@ namespace Examination_PRL.Forms.Staff.Exam
                         examQuestionServices.AddExamQuestion(examQuestion);
 
                     }
+                    MessageBox.Show("Tạo đề thi thành công");
 
                   
                 }

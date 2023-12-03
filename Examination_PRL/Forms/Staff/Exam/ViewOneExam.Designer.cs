@@ -32,33 +32,33 @@
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             examDockParent = new Telerik.WinControls.UI.Docking.RadDock();
-            toolWindowDetail = new Telerik.WinControls.UI.Docking.ToolWindow();
-            gridAnswer = new Telerik.WinControls.UI.RadGridView();
-            dockContainer = new Telerik.WinControls.UI.Docking.DocumentContainer();
-            documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             documentWindow1 = new Telerik.WinControls.UI.Docking.DocumentWindow();
             examGridView = new Telerik.WinControls.UI.RadGridView();
+            dockContainer = new Telerik.WinControls.UI.Docking.DocumentContainer();
+            documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             tabStripDetail = new Telerik.WinControls.UI.Docking.ToolTabStrip();
+            toolWindowDetail = new Telerik.WinControls.UI.Docking.ToolWindow();
+            gridAnswer = new Telerik.WinControls.UI.RadGridView();
             ((System.ComponentModel.ISupportInitialize)examDockParent).BeginInit();
             examDockParent.SuspendLayout();
-            toolWindowDetail.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gridAnswer).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)gridAnswer.MasterTemplate).BeginInit();
+            documentWindow1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)examGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)examGridView.MasterTemplate).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dockContainer).BeginInit();
             dockContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)documentTabStrip1).BeginInit();
             documentTabStrip1.SuspendLayout();
-            documentWindow1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)examGridView).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)examGridView.MasterTemplate).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tabStripDetail).BeginInit();
             tabStripDetail.SuspendLayout();
+            toolWindowDetail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)gridAnswer).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridAnswer.MasterTemplate).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
             // examDockParent
             // 
-            examDockParent.ActiveWindow = toolWindowDetail;
+            examDockParent.ActiveWindow = documentWindow1;
             examDockParent.CausesValidation = false;
             examDockParent.Controls.Add(dockContainer);
             examDockParent.Controls.Add(tabStripDetail);
@@ -78,40 +78,41 @@
             examDockParent.TabStop = false;
             examDockParent.ThemeName = "MaterialTeal";
             // 
-            // toolWindowDetail
+            // documentWindow1
             // 
-            toolWindowDetail.Caption = null;
-            toolWindowDetail.Controls.Add(gridAnswer);
-            toolWindowDetail.DocumentButtons = Telerik.WinControls.UI.Docking.DocumentStripButtons.None;
-            toolWindowDetail.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            toolWindowDetail.Location = new Point(4, 52);
-            toolWindowDetail.Name = "toolWindowDetail";
-            toolWindowDetail.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            toolWindowDetail.Size = new Size(477, 564);
-            toolWindowDetail.Text = "Các đáp án";
-            toolWindowDetail.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
+            documentWindow1.Controls.Add(examGridView);
+            documentWindow1.DocumentButtons = Telerik.WinControls.UI.Docking.DocumentStripButtons.None;
+            documentWindow1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            documentWindow1.Location = new Point(4, 4);
+            documentWindow1.Name = "documentWindow1";
+            documentWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
+            documentWindow1.Size = new Size(624, 612);
+            documentWindow1.Text = "Danh sách bài thi ";
+            documentWindow1.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
-            // gridAnswer
+            // examGridView
             // 
-            gridAnswer.Dock = DockStyle.Fill;
-            gridAnswer.Location = new Point(0, 0);
-            // 
+            examGridView.Dock = DockStyle.Fill;
+            examGridView.Location = new Point(0, 0);
             // 
             // 
-            gridAnswer.MasterTemplate.AllowAddNewRow = false;
-            gridAnswer.MasterTemplate.AllowCellContextMenu = false;
-            gridAnswer.MasterTemplate.AllowColumnHeaderContextMenu = false;
-            gridAnswer.MasterTemplate.AllowDeleteRow = false;
-            gridAnswer.MasterTemplate.AllowDragToGroup = false;
-            gridAnswer.MasterTemplate.AllowEditRow = false;
-            gridAnswer.MasterTemplate.AllowRowHeaderContextMenu = false;
-            gridAnswer.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            gridAnswer.MasterTemplate.ViewDefinition = tableViewDefinition1;
-            gridAnswer.Name = "gridAnswer";
-            gridAnswer.ShowGroupPanel = false;
-            gridAnswer.Size = new Size(477, 564);
-            gridAnswer.TabIndex = 0;
-            gridAnswer.ThemeName = "MaterialTeal";
+            // 
+            examGridView.MasterTemplate.AllowAddNewRow = false;
+            examGridView.MasterTemplate.AllowDeleteRow = false;
+            examGridView.MasterTemplate.AllowEditRow = false;
+            examGridView.MasterTemplate.AllowRowHeaderContextMenu = false;
+            examGridView.MasterTemplate.AllowSearchRow = true;
+            examGridView.MasterTemplate.AutoExpandGroups = true;
+            examGridView.MasterTemplate.AutoGenerateColumns = false;
+            examGridView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            examGridView.MasterTemplate.EnablePaging = true;
+            examGridView.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            examGridView.Name = "examGridView";
+            examGridView.Size = new Size(624, 612);
+            examGridView.TabIndex = 0;
+            examGridView.ThemeName = "MaterialTeal";
+            examGridView.CellClick += examGridView_CellClick;
+            examGridView.ContextMenuOpening += examGridView_ContextMenuOpening;
             // 
             // dockContainer
             // 
@@ -145,42 +146,6 @@
             documentTabStrip1.TabStripVisible = false;
             documentTabStrip1.ThemeName = "MaterialTeal";
             // 
-            // documentWindow1
-            // 
-            documentWindow1.Controls.Add(examGridView);
-            documentWindow1.DocumentButtons = Telerik.WinControls.UI.Docking.DocumentStripButtons.None;
-            documentWindow1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            documentWindow1.Location = new Point(4, 4);
-            documentWindow1.Name = "documentWindow1";
-            documentWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
-            documentWindow1.Size = new Size(624, 612);
-            documentWindow1.Text = "Danh sách bài thi ";
-            documentWindow1.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
-            // 
-            // examGridView
-            // 
-            examGridView.Dock = DockStyle.Fill;
-            examGridView.Location = new Point(0, 0);
-            // 
-            // 
-            // 
-            examGridView.MasterTemplate.AllowAddNewRow = false;
-            examGridView.MasterTemplate.AllowCellContextMenu = false;
-            examGridView.MasterTemplate.AllowDeleteRow = false;
-            examGridView.MasterTemplate.AllowEditRow = false;
-            examGridView.MasterTemplate.AllowRowHeaderContextMenu = false;
-            examGridView.MasterTemplate.AllowSearchRow = true;
-            examGridView.MasterTemplate.AutoExpandGroups = true;
-            examGridView.MasterTemplate.AutoGenerateColumns = false;
-            examGridView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            examGridView.MasterTemplate.EnablePaging = true;
-            examGridView.MasterTemplate.ViewDefinition = tableViewDefinition2;
-            examGridView.Name = "examGridView";
-            examGridView.Size = new Size(624, 612);
-            examGridView.TabIndex = 0;
-            examGridView.ThemeName = "MaterialTeal";
-            examGridView.CellClick += examGridView_CellClick;
-            // 
             // tabStripDetail
             // 
             tabStripDetail.CanUpdateChildIndex = true;
@@ -200,6 +165,41 @@
             tabStripDetail.TabStop = false;
             tabStripDetail.ThemeName = "MaterialTeal";
             // 
+            // toolWindowDetail
+            // 
+            toolWindowDetail.Caption = null;
+            toolWindowDetail.Controls.Add(gridAnswer);
+            toolWindowDetail.DocumentButtons = Telerik.WinControls.UI.Docking.DocumentStripButtons.None;
+            toolWindowDetail.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            toolWindowDetail.Location = new Point(4, 52);
+            toolWindowDetail.Name = "toolWindowDetail";
+            toolWindowDetail.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
+            toolWindowDetail.Size = new Size(477, 564);
+            toolWindowDetail.Text = "Các đáp án";
+            toolWindowDetail.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
+            // 
+            // gridAnswer
+            // 
+            gridAnswer.Dock = DockStyle.Fill;
+            gridAnswer.Location = new Point(0, 0);
+            // 
+            // 
+            // 
+            gridAnswer.MasterTemplate.AllowAddNewRow = false;
+            gridAnswer.MasterTemplate.AllowCellContextMenu = false;
+            gridAnswer.MasterTemplate.AllowColumnHeaderContextMenu = false;
+            gridAnswer.MasterTemplate.AllowDeleteRow = false;
+            gridAnswer.MasterTemplate.AllowDragToGroup = false;
+            gridAnswer.MasterTemplate.AllowEditRow = false;
+            gridAnswer.MasterTemplate.AllowRowHeaderContextMenu = false;
+            gridAnswer.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            gridAnswer.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            gridAnswer.Name = "gridAnswer";
+            gridAnswer.ShowGroupPanel = false;
+            gridAnswer.Size = new Size(477, 564);
+            gridAnswer.TabIndex = 0;
+            gridAnswer.ThemeName = "MaterialTeal";
+            // 
             // ViewOneExam
             // 
             AutoScaleBaseSize = new Size(7, 15);
@@ -216,18 +216,18 @@
             ThemeName = "MaterialTeal";
             ((System.ComponentModel.ISupportInitialize)examDockParent).EndInit();
             examDockParent.ResumeLayout(false);
-            toolWindowDetail.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)gridAnswer.MasterTemplate).EndInit();
-            ((System.ComponentModel.ISupportInitialize)gridAnswer).EndInit();
+            documentWindow1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)examGridView.MasterTemplate).EndInit();
+            ((System.ComponentModel.ISupportInitialize)examGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)dockContainer).EndInit();
             dockContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)documentTabStrip1).EndInit();
             documentTabStrip1.ResumeLayout(false);
-            documentWindow1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)examGridView.MasterTemplate).EndInit();
-            ((System.ComponentModel.ISupportInitialize)examGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)tabStripDetail).EndInit();
             tabStripDetail.ResumeLayout(false);
+            toolWindowDetail.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)gridAnswer.MasterTemplate).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridAnswer).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }
