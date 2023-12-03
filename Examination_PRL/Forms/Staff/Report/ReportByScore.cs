@@ -15,7 +15,7 @@ namespace Examination_PRL.Forms
 {
     public partial class ReportByScore : Telerik.WinControls.UI.RadForm
     {
-        int _idExamWhenClick;
+        int _idExamScheduleWhenClick;
 
         ExamScheduleService _serExamSchedule = new ExamScheduleService();
         ExamDetailServices _serExamDetail = new ExamDetailServices();
@@ -24,28 +24,29 @@ namespace Examination_PRL.Forms
         public ReportByScore()
         {
             InitializeComponent();
-            loadGrid();
+            loadGrid(null, null);
         }
 
-        public void loadGrid()
+        public void loadGrid(string start, string end)
         {
             radGridViewExam.Rows.Clear();
 
-            radGridViewExam.ColumnCount = 4;
+            radGridViewExam.ColumnCount = 6;
 
             int stt = 1;
 
             radGridViewExam.Columns[0].HeaderText = "STT";
             radGridViewExam.Columns[1].HeaderText = "Mã Lịch Thi";
             radGridViewExam.Columns[2].HeaderText = "Tên Đợt Thi";
-            radGridViewExam.Columns[3].HeaderText = "Mã Bài Thi";
+            radGridViewExam.Columns[3].HeaderText = "Tên Môn";
+            radGridViewExam.Columns[4].HeaderText = "Thời Gian Bắt Đầu";
+            radGridViewExam.Columns[5].HeaderText = "Thời Gian Kết Thúc";
 
             radGridViewExam.Columns[1].IsVisible = false;
-            radGridViewExam.Columns[3].IsVisible = false;
 
-            foreach (var x in _serExamSchedule.getAlls())
+            foreach (var x in _serExamSchedule.getExamResponses_ScheduleViewModels(start, end))
             {
-                radGridViewExam.Rows.Add(stt++, x.Id, x.Name, x.ExamId);
+                radGridViewExam.Rows.Add(stt++, x.idExamSchedule, x.nameSchedule, x.subject, x.StartTime, x.EndTime);
             }
         }
 
@@ -55,27 +56,13 @@ namespace Examination_PRL.Forms
             chartPieAnSwer.Series.Clear();
             chartPieIsPassed.Series.Clear();
 
-            List<ExamDetail> examDetails = new List<ExamDetail>();
-
-            foreach (var x in _serExamDetail.getByExamIds(id))
-            {
-                examDetails.Add(x);
-            }
-
-            List<ExamResponse> examResponses = new List<ExamResponse>();
-
-            foreach (var x in examDetails)
-            {
-                //var list = _serExamResponses.GetExamResponseByExamDetailId(x.Id);
-                //examResponses.AddRange(list);
-                examResponses.AddRange(_serExamResponses.GetExamResponseByExamDetailId(x.Id));
-            }
-
+            var lstExamResponses = _serExamResponses.GetExamResponseByExamScheduleId(id);
+            
             double pass = 0, fail = 0, total = 0, passRate = 0, failRate = 0, unknown = 0, unknownRate = 0;         
 
-            pass = examResponses.FindAll(x => x.IsPassed == true).Count;
-            fail = examResponses.FindAll(x => x.IsPassed == false).Count;
-            unknown = examResponses.FindAll(x => x.IsPassed == null).Count;
+            pass = lstExamResponses.FindAll(x => x.IsPassed == true).Count;
+            fail = lstExamResponses.FindAll(x => x.IsPassed == false).Count;
+            unknown = lstExamResponses.FindAll(x => x.IsPassed == null).Count;
 
             total = pass + fail + unknown;
             passRate = (pass / total) * 100;
@@ -95,7 +82,7 @@ namespace Examination_PRL.Forms
             chartPieIsPassed.Series.Add(pieSeries);
             chartPieIsPassed.ShowLegend = true;
             chartPieIsPassed.ShowTitle = true;
-            chartPieIsPassed.Title = "Tỉ lệ bài làm Đạt và Trượt\nTổng số: " + examResponses.Count;
+            chartPieIsPassed.Title = "Tỉ lệ bài làm Đạt và Trượt\nTổng số: " + lstExamResponses.Count;
             chartPieIsPassed.ShowSmartLabels = true;
             pieSeries.DrawLinesToLabels = true;
             pieSeries.SyncLinesToLabelsColor = true;
@@ -104,7 +91,7 @@ namespace Examination_PRL.Forms
 
             double totalQuestion = 0, correct = 0, wrong = 0, notAnswered = 0, correctRate = 0, wrongRate = 0, notAnsweredRate = 0;
 
-            foreach (var x in examResponses)
+            foreach (var x in lstExamResponses)
             {
                 try
                 {
@@ -172,7 +159,7 @@ namespace Examination_PRL.Forms
 
             //phổ điểm
             List<double> listPoint = new List<double>();
-            foreach (var item in examResponses)
+            foreach (var item in lstExamResponses)
             {
                 double point = Convert.ToDouble(item.Score);
                 double maxScore = _serExamDetail.GetById(item.ExamDetailId).MaxiumMark;
@@ -210,15 +197,15 @@ namespace Examination_PRL.Forms
             chartColumnScore.Series.Add(lineSeries);
             chartColumnScore.Area.View.Palette = KnownPalette.Arctic;
             chartColumnScore.ShowTitle = true;
-            chartColumnScore.Title = "Phổ điểm\nTổng số: " + examResponses.Count;
+            chartColumnScore.Title = "Phổ điểm\nTổng số: " + lstExamResponses.Count;
 
         }
 
         private void radGridViewExam_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
-            _idExamWhenClick = Convert.ToInt32(radGridViewExam.CurrentRow.Cells[3].Value);
+            _idExamScheduleWhenClick = Convert.ToInt32(radGridViewExam.CurrentRow.Cells[1].Value);
 
-            loadChart(_idExamWhenClick);
+            loadChart(_idExamScheduleWhenClick);
         }
 
         public double chuanHoaDiem(double diemDat, double diemToiDa, double thangDiem)

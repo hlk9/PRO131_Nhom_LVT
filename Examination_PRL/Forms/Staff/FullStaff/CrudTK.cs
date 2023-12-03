@@ -55,7 +55,7 @@ namespace Examination_PRL.Forms.Staff.FullStaff
 
         private void radBtnThem_Click(object sender, EventArgs e)
         {
-            if(ValiDate())
+            if (ValiDate())
             {
                 string id = radTxtID.Text;
                 string name = radTxtName.Text;
@@ -70,7 +70,7 @@ namespace Examination_PRL.Forms.Staff.FullStaff
                     MessageBox.Show("Thêm Tài Khoản Thất Bại Kiểm Tra Lại Định Dạng");
                 }
                 LoadDataCrud();
-            }   
+            }
         }
 
         private void radBtnSua_Click(object sender, EventArgs e)
@@ -79,7 +79,7 @@ namespace Examination_PRL.Forms.Staff.FullStaff
             string name = radTxtName.Text;
             string passWord = radTextMK.Text;
 
-            if (_service.UpdateAccount(id, name, passWord,null))
+            if (_service.UpdateAccount(id, name, passWord, null))
             {
                 MessageBox.Show("Sửa Tài Khoản Thành Công");
             }
@@ -93,12 +93,12 @@ namespace Examination_PRL.Forms.Staff.FullStaff
         private void radBtnXoa_Click(object sender, EventArgs e)
         {
             DialogResult = MessageBox.Show("Bạn Có Chắc Chắn Muốn Xóa Tài Khoản Này Không???", "Xác Nhận", MessageBoxButtons.YesNo);
-            if(DialogResult == DialogResult.Yes)
+            if (DialogResult == DialogResult.Yes)
             {
-                if(_service.DeleteAccount(_idWhenClick))
+                if (_service.DeleteAccount(_idWhenClick))
                 {
                     MessageBox.Show("Xóa Thành Công");
-                }    
+                }
                 else
                 {
                     MessageBox.Show("Xóa Thất Bại");

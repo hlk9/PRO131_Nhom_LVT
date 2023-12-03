@@ -55,6 +55,11 @@ namespace Examination_DAL.Repository
             return _context.ExamResponses.Where(e => e.SubjectId == subjectId).ToList();
         }
 
+        public List<ExamResponse> GetExamResponseByExamScheduleId(int ExamScheduleid)
+        {
+            return _context.ExamResponses.Where(e => e.ExamScheduleId == ExamScheduleid).ToList();
+        }
+
         public int AddExamResponseAndGetId(ExamResponse examResponse)
         {
             try

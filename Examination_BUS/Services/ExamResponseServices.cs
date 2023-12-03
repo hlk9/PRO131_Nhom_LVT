@@ -50,5 +50,10 @@ namespace Examination_BUS.Services
         {
             return _examResponsesRepository.AddExamResponseAndGetId(examResponse);
         }
+
+        public List<ExamResponse> GetExamResponseByExamScheduleId(int ExamScheduleId)
+        {
+            return _examResponsesRepository.GetExamResponseByExamScheduleId(ExamScheduleId);
+        }
     }
 }
