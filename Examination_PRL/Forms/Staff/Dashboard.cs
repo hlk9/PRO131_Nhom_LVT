@@ -163,12 +163,20 @@ namespace Examination_PRL.Forms.Staff
             classRooms.Dock = DockStyle.Fill;
             classRooms.Name = "classRoomsForm";
 
+            RadPageViewPage addParticipantToClassPage = new RadPageViewPage("Thêm thí sinh vào lớp");
+            AddParticipantToClass addParticipantToClass = new AddParticipantToClass();
+            addParticipantToClass.TopLevel = false;
+            addParticipantToClassPage.Controls.Add(addParticipantToClass);
+            addParticipantToClass.Show();
+            addParticipantToClass.Dock = DockStyle.Fill;
+            
+            classRoom.SubPages.Add(addParticipantToClassPage );
+
             RadPageViewPage roomPage = new RadPageViewPage("Phòng thi"); //xem danh sách phòng thi
             roomPage.ToolTipText = "Phòng thi";
             Bitmap bitMapRoomIcon = new Bitmap(Properties.Resources._class);
             Image roomIcon = bitMapRoomIcon;
             roomPage.Image = roomIcon;
-
 
             Room room = new Room();
             room.TopLevel = false;

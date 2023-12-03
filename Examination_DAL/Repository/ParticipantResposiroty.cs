@@ -55,6 +55,11 @@ namespace Examination_DAL.Repository
            return _context.Participants.ToList();
         }
 
+        public List<Participant> GetAllByClassId(string classId)
+        {
+            return _context.Participants.Where(x => x.ClassroomId == classId).ToList();
+        }
+
         public List<Participant> getAllRemove()
         {
             return _context.Participants.Where(x => x.Status == 255).ToList();
@@ -76,6 +81,25 @@ namespace Examination_DAL.Repository
                 update.PhoneNumber = par.PhoneNumber;
                 update.ClassroomId = par.ClassroomId;
                 update.AccountId = par.AccountId;
+
+                _context.Participants.Update(update);
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool updateClasIdOfPar(Participant par)
+        {
+            try
+            {
+                var update = _context.Participants.Find(par.Id);
+
+                update.Id = par.Id;
+                update.ClassroomId = par.ClassroomId;
 
                 _context.Participants.Update(update);
                 _context.SaveChanges();

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.SchedulerDailyPrintStyle schedulerDailyPrintStyle1 = new Telerik.WinControls.UI.SchedulerDailyPrintStyle();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.SchedulerDailyPrintStyle schedulerDailyPrintStyle2 = new Telerik.WinControls.UI.SchedulerDailyPrintStyle();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             radPageView1 = new Telerik.WinControls.UI.RadPageView();
             radPageViewPage1 = new Telerik.WinControls.UI.RadPageViewPage();
@@ -167,6 +167,7 @@
             radPageView1.Location = new Point(0, 0);
             radPageView1.Name = "radPageView1";
             radPageView1.SelectedPage = radPageViewPage3;
+            radPageView1.SelectedPage = radPageViewPage4;
             radPageView1.Size = new Size(1277, 706);
             radPageView1.TabIndex = 0;
             radPageView1.ThemeName = "MaterialTeal";
@@ -211,7 +212,7 @@
             radViewScheduler.Dock = DockStyle.Fill;
             radViewScheduler.Location = new Point(0, 0);
             radViewScheduler.Name = "radViewScheduler";
-            radViewScheduler.PrintStyle = schedulerDailyPrintStyle1;
+            radViewScheduler.PrintStyle = schedulerDailyPrintStyle2;
             radViewScheduler.Size = new Size(1265, 645);
             radViewScheduler.TabIndex = 0;
             radViewScheduler.ThemeName = "MaterialTeal";
@@ -268,7 +269,7 @@
             radViewExam_Answers.MasterTemplate.AllowAddNewRow = false;
             radViewExam_Answers.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             radViewExam_Answers.MasterTemplate.EnablePaging = true;
-            radViewExam_Answers.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            radViewExam_Answers.MasterTemplate.ViewDefinition = tableViewDefinition4;
             radViewExam_Answers.Name = "radViewExam_Answers";
             radViewExam_Answers.Size = new Size(914, 637);
             radViewExam_Answers.TabIndex = 0;
@@ -281,6 +282,7 @@
             documentContainer1.CausesValidation = false;
             documentContainer1.Controls.Add(documentTabStrip1);
             documentContainer1.Name = "documentContainer1";
+            documentContainer1.Padding = new Padding(0);
             // 
             // 
             // 
@@ -289,7 +291,6 @@
             documentContainer1.SizeInfo.SizeMode = Telerik.WinControls.UI.Docking.SplitPanelSizeMode.Fill;
             documentContainer1.SizeInfo.SplitterCorrection = new Size(-135, 0);
             documentContainer1.SplitterWidth = 8;
-            documentContainer1.ThemeName = "MaterialTeal";
             // 
             // documentTabStrip1
             // 
@@ -364,10 +365,10 @@
             toolWindow1.Controls.Add(radLabel5);
             toolWindow1.Controls.Add(radLabel4);
             toolWindow1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            toolWindow1.Location = new Point(4, 52);
+            toolWindow1.Location = new Point(4, 4);
             toolWindow1.Name = "toolWindow1";
             toolWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            toolWindow1.Size = new Size(327, 589);
+            toolWindow1.Size = new Size(327, 637);
             toolWindow1.Text = "Thông Tin Chi Tiết";
             toolWindow1.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
@@ -727,7 +728,7 @@
             btn_Send.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btn_Send.BackColor = Color.Teal;
             btn_Send.ForeColor = Color.White;
-            btn_Send.Location = new Point(432, 518);
+            btn_Send.Location = new Point(429, 491);
             btn_Send.Name = "btn_Send";
             btn_Send.Size = new Size(120, 36);
             btn_Send.TabIndex = 19;
@@ -740,7 +741,7 @@
             btn_Reset.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btn_Reset.BackColor = Color.Teal;
             btn_Reset.ForeColor = Color.White;
-            btn_Reset.Location = new Point(706, 518);
+            btn_Reset.Location = new Point(721, 491);
             btn_Reset.Name = "btn_Reset";
             btn_Reset.Size = new Size(120, 36);
             btn_Reset.TabIndex = 18;
@@ -751,7 +752,7 @@
             // radLabel7
             // 
             radLabel7.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            radLabel7.Location = new Point(525, 20);
+            radLabel7.Location = new Point(518, 20);
             radLabel7.Name = "radLabel7";
             radLabel7.Size = new Size(208, 36);
             radLabel7.TabIndex = 20;
@@ -761,7 +762,7 @@
             // radLabel1
             // 
             radLabel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            radLabel1.Location = new Point(314, 96);
+            radLabel1.Location = new Point(350, 102);
             radLabel1.Name = "radLabel1";
             radLabel1.Size = new Size(55, 21);
             radLabel1.TabIndex = 11;
@@ -772,18 +773,18 @@
             // 
             tbt_Content.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbt_Content.BorderColor = Color.FromArgb(224, 224, 224);
-            tbt_Content.Location = new Point(432, 331);
+            tbt_Content.Location = new Point(350, 323);
             tbt_Content.Name = "tbt_Content";
             tbt_Content.SelectionFill = Color.FromArgb(128, 128, 203, 196);
             tbt_Content.SelectionStroke = Color.FromArgb(128, 203, 196);
-            tbt_Content.Size = new Size(394, 170);
+            tbt_Content.Size = new Size(566, 143);
             tbt_Content.TabIndex = 17;
             tbt_Content.ThemeName = "MaterialTeal";
             // 
             // radLabel2
             // 
             radLabel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            radLabel2.Location = new Point(314, 173);
+            radLabel2.Location = new Point(350, 196);
             radLabel2.Name = "radLabel2";
             radLabel2.Size = new Size(68, 21);
             radLabel2.TabIndex = 10;
@@ -793,7 +794,7 @@
             // radLabel3
             // 
             radLabel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            radLabel3.Location = new Point(314, 250);
+            radLabel3.Location = new Point(641, 196);
             radLabel3.Name = "radLabel3";
             radLabel3.Size = new Size(49, 21);
             radLabel3.TabIndex = 9;
@@ -803,25 +804,25 @@
             // tbt_IDParticipant
             // 
             tbt_IDParticipant.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tbt_IDParticipant.Location = new Point(432, 234);
+            tbt_IDParticipant.Location = new Point(641, 223);
             tbt_IDParticipant.Name = "tbt_IDParticipant";
-            tbt_IDParticipant.Size = new Size(394, 0);
+            tbt_IDParticipant.Size = new Size(275, 37);
             tbt_IDParticipant.TabIndex = 14;
             tbt_IDParticipant.ThemeName = "MaterialTeal";
             // 
             // tbt_Name
             // 
             tbt_Name.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tbt_Name.Location = new Point(432, 157);
+            tbt_Name.Location = new Point(350, 223);
             tbt_Name.Name = "tbt_Name";
-            tbt_Name.Size = new Size(394, 0);
+            tbt_Name.Size = new Size(275, 37);
             tbt_Name.TabIndex = 15;
             tbt_Name.ThemeName = "MaterialTeal";
             // 
             // radLabel6
             // 
             radLabel6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            radLabel6.Location = new Point(314, 331);
+            radLabel6.Location = new Point(350, 279);
             radLabel6.Name = "radLabel6";
             radLabel6.Size = new Size(65, 21);
             radLabel6.TabIndex = 6;
@@ -831,9 +832,9 @@
             // tbt_Title
             // 
             tbt_Title.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tbt_Title.Location = new Point(432, 80);
+            tbt_Title.Location = new Point(350, 129);
             tbt_Title.Name = "tbt_Title";
-            tbt_Title.Size = new Size(394, 0);
+            tbt_Title.Size = new Size(566, 37);
             tbt_Title.TabIndex = 16;
             tbt_Title.ThemeName = "MaterialTeal";
             // 
