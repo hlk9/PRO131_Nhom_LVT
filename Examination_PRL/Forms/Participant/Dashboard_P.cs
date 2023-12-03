@@ -182,7 +182,7 @@ namespace Examination_PRL.Forms.Participant
 
             radViewExam_Answers.Rows.Clear();
 
-           try
+            try
             {
                 foreach (var item in _serviceExam.GetAnswer_ResponsesViewModels(userAccount.Id))
                 {
