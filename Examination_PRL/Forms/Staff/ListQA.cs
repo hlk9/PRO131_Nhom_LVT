@@ -36,14 +36,12 @@ namespace Examination_PRL.Forms.Staff
             radGridView1.Columns[5].HeaderText = "Nội dung";
             radGridView1.Columns[6].HeaderText = "Ngày đăng";
             radGridView1.Columns[7].IsVisible = false;
-            
-          
 
-            foreach(var item in data)
+            foreach (var item in data)
             {
-                radGridView1.Rows.Add(stt++, item.Id, item.Title, item.Name, item.IdParticipant, item.Content,item.SubmitTime);
+                radGridView1.Rows.Add(stt++, item.Id, item.Title, item.Name, item.IdParticipant, item.Content, item.SubmitTime);
             }
-           
+
         }
     }
 }

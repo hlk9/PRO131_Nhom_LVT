@@ -50,7 +50,7 @@
             radGridView1.MasterTemplate.ViewDefinition = tableViewDefinition1;
             radGridView1.Name = "radGridView1";
             radGridView1.ReadOnly = true;
-            radGridView1.Size = new Size(1133, 622);
+            radGridView1.Size = new Size(1135, 659);
             radGridView1.TabIndex = 0;
             radGridView1.ThemeName = "MaterialTeal";
             // 
@@ -59,8 +59,9 @@
             AutoScaleBaseSize = new Size(7, 15);
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1133, 622);
+            ClientSize = new Size(1135, 659);
             Controls.Add(radGridView1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "ListQA";
             // 
             // 

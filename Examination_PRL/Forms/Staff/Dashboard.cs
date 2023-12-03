@@ -279,6 +279,14 @@ namespace Examination_PRL.Forms.Staff
             crudTK.Show();
             crudTK.Dock = DockStyle.Fill;
             crudTK.Name = "report_Overview";
+
+            RadPageViewPage listQAPage = new RadPageViewPage("Phản hồi của thí sinh");
+            ListQA listQA = new ListQA();
+            listQA.TopLevel = false;
+            listQAPage.Controls.Add(listQA);
+            listQA.Show();
+            listQA.Dock = DockStyle.Fill;
+
             pvDashboard.Pages.Add(homePage);
             pvDashboard.Pages.Add(schedulePage);
             pvDashboard.Pages.Add(studentPage);
@@ -292,6 +300,7 @@ namespace Examination_PRL.Forms.Staff
             pvDashboard.Pages.Add(reportPage);
             pvDashboard.Pages.Add(questionPage);
             pvDashboard.Pages.Add(createAccountParticipantPage);
+            pvDashboard.Pages.Add(listQAPage);
 
             pvDashboard.AutoScroll = true;
             CollapseAllSubPages(pvDashboard);
