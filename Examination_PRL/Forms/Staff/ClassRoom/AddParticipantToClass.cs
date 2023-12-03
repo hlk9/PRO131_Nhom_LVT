@@ -65,17 +65,16 @@ namespace Examination_PRL.Forms.Staff.ClassRoom
 
             int stt = 1;
 
-            radGridViewParInClass.ColumnCount = 5;
+            radGridViewParInClass.ColumnCount = 4;
 
             radGridViewParInClass.Columns[0].HeaderText = "STT";
             radGridViewParInClass.Columns[1].HeaderText = "Mã Thí Sinh";
             radGridViewParInClass.Columns[2].HeaderText = "Tên Thí Sinh";
             radGridViewParInClass.Columns[3].HeaderText = "Giới Tính";
-            radGridViewParInClass.Columns[4].HeaderText = "Email";
 
             foreach (var x in _serPar.GetAllParByClassIds(classId))
             {
-                radGridViewParInClass.Rows.Add(stt++, x.Id, x.FullName, x.Gender == true ? "Nam" : "Nữ", x.Email);
+                radGridViewParInClass.Rows.Add(stt++, x.Id, x.FullName, x.Gender == true ? "Nam" : "Nữ");
             }
         }
 
@@ -85,20 +84,19 @@ namespace Examination_PRL.Forms.Staff.ClassRoom
 
             int stt = 1;
 
-            radGridViewParticipant.ColumnCount = 6;
+            radGridViewParticipant.ColumnCount = 5;
 
             radGridViewParticipant.Columns[0].HeaderText = "STT";
             radGridViewParticipant.Columns[1].HeaderText = "Mã Thí Sinh";
             radGridViewParticipant.Columns[2].HeaderText = "Tên Thí Sinh";
             radGridViewParticipant.Columns[3].HeaderText = "Giới Tính";
-            radGridViewParticipant.Columns[4].HeaderText = "Email";
-            radGridViewParticipant.Columns[5].HeaderText = "Mã lớp";
+            radGridViewParticipant.Columns[4].HeaderText = "Mã lớp";
 
-            radGridViewParticipant.Columns[5].IsVisible = false;
+            radGridViewParticipant.Columns[4].IsVisible = false;
 
             foreach (var x in _serPar.getAllStudents())
             {
-                radGridViewParticipant.Rows.Add(stt++, x.Id, x.FullName, x.Gender == true ? "Nam" : "Nữ", x.Email, x.ClassroomId);
+                radGridViewParticipant.Rows.Add(stt++, x.Id, x.FullName, x.Gender == true ? "Nam" : "Nữ", x.ClassroomId);
 
                 foreach (GridViewRowInfo row in radGridViewParticipant.Rows)
                 {
