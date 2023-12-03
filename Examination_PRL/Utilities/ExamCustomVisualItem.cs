@@ -176,7 +176,7 @@ namespace Examination_PRL.Utilities
 
             if (MessageBox.Show("Xác nhận vào thi?","Thông báo",MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                EnterExam enterExam = new EnterExam(this.Name,userAccount);
+                EnterExam enterExam = new EnterExam(this.Name,dataItem.ExamScheduleId,userAccount);
                 enterExam.ShowDialog();
             }
             
@@ -219,14 +219,17 @@ namespace Examination_PRL.Utilities
             if(DateTime.Now>dataItem.ExamStartTime && DateTime.Now < dataItem.ExamEndTime)
             {
                 examStatus.Text = "Đang diễn ra";
+                this.BackColor = Color.Teal;
             }    
             else if(DateTime.Now<dataItem.ExamStartTime)
             {
                 examStatus.Text = "Sắp diễn ra";
+                this.BackColor = Color.Teal;
             }    
             else
             {
                 examStatus.Text = "Đã kết thúc";
+                this.BackColor = Color.Gray;
             }
 
         
@@ -239,7 +242,7 @@ namespace Examination_PRL.Utilities
             examName.ForeColor = Color.White;
 
             examDuration.Image = Properties.Resources.GlyphCalendar_small;
-            examDuration.Text = dataItem.ExamStartTime.ToString("HH:mm") + " - " + dataItem.ExamEndTime.ToString("HH:mm") +"  "+ dataItem.ExamStartTime.ToString("dd/MM/yyyy");
+            examDuration.Text = "Hạn tới: "+ dataItem.ExamEndTime.ToString("HH:mm dd/MM/yyyy");
             houseKeepingInfo.Text = "";
             examReTest.Text ="Lượt thi: "+dataItem.ExamRepeat.ToString();
 
@@ -250,7 +253,7 @@ namespace Examination_PRL.Utilities
 
             this.Name = dataItem.ExamDetailCode.ToString();
             //this.BackColor = Color.FromArgb(247, 247, 247);
-            this.BackColor = Color.Teal;
+           
 
 
 

@@ -99,12 +99,14 @@ namespace Examination_BUS.Services
         {
             // Lọc danh sách và chọn ngẫu nhiên giữa các phần tử trùng nhau
             Random random = new Random();
-            List<ScheduleWithExamInforViewModel> filteredList = list.GroupBy(x => x.ExamID)
+            List<ScheduleWithExamInforViewModel> filteredList = list.GroupBy(x => x.ExamScheduleId)
                                        .Select(g => g.OrderBy(y => random.Next()).First())
                                        .ToList();
 
             return filteredList;
         }
+
+
 
     }
 }

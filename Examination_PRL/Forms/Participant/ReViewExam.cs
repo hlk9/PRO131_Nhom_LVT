@@ -40,21 +40,22 @@ namespace Examination_PRL.Forms.Participant
         public ReViewExam(int examResponseID)
         {
             InitializeComponent();
-            var response =  examResponseServices.GetExamResponseById(examResponseID);
+            var response = examResponseServices.GetExamResponseById(examResponseID);
             this.examCode = examDetailServices.GetById(response.ExamDetailId).ExamDetailCode;
             GetListAnsweredQuestion(examResponseID);
             FillAllQuestion(this.examCode);
 
+            lblTotalScore.Text = response.Score.ToString() + "/" + examDetailServices.GetByExamDetailCode(this.examCode).MaxiumMark;
 
         }
 
 
         void GetListAnsweredQuestion(int responseID)
         {
-           
-                var listAnswerResponse = answerResponseServices.GetAllAnswerResponses().Where(x => x.ExamResponseId == responseID).ToList();
-                this.listAnswered = listAnswerResponse;
-            
+
+            var listAnswerResponse = answerResponseServices.GetAllAnswerResponses().Where(x => x.ExamResponseId == responseID).ToList();
+            this.listAnswered = listAnswerResponse;
+
         }
 
         public void FillAllQuestion(string examCode)
@@ -133,7 +134,7 @@ namespace Examination_PRL.Forms.Participant
                 if (question.QuestionType == 1)
                 {
                     //panelTypeAnswer.Text = "Chọn đáp án đúng nhất ";
-                   
+
                     RadRadioButton radRadioButton = new RadRadioButton();
                     radRadioButton.ReadOnly = true;
                     radRadioButton.ThemeName = "MaterialTeal";
@@ -146,10 +147,10 @@ namespace Examination_PRL.Forms.Participant
                         radRadioButton.Font = new Font(radRadioButton.Font, FontStyle.Bold);
                     }
 
-                    if(listAnswered.Where(x=>x.AnswerId==item.Id).ToList().Count>0)
+                    if (listAnswered.Where(x => x.AnswerId == item.Id).ToList().Count > 0)
                     {
                         radRadioButton.IsChecked = true;
-                        if(item.IsCorrect==true)
+                        if (item.IsCorrect == true)
                         {
                             radRadioButton.ForeColor = Color.Green;
                             radRadioButton.Font = new Font(radRadioButton.Font, FontStyle.Bold);

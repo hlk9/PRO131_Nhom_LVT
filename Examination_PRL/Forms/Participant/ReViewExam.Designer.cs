@@ -42,6 +42,8 @@
             radLabel1 = new Telerik.WinControls.UI.RadLabel();
             checkBoxComplete = new Telerik.WinControls.UI.RadCheckBox();
             btnSubmit = new Telerik.WinControls.UI.RadButton();
+            radLabel2 = new Telerik.WinControls.UI.RadLabel();
+            lblTotalScore = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)dockParent).BeginInit();
             dockParent.SuspendLayout();
             documentWindow1.SuspendLayout();
@@ -59,6 +61,8 @@
             ((System.ComponentModel.ISupportInitialize)radLabel1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)checkBoxComplete).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnSubmit).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lblTotalScore).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
@@ -160,6 +164,8 @@
             // toolWindow1
             // 
             toolWindow1.Caption = null;
+            toolWindow1.Controls.Add(lblTotalScore);
+            toolWindow1.Controls.Add(radLabel2);
             toolWindow1.Controls.Add(btnEx);
             toolWindow1.Controls.Add(listViewQuestion);
             toolWindow1.Controls.Add(btnExit);
@@ -198,9 +204,9 @@
             listViewQuestion.GroupItemSize = new Size(200, 36);
             listViewQuestion.ItemSize = new Size(60, 60);
             listViewQuestion.ItemSpacing = 10;
-            listViewQuestion.Location = new Point(3, 60);
+            listViewQuestion.Location = new Point(3, 202);
             listViewQuestion.Name = "listViewQuestion";
-            listViewQuestion.Size = new Size(270, 478);
+            listViewQuestion.Size = new Size(270, 336);
             listViewQuestion.TabIndex = 4;
             listViewQuestion.ThemeName = "MaterialTeal";
             listViewQuestion.ViewType = Telerik.WinControls.UI.ListViewType.IconsView;
@@ -222,11 +228,11 @@
             // radLabel1
             // 
             radLabel1.Anchor = AnchorStyles.Top;
-            radLabel1.Font = new Font("Roboto", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            radLabel1.Font = new Font("Roboto", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             radLabel1.ForeColor = Color.Teal;
-            radLabel1.Location = new Point(24, 3);
+            radLabel1.Location = new Point(50, 169);
             radLabel1.Name = "radLabel1";
-            radLabel1.Size = new Size(212, 34);
+            radLabel1.Size = new Size(169, 27);
             radLabel1.TabIndex = 3;
             radLabel1.Text = "Danh sách câu hỏi";
             // 
@@ -251,6 +257,28 @@
             btnSubmit.TabIndex = 1;
             btnSubmit.Text = "Nộp bài";
             btnSubmit.ThemeName = "MaterialTeal";
+            // 
+            // radLabel2
+            // 
+            radLabel2.Anchor = AnchorStyles.Top;
+            radLabel2.Font = new Font("Roboto", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            radLabel2.ForeColor = Color.Teal;
+            radLabel2.Location = new Point(70, 3);
+            radLabel2.Name = "radLabel2";
+            radLabel2.Size = new Size(129, 34);
+            radLabel2.TabIndex = 4;
+            radLabel2.Text = "Tổng điểm";
+            // 
+            // lblTotalScore
+            // 
+            lblTotalScore.Anchor = AnchorStyles.Top;
+            lblTotalScore.Font = new Font("Roboto", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTotalScore.ForeColor = Color.Teal;
+            lblTotalScore.Location = new Point(122, 43);
+            lblTotalScore.Name = "lblTotalScore";
+            lblTotalScore.Size = new Size(20, 27);
+            lblTotalScore.TabIndex = 4;
+            lblTotalScore.Text = "0";
             // 
             // ReViewExam
             // 
@@ -284,6 +312,8 @@
             ((System.ComponentModel.ISupportInitialize)radLabel1).EndInit();
             ((System.ComponentModel.ISupportInitialize)checkBoxComplete).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnSubmit).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lblTotalScore).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }
@@ -304,5 +334,7 @@
         private Telerik.WinControls.UI.Docking.ToolTabStrip toolTabStrip1;
         private Telerik.WinControls.UI.RadListView listViewQuestion;
         private Telerik.WinControls.UI.RadButton btnEx;
+        private Telerik.WinControls.UI.RadLabel lblTotalScore;
+        private Telerik.WinControls.UI.RadLabel radLabel2;
     }
 }

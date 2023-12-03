@@ -31,6 +31,7 @@ namespace Examination_PRL
             {
                 CustomAppointment myAppointment =
                 new CustomAppointment(
+                item.Id,
                 item.StartTime,
                 item.EndTime,
                 item.Subject,

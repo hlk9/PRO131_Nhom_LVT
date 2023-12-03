@@ -14,13 +14,14 @@ namespace Examination_BUS.Utilities
         private string subject = string.Empty;
         private string description = string.Empty;
         private string location = string.Empty;
-        private Guid id = Guid.NewGuid();
+        private int id = -1;
         private List<CustomAppointment> exceptions;
         public CustomAppointment()
         {
         }
-        public CustomAppointment(DateTime start, DateTime end, string subject, string description, string location)
+        public CustomAppointment(int id,DateTime start, DateTime end, string subject, string description, string location)
         {
+            this.id = id;
             this.start = start;
             this.end = end;
             this.subject = subject;
@@ -43,21 +44,7 @@ namespace Examination_BUS.Utilities
                 }
             }
         }
-        public Guid Id
-        {
-            get
-            {
-                return this.id;
-            }
-            set
-            {
-                if (this.id != value)
-                {
-                    this.id = value;
-                    this.OnPropertyChanged("Id");
-                }
-            }
-        }
+     
         public DateTime Start
         {
             get

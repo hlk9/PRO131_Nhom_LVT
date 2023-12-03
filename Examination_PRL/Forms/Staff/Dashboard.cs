@@ -40,6 +40,7 @@ namespace Examination_PRL.Forms.Staff
 
 
             RadPageViewPage schedulePage = new RadPageViewPage("Lịch thi"); //xem danh sách lịch thi
+    
             Bitmap bitMapScheduleIcon = new Bitmap(Properties.Resources.schedule);
             Image scheduleIcon = bitMapScheduleIcon;
             schedulePage.Image = scheduleIcon;
@@ -50,6 +51,7 @@ namespace Examination_PRL.Forms.Staff
             schedulePage.Controls.Add(thoiGian);
             thoiGian.Show();
             thoiGian.Dock = DockStyle.Fill;
+            thoiGian.Name = "thoiGianForm";
 
 
             RadPageViewPage manageSchedulePage = new RadPageViewPage("Quản lý lịch thi"); //sửa, xoá  
@@ -377,6 +379,10 @@ namespace Examination_PRL.Forms.Staff
                     case "report_Overview":
                         (form as Report_Overview).LoadData();
                         break;
+                    case "thoiGianForm":
+                        (form as ThoiGian).LoadData();
+                        break;
+
                     default:
                         break;
                 }

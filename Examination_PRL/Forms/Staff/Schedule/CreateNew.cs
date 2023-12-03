@@ -52,6 +52,7 @@ namespace Examination_PRL.Forms.Staff.Schedule
             examSchedule.Status = true;
             examSchedule.CreatedBy = usrAccount.Id;          
             examSchedule.ExamId = Convert.ToInt32(txtExamID.Text);
+            examSchedule.Subject = txtSubject.Text;
 
            if(scheduleServices.AddSchedule(examSchedule)==true)
                 MessageBox.Show("Thêm thành công");

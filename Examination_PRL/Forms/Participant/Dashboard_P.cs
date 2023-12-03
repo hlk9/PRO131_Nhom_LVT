@@ -25,6 +25,7 @@ namespace Examination_PRL.Forms.Participant
         List<ScheduleWithExamInforViewModel> listData;
         ExamServices _serviceExam = new ExamServices();
         int _idExamClick;
+        int _idResponseClick;
         Account userAccount;
 
         public Dashboard_P(string urs, Account userAccount)
@@ -32,13 +33,15 @@ namespace Examination_PRL.Forms.Participant
             InitializeComponent();
             _ser = new FeedbackServices();
             this.userName = urs;
+            this.userAccount = userAccount;
             LoadData();
             LoadExamSchedule();
             radlblSum.Text = _serviceExam.GetExamResponses().Count().ToString();
             radlblDat.Text = _serviceExam.GetExamResponses().Where(x => x.IsPassed == true).ToList().Count.ToString();
             radlblChuaDat.Text = _serviceExam.GetExamResponses().Where(x => x.IsPassed == false).ToList().Count.ToString();
             LoadDataExam();
-            this.userAccount = userAccount;
+
+
         }
 
         public void LoadData()
@@ -49,12 +52,14 @@ namespace Examination_PRL.Forms.Participant
             {
                 CustomAppointment myAppointment =
                 new CustomAppointment(
+                item.Id,
                 item.StartTime,
                 item.EndTime,
                 item.Subject,
                 item.Description,
                 item.ExamRoomId);
                 appointments.Add(myAppointment);
+
             }
 
             SchedulerBindingDataSource dataSource = new SchedulerBindingDataSource();
@@ -66,6 +71,7 @@ namespace Examination_PRL.Forms.Participant
             appointmentMappingInfo.Location = "Location";
             appointmentMappingInfo.UniqueId = "Id";
             appointmentMappingInfo.Exceptions = "Exceptions";
+
             dataSource.EventProvider.Mapping = appointmentMappingInfo;
             dataSource.EventProvider.DataSource = appointments;
             this.radViewScheduler.DataSource = dataSource;
@@ -77,6 +83,7 @@ namespace Examination_PRL.Forms.Participant
         public void LoadExamSchedule()
         {
             listData = scheduleDetailServices.GetScheduleAndExamByParticipantID(userName);
+
             listViewExam.VisualItemCreating += ListViewExam_VisualItemCreating;
             listViewExam.VisualItemCreating += ListViewExam_VisualItemFormatting;
             this.listViewExam.ShowGroups = true;
@@ -173,20 +180,22 @@ namespace Examination_PRL.Forms.Participant
         public void LoadDataExam()
         {
             int stt = 1;
-            radViewExam_Answers.ColumnCount = 5;
+            radViewExam_Answers.ColumnCount = 7;
             radViewExam_Answers.Columns[0].HeaderText = "STT";
             radViewExam_Answers.Columns[1].HeaderText = "Mã Môn";
             radViewExam_Answers.Columns[2].HeaderText = "Tên Môn";
             radViewExam_Answers.Columns[3].HeaderText = "Điểm";
             radViewExam_Answers.Columns[4].HeaderText = "Ghi Chú";
-
+            radViewExam_Answers.Columns[5].HeaderText = "Ngày Thi";
+            radViewExam_Answers.Columns[6].HeaderText = "ID ExResponse";
+            radViewExam_Answers.Columns[6].IsVisible = false;
             radViewExam_Answers.Rows.Clear();
 
-           try
+            try
             {
                 foreach (var item in _serviceExam.GetAnswer_ResponsesViewModels(userAccount.Id))
                 {
-                    radViewExam_Answers.Rows.Add(stt++, item.IdExam, item.NameExam, item.Score, item.Note);
+                    radViewExam_Answers.Rows.Add(stt++, item.IdExam, item.NameExam, item.Score, item.Note,item.SubmitTime,item.Id);
                 }
             }
             catch
@@ -198,6 +207,7 @@ namespace Examination_PRL.Forms.Participant
         private void radViewExam_Answers_CellClick(object sender, GridViewCellEventArgs e)
         {
             _idExamClick = Convert.ToInt32(radViewExam_Answers.Rows[e.RowIndex].Cells[1].Value);
+            _idResponseClick = Convert.ToInt32(radViewExam_Answers.Rows[e.RowIndex].Cells[6].Value);
             var obj = _serviceExam.GetAnswer_ResponsesViewModels(userAccount.Id).Where(x => x.Id == _idExamClick).FirstOrDefault();
             if (obj != null)
             {
@@ -241,6 +251,22 @@ namespace Examination_PRL.Forms.Participant
             tbt_IDParticipant.Text = "";
             tbt_Name.Text = "";
             tbt_Title.Text = "";
+        }
+
+        private void radViewExam_Answers_ContextMenuOpening(object sender, ContextMenuOpeningEventArgs e)
+        {
+            e.ContextMenu.Items.Clear();
+            RadMenuItem reView = new RadMenuItem("Xem lại");
+            reView.Click += ReView_Click;
+            e.ContextMenu.Items.Add(reView);
+
+        }
+
+        private void ReView_Click(object? sender, EventArgs e)
+        {
+            ReViewExam reViewExam = new ReViewExam(_idResponseClick);
+            reViewExam.ShowDialog();
+
         }
     }
 }
