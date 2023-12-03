@@ -1,5 +1,6 @@
 ﻿using Examination_DAL.Context;
 using Examination_DAL.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,16 @@ namespace Examination_DAL.Repository
 {
     public class ScheduleRepository
     {
-        ExaminationDbContext context = new ExaminationDbContext();
+        ExaminationDbContext context;
+        public ScheduleRepository()
+        {
+            context = new ExaminationDbContext();
+        }
+        
 
         public List<ExamSchedule> GetListSchedule()
         {
+          
             return context.ExamSchedules.ToList();
         }
 

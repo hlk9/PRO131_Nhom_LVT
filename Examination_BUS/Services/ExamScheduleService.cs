@@ -18,6 +18,7 @@ namespace Examination_BUS.Services
             
         }
 
+
         public List<ExamSchedule> getAlls()
         {
             return _resExamSchedule.getAll();

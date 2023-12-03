@@ -15,7 +15,7 @@ namespace Examination_PRL.Forms.Staff.Schedule
 {
     public partial class ScheduleManagement : Telerik.WinControls.UI.RadForm
     {
-        ScheduleServices scheduleServices = new ScheduleServices();
+        ScheduleServices scheduleServices;// = new ScheduleServices();
         ScheduleDetailServices scheduleDetailServices = new ScheduleDetailServices();
         string _idSchedule;
         Account usrAccount;
@@ -27,6 +27,7 @@ namespace Examination_PRL.Forms.Staff.Schedule
         }
         public void LoadData()
         {
+            scheduleServices = new ScheduleServices();
             scheduleGridView.Rows.Clear();
             scheduleGridView.ColumnCount = 12;
             scheduleGridView.Columns[0].HeaderText = "STT";
@@ -47,7 +48,7 @@ namespace Examination_PRL.Forms.Staff.Schedule
 
 
 
-            var list = scheduleServices.GetAllSchedule();
+            var list = scheduleServices.GetAllScheduleActive();
             int stt = 1;
             int notStart = 0;
             int inProgress = 0;
@@ -100,6 +101,7 @@ namespace Examination_PRL.Forms.Staff.Schedule
             try
             {
                 _idSchedule = scheduleGridView.Rows[e.RowIndex].Cells[11].Value.ToString();
+                lblCurrentID.Text = _idSchedule;
             }
             catch (Exception)
             {
@@ -116,8 +118,33 @@ namespace Examination_PRL.Forms.Staff.Schedule
         }
 
         private void CreateNewSchedule_DataAdded(object? sender, EventArgs e)
-        {          
+        {
             LoadData();
+        }
+
+        private void radButton1_Click(object sender, EventArgs e)
+        {
+            EditSchedule editSchedule = new EditSchedule(int.Parse(_idSchedule));
+            editSchedule.DataAdded += EditSchedule_DataAdded;
+            editSchedule.ShowDialog();
+
+        }
+
+        private void EditSchedule_DataAdded(object? sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void btnDisable_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Bạn có chắc chắn muốn xóa lịch thi này không?","Thông báo",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                scheduleServices = new ScheduleServices();
+                var schedule = scheduleServices.GetScheduleById(int.Parse(_idSchedule));
+                schedule.Status = false;
+                scheduleServices.UpdateSchedule(schedule);
+                LoadData();
+            }
         }
     }
 }

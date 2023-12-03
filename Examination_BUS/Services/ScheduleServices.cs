@@ -16,9 +16,15 @@ namespace Examination_BUS.Services
         {
             
         }
+
         public List<ExamSchedule> GetAllSchedule()
         {
             return scheduleRepository.GetListSchedule();
+        }
+
+        public List<ExamSchedule> GetAllScheduleActive()
+        {
+            return scheduleRepository.GetListSchedule().Where(x=>x.Status!=false).ToList();
         }
 
         public ExamSchedule GetScheduleById(int id)

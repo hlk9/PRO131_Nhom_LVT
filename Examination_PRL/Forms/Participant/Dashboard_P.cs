@@ -48,7 +48,7 @@ namespace Examination_PRL.Forms.Participant
         {
             BindingList<CustomAppointment> appointments = new BindingList<CustomAppointment>();
 
-            foreach (var item in scheduleServices.GetAllSchedule())
+            foreach (var item in scheduleServices.GetAllScheduleActive())
             {
                 CustomAppointment myAppointment =
                 new CustomAppointment(

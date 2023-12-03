@@ -27,7 +27,7 @@ namespace Examination_PRL
         {
             BindingList<CustomAppointment> appointments = new BindingList<CustomAppointment>();
 
-            foreach (var item in scheduleServices.GetAllSchedule())
+            foreach (var item in scheduleServices.GetAllScheduleActive())
             {
                 CustomAppointment myAppointment =
                 new CustomAppointment(

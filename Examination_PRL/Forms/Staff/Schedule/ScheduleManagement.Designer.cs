@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             radDock1 = new Telerik.WinControls.UI.Docking.RadDock();
             toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
@@ -37,6 +37,11 @@
             documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             toolWindow2 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            lblCurrentID = new Telerik.WinControls.UI.RadLabel();
+            btnDisable = new Telerik.WinControls.UI.RadButton();
+            radLabel7 = new Telerik.WinControls.UI.RadLabel();
+            btnEditSchedule = new Telerik.WinControls.UI.RadButton();
+            btnNew = new Telerik.WinControls.UI.RadButton();
             btnViewDetail = new Telerik.WinControls.UI.RadButton();
             lblEnd = new Telerik.WinControls.UI.RadLabel();
             lblCurrent = new Telerik.WinControls.UI.RadLabel();
@@ -47,7 +52,6 @@
             radLabel3 = new Telerik.WinControls.UI.RadLabel();
             radLabel2 = new Telerik.WinControls.UI.RadLabel();
             radLabel1 = new Telerik.WinControls.UI.RadLabel();
-            btnNew = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)radDock1).BeginInit();
             radDock1.SuspendLayout();
             toolWindow1.SuspendLayout();
@@ -60,6 +64,11 @@
             ((System.ComponentModel.ISupportInitialize)toolTabStrip1).BeginInit();
             toolTabStrip1.SuspendLayout();
             toolWindow2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)lblCurrentID).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnDisable).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnEditSchedule).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnNew).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnViewDetail).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lblEnd).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lblCurrent).BeginInit();
@@ -70,7 +79,6 @@
             ((System.ComponentModel.ISupportInitialize)radLabel3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)btnNew).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
@@ -119,7 +127,7 @@
             scheduleGridView.MasterTemplate.AllowEditRow = false;
             scheduleGridView.MasterTemplate.AllowSearchRow = true;
             scheduleGridView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            scheduleGridView.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            scheduleGridView.MasterTemplate.ViewDefinition = tableViewDefinition1;
             scheduleGridView.Name = "scheduleGridView";
             scheduleGridView.Size = new Size(1325, 720);
             scheduleGridView.TabIndex = 0;
@@ -179,6 +187,10 @@
             // toolWindow2
             // 
             toolWindow2.Caption = null;
+            toolWindow2.Controls.Add(lblCurrentID);
+            toolWindow2.Controls.Add(btnDisable);
+            toolWindow2.Controls.Add(radLabel7);
+            toolWindow2.Controls.Add(btnEditSchedule);
             toolWindow2.Controls.Add(btnNew);
             toolWindow2.Controls.Add(btnViewDetail);
             toolWindow2.Controls.Add(lblEnd);
@@ -197,9 +209,63 @@
             toolWindow2.Size = new Size(417, 672);
             toolWindow2.Text = "Thông tin và Thao tác";
             // 
+            // lblCurrentID
+            // 
+            lblCurrentID.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblCurrentID.ForeColor = Color.DarkOrchid;
+            lblCurrentID.Location = new Point(133, 291);
+            lblCurrentID.Name = "lblCurrentID";
+            lblCurrentID.Size = new Size(17, 25);
+            lblCurrentID.TabIndex = 8;
+            lblCurrentID.Text = "0";
+            // 
+            // btnDisable
+            // 
+            btnDisable.Anchor = AnchorStyles.Bottom;
+            btnDisable.Location = new Point(24, 599);
+            btnDisable.Name = "btnDisable";
+            btnDisable.Size = new Size(367, 44);
+            btnDisable.TabIndex = 9;
+            btnDisable.Text = "Xoá lịch thi này";
+            btnDisable.ThemeName = "MaterialTeal";
+            btnDisable.Click += btnDisable_Click;
+            // 
+            // radLabel7
+            // 
+            radLabel7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            radLabel7.ForeColor = Color.Teal;
+            radLabel7.Location = new Point(24, 291);
+            radLabel7.Name = "radLabel7";
+            radLabel7.Size = new Size(91, 25);
+            radLabel7.TabIndex = 7;
+            radLabel7.Text = "Đang chọn:";
+            // 
+            // btnEditSchedule
+            // 
+            btnEditSchedule.Anchor = AnchorStyles.Bottom;
+            btnEditSchedule.Location = new Point(24, 549);
+            btnEditSchedule.Name = "btnEditSchedule";
+            btnEditSchedule.Size = new Size(367, 44);
+            btnEditSchedule.TabIndex = 8;
+            btnEditSchedule.Text = "Sửa lịch thi đang chọn";
+            btnEditSchedule.ThemeName = "MaterialTeal";
+            btnEditSchedule.Click += radButton1_Click;
+            // 
+            // btnNew
+            // 
+            btnNew.Anchor = AnchorStyles.Bottom;
+            btnNew.Location = new Point(24, 449);
+            btnNew.Name = "btnNew";
+            btnNew.Size = new Size(367, 44);
+            btnNew.TabIndex = 8;
+            btnNew.Text = "Tạo lịch mới";
+            btnNew.ThemeName = "MaterialTeal";
+            btnNew.Click += btnNew_Click;
+            // 
             // btnViewDetail
             // 
-            btnViewDetail.Location = new Point(24, 617);
+            btnViewDetail.Anchor = AnchorStyles.Bottom;
+            btnViewDetail.Location = new Point(24, 499);
             btnViewDetail.Name = "btnViewDetail";
             btnViewDetail.Size = new Size(367, 44);
             btnViewDetail.TabIndex = 7;
@@ -298,16 +364,6 @@
             radLabel1.TabIndex = 0;
             radLabel1.Text = "Thông tin chung";
             // 
-            // btnNew
-            // 
-            btnNew.Location = new Point(24, 567);
-            btnNew.Name = "btnNew";
-            btnNew.Size = new Size(367, 44);
-            btnNew.TabIndex = 8;
-            btnNew.Text = "Tạo lịch mới";
-            btnNew.ThemeName = "MaterialTeal";
-            btnNew.Click += btnNew_Click;
-            // 
             // ScheduleManagement
             // 
             AutoScaleBaseSize = new Size(7, 15);
@@ -336,6 +392,11 @@
             toolTabStrip1.ResumeLayout(false);
             toolWindow2.ResumeLayout(false);
             toolWindow2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)lblCurrentID).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnDisable).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnEditSchedule).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnNew).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnViewDetail).EndInit();
             ((System.ComponentModel.ISupportInitialize)lblEnd).EndInit();
             ((System.ComponentModel.ISupportInitialize)lblCurrent).EndInit();
@@ -346,7 +407,6 @@
             ((System.ComponentModel.ISupportInitialize)radLabel3).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel2).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)btnNew).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }
@@ -372,5 +432,9 @@
         private Telerik.WinControls.UI.RadLabel lblTotal;
         private Telerik.WinControls.UI.RadButton btnViewDetail;
         private Telerik.WinControls.UI.RadButton btnNew;
+        private Telerik.WinControls.UI.RadButton btnEditSchedule;
+        private Telerik.WinControls.UI.RadLabel lblCurrentID;
+        private Telerik.WinControls.UI.RadButton btnDisable;
+        private Telerik.WinControls.UI.RadLabel radLabel7;
     }
 }

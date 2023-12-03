@@ -152,7 +152,7 @@ namespace Examination_PRL.Utilities
             ExamDetailServices examDetailServices = new ExamDetailServices();
             var examDetail = examDetailServices.GetByExamDetailCode(dataItem.ExamDetailCode);
             ExamResponseServices examResponseServices = new ExamResponseServices();
-            var lis = examResponseServices.GetAllExamResponse().Where(x => x.ExamDetailId == examDetail.Id && x.ParticipantId == userAccount.Id).ToList();
+            var lis = examResponseServices.GetAllExamResponse().Where(x => x.ExamDetailId == examDetail.Id && x.ParticipantId == userAccount.Id && x.ExamScheduleId==dataItem.ExamScheduleId).ToList();
             if (lis.Count>=examDetail.ReTestNumber)
             {
                 MessageBox.Show("Bạn đã hết số lần thi lại cho bài thi này!","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
