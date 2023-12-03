@@ -22,6 +22,12 @@ namespace Examination_BUS.Services
             answerRepository = new AnswerRepository();
             examDetailRepository = new ExamDetailRepository();
         }
+
+        public int AddQuestionReturnId(Question question)
+        {
+            return questionRepository.AddQuestionReturnId(question);
+        }
+
         public bool AddQuestion(Question question)
         {
             return questionRepository.AddQuestion(question);
@@ -183,10 +189,10 @@ namespace Examination_BUS.Services
 
         }
 
-        public List<QuestionWithAnswerViewModel> GetListQuestionWithTypeAndLevel(byte? type, byte? level)
+        public List<QuestionWithAnswerViewModel> GetListQuestionWithTypeAndLevel(byte? type, byte? level,string subjectID)
         {
             var data = from ojb in questionRepository.GetAllQuestions()
-                       where ojb.QuestionTypeId == type && ojb.QuestionLevelId == level
+                       where ojb.QuestionTypeId == type && ojb.QuestionLevelId == level && ojb.SubjectId == subjectID
                        select new QuestionWithAnswerViewModel
                        {
                            Id = ojb.Id,

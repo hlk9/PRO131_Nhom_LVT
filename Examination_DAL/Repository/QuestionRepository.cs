@@ -25,6 +25,24 @@ namespace Examination_DAL.Repository
 
         }
 
+        public int AddQuestionReturnId(Question question)
+        {
+            try
+            {
+                _context.Questions.Add(question);
+                _context.SaveChanges();
+                return question.Id;
+            }
+            catch (Exception)
+            {
+
+                return -1;
+            }
+            
+        }
+
+
+
         public bool DeleteQuestion(int questionId)
         {
             throw new NotImplementedException();

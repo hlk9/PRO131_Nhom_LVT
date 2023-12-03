@@ -21,7 +21,17 @@ namespace Examination_DAL.Repository
 
         public bool AddAnswer(Answer answer)
         {
-            throw new NotImplementedException();
+           try
+            {
+                _context.Answers.Add(answer);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
         public bool DeleteAnswer(int id)

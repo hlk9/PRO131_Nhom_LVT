@@ -10,6 +10,7 @@ using System.Net.WebSockets;
 using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
+using Telerik.WinControls.UI;
 
 namespace Examination_PRL.Forms.Staff.Schedule
 {
@@ -137,7 +138,7 @@ namespace Examination_PRL.Forms.Staff.Schedule
 
         private void btnDisable_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Bạn có chắc chắn muốn xóa lịch thi này không?","Thông báo",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Bạn có chắc chắn muốn xóa lịch thi này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 scheduleServices = new ScheduleServices();
                 var schedule = scheduleServices.GetScheduleById(int.Parse(_idSchedule));
@@ -145,6 +146,20 @@ namespace Examination_PRL.Forms.Staff.Schedule
                 scheduleServices.UpdateSchedule(schedule);
                 LoadData();
             }
+        }
+
+        private void scheduleGridView_ContextMenuOpening(object sender, Telerik.WinControls.UI.ContextMenuOpeningEventArgs e)
+        {
+            e.ContextMenu.Items.Clear();
+            RadMenuItem menuItem = new RadMenuItem("Xem chi tiết");
+            menuItem.Click += MenuItem_Click;
+            e.ContextMenu.Items.Add(menuItem);
+
+        }
+
+        private void MenuItem_Click(object? sender, EventArgs e)
+        {
+            
         }
     }
 }

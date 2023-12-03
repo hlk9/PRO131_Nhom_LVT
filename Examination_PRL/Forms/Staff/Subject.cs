@@ -32,7 +32,7 @@ namespace Examination_PRL.Forms.Staff
             dtg_Show.Columns[3].Name = "status"; dtg_Show.Columns[3].HeaderText = "Trạng Thái";
             foreach (var item in _ser.GetSubjects())
             {
-                dtg_Show.Rows.Add(stt++, item.Id, item.Name, item.Status == 0 ? "Hoạt Động" : "Không Hoạt Động");
+                dtg_Show.Rows.Add(stt++, item.Id, item.Name, item.Status == 1 ? "Hoạt Động" : "Không Hoạt Động");
             }
         }
 
@@ -57,10 +57,10 @@ namespace Examination_PRL.Forms.Staff
         {
             string name = tbt_Subject.Text;
             string ID = tbt_IDSubject.Text;
-            byte trangthai = 0;
+            byte trangthai = 1;
             if (rb_Off.IsChecked)
             {
-                trangthai = 1;
+                trangthai = 0;
             }
             bool add = _ser.AddSub(name, ID, trangthai);
             if (add) MessageBox.Show("Thêm thành công!");
@@ -77,7 +77,7 @@ namespace Examination_PRL.Forms.Staff
             {
                 trangthai = 1;
             }
-            bool update = _ser.EditSub(name, ID, trangthai);
+            bool update = _ser.EditSub(ID, name, trangthai);
             if (update) MessageBox.Show("Sửa thành công!");
             else MessageBox.Show("Sửa thất bại!");
         }

@@ -133,6 +133,7 @@
             scheduleGridView.TabIndex = 0;
             scheduleGridView.ThemeName = "MaterialTeal";
             scheduleGridView.CellClick += scheduleGridView_CellClick;
+            scheduleGridView.ContextMenuOpening += scheduleGridView_ContextMenuOpening;
             // 
             // dockParent
             // 

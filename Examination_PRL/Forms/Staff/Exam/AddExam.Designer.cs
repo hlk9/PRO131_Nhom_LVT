@@ -59,6 +59,8 @@
             lblExamCode = new Telerik.WinControls.UI.RadLabel();
             radLabel6 = new Telerik.WinControls.UI.RadLabel();
             btnSelectExam = new Telerik.WinControls.UI.RadButton();
+            txtReTest = new Telerik.WinControls.UI.RadTextBox();
+            radLabel9 = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)radDock1).BeginInit();
             radDock1.SuspendLayout();
             documentWindow4.SuspendLayout();
@@ -96,6 +98,8 @@
             ((System.ComponentModel.ISupportInitialize)lblExamCode).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnSelectExam).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtReTest).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
@@ -115,7 +119,7 @@
             // 
             // 
             radDock1.RootElement.MinSize = new Size(25, 25);
-            radDock1.Size = new Size(1227, 826);
+            radDock1.Size = new Size(1227, 943);
             radDock1.SplitterWidth = 8;
             radDock1.TabIndex = 0;
             radDock1.TabStop = false;
@@ -128,7 +132,7 @@
             documentWindow4.Location = new Point(4, 4);
             documentWindow4.Name = "documentWindow4";
             documentWindow4.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
-            documentWindow4.Size = new Size(784, 818);
+            documentWindow4.Size = new Size(784, 935);
             documentWindow4.Text = "documentWindow4";
             // 
             // panelScrollExamDetail
@@ -142,8 +146,8 @@
             // 
             panelScrollExamDetail.PanelContainer.Controls.Add(pageViewQuestion);
             panelScrollExamDetail.PanelContainer.Location = new Point(0, 0);
-            panelScrollExamDetail.PanelContainer.Size = new Size(784, 818);
-            panelScrollExamDetail.Size = new Size(784, 818);
+            panelScrollExamDetail.PanelContainer.Size = new Size(784, 935);
+            panelScrollExamDetail.Size = new Size(784, 935);
             panelScrollExamDetail.TabIndex = 0;
             panelScrollExamDetail.ThemeName = "MaterialTeal";
             // 
@@ -152,7 +156,7 @@
             pageViewQuestion.Dock = DockStyle.Fill;
             pageViewQuestion.Location = new Point(0, 0);
             pageViewQuestion.Name = "pageViewQuestion";
-            pageViewQuestion.Size = new Size(784, 818);
+            pageViewQuestion.Size = new Size(784, 935);
             pageViewQuestion.TabIndex = 0;
             pageViewQuestion.ThemeName = "MaterialTeal";
             pageViewQuestion.SizeChanged += pageViewQuestion_SizeChanged;
@@ -184,7 +188,7 @@
             // 
             documentTabStrip4.RootElement.MinSize = new Size(25, 25);
             documentTabStrip4.SelectedIndex = 0;
-            documentTabStrip4.Size = new Size(792, 826);
+            documentTabStrip4.Size = new Size(792, 943);
             documentTabStrip4.SizeInfo.AutoSizeScale = new SizeF(-0.03770694F, 0F);
             documentTabStrip4.SizeInfo.SplitterCorrection = new Size(-61, 0);
             documentTabStrip4.TabIndex = 1;
@@ -204,7 +208,7 @@
             // 
             toolTabStrip1.RootElement.MinSize = new Size(25, 25);
             toolTabStrip1.SelectedIndex = 0;
-            toolTabStrip1.Size = new Size(427, 826);
+            toolTabStrip1.Size = new Size(427, 943);
             toolTabStrip1.SizeInfo.AbsoluteSize = new Size(427, 200);
             toolTabStrip1.SizeInfo.SplitterCorrection = new Size(227, 0);
             toolTabStrip1.TabIndex = 1;
@@ -214,7 +218,9 @@
             // toolWindow1
             // 
             toolWindow1.Caption = null;
+            toolWindow1.Controls.Add(txtReTest);
             toolWindow1.Controls.Add(btnAdd);
+            toolWindow1.Controls.Add(radLabel9);
             toolWindow1.Controls.Add(txtMaxScore);
             toolWindow1.Controls.Add(radLabel8);
             toolWindow1.Controls.Add(txtQNumber);
@@ -235,13 +241,13 @@
             toolWindow1.Location = new Point(4, 52);
             toolWindow1.Name = "toolWindow1";
             toolWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            toolWindow1.Size = new Size(419, 770);
+            toolWindow1.Size = new Size(419, 887);
             toolWindow1.Text = "Cấu trúc đề thi";
             // 
             // btnAdd
             // 
             btnAdd.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnAdd.Location = new Point(10, 726);
+            btnAdd.Location = new Point(10, 843);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(140, 36);
             btnAdd.TabIndex = 8;
@@ -294,7 +300,7 @@
             // btnSave
             // 
             btnSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnSave.Location = new Point(243, 726);
+            btnSave.Location = new Point(243, 843);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(168, 36);
             btnSave.TabIndex = 1;
@@ -326,7 +332,7 @@
             // btnManual
             // 
             btnManual.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnManual.Location = new Point(243, 667);
+            btnManual.Location = new Point(243, 784);
             btnManual.Name = "btnManual";
             btnManual.Size = new Size(168, 36);
             btnManual.TabIndex = 9;
@@ -473,12 +479,33 @@
             btnSelectExam.ThemeName = "MaterialTeal";
             btnSelectExam.Click += radButton1_Click;
             // 
+            // txtReTest
+            // 
+            txtReTest.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtReTest.BackColor = Color.LavenderBlush;
+            txtReTest.Location = new Point(153, 663);
+            txtReTest.Name = "txtReTest";
+            txtReTest.NullText = "Mặc định: 1";
+            txtReTest.ShowNullText = true;
+            txtReTest.Size = new Size(246, 37);
+            txtReTest.TabIndex = 15;
+            txtReTest.ThemeName = "MaterialTeal";
+            // 
+            // radLabel9
+            // 
+            radLabel9.Location = new Point(20, 672);
+            radLabel9.Name = "radLabel9";
+            radLabel9.Size = new Size(83, 21);
+            radLabel9.TabIndex = 14;
+            radLabel9.Text = "Lượt làm lại";
+            radLabel9.ThemeName = "MaterialTeal";
+            // 
             // AddExam
             // 
             AutoScaleBaseSize = new Size(7, 15);
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1227, 826);
+            ClientSize = new Size(1227, 943);
             Controls.Add(radDock1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "AddExam";
@@ -527,6 +554,8 @@
             ((System.ComponentModel.ISupportInitialize)lblExamCode).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel6).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnSelectExam).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtReTest).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel9).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }
@@ -564,5 +593,7 @@
         private Telerik.WinControls.UI.RadLabel radLabel8;
         private Telerik.WinControls.UI.RadLabel lblExam;
         private Telerik.WinControls.UI.RadTextBox lblExamDetailCode;
+        private Telerik.WinControls.UI.RadTextBox txtReTest;
+        private Telerik.WinControls.UI.RadLabel radLabel9;
     }
 }

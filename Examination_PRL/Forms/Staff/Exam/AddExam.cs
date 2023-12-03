@@ -109,11 +109,11 @@ namespace Examination_PRL.Forms.Staff.Exam
             panelAnswer.Width = pageWith;
             panelAnswer.BackColor = Color.Azure;
             panelTopMost.Controls.Add(panelAnswer);
-            panelQuestion.Text = questionTypeServices.GetQuestionTypeNameById(Convert.ToByte(question.QuestionType))+"\n"+question.Content;
+            panelQuestion.Text = questionTypeServices.GetQuestionTypeNameById(Convert.ToByte(question.QuestionType)) + "\n" + question.Content;
             panelAnswer.ThemeName = "MaterialTeal";
             panelAnswer.Padding = new Padding(10);
 
-            
+
 
             FlowLayoutPanel flowPanel = new FlowLayoutPanel();
             flowPanel.FlowDirection = FlowDirection.TopDown;
@@ -216,7 +216,9 @@ namespace Examination_PRL.Forms.Staff.Exam
             byte questionLevel = Convert.ToByte(dropDownQuestionLevel.SelectedIndex + 1);
             int qNumber = Convert.ToInt32(txtCount.Text);
 
-            List<QuestionWithAnswerViewModel> ListQuestionWithTypeAndLevel = questionServices.GetListQuestionWithTypeAndLevel(questionType, questionLevel);
+            string subjID = examServices.GetById(Convert.ToInt32(lblExam.Text)).SubjectId;
+
+            List<QuestionWithAnswerViewModel> ListQuestionWithTypeAndLevel = questionServices.GetListQuestionWithTypeAndLevel(questionType, questionLevel, subjID);
 
             int offset = 1;
 
@@ -277,7 +279,10 @@ namespace Examination_PRL.Forms.Staff.Exam
                 examDetail.CreatedBy = "admin";
                 examDetail.UpdatedBy = null;
                 examDetail.PassMark = 5;
-                examDetail.ReTestNumber = 4;
+                if(txtReTest.Text == "")
+                    examDetail.ReTestNumber = 1;
+                else
+                    examDetail.ReTestNumber = Convert.ToInt32(txtReTest.Text);
                 examDetail.ExamDetailCode = lblExamDetailCode.Text;
 
                 if (examDetailServices.Add(examDetail) == true)
@@ -302,7 +307,7 @@ namespace Examination_PRL.Forms.Staff.Exam
                     }
                     MessageBox.Show("Tạo đề thi thành công");
 
-                  
+
                 }
 
 
