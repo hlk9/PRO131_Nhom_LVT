@@ -210,7 +210,7 @@ namespace Examination_PRL.Forms
             try
             {
 
-            loadChart(_idExamScheduleWhenClick);
+                loadChart(_idExamScheduleWhenClick);
             }
             catch
             {

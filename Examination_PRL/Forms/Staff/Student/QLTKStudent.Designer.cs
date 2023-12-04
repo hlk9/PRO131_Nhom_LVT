@@ -235,8 +235,8 @@
             // 
             // radTxtPassWord
             // 
-            radTxtPassWord.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            radTxtPassWord.Location = new Point(101, 261);
+            radTxtPassWord.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radTxtPassWord.Location = new Point(101, 256);
             radTxtPassWord.Name = "radTxtPassWord";
             radTxtPassWord.Size = new Size(247, 37);
             radTxtPassWord.TabIndex = 6;
@@ -244,8 +244,8 @@
             // 
             // radTxtUserName
             // 
-            radTxtUserName.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            radTxtUserName.Location = new Point(101, 218);
+            radTxtUserName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radTxtUserName.Location = new Point(101, 213);
             radTxtUserName.Name = "radTxtUserName";
             radTxtUserName.Size = new Size(247, 37);
             radTxtUserName.TabIndex = 6;
@@ -256,7 +256,7 @@
             radBtnTaoTK.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radBtnTaoTK.BackColor = Color.Teal;
             radBtnTaoTK.ForeColor = Color.White;
-            radBtnTaoTK.Location = new Point(3, 348);
+            radBtnTaoTK.Location = new Point(3, 338);
             radBtnTaoTK.Name = "radBtnTaoTK";
             radBtnTaoTK.Size = new Size(350, 52);
             radBtnTaoTK.TabIndex = 8;
@@ -269,19 +269,20 @@
             radBtnXoaTK.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radBtnXoaTK.BackColor = Color.Teal;
             radBtnXoaTK.ForeColor = Color.White;
-            radBtnXoaTK.Location = new Point(3, 406);
+            radBtnXoaTK.Location = new Point(3, 396);
             radBtnXoaTK.Name = "radBtnXoaTK";
             radBtnXoaTK.Size = new Size(350, 52);
             radBtnXoaTK.TabIndex = 7;
             radBtnXoaTK.Text = "Xóa Tài Khoản";
             radBtnXoaTK.ThemeName = "MaterialTeal";
+            radBtnXoaTK.Click += radBtnXoaTK_Click;
             // 
             // radBtnReset
             // 
             radBtnReset.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radBtnReset.BackColor = Color.Teal;
             radBtnReset.ForeColor = Color.White;
-            radBtnReset.Location = new Point(3, 464);
+            radBtnReset.Location = new Point(3, 454);
             radBtnReset.Name = "radBtnReset";
             radBtnReset.Size = new Size(350, 52);
             radBtnReset.TabIndex = 6;
@@ -299,8 +300,8 @@
             // 
             // radTxtEmail
             // 
-            radTxtEmail.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            radTxtEmail.Location = new Point(101, 175);
+            radTxtEmail.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radTxtEmail.Location = new Point(101, 170);
             radTxtEmail.Name = "radTxtEmail";
             radTxtEmail.Size = new Size(247, 37);
             radTxtEmail.TabIndex = 5;
@@ -308,8 +309,8 @@
             // 
             // radTxtGender
             // 
-            radTxtGender.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            radTxtGender.Location = new Point(101, 132);
+            radTxtGender.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radTxtGender.Location = new Point(101, 127);
             radTxtGender.Name = "radTxtGender";
             radTxtGender.Size = new Size(247, 37);
             radTxtGender.TabIndex = 4;
@@ -326,8 +327,8 @@
             // 
             // radTxtName
             // 
-            radTxtName.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            radTxtName.Location = new Point(101, 89);
+            radTxtName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radTxtName.Location = new Point(101, 84);
             radTxtName.Name = "radTxtName";
             radTxtName.Size = new Size(247, 37);
             radTxtName.TabIndex = 4;
@@ -335,8 +336,8 @@
             // 
             // radTxtIDThiSinh
             // 
-            radTxtIDThiSinh.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            radTxtIDThiSinh.Location = new Point(101, 46);
+            radTxtIDThiSinh.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radTxtIDThiSinh.Location = new Point(101, 41);
             radTxtIDThiSinh.Name = "radTxtIDThiSinh";
             radTxtIDThiSinh.Size = new Size(247, 37);
             radTxtIDThiSinh.TabIndex = 3;
@@ -371,8 +372,8 @@
             // 
             // radTxtIDTK
             // 
-            radTxtIDTK.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            radTxtIDTK.Location = new Point(104, 3);
+            radTxtIDTK.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radTxtIDTK.Location = new Point(104, -2);
             radTxtIDTK.Name = "radTxtIDTK";
             radTxtIDTK.Size = new Size(244, 37);
             radTxtIDTK.TabIndex = 0;

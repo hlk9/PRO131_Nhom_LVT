@@ -84,9 +84,18 @@ namespace Examination_BUS.Services
                 Id = id,
                 AccountId = accountId
             };
-
             return _respos.UpdateAccountIdToParticipant(student);
         }
+        public bool deleteAcountId(string id, string accountId)
+        {
+            Participant student = new Participant()
+            { 
+                Id = id,
+                AccountId = accountId
+            };
+            return _respos.DeleteAccountId(student);
+        }
+
         public bool updateClassIdOfPars(string id, string classId)
         {
             Participant participant = new Participant()

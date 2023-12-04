@@ -32,12 +32,15 @@ namespace Examination_DAL.Repository
             }
         }
 
-        public bool Delete(string id)
+        public bool Delete(Account id)
         {
             try
             {
-                var account = context.Accounts.Find(id);
-                context.Accounts.Remove(account);
+                var account = context.Accounts.Find(id.Id);
+                account.Id = id.Id;
+                account.Status = 0;
+
+                context.Accounts.Update(account);
                 context.SaveChanges();
                 return true;
             }
