@@ -249,7 +249,7 @@ namespace Examination_PRL.Forms.Staff
             resultPage.SubPages.Add(resultBySubjectPage);
             resultPage.SubPages.Add(resultByExamPage);
 
-            RadPageViewPage reportPage = new RadPageViewPage("Báo cáo");
+            RadPageViewPage reportPage = new RadPageViewPage("Thống kê");
             Report_Overview report_Overview = new Report_Overview();
             report_Overview.TopLevel = false;
             reportPage.Controls.Add(report_Overview);
