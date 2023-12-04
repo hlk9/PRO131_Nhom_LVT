@@ -64,7 +64,20 @@ namespace Examination_DAL.Repository
 
         public bool Update(ExamDetail obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var examDetail = _context.ExamDetails.Find(obj.Id);
+                examDetail.Status = false;
+                _context.ExamDetails.Update(examDetail);
+                _context.SaveChanges();
+                return true;
+
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }
