@@ -52,6 +52,8 @@
             label5 = new Label();
             radPanel6 = new Telerik.WinControls.UI.RadPanel();
             label7 = new Label();
+            lblScheduleCurrent = new Label();
+            lblScheduleIncoming = new Label();
             ((System.ComponentModel.ISupportInitialize)propertyGrid1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)panelTotalRoom).BeginInit();
             panelTotalRoom.SuspendLayout();
@@ -285,6 +287,7 @@
             // panelScheduleIncoming
             // 
             panelScheduleIncoming.BackColor = Color.WhiteSmoke;
+            panelScheduleIncoming.Controls.Add(lblScheduleIncoming);
             panelScheduleIncoming.Controls.Add(label4);
             panelScheduleIncoming.Location = new Point(28, 325);
             panelScheduleIncoming.Name = "panelScheduleIncoming";
@@ -314,6 +317,7 @@
             // panelScheduleCurrent
             // 
             panelScheduleCurrent.BackColor = Color.FromArgb(231, 249, 218);
+            panelScheduleCurrent.Controls.Add(lblScheduleCurrent);
             panelScheduleCurrent.Controls.Add(label6);
             panelScheduleCurrent.Location = new Point(28, 34);
             panelScheduleCurrent.Name = "panelScheduleCurrent";
@@ -415,9 +419,27 @@
             label7.Font = new Font("Roboto", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label7.Location = new Point(111, 15);
             label7.Name = "label7";
-            label7.Size = new Size(151, 19);
+            label7.Size = new Size(213, 19);
             label7.TabIndex = 5;
-            label7.Text = "Đợt thi đang diễn ra";
+            label7.Text = "Phản hồi từ thí sinh hôm nay";
+            // 
+            // lblScheduleCurrent
+            // 
+            lblScheduleCurrent.AutoSize = true;
+            lblScheduleCurrent.Font = new Font("Roboto", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblScheduleCurrent.Location = new Point(169, 57);
+            lblScheduleCurrent.Name = "lblScheduleCurrent";
+            lblScheduleCurrent.Size = new Size(0, 42);
+            lblScheduleCurrent.TabIndex = 7;
+            // 
+            // lblScheduleIncoming
+            // 
+            lblScheduleIncoming.AutoSize = true;
+            lblScheduleIncoming.Font = new Font("Roboto", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblScheduleIncoming.Location = new Point(169, 67);
+            lblScheduleIncoming.Name = "lblScheduleIncoming";
+            lblScheduleIncoming.Size = new Size(0, 42);
+            lblScheduleIncoming.TabIndex = 8;
             // 
             // Home
             // 
@@ -500,5 +522,7 @@
         private Label label5;
         private Telerik.WinControls.UI.RadPanel radPanel6;
         private Label label7;
+        private Label lblScheduleIncoming;
+        private Label lblScheduleCurrent;
     }
 }

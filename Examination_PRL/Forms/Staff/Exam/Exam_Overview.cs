@@ -1,5 +1,6 @@
 ﻿using Examination_BUS.Services;
 using Examination_BUS.ViewModel;
+using Examination_DAL.Models;
 using Examination_PRL.Forms.Staff.Exam;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace Examination_PRL.Forms.Staff
         string curentExamDetailCode = "";
 
 
-   
+
 
         public Exam_Overview()
         {
@@ -89,7 +90,7 @@ namespace Examination_PRL.Forms.Staff
             }
 
 
-            foreach (var item in examDetailServices.GetExamDetailWithExam())
+            foreach (var item in examDetailServices.GetExamDetailWithExam().Where(x=>x.Status==true))
             {
                 examGridView.Rows.Add(item.ExamId, item.ExamDetailId, stt++, item.ExamCode, item.Name, item.SubjectId, item.ExamDetailCode, item.Description, item.CreatedBy, item.Duration, item.PassMark, item.TotalQuestion, item.MaxiumMark, item.ReTestNumber, item.Status, item.CreatedAt, item.UpdatedAt, item.UpdatedBy);
 
@@ -140,9 +141,23 @@ namespace Examination_PRL.Forms.Staff
         {
             if (curentExamDetailCode != "" && examGridView.SelectedRows.Count > 0)
             {
-              
+
                 ViewOneExam oneExam = new ViewOneExam(curentExamDetailCode);
                 oneExam.ShowDialog();
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var examDetail = examDetailServices.GetById(Convert.ToInt32(curentExamDetailCode));
+           examDetail.Status = false;
+            if (examDetail != null)
+            {
+                if (MessageBox.Show("Bạn có chắc chắn muốn xóa bài thi này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    examDetailServices.Update(examDetail);
+                    LoadData();
+                }
             }
         }
     }

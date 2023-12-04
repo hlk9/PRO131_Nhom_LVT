@@ -47,7 +47,7 @@ namespace Examination_PRL.Forms.Participant
         public void LoadData()
         {
             BindingList<CustomAppointment> appointments = new BindingList<CustomAppointment>();
-
+            radViewScheduler.ClearReminders();
             foreach (var item in scheduleServices.GetAllScheduleActive())
             {
                 CustomAppointment myAppointment =
@@ -195,7 +195,7 @@ namespace Examination_PRL.Forms.Participant
             {
                 foreach (var item in _serviceExam.GetAnswer_ResponsesViewModels(userAccount.Id))
                 {
-                    radViewExam_Answers.Rows.Add(stt++, item.IdExam, item.NameExam, item.Score, item.Note,item.SubmitTime,item.Id);
+                    radViewExam_Answers.Rows.Add(stt++, item.IdExam, item.NameExam, item.Score, item.Note, item.SubmitTime, item.Id);
                 }
             }
             catch
@@ -266,6 +266,15 @@ namespace Examination_PRL.Forms.Participant
         {
             ReViewExam reViewExam = new ReViewExam(_idResponseClick);
             reViewExam.ShowDialog();
+
+        }
+
+        private void radPageView1_SelectedPageChanged(object sender, EventArgs e)
+        {
+         
+            LoadDataExam();
+          
+
 
         }
     }

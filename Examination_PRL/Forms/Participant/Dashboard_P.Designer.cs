@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.SchedulerDailyPrintStyle schedulerDailyPrintStyle2 = new Telerik.WinControls.UI.SchedulerDailyPrintStyle();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.SchedulerDailyPrintStyle schedulerDailyPrintStyle1 = new Telerik.WinControls.UI.SchedulerDailyPrintStyle();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             radPageView1 = new Telerik.WinControls.UI.RadPageView();
             radPageViewPage1 = new Telerik.WinControls.UI.RadPageViewPage();
@@ -166,11 +166,11 @@
             radPageView1.Dock = DockStyle.Fill;
             radPageView1.Location = new Point(0, 0);
             radPageView1.Name = "radPageView1";
-            radPageView1.SelectedPage = radPageViewPage3;
             radPageView1.SelectedPage = radPageViewPage4;
             radPageView1.Size = new Size(1277, 706);
             radPageView1.TabIndex = 0;
             radPageView1.ThemeName = "MaterialTeal";
+            radPageView1.SelectedPageChanged += radPageView1_SelectedPageChanged;
             ((Telerik.WinControls.UI.RadPageViewStripElement)radPageView1.GetChildAt(0)).StripButtons = Telerik.WinControls.UI.StripViewButtons.Scroll;
             // 
             // radPageViewPage1
@@ -212,7 +212,7 @@
             radViewScheduler.Dock = DockStyle.Fill;
             radViewScheduler.Location = new Point(0, 0);
             radViewScheduler.Name = "radViewScheduler";
-            radViewScheduler.PrintStyle = schedulerDailyPrintStyle2;
+            radViewScheduler.PrintStyle = schedulerDailyPrintStyle1;
             radViewScheduler.Size = new Size(1265, 645);
             radViewScheduler.TabIndex = 0;
             radViewScheduler.ThemeName = "MaterialTeal";
@@ -269,7 +269,7 @@
             radViewExam_Answers.MasterTemplate.AllowAddNewRow = false;
             radViewExam_Answers.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             radViewExam_Answers.MasterTemplate.EnablePaging = true;
-            radViewExam_Answers.MasterTemplate.ViewDefinition = tableViewDefinition4;
+            radViewExam_Answers.MasterTemplate.ViewDefinition = tableViewDefinition1;
             radViewExam_Answers.Name = "radViewExam_Answers";
             radViewExam_Answers.Size = new Size(914, 637);
             radViewExam_Answers.TabIndex = 0;

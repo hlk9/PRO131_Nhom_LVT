@@ -18,6 +18,7 @@ namespace Examination_PRL.Forms.Staff.Home
         ExamServices ExamServices = new ExamServices();
         ClassroomServices classroomServices = new ClassroomServices();
         ParticipantService participantService = new ParticipantService();
+        ScheduleServices scheduleServices = new ScheduleServices();
         public Home(Account account)
         {
             this.usrAccount = account;
@@ -42,6 +43,9 @@ namespace Examination_PRL.Forms.Staff.Home
             panelScheduleCurrent.RootElement.ApplyShapeToControl = true;
             panelScheduleIncoming.RootElement.Shape = roundRectShape;
             panelScheduleIncoming.RootElement.ApplyShapeToControl = true;
+
+            lblScheduleCurrent.Text = scheduleServices.GetAllSchedule().Where(x=>x.StartTime <= DateTime.Now && x.EndTime >= DateTime.Now).Count().ToString();
+            lblScheduleIncoming.Text = scheduleServices.GetAllSchedule().Where(x => x.StartTime >= DateTime.Now).Count().ToString();
 
 
 

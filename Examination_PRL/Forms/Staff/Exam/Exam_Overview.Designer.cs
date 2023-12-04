@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
             dockWindowPlaceholder1 = new Telerik.WinControls.UI.Docking.DockWindowPlaceholder();
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             layoutControlLabelItem1 = new Telerik.WinControls.UI.LayoutControlLabelItem();
@@ -44,6 +44,7 @@
             documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             tabStripDetail = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             toolWindowDetail = new Telerik.WinControls.UI.Docking.ToolWindow();
+            btnDelete = new Telerik.WinControls.UI.RadButton();
             btnViewDetail = new Telerik.WinControls.UI.RadButton();
             lblUpdateAt = new Telerik.WinControls.UI.RadLabel();
             lblStatus = new Telerik.WinControls.UI.RadLabel();
@@ -91,6 +92,7 @@
             ((System.ComponentModel.ISupportInitialize)tabStripDetail).BeginInit();
             tabStripDetail.SuspendLayout();
             toolWindowDetail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnDelete).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnViewDetail).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lblUpdateAt).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lblStatus).BeginInit();
@@ -164,7 +166,7 @@
             // 
             // 
             // 
-            radGridView1.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            radGridView1.MasterTemplate.ViewDefinition = tableViewDefinition3;
             radGridView1.Name = "radGridView1";
             radGridView1.Size = new Size(240, 150);
             radGridView1.TabIndex = 0;
@@ -192,7 +194,7 @@
             // 
             // 
             examDockParent.RootElement.MinSize = new Size(25, 25);
-            examDockParent.Size = new Size(1326, 626);
+            examDockParent.Size = new Size(1326, 678);
             examDockParent.SplitterWidth = 8;
             examDockParent.TabIndex = 0;
             examDockParent.TabStop = false;
@@ -206,7 +208,7 @@
             documentWindow1.Location = new Point(4, 4);
             documentWindow1.Name = "documentWindow1";
             documentWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
-            documentWindow1.Size = new Size(946, 618);
+            documentWindow1.Size = new Size(946, 670);
             documentWindow1.Text = "Danh sách bài thi ";
             documentWindow1.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
@@ -227,9 +229,9 @@
             examGridView.MasterTemplate.AutoGenerateColumns = false;
             examGridView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             examGridView.MasterTemplate.EnablePaging = true;
-            examGridView.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            examGridView.MasterTemplate.ViewDefinition = tableViewDefinition4;
             examGridView.Name = "examGridView";
-            examGridView.Size = new Size(946, 618);
+            examGridView.Size = new Size(946, 670);
             examGridView.TabIndex = 0;
             examGridView.ThemeName = "MaterialTeal";
             examGridView.CellClick += examGridView_CellClick;
@@ -260,7 +262,7 @@
             // 
             documentTabStrip1.RootElement.MinSize = new Size(25, 25);
             documentTabStrip1.SelectedIndex = 0;
-            documentTabStrip1.Size = new Size(954, 626);
+            documentTabStrip1.Size = new Size(954, 678);
             documentTabStrip1.TabIndex = 0;
             documentTabStrip1.TabStop = false;
             documentTabStrip1.TabStripVisible = false;
@@ -278,7 +280,7 @@
             // 
             tabStripDetail.RootElement.MinSize = new Size(25, 25);
             tabStripDetail.SelectedIndex = 0;
-            tabStripDetail.Size = new Size(364, 626);
+            tabStripDetail.Size = new Size(364, 678);
             tabStripDetail.SizeInfo.AbsoluteSize = new Size(364, 200);
             tabStripDetail.SizeInfo.SplitterCorrection = new Size(164, 0);
             tabStripDetail.TabIndex = 3;
@@ -288,6 +290,7 @@
             // toolWindowDetail
             // 
             toolWindowDetail.Caption = null;
+            toolWindowDetail.Controls.Add(btnDelete);
             toolWindowDetail.Controls.Add(btnViewDetail);
             toolWindowDetail.Controls.Add(lblUpdateAt);
             toolWindowDetail.Controls.Add(lblStatus);
@@ -319,19 +322,31 @@
             toolWindowDetail.Location = new Point(4, 52);
             toolWindowDetail.Name = "toolWindowDetail";
             toolWindowDetail.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            toolWindowDetail.Size = new Size(356, 570);
+            toolWindowDetail.Size = new Size(356, 622);
             toolWindowDetail.Text = "Thông tin";
             toolWindowDetail.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
+            // 
+            // btnDelete
+            // 
+            btnDelete.BackColor = Color.Teal;
+            btnDelete.ForeColor = Color.White;
+            btnDelete.Location = new Point(24, 578);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(159, 36);
+            btnDelete.TabIndex = 17;
+            btnDelete.Text = "Xoá đề thi";
+            btnDelete.ThemeName = "MaterialTeal";
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnViewDetail
             // 
             btnViewDetail.BackColor = Color.Teal;
             btnViewDetail.ForeColor = Color.White;
-            btnViewDetail.Location = new Point(82, 526);
+            btnViewDetail.Location = new Point(189, 578);
             btnViewDetail.Name = "btnViewDetail";
-            btnViewDetail.Size = new Size(192, 36);
+            btnViewDetail.Size = new Size(159, 36);
             btnViewDetail.TabIndex = 16;
-            btnViewDetail.Text = "Xem chi tiết bài thi";
+            btnViewDetail.Text = "Xem chi tiết đề thi";
             btnViewDetail.ThemeName = "MaterialTeal";
             btnViewDetail.Click += btnViewDetail_Click;
             // 
@@ -655,7 +670,7 @@
             AutoScaleBaseSize = new Size(7, 15);
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1326, 626);
+            ClientSize = new Size(1326, 678);
             Controls.Add(examDockParent);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Exam_Overview";
@@ -681,6 +696,7 @@
             tabStripDetail.ResumeLayout(false);
             toolWindowDetail.ResumeLayout(false);
             toolWindowDetail.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)btnDelete).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnViewDetail).EndInit();
             ((System.ComponentModel.ISupportInitialize)lblUpdateAt).EndInit();
             ((System.ComponentModel.ISupportInitialize)lblStatus).EndInit();
@@ -770,5 +786,6 @@
         private Telerik.WinControls.UI.RadLabel lblCurrentCode;
         private Telerik.WinControls.UI.RadLabel radLabel16;
         private Telerik.WinControls.UI.RadButton btnViewDetail;
+        private Telerik.WinControls.UI.RadButton btnDelete;
     }
 }

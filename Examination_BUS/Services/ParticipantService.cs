@@ -112,15 +112,6 @@ namespace Examination_BUS.Services
         public List<Participant> GetListInClass(string classID)
         {
             return this.getAllStudents().Where(x => x.ClassroomId==classID).ToList();
-        }
-
-        public List<Participant> GetThiSinhVoiTaiKhoans()
-        {
-            var listParAcc = (from par in _respos.GetAll()
-                              join acc in _resposAcc.GetAll()
-                              on par.AccountId equals acc.Id
-                              select par).ToList();
-            return listParAcc;
-        }    
+        }  
     }
 }

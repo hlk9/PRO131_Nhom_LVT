@@ -522,7 +522,22 @@ namespace Examination_PRL.Forms.Participant
                 }
                 examResponse.ExamDetailId = exam.Id;
                 examResponse.IsPassed = isPass;
-                examResponse.Score = score;
+                if(score <= 0)
+                {
+                    examResponse.Score = 0;
+                }
+                else if(score > totalScore)
+                {
+                    examResponse.Score = totalScore;
+                }
+                else if(score <= -0)
+                {
+                    examResponse.Score = 0;
+                }
+                else
+              
+               
+                examResponse.Score = Math.Round(score,2);
                 examResponse.FinishTime = secondTaken;
                 examResponse.SubmitTime = DateTime.Now;
                 examResponse.ParticipantId = userAccount.Id;
@@ -556,7 +571,7 @@ namespace Examination_PRL.Forms.Participant
                     }
                 }
                 MessageBox.Show("Nộp bài thành công");
-                MessageBox.Show("TEST\nSố câu đúng: " + qTrue.ToString() + "\n" + "Số câu sai: " + qFalse.ToString() + "\n" + "Số câu chưa trả lời: " + qNotAnswer.ToString() + "\n" + "Tổng điểm: " + totalScore.ToString() + "\n" + "Điểm của bạn: " + score.ToString());
+              //  MessageBox.Show("TEST\nSố câu đúng: " + qTrue.ToString() + "\n" + "Số câu sai: " + qFalse.ToString() + "\n" + "Số câu chưa trả lời: " + qNotAnswer.ToString() + "\n" + "Tổng điểm: " + totalScore.ToString() + "\n" + "Điểm của bạn: " + score.ToString());
                 btnExit.Enabled = true;
                 btnExit.Visible = true;
                 //foreach(var page in pageViewQuestion.Pages)
