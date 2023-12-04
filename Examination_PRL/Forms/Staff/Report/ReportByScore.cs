@@ -206,7 +206,17 @@ namespace Examination_PRL.Forms
         {
             _idExamScheduleWhenClick = Convert.ToInt32(radGridViewExam.CurrentRow.Cells[1].Value);
 
+
+            try
+            {
+
             loadChart(_idExamScheduleWhenClick);
+            }
+            catch
+            {
+
+            }
+
         }
 
         public double chuanHoaDiem(double diemDat, double diemToiDa, double thangDiem)

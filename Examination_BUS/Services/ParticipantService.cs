@@ -16,6 +16,10 @@ namespace Examination_BUS.Services
         {
             
         }
+        public Participant GetOneByID(string id)
+        {
+            return _respos.GetParticipantById(id);
+        }
 
         public List<Participant> getAllStudents()
         {
