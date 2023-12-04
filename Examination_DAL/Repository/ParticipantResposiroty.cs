@@ -49,6 +49,23 @@ namespace Examination_DAL.Repository
                 return false;
             }
         }
+        public bool DeleteAccountId(Participant par)
+        {
+            try
+            {
+                var dele = _context.Participants.Find(par.Id);
+                
+                dele.Id = par.Id;
+                dele.AccountId = par.AccountId;
+                _context.Participants.Update(dele);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
         public List<Participant> GetAll()
         {

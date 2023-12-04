@@ -89,23 +89,7 @@ namespace Examination_PRL.Forms.Staff.FullStaff
 
         private void radBtnXoa_Click(object sender, EventArgs e)
         {
-            DialogResult = MessageBox.Show("Bạn Có Chắc Chắn Muốn Xóa Tài Khoản Này Không???", "Xác Nhận", MessageBoxButtons.YesNo);
-            if (DialogResult == DialogResult.Yes)
-            {
-                if (_service.DeleteAccount(_idWhenClick))
-                {
-                    MessageBox.Show("Xóa Thành Công");
-                }
-                else
-                {
-                    MessageBox.Show("Xóa Thất Bại");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Tiếp Tục Chương Trình");
-            }
-            LoadDataCrud();
+         
         }
     }
 }

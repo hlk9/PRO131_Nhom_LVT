@@ -1,5 +1,6 @@
 ﻿using Examination_DAL.Models;
 using Examination_DAL.Repository;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,9 +41,10 @@ namespace Examination_BUS.Services
             return accountRepository.Update(account);
         }
 
-        public bool DeleteAccount(string accountId)
+        public bool DeleteAccount(string id)
         {
-            return accountRepository.Delete(accountId);
+            Account acc = new Account() { Id = id };
+            return accountRepository.Delete(acc);
         }
 
         public List<Account> GetAllAccounts()

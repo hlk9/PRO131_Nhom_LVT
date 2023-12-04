@@ -1,4 +1,5 @@
 ﻿using Examination_BUS.Services;
+using Examination_DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -102,6 +103,19 @@ namespace Examination_PRL.Forms.Staff
                 MessageBox.Show("Thêm Thất Bại");
             }
             _service.updateAccountId(_idWhenClick, _idWhenClick);
+        }
+
+        private void radBtnXoaTK_Click(object sender, EventArgs e)
+        {
+            if (_service.updateAccountId(_idWhenClick, null))
+            {
+                MessageBox.Show("Xóa Thành Công");
+            }
+            else
+            {
+                MessageBox.Show("Xóa Thất Bại");
+            }
+            _accountServices.DeleteAccount(_idWhenClick);
         }
     }
 }

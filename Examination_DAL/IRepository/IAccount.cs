@@ -11,7 +11,7 @@ namespace Examination_DAL.IRepository
     {
         bool Add(Account obj);
         bool Update(Account obj);
-        bool Delete(string id);
+        bool Delete(Account id);
        
         IEnumerable<Account> GetAll();
         Account GetByID(string id);

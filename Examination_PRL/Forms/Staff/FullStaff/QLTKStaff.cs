@@ -11,6 +11,7 @@ namespace Examination_PRL.Forms.Staff.FullStaff
 {
     public partial class QLTKStaff : Telerik.WinControls.UI.RadForm
     {
+        
         public QLTKStaff()
         {
             InitializeComponent();
