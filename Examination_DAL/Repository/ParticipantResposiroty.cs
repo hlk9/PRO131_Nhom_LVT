@@ -110,5 +110,11 @@ namespace Examination_DAL.Repository
                 return false;
             }
         }
+
+        public Participant GetParticipantById(string id)
+        {
+            return _context.Participants.Find(id);
+        }
+
     }
 }

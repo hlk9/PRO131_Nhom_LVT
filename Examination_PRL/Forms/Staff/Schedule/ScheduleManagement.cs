@@ -159,7 +159,16 @@ namespace Examination_PRL.Forms.Staff.Schedule
 
         private void MenuItem_Click(object? sender, EventArgs e)
         {
-            
+            ParticipantInSchedule participantInSchedule = new ParticipantInSchedule(int.Parse(_idSchedule));
+            participantInSchedule.DataAdded += ParticipantInSchedule_DataAdded;
+            participantInSchedule.ShowDialog();
+
+
+        }
+
+        private void ParticipantInSchedule_DataAdded(object? sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }
