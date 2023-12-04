@@ -24,7 +24,7 @@ namespace Examination_PRL.Forms
         public ReportByScore()
         {
             InitializeComponent();
-            
+
             loadGrid(DateTime.MinValue, DateTime.Now);
         }
 
@@ -206,7 +206,17 @@ namespace Examination_PRL.Forms
         {
             _idExamScheduleWhenClick = Convert.ToInt32(radGridViewExam.CurrentRow.Cells[1].Value);
 
+
+            try
+            {
+
             loadChart(_idExamScheduleWhenClick);
+            }
+            catch
+            {
+
+            }
+
         }
 
         public double chuanHoaDiem(double diemDat, double diemToiDa, double thangDiem)
@@ -226,23 +236,23 @@ namespace Examination_PRL.Forms
             public double Total { get; set; }
         }
 
-        private void radDtpStar_ValueChanged(object sender, EventArgs e)
+        private void radDtpStar_ValueChanged_1(object sender, EventArgs e)
         {
+            if (radDtpStar.Value >= radDtpEnd.Value)
+            {
+                MessageBox.Show("Ngày Bắt Đầu Không Được Sau Ngày Kết Thúc");
+                return;
+            }
             loadGrid(radDtpStar.Value, radDtpEnd.Value);
         }
 
-        private void radDtpEnd_ValueChanged(object sender, EventArgs e)
+        private void radDtpEnd_ValueChanged_1(object sender, EventArgs e)
         {
-            loadGrid(radDtpStar.Value, radDtpEnd.Value);
-        }
-
-        private void radDtpStar_ValueChanging(object sender, ValueChangingEventArgs e)
-        {
-            loadGrid(radDtpStar.Value, radDtpEnd.Value);
-        }
-
-        private void radDtpEnd_ValueChanging(object sender, ValueChangingEventArgs e)
-        {
+            if (radDtpStar.Value >= radDtpEnd.Value)
+            {
+                MessageBox.Show("Ngày Bắt Đầu Không Được Sau Ngày Kết Thúc");
+                return;
+            }
             loadGrid(radDtpStar.Value, radDtpEnd.Value);
         }
     }

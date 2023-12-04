@@ -26,7 +26,14 @@ namespace Examination_BUS.Services
 
         public List<ExamSchedule> getAllByDateTimes(DateTime start, DateTime end)
         {
-            return _resExamSchedule.getAllByDateTime(start, end);
+            if(end >= DateTime.Now)
+            {
+                return _resExamSchedule.getAllByDateTime().Where(x => x.StartTime.Date >= start.Date && x.EndTime.Date <= DateTime.Now.Date).ToList();
+            }
+            else
+            {
+                return _resExamSchedule.getAllByDateTime().Where(x => x.StartTime.Date >= start.Date && x.EndTime.Date <= end.Date).ToList();
+            }
         }       
     }
 }

@@ -3,6 +3,7 @@ using Examination_PRL.Forms.Staff.ClassRoom;
 using Examination_PRL.Forms.Staff.Exam;
 using Examination_PRL.Forms.Staff.FullStaff;
 using Examination_PRL.Forms.Staff.QuestionForm;
+using Examination_PRL.Forms.Staff.Result;
 using Examination_PRL.Forms.Staff.Schedule;
 using System;
 using System.Collections.Generic;
@@ -217,12 +218,12 @@ namespace Examination_PRL.Forms.Staff
             staffPage.SubPages.Add(addStaffPage);
 
             RadPageViewPage resultPage = new RadPageViewPage("Kết quả");
-            //Result_Overview result_Overview = new Result_Overview();
-            //result_Overview.TopLevel = false;
-            //resultPage.Controls.Add(result_Overview);
-            //result_Overview.Show();
-            //result_Overview.Dock = DockStyle.Fill;
-            //result_Overview.Name = "resul_Overview";
+            Result_Overview result_Overview = new Result_Overview();
+            result_Overview.TopLevel = false;
+            resultPage.Controls.Add(result_Overview);
+            result_Overview.Show();
+            result_Overview.Dock = DockStyle.Fill;
+            result_Overview.Name = "resul_Overview";
 
             resultPage.ToolTipText = "Kết quả";
             Bitmap bitMapResultIcon = new Bitmap(Properties.Resources.result);
@@ -257,7 +258,7 @@ namespace Examination_PRL.Forms.Staff
             resultPage.SubPages.Add(resultBySubjectPage);
             resultPage.SubPages.Add(resultByExamPage);
 
-            RadPageViewPage reportPage = new RadPageViewPage("Báo cáo");
+            RadPageViewPage reportPage = new RadPageViewPage("Thống kê");
             Report_Overview report_Overview = new Report_Overview();
             report_Overview.TopLevel = false;
             reportPage.Controls.Add(report_Overview);

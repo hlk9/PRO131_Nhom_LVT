@@ -61,17 +61,15 @@
             chartPieIsPassed = new Telerik.WinControls.UI.RadChartView();
             chartColumnScore = new Telerik.WinControls.UI.RadChartView();
             chartPieAnSwer = new Telerik.WinControls.UI.RadChartView();
-            radDtpStar = new Telerik.WinControls.UI.RadDateTimePicker();
-            radDtpEnd = new Telerik.WinControls.UI.RadDateTimePicker();
             radLabel1 = new Telerik.WinControls.UI.RadLabel();
             radLabel2 = new Telerik.WinControls.UI.RadLabel();
+            radDtpStar = new DateTimePicker();
+            radDtpEnd = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)radGridViewExam).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radGridViewExam.MasterTemplate).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chartPieIsPassed).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chartColumnScore).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chartPieAnSwer).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radDtpStar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radDtpEnd).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
@@ -79,7 +77,7 @@
             // 
             // radGridViewExam
             // 
-            radGridViewExam.Location = new Point(12, 81);
+            radGridViewExam.Location = new Point(12, 68);
             // 
             // 
             // 
@@ -93,7 +91,7 @@
             radGridViewExam.MasterTemplate.ViewDefinition = tableViewDefinition1;
             radGridViewExam.Name = "radGridViewExam";
             radGridViewExam.ReadOnly = true;
-            radGridViewExam.Size = new Size(622, 354);
+            radGridViewExam.Size = new Size(622, 367);
             radGridViewExam.TabIndex = 0;
             radGridViewExam.ThemeName = "MaterialTeal";
             radGridViewExam.CellClick += radGridViewExam_CellClick;
@@ -236,36 +234,6 @@
             chartPieAnSwer.TabIndex = 2;
             chartPieAnSwer.ThemeName = "MaterialTeal";
             // 
-            // radDtpStar
-            // 
-            radDtpStar.CalendarSize = new Size(290, 320);
-            radDtpStar.Culture = new System.Globalization.CultureInfo("vi-VN");
-            radDtpStar.Location = new Point(12, 39);
-            radDtpStar.Name = "radDtpStar";
-            radDtpStar.Size = new Size(300, 36);
-            radDtpStar.TabIndex = 3;
-            radDtpStar.TabStop = false;
-            radDtpStar.Text = "Chủ Nhật, 3 tháng 12, 2023";
-            radDtpStar.ThemeName = "MaterialTeal";
-            radDtpStar.Value = new DateTime(2023, 12, 3, 13, 11, 41, 430);
-            radDtpStar.ValueChanged += radDtpStar_ValueChanged;
-            radDtpStar.ValueChanging += radDtpStar_ValueChanging;
-            // 
-            // radDtpEnd
-            // 
-            radDtpEnd.CalendarSize = new Size(290, 320);
-            radDtpEnd.Culture = new System.Globalization.CultureInfo("vi-VN");
-            radDtpEnd.Location = new Point(338, 39);
-            radDtpEnd.Name = "radDtpEnd";
-            radDtpEnd.Size = new Size(296, 36);
-            radDtpEnd.TabIndex = 4;
-            radDtpEnd.TabStop = false;
-            radDtpEnd.Text = "Chủ Nhật, 3 tháng 12, 2023";
-            radDtpEnd.ThemeName = "MaterialTeal";
-            radDtpEnd.Value = new DateTime(2023, 12, 3, 13, 12, 16, 869);
-            radDtpEnd.ValueChanged += radDtpEnd_ValueChanged;
-            radDtpEnd.ValueChanging += radDtpEnd_ValueChanging;
-            // 
             // radLabel1
             // 
             radLabel1.Location = new Point(12, 12);
@@ -284,16 +252,32 @@
             radLabel2.Text = "Ngày Kết Thúc";
             radLabel2.ThemeName = "MaterialTeal";
             // 
+            // radDtpStar
+            // 
+            radDtpStar.Location = new Point(12, 39);
+            radDtpStar.Name = "radDtpStar";
+            radDtpStar.Size = new Size(265, 23);
+            radDtpStar.TabIndex = 0;
+            radDtpStar.ValueChanged += radDtpStar_ValueChanged_1;
+            // 
+            // radDtpEnd
+            // 
+            radDtpEnd.Location = new Point(338, 39);
+            radDtpEnd.Name = "radDtpEnd";
+            radDtpEnd.Size = new Size(296, 23);
+            radDtpEnd.TabIndex = 7;
+            radDtpEnd.ValueChanged += radDtpEnd_ValueChanged_1;
+            // 
             // ReportByScore
             // 
             AutoScaleBaseSize = new Size(7, 15);
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1631, 956);
-            Controls.Add(radLabel2);
-            Controls.Add(radLabel1);
             Controls.Add(radDtpEnd);
             Controls.Add(radDtpStar);
+            Controls.Add(radLabel2);
+            Controls.Add(radLabel1);
             Controls.Add(chartPieAnSwer);
             Controls.Add(chartColumnScore);
             Controls.Add(chartPieIsPassed);
@@ -311,8 +295,6 @@
             ((System.ComponentModel.ISupportInitialize)chartPieIsPassed).EndInit();
             ((System.ComponentModel.ISupportInitialize)chartColumnScore).EndInit();
             ((System.ComponentModel.ISupportInitialize)chartPieAnSwer).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radDtpStar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radDtpEnd).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel2).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
@@ -327,9 +309,9 @@
         private Telerik.WinControls.UI.RadChartView chartPieIsPassed;
         private Telerik.WinControls.UI.RadChartView chartColumnScore;
         private Telerik.WinControls.UI.RadChartView chartPieAnSwer;
-        private Telerik.WinControls.UI.RadDateTimePicker radDtpStar;
-        private Telerik.WinControls.UI.RadDateTimePicker radDtpEnd;
         private Telerik.WinControls.UI.RadLabel radLabel1;
         private Telerik.WinControls.UI.RadLabel radLabel2;
+        private DateTimePicker radDtpStar;
+        private DateTimePicker radDtpEnd;
     }
 }
