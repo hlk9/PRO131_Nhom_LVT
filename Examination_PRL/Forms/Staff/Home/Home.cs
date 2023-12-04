@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Examination_BUS.Services;
+using Examination_DAL.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,18 +13,36 @@ namespace Examination_PRL.Forms.Staff.Home
 {
     public partial class Home : Telerik.WinControls.UI.RadForm
     {
-        public Home()
+        Account usrAccount;
+        StaffService staffService = new StaffService();
+        ExamServices ExamServices = new ExamServices();
+        ClassroomServices classroomServices = new ClassroomServices();
+        ParticipantService participantService = new ParticipantService();
+        public Home(Account account)
         {
+            this.usrAccount = account;
             InitializeComponent();
-
+            lblTotalClassRoom.Text = classroomServices.GetClassrooms().Count.ToString();
+            lblTotalExam.Text = ExamServices.GetAll().Count().ToString();
+            lnlFullName.Text = "Chào mừng - " + staffService.GetStaffById(usrAccount.Id).FullName;
+            lblTotalParticipant.Text = participantService.getAllStudents().Count().ToString();
             RoundRectShape roundRectShape = new RoundRectShape();
             roundRectShape.Radius = 30;
-            radPanel1.RootElement.Shape = roundRectShape;
-            radPanel1.RootElement.ApplyShapeToControl = true;
-            radPanel2.RootElement.Shape = roundRectShape;
-            radPanel2.RootElement.ApplyShapeToControl = true;
-            radPanel3.RootElement.Shape = roundRectShape;
-            radPanel3.RootElement.ApplyShapeToControl = true;
+            panelBlock1.RootElement.Shape = roundRectShape;
+            panelBlock1.RootElement.ApplyShapeToControl = true;
+            panelTotalExam.RootElement.Shape = roundRectShape;
+            panelTotalExam.RootElement.ApplyShapeToControl = true;
+            panelTotalRoom.RootElement.Shape = roundRectShape;
+            panelTotalRoom.RootElement.ApplyShapeToControl = true;
+            panelWelcome.RootElement.Shape = roundRectShape;
+            panelWelcome.RootElement.ApplyShapeToControl = true;
+            panelBlock2.RootElement.Shape = roundRectShape;
+            panelBlock2.RootElement.ApplyShapeToControl = true;
+            panelScheduleCurrent.RootElement.Shape = roundRectShape;
+            panelScheduleCurrent.RootElement.ApplyShapeToControl = true;
+            panelScheduleIncoming.RootElement.Shape = roundRectShape;
+            panelScheduleIncoming.RootElement.ApplyShapeToControl = true;
+
 
 
 

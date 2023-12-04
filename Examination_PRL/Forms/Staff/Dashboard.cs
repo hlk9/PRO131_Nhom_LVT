@@ -2,6 +2,7 @@
 using Examination_PRL.Forms.Staff.ClassRoom;
 using Examination_PRL.Forms.Staff.Exam;
 using Examination_PRL.Forms.Staff.FullStaff;
+using Examination_PRL.Forms.Staff.Home;
 using Examination_PRL.Forms.Staff.QuestionForm;
 using Examination_PRL.Forms.Staff.Schedule;
 using System;
@@ -37,6 +38,11 @@ namespace Examination_PRL.Forms.Staff
             Bitmap bitMapHomeIcon = new Bitmap(Properties.Resources.home);
             Image homeIcon = bitMapHomeIcon;
             homePage.Image = homeIcon;
+            Examination_PRL.Forms.Staff.Home.Home home = new Examination_PRL.Forms.Staff.Home.Home(usrAccount);
+            home.TopLevel = false;
+            homePage.Controls.Add(home);
+            home.Show();
+            home.Dock = DockStyle.Fill;
 
 
             RadPageViewPage schedulePage = new RadPageViewPage("Lịch thi"); //xem danh sách lịch thi

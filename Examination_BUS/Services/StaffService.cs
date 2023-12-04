@@ -19,7 +19,7 @@ namespace Examination_BUS.Services
         {
             return _staffRepos.GetAll();
         }
-        public Staff GetStaff(int id)
+        public Staff GetStaff(string id)
         {
             return _staffRepos.GetById(id);
         }
@@ -68,6 +68,11 @@ namespace Examination_BUS.Services
         public List<Staff> getStaffAllRemove() 
         {
             return _staffRepos.GetAllStaffRemove();
+        }
+
+        public Staff GetStaffById(string id)
+        {
+            return _staffRepos.GetById(id);
         }
     }
 }

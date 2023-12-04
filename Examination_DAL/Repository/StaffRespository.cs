@@ -44,7 +44,7 @@ namespace Examination_DAL.Repository
             return _context.Staffs.Where(x => x.Status == 255).ToList();
         }
 
-        public Staff GetById(int id)
+        public Staff GetById(string id)
         {
             return _context.Staffs.Find(id);
         }
