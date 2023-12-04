@@ -48,9 +48,9 @@ namespace Examination_DAL.Repository
             throw new NotImplementedException();
         }
 
-        public List<Question> GetAllQuestions()
+        public List<Question> GetAllQuestionsActive()
         {
-            return _context.Questions.ToList();
+            return _context.Questions.ToList().Where(x=>x.Status==true).ToList();
         }
 
         public Question GetQuestionById(int questionId)
@@ -60,7 +60,21 @@ namespace Examination_DAL.Repository
 
         public bool UpdateQuestion(Question question)
         {
-            throw new NotImplementedException();
+           try
+            {
+                var questionUpdate = _context.Questions.Where(q => q.Id == question.Id).FirstOrDefault();
+                questionUpdate.Content = question.Content;
+                questionUpdate.QuestionLevelId = question.QuestionLevelId;
+                questionUpdate.QuestionTypeId = question.QuestionTypeId;
+                questionUpdate.SubjectId = question.SubjectId;
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
     }
 }

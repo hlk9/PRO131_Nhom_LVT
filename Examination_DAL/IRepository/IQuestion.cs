@@ -12,7 +12,7 @@ namespace Examination_DAL.IRepository
         public bool AddQuestion(Question question);
         public bool UpdateQuestion(Question question);
         public bool DeleteQuestion(int questionId);
-        public List<Question> GetAllQuestions();
+        public List<Question> GetAllQuestionsActive();
         public Question GetQuestionById(int questionId);
 
     }

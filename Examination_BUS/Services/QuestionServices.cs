@@ -42,17 +42,26 @@ namespace Examination_BUS.Services
         }
         public List<Question> GetAllQuestions()
         {
-            return questionRepository.GetAllQuestions();
+            return questionRepository.GetAllQuestionsActive();
         }
         public Question GetQuestionById(int questionId)
         {
             return questionRepository.GetQuestionById(questionId);
         }
 
+        public bool DisableQuestion(int questionId)
+        {
+
+            var q = GetQuestionById(questionId);
+            q.Status = false;
+
+            return questionRepository.UpdateQuestion(q);
+        }
+
         public QuestionsInExamViewModel GetQuestionsByExamCode(string code)
         {
             List<Question> allQuestion = (from eq in examQuestionRepository.GetAllExamQuestions()
-                                          join q in questionRepository.GetAllQuestions()
+                                          join q in questionRepository.GetAllQuestionsActive()
                                           on eq.QuestionId equals q.Id
                                           join ed in examDetailRepository.GetAll()
                                           on eq.ExamDetailId equals ed.Id                                        
@@ -74,7 +83,7 @@ namespace Examination_BUS.Services
         }
         public QuestionWithAnswerViewModel GetQuestionWithAnswer(int id)
         {
-            var answerData = (from q in questionRepository.GetAllQuestions()
+            var answerData = (from q in questionRepository.GetAllQuestionsActive()
                               join a in answerRepository.GetAllAnswers()
                               on q.Id equals a.QuestionId
                               where q.Id == id
@@ -98,7 +107,7 @@ namespace Examination_BUS.Services
 
         public QuestionWithAnswerViewModel GetQuestionWithTRUEAnswer(int id)
         {
-            var answerData = (from q in questionRepository.GetAllQuestions()
+            var answerData = (from q in questionRepository.GetAllQuestionsActive()
                               join a in answerRepository.GetAllAnswers()
                               on q.Id equals a.QuestionId
                               where q.Id == id
@@ -125,7 +134,7 @@ namespace Examination_BUS.Services
         public List<QuestionWithAnswerViewModel> GetListQuestionWithLevel(byte? level)
         {
 
-            var data = from ojb in questionRepository.GetAllQuestions()
+            var data = from ojb in questionRepository.GetAllQuestionsActive()
                        where ojb.QuestionLevelId == level
                        select new QuestionWithAnswerViewModel
                        {
@@ -148,7 +157,7 @@ namespace Examination_BUS.Services
         public List<QuestionWithAnswerViewModel> GetListQuestionWithSubject(string subject)
         {
 
-            var data = from ojb in questionRepository.GetAllQuestions()
+            var data = from ojb in questionRepository.GetAllQuestionsActive()
                        where ojb.SubjectId == subject
                        select new QuestionWithAnswerViewModel
                        {
@@ -169,7 +178,7 @@ namespace Examination_BUS.Services
 
         public List<QuestionWithAnswerViewModel> GetListQuestionWithType(byte? type)
         {
-            var data = from ojb in questionRepository.GetAllQuestions()
+            var data = from ojb in questionRepository.GetAllQuestionsActive()
                        where ojb.QuestionTypeId == type
                        select new QuestionWithAnswerViewModel
                        {
@@ -191,7 +200,7 @@ namespace Examination_BUS.Services
 
         public List<QuestionWithAnswerViewModel> GetListQuestionWithTypeAndLevel(byte? type, byte? level,string subjectID)
         {
-            var data = from ojb in questionRepository.GetAllQuestions()
+            var data = from ojb in questionRepository.GetAllQuestionsActive()
                        where ojb.QuestionTypeId == type && ojb.QuestionLevelId == level && ojb.SubjectId == subjectID
                        select new QuestionWithAnswerViewModel
                        {
@@ -210,6 +219,8 @@ namespace Examination_BUS.Services
             return data.ToList();
 
         }
+
+      
 
     }
 }
