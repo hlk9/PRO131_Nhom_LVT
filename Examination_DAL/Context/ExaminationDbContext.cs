@@ -45,7 +45,7 @@ namespace Examination_DAL.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=QuanLyThiTracNghiem;Integrated Security=True");
+            optionsBuilder.UseSqlServer("Data Source=XPK4\\SQLEXPRESS;Initial Catalog=QuanLyThiTracNghiem;Integrated Security=True");
 
 
           // optionsBuilder.UseSqlServer(@"server=db-test-for-pro131.australiaeast.cloudapp.azure.com;database=QuanLyThiTracNghiem;uid=VM;password=123456789Aa@");
