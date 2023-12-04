@@ -143,6 +143,10 @@ namespace Examination_PRL.Forms.Staff.ClassRoom
 
             loadDbParticipantToClass(classId);
             loadDbPar();
+            loadDBclass();
+            _classIdWhenClick = null;
+            _ParticipantIdOfClassWhenClick = null;
+            _ParticipantIdWhenClick = null;
         }
 
         private void radBtnUpdate_Click(object sender, EventArgs e)
@@ -160,7 +164,10 @@ namespace Examination_PRL.Forms.Staff.ClassRoom
 
             loadDbPar();
             loadDbParticipantToClass(classId);
-
+            loadDBclass();
+            _classIdWhenClick = null;
+            _ParticipantIdOfClassWhenClick = null;
+            _ParticipantIdWhenClick = null;
         }
 
         private void radBtnRemove_Click(object sender, EventArgs e)
@@ -176,6 +183,10 @@ namespace Examination_PRL.Forms.Staff.ClassRoom
 
             loadDbPar();
             loadDbParticipantToClass(radLblClassId.Text);
+            loadDBclass();
+            _classIdWhenClick = null;
+            _ParticipantIdOfClassWhenClick = null;
+            _ParticipantIdWhenClick = null;
         }
     }
 }
