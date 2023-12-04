@@ -22,7 +22,8 @@ namespace Examination_BUS.Services
             {
                 Id = id,
                 UserName = name,
-                Password = passWord
+                Password = passWord,
+                Status = 1
             };
             return accountRepository.Add(account);
         }
@@ -53,7 +54,5 @@ namespace Examination_BUS.Services
         {
             return accountRepository.GetByID(accountId);
         }
-
-
     }
 }

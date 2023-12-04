@@ -85,7 +85,15 @@ namespace Examination_PRL.Forms.Staff
             addThiSinh.Dock = DockStyle.Fill;
             addThiSinh.Name = "addThiSinhForm";
 
+            RadPageViewPage qltkStudentPage = new RadPageViewPage("QLTK Thí Sinh");
+            QLTKStudent qltkstudent = new QLTKStudent();
+            qltkstudent.TopLevel = false;
+            qltkStudentPage.Controls.Add(qltkstudent);
+            qltkstudent.Show();
+            qltkstudent.Dock = DockStyle.Fill;
+            qltkstudent.Name = "QLTK Thí Sinh";
             studentPage.SubPages.Add(addStudentPage);
+            studentPage.SubPages.Add(qltkStudentPage);
 
             RadPageViewPage examPage = new RadPageViewPage("Đề thi"); //xem danh sách đề thi
             examPage.ToolTipText = "Đề thi";
@@ -290,6 +298,7 @@ namespace Examination_PRL.Forms.Staff
             pvDashboard.Pages.Add(homePage);
             pvDashboard.Pages.Add(schedulePage);
             pvDashboard.Pages.Add(studentPage);
+            pvDashboard.Pages.Add(qltkStudentPage);
             pvDashboard.Pages.Add(examGroup);
             pvDashboard.Pages.Add(examPage);
             pvDashboard.Pages.Add(subjectPage);

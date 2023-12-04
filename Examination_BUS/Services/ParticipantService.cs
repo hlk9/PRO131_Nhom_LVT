@@ -1,4 +1,5 @@
-﻿using Examination_DAL.Models;
+﻿using Examination_BUS.ViewModel;
+using Examination_DAL.Models;
 using Examination_DAL.Repository;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace Examination_BUS.Services
     public class ParticipantService
     {
         ParticipantResposiroty _respos = new ParticipantResposiroty();
+        AccountRepository _resposAcc = new AccountRepository();
 
         public ParticipantService()
         {
@@ -31,6 +33,10 @@ namespace Examination_BUS.Services
         {
             return _respos.GetAllByClassId(classId);
         }
+        public List<Account> GetAccountById(string accountId)
+        {
+            return _respos.GetAllByAccountId(accountId);
+        }    
 
         public bool createStudents(string id, string name, string address, string email, string phone, bool gender, byte status, DateTime dateOfBirth, string classRoomId)
         {
@@ -67,7 +73,16 @@ namespace Examination_BUS.Services
 
             return _respos.updateStudents(student);
         }
+        public bool updateAccountId(string id, string accountId)
+        {
+            Participant student = new Participant()
+            {
+                Id = id,
+                AccountId = accountId
+            };
 
+            return _respos.UpdateAccountIdToParticipant(student);
+        }
         public bool updateClassIdOfPars(string id, string classId)
         {
             Participant participant = new Participant()
@@ -94,5 +109,14 @@ namespace Examination_BUS.Services
         {
             return this.getAllStudents().Where(x => x.ClassroomId==classID).ToList();
         }
+
+        public List<Participant> GetThiSinhVoiTaiKhoans()
+        {
+            var listParAcc = (from par in _respos.GetAll()
+                              join acc in _resposAcc.GetAll()
+                              on par.AccountId equals acc.Id
+                              select par).ToList();
+            return listParAcc;
+        }    
     }
 }

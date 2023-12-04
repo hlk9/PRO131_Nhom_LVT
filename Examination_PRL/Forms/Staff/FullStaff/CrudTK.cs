@@ -55,8 +55,6 @@ namespace Examination_PRL.Forms.Staff.FullStaff
 
         private void radBtnThem_Click(object sender, EventArgs e)
         {
-            if (ValiDate())
-            {
                 string id = radTxtID.Text;
                 string name = radTxtName.Text;
                 string passWord = radTextMK.Text;
@@ -70,7 +68,6 @@ namespace Examination_PRL.Forms.Staff.FullStaff
                     MessageBox.Show("Thêm Tài Khoản Thất Bại Kiểm Tra Lại Định Dạng");
                 }
                 LoadDataCrud();
-            }
         }
 
         private void radBtnSua_Click(object sender, EventArgs e)
@@ -109,35 +106,6 @@ namespace Examination_PRL.Forms.Staff.FullStaff
                 MessageBox.Show("Tiếp Tục Chương Trình");
             }
             LoadDataCrud();
-        }
-
-        private bool ValiDate()
-        {
-            var textBoxes = toolWindow1.Controls.OfType<TextBox>();
-            var errorProvider = new ErrorProvider();
-            var error = 0;
-
-            foreach (var item in textBoxes)
-            {
-                if (item.Name == "radTxtName" && !Regex.IsMatch(item.Text, @"^[a-zA-Z]+PH\d{5}$"))
-                {
-                    errorProvider.SetError(item, "Tài Khoản Ko Hợp Lệ");
-                    error++;
-                }
-                else
-                {
-                    errorProvider.SetError(item, "");
-                }
-            }
-
-            if (error > 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
         }
     }
 }
