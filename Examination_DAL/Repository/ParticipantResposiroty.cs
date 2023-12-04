@@ -60,6 +60,10 @@ namespace Examination_DAL.Repository
             return _context.Participants.Where(x => x.ClassroomId == classId).ToList();
         }
 
+        public List<Account> GetAllByAccountId(string accountId)
+        {
+            return _context.Accounts.Where(x => x.Id == accountId).ToList();
+        }
         public List<Participant> getAllRemove()
         {
             return _context.Participants.Where(x => x.Status == 255).ToList();
@@ -87,6 +91,24 @@ namespace Examination_DAL.Repository
                 return true;
             }
             catch
+            {
+                return false;
+            }
+        }
+
+        public bool UpdateAccountIdToParticipant(Participant participant)
+        {
+            try
+            {
+                var update = _context.Participants.Find(participant.Id);
+                update.Id = participant.Id;
+                update.AccountId = participant.AccountId;
+
+                _context.Participants.Update(update);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
             {
                 return false;
             }

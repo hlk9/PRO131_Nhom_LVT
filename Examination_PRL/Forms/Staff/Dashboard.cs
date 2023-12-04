@@ -4,6 +4,7 @@ using Examination_PRL.Forms.Staff.Exam;
 using Examination_PRL.Forms.Staff.FullStaff;
 using Examination_PRL.Forms.Staff.Home;
 using Examination_PRL.Forms.Staff.QuestionForm;
+using Examination_PRL.Forms.Staff.Result;
 using Examination_PRL.Forms.Staff.Schedule;
 using System;
 using System.Collections.Generic;
@@ -91,7 +92,15 @@ namespace Examination_PRL.Forms.Staff
             addThiSinh.Dock = DockStyle.Fill;
             addThiSinh.Name = "addThiSinhForm";
 
+            RadPageViewPage qltkStudentPage = new RadPageViewPage("QLTK Thí Sinh");
+            QLTKStudent qltkstudent = new QLTKStudent();
+            qltkstudent.TopLevel = false;
+            qltkStudentPage.Controls.Add(qltkstudent);
+            qltkstudent.Show();
+            qltkstudent.Dock = DockStyle.Fill;
+            qltkstudent.Name = "QLTK Thí Sinh";
             studentPage.SubPages.Add(addStudentPage);
+            studentPage.SubPages.Add(qltkStudentPage);
 
             RadPageViewPage examPage = new RadPageViewPage("Đề thi"); //xem danh sách đề thi
             examPage.ToolTipText = "Đề thi";
@@ -215,12 +224,12 @@ namespace Examination_PRL.Forms.Staff
             staffPage.SubPages.Add(addStaffPage);
 
             RadPageViewPage resultPage = new RadPageViewPage("Kết quả");
-            //Result_Overview result_Overview = new Result_Overview();
-            //result_Overview.TopLevel = false;
-            //resultPage.Controls.Add(result_Overview);
-            //result_Overview.Show();
-            //result_Overview.Dock = DockStyle.Fill;
-            //result_Overview.Name = "resul_Overview";
+            Result_Overview result_Overview = new Result_Overview();
+            result_Overview.TopLevel = false;
+            resultPage.Controls.Add(result_Overview);
+            result_Overview.Show();
+            result_Overview.Dock = DockStyle.Fill;
+            result_Overview.Name = "resul_Overview";
 
             resultPage.ToolTipText = "Kết quả";
             Bitmap bitMapResultIcon = new Bitmap(Properties.Resources.result);
@@ -296,6 +305,7 @@ namespace Examination_PRL.Forms.Staff
             pvDashboard.Pages.Add(homePage);
             pvDashboard.Pages.Add(schedulePage);
             pvDashboard.Pages.Add(studentPage);
+            pvDashboard.Pages.Add(qltkStudentPage);
             pvDashboard.Pages.Add(examGroup);
             pvDashboard.Pages.Add(examPage);
             pvDashboard.Pages.Add(subjectPage);
