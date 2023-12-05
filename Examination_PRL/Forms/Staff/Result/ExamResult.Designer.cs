@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             radDock1 = new Telerik.WinControls.UI.Docking.RadDock();
             toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
@@ -148,7 +148,7 @@
             radGridViewExam.MasterTemplate.AllowSearchRow = true;
             radGridViewExam.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             radGridViewExam.MasterTemplate.EnablePaging = true;
-            radGridViewExam.MasterTemplate.ViewDefinition = tableViewDefinition3;
+            radGridViewExam.MasterTemplate.ViewDefinition = tableViewDefinition1;
             radGridViewExam.Name = "radGridViewExam";
             radGridViewExam.Size = new Size(805, 316);
             radGridViewExam.TabIndex = 0;
@@ -229,12 +229,14 @@
             radGridViewExamDetail.MasterTemplate.AllowSearchRow = true;
             radGridViewExamDetail.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             radGridViewExamDetail.MasterTemplate.EnablePaging = true;
-            radGridViewExamDetail.MasterTemplate.ViewDefinition = tableViewDefinition4;
+            radGridViewExamDetail.MasterTemplate.ViewDefinition = tableViewDefinition2;
             radGridViewExamDetail.Name = "radGridViewExamDetail";
             radGridViewExamDetail.Size = new Size(805, 317);
             radGridViewExamDetail.TabIndex = 0;
             radGridViewExamDetail.ThemeName = "MaterialTeal";
             radGridViewExamDetail.CellClick += radGridViewExamDetail_CellClick;
+            radGridViewExamDetail.ContextMenuOpening += radGridViewExamDetail_ContextMenuOpening;
+            radGridViewExamDetail.Click += radGridViewExamDetail_Click;
             // 
             // toolTabStrip1
             // 

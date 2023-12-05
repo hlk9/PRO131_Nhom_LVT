@@ -1,4 +1,5 @@
 ﻿using Examination_BUS.Services;
+using Examination_PRL.Forms.Participant;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
+using Telerik.WinControls.UI;
 
 namespace Examination_PRL.Forms.Staff
 {
@@ -59,7 +61,7 @@ namespace Examination_PRL.Forms.Staff
         public void loadDataExam(string id)
         {
             int stt = 1;
-            radGridViewExam.ColumnCount = 7;
+            radGridViewExam.ColumnCount = 8;
 
             radGridViewExam.Columns[0].HeaderText = "STT";
             radGridViewExam.Columns[1].HeaderText = "Bài Thi";
@@ -68,12 +70,14 @@ namespace Examination_PRL.Forms.Staff
             radGridViewExam.Columns[4].HeaderText = "Ngày Hoàn Thành";
             radGridViewExam.Columns[5].HeaderText = "Đạt";
             radGridViewExam.Columns[6].HeaderText = "Ghi Chú";
+            radGridViewExam.Columns[7].IsVisible = false;
+            radGridViewExam.Columns[7].HeaderText = "ID Exam Response";
 
             radGridViewExam.Rows.Clear();
 
             foreach (var x in _serExam.GetAnswer_ResponsesViewModels(id))
             {
-                radGridViewExam.Rows.Add(stt++, x.NameExam, x.Score, x.SubjectId, x.SubmitTime, x.IsPassed == null ? "Không Xác Định" : (x.IsPassed == true ? "Có" : "Không"), x.Note);
+                radGridViewExam.Rows.Add(stt++, x.NameExam, x.Score, x.SubjectId, x.SubmitTime, x.IsPassed == null ? "Không Xác Định" : (x.IsPassed == true ? "Có" : "Không"), x.Note, x.Id);
             }
         }
 
@@ -86,6 +90,21 @@ namespace Examination_PRL.Forms.Staff
             radLblPassedExamStudent.Text = _serAll.GetExamResponseByParticipantId(_idWhenCLick).Where(x => x.IsPassed == true).ToList().Count.ToString();
             radLblFailedExamStudent.Text = _serAll.GetExamResponseByParticipantId(_idWhenCLick).Where(x => x.IsPassed == false).ToList().Count.ToString();
             loadDataExam(_idWhenCLick);
+        }
+
+        private void radGridViewExam_ContextMenuOpening(object sender, Telerik.WinControls.UI.ContextMenuOpeningEventArgs e)
+        {
+            e.ContextMenu.Items.Clear();
+            RadMenuItem menuItem = new RadMenuItem("Xem Chi Tiết");
+            menuItem.Click += MenuItem_Click;
+            e.ContextMenu.Items.Add(menuItem);
+        }
+
+        private void MenuItem_Click(object? sender, EventArgs e)
+        {
+            int idExamResponse = int.Parse(radGridViewExam.CurrentRow.Cells[7].Value.ToString());
+            var form = new ReViewExam(idExamResponse);
+            form.ShowDialog();
         }
     }
 }

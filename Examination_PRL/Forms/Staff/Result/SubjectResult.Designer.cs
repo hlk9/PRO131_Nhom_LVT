@@ -212,6 +212,7 @@
             radGridViewExamSubject.Size = new Size(950, 281);
             radGridViewExamSubject.TabIndex = 0;
             radGridViewExamSubject.ThemeName = "MaterialTeal";
+            radGridViewExamSubject.ContextMenuOpening += radGridViewExamSubject_ContextMenuOpening;
             // 
             // toolTabStrip1
             // 

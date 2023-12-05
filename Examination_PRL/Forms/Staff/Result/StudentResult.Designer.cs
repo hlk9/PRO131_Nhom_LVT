@@ -143,6 +143,10 @@
             // 
             // 
             // 
+            radGridViewStudent.MasterTemplate.AllowAddNewRow = false;
+            radGridViewStudent.MasterTemplate.AllowCellContextMenu = false;
+            radGridViewStudent.MasterTemplate.AllowDeleteRow = false;
+            radGridViewStudent.MasterTemplate.AllowEditRow = false;
             radGridViewStudent.MasterTemplate.AllowSearchRow = true;
             radGridViewStudent.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             radGridViewStudent.MasterTemplate.EnablePaging = true;
@@ -237,6 +241,7 @@
             radGridViewExam.Size = new Size(885, 538);
             radGridViewExam.TabIndex = 0;
             radGridViewExam.ThemeName = "MaterialTeal";
+            radGridViewExam.ContextMenuOpening += radGridViewExam_ContextMenuOpening;
             // 
             // toolTabStrip3
             // 
@@ -275,7 +280,7 @@
             toolWindow2.Name = "toolWindow2";
             toolWindow2.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
             toolWindow2.Size = new Size(375, 1044);
-            toolWindow2.Text = "Thông Tin Chi Tiết";
+            toolWindow2.Text = "                ";
             toolWindow2.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
             // radLblFailedExamStudent

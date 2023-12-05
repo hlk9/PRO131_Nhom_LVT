@@ -1,4 +1,5 @@
 ﻿using Examination_BUS.Services;
+using Examination_PRL.Forms.Participant;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +8,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
+using Telerik.WinControls.UI;
 
 namespace Examination_PRL.Forms.Staff
 {
@@ -80,6 +82,21 @@ namespace Examination_PRL.Forms.Staff
             }
             radLblSumScore.Text = sumScore.ToString();
             loadExamSubject(_idWhenClick);
+        }
+
+        private void radGridViewExamSubject_ContextMenuOpening(object sender, Telerik.WinControls.UI.ContextMenuOpeningEventArgs e)
+        {
+            e.ContextMenu.Items.Clear();
+            RadMenuItem menuItem = new RadMenuItem("Xem Chi Tiết");
+            menuItem.Click += MenuItem_Click;
+            e.ContextMenu.Items.Add(menuItem);
+        }
+
+        private void MenuItem_Click(object? sender, EventArgs e)
+        {
+            int idExamResponse = int.Parse(radGridViewExamSubject.CurrentRow.Cells[1].Value.ToString());
+            var form = new ReViewExam(idExamResponse);
+            form.ShowDialog();
         }
     }
 }

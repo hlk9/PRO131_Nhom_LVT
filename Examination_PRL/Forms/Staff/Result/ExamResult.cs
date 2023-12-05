@@ -1,4 +1,5 @@
 ﻿using Examination_BUS.Services;
+using Examination_PRL.Forms.Participant;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +8,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
+using Telerik.WinControls.UI;
 
 namespace Examination_PRL.Forms.Staff
 {
@@ -51,7 +53,7 @@ namespace Examination_PRL.Forms.Staff
 
             int stt = 1;
 
-            radGridViewExamDetail.ColumnCount = 7;
+            radGridViewExamDetail.ColumnCount = 8;
 
             radGridViewExamDetail.Columns[0].HeaderText = "STT";
             radGridViewExamDetail.Columns[1].HeaderText = "Mã Đề Thi";
@@ -60,6 +62,8 @@ namespace Examination_PRL.Forms.Staff
             radGridViewExamDetail.Columns[4].HeaderText = "Tổng Số Câu";
             radGridViewExamDetail.Columns[5].HeaderText = "Điểm Đạt";
             radGridViewExamDetail.Columns[6].HeaderText = "Số Lần Được Làm";
+            radGridViewExamDetail.Columns[7].HeaderText = "ID Exam Response";
+            radGridViewExamDetail.Columns[7].IsVisible = false;
 
             foreach (var x in _serExam.getExam_DetailViewModelss(id))
             {
@@ -88,6 +92,26 @@ namespace Examination_PRL.Forms.Staff
             radLblQuestionTypeOnly.Text = _serQues.GetQuestionsByExamCode(_ExamDetailCode).Questions.Where(x => x.QuestionTypeId == 1).Count().ToString();
             radLblQuestionTypeMany.Text = _serQues.GetQuestionsByExamCode(_ExamDetailCode).Questions.Where(x => x.QuestionTypeId == 2).Count().ToString();
             radLblQuestionTypeYN.Text = _serQues.GetQuestionsByExamCode(_ExamDetailCode).Questions.Where(x => x.QuestionTypeId == 3).Count().ToString();
+        }
+
+        private void radGridViewExamDetail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radGridViewExamDetail_ContextMenuOpening(object sender, Telerik.WinControls.UI.ContextMenuOpeningEventArgs e)
+        {
+            e.ContextMenu.Items.Clear();
+            RadMenuItem menuItem = new RadMenuItem("Xem Chi Tiết");
+            menuItem.Click += MenuItem_Click;
+            e.ContextMenu.Items.Add(menuItem);
+        }
+
+        private void MenuItem_Click(object? sender, EventArgs e)
+        {
+            int idExamResponse = int.Parse(radGridViewExamDetail.CurrentRow.Cells[7].Value.ToString());
+            var form = new ReViewExam(idExamResponse);
+            form.ShowDialog();
         }
     }
 }
