@@ -64,6 +64,7 @@ namespace Examination_PRL
                 radTxtEmail.Text = obj.Email;
                 radTxtAdress.Text = obj.Address;
                 radDTP.Value = obj.DateOfBirth;
+                radTxtID.Text = obj.Id;
                 if (obj.Gender == true)
                 {
                     radNam.IsChecked = true;
