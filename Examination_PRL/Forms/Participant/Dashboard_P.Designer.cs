@@ -166,7 +166,7 @@
             radPageView1.Dock = DockStyle.Fill;
             radPageView1.Location = new Point(0, 0);
             radPageView1.Name = "radPageView1";
-            radPageView1.SelectedPage = radPageViewPage4;
+            radPageView1.SelectedPage = radPageViewPage3;
             radPageView1.Size = new Size(1277, 706);
             radPageView1.TabIndex = 0;
             radPageView1.ThemeName = "MaterialTeal";
@@ -282,7 +282,6 @@
             documentContainer1.CausesValidation = false;
             documentContainer1.Controls.Add(documentTabStrip1);
             documentContainer1.Name = "documentContainer1";
-            documentContainer1.Padding = new Padding(0);
             // 
             // 
             // 
@@ -291,6 +290,7 @@
             documentContainer1.SizeInfo.SizeMode = Telerik.WinControls.UI.Docking.SplitPanelSizeMode.Fill;
             documentContainer1.SizeInfo.SplitterCorrection = new Size(-135, 0);
             documentContainer1.SplitterWidth = 8;
+            documentContainer1.ThemeName = "MaterialTeal";
             // 
             // documentTabStrip1
             // 
@@ -365,10 +365,10 @@
             toolWindow1.Controls.Add(radLabel5);
             toolWindow1.Controls.Add(radLabel4);
             toolWindow1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            toolWindow1.Location = new Point(4, 4);
+            toolWindow1.Location = new Point(4, 52);
             toolWindow1.Name = "toolWindow1";
             toolWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            toolWindow1.Size = new Size(327, 637);
+            toolWindow1.Size = new Size(327, 589);
             toolWindow1.Text = "Thông Tin Chi Tiết";
             toolWindow1.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 

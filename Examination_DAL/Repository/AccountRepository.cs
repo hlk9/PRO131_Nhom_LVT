@@ -49,7 +49,6 @@ namespace Examination_DAL.Repository
                 return false;
             }
         }
-
         public IEnumerable<Account> GetAll()
         {
             return context.Accounts.ToList();
@@ -58,6 +57,11 @@ namespace Examination_DAL.Repository
         public Account GetByID(string id)
         {
             return context.Accounts.Find(id);
+        }
+
+        public List<Account> GetAllByID(string id)
+        {
+            return context.Accounts.Where(x => x.Id == id).ToList();
         }
 
         public bool Update(Account obj)

@@ -71,7 +71,23 @@ namespace Examination_DAL.Repository
                 return false;
             }
         }
+        public bool UpdateAccountId(Staff staff)
+        {
+            try
+            {
+                var upDate = _context.Staffs.Find(staff.Id);
+               
+                upDate.AccountId = staff.AccountId;
 
+                _context.Staffs.Update(upDate);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
         public bool deleStaff(Staff staff)
         {
             try

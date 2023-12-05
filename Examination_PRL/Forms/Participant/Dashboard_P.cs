@@ -271,9 +271,9 @@ namespace Examination_PRL.Forms.Participant
 
         private void radPageView1_SelectedPageChanged(object sender, EventArgs e)
         {
-         
+
             LoadDataExam();
-          
+
 
 
         }

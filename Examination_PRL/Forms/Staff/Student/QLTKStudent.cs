@@ -16,6 +16,7 @@ namespace Examination_PRL.Forms.Staff
     {
         ParticipantService _service = new ParticipantService();
         AccountServices _accountServices = new AccountServices();
+        UserPermissionServices _userPermissionServices = new UserPermissionServices();
         string _idWhenClick;
         string _accountId;
         public QLTKStudent()
@@ -93,29 +94,44 @@ namespace Examination_PRL.Forms.Staff
         {
             string userName = radTxtUserName.Text;
             string password = radTxtPassWord.Text;
+            var userPer = new UserPermission()
+            {
+                AccountId = _idWhenClick,
+                PermissionId = 4
+            };
 
             if (_accountServices.AddAccount(_idWhenClick, userName, password))
             {
-                MessageBox.Show("Thêm Thành Công");
+                
+                if(_userPermissionServices.AddUserPermission(userPer))
+                {
+                    if (_service.updateAccountId(_idWhenClick, _idWhenClick))
+                    {
+                        MessageBox.Show("Thêm Thành Công");
+                    }    
+                }
             }
             else
             {
                 MessageBox.Show("Thêm Thất Bại");
             }
-            _service.updateAccountId(_idWhenClick, _idWhenClick);
+            loadData();
         }
 
         private void radBtnXoaTK_Click(object sender, EventArgs e)
         {
             if (_service.updateAccountId(_idWhenClick, null))
             {
-                MessageBox.Show("Xóa Thành Công");
+                if(_accountServices.DeleteAccount(_idWhenClick))
+                {
+                    MessageBox.Show("Xóa Thành Công");
+                }    
             }
             else
             {
                 MessageBox.Show("Xóa Thất Bại");
             }
-            _accountServices.DeleteAccount(_idWhenClick);
+            loadData();
         }
     }
 }
