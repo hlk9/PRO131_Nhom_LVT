@@ -42,7 +42,7 @@ namespace Examination_PRL.Forms.Participant
         int CurrentQuestionCount = 0;
         int QuestionLimit = -1;
         int scheduleId = -1;
-        public EnterExam(string examCode,int scheduleId, Account account)
+        public EnterExam(string examCode, int scheduleId, Account account)
         {
             InitializeComponent();
             this.examCode = examCode;
@@ -301,7 +301,20 @@ namespace Examination_PRL.Forms.Participant
                 //examResponse.ParticipantId = "longhd";
                 //examResponse.SubmitTime = DateTime.Now;
                 //MessageBox.Show(examResponseServices.AddExamResponseAndGetId(examResponse).ToString());
-                ScoreExam(ListAnsweredQuestion());
+
+                if (DialogResult.OK == MessageBox.Show("Bạn có chắc chắn muốn nộp bài thi không?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question))
+                {
+                    ScoreExam(ListAnsweredQuestion());
+                    MessageBox.Show("Bạn đã hoàn thành bài thi");
+                    return;
+                }
+
+                else
+                {
+                    return;
+                }
+
+                //ScoreExam(ListAnsweredQuestion());
                 //MessageBox.Show("Bạn đã hoàn thành bài thi");
                 //return;
             }
@@ -522,22 +535,22 @@ namespace Examination_PRL.Forms.Participant
                 }
                 examResponse.ExamDetailId = exam.Id;
                 examResponse.IsPassed = isPass;
-                if(score <= 0)
+                if (score <= 0)
                 {
                     examResponse.Score = 0;
                 }
-                else if(score > totalScore)
+                else if (score > totalScore)
                 {
                     examResponse.Score = totalScore;
                 }
-                else if(score <= -0)
+                else if (score <= -0)
                 {
                     examResponse.Score = 0;
                 }
                 else
-              
-               
-                examResponse.Score = Math.Round(score,2);
+
+
+                    examResponse.Score = Math.Round(score, 2);
                 examResponse.FinishTime = secondTaken;
                 examResponse.SubmitTime = DateTime.Now;
                 examResponse.ParticipantId = userAccount.Id;
@@ -571,9 +584,10 @@ namespace Examination_PRL.Forms.Participant
                     }
                 }
                 MessageBox.Show("Nộp bài thành công");
-              //  MessageBox.Show("TEST\nSố câu đúng: " + qTrue.ToString() + "\n" + "Số câu sai: " + qFalse.ToString() + "\n" + "Số câu chưa trả lời: " + qNotAnswer.ToString() + "\n" + "Tổng điểm: " + totalScore.ToString() + "\n" + "Điểm của bạn: " + score.ToString());
+                //  MessageBox.Show("TEST\nSố câu đúng: " + qTrue.ToString() + "\n" + "Số câu sai: " + qFalse.ToString() + "\n" + "Số câu chưa trả lời: " + qNotAnswer.ToString() + "\n" + "Tổng điểm: " + totalScore.ToString() + "\n" + "Điểm của bạn: " + score.ToString());
                 btnExit.Enabled = true;
                 btnExit.Visible = true;
+                this.Close();
                 //foreach(var page in pageViewQuestion.Pages)
                 //{
                 //    page.Enabled = false;
@@ -602,8 +616,10 @@ namespace Examination_PRL.Forms.Participant
 
         }
 
-
-
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 
     public class QuestionAndAnswerResponse

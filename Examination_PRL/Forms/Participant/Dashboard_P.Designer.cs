@@ -30,6 +30,7 @@
         {
             Telerik.WinControls.UI.SchedulerDailyPrintStyle schedulerDailyPrintStyle1 = new Telerik.WinControls.UI.SchedulerDailyPrintStyle();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard_P));
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             radPageView1 = new Telerik.WinControls.UI.RadPageView();
             radPageViewPage1 = new Telerik.WinControls.UI.RadPageViewPage();
@@ -166,7 +167,7 @@
             radPageView1.Dock = DockStyle.Fill;
             radPageView1.Location = new Point(0, 0);
             radPageView1.Name = "radPageView1";
-            radPageView1.SelectedPage = radPageViewPage4;
+            radPageView1.SelectedPage = radPageViewPage2;
             radPageView1.Size = new Size(1277, 706);
             radPageView1.TabIndex = 0;
             radPageView1.ThemeName = "MaterialTeal";
@@ -282,7 +283,6 @@
             documentContainer1.CausesValidation = false;
             documentContainer1.Controls.Add(documentTabStrip1);
             documentContainer1.Name = "documentContainer1";
-            documentContainer1.Padding = new Padding(0);
             // 
             // 
             // 
@@ -291,6 +291,7 @@
             documentContainer1.SizeInfo.SizeMode = Telerik.WinControls.UI.Docking.SplitPanelSizeMode.Fill;
             documentContainer1.SizeInfo.SplitterCorrection = new Size(-135, 0);
             documentContainer1.SplitterWidth = 8;
+            documentContainer1.ThemeName = "MaterialTeal";
             // 
             // documentTabStrip1
             // 
@@ -365,10 +366,10 @@
             toolWindow1.Controls.Add(radLabel5);
             toolWindow1.Controls.Add(radLabel4);
             toolWindow1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            toolWindow1.Location = new Point(4, 4);
+            toolWindow1.Location = new Point(4, 52);
             toolWindow1.Name = "toolWindow1";
             toolWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            toolWindow1.Size = new Size(327, 637);
+            toolWindow1.Size = new Size(327, 589);
             toolWindow1.Text = "Thông Tin Chi Tiết";
             toolWindow1.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
@@ -751,10 +752,10 @@
             // 
             // radLabel7
             // 
-            radLabel7.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            radLabel7.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             radLabel7.Location = new Point(518, 20);
             radLabel7.Name = "radLabel7";
-            radLabel7.Size = new Size(208, 36);
+            radLabel7.Size = new Size(208, 41);
             radLabel7.TabIndex = 20;
             radLabel7.Text = "GỬI PHẢN HỒI";
             radLabel7.ThemeName = "MaterialTeal";
@@ -845,6 +846,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1277, 706);
             Controls.Add(radPageView1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Dashboard_P";
             // 
             // 

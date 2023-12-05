@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EnterExam));
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             dockParent = new Telerik.WinControls.UI.Docking.RadDock();
             documentWindow1 = new Telerik.WinControls.UI.Docking.DocumentWindow();
@@ -36,13 +37,13 @@
             documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            btnExit = new Telerik.WinControls.UI.RadButton();
             lblTime = new Telerik.WinControls.UI.RadLabel();
             radLabel1 = new Telerik.WinControls.UI.RadLabel();
             checkBoxComplete = new Telerik.WinControls.UI.RadCheckBox();
             btnSubmit = new Telerik.WinControls.UI.RadButton();
             radScrollablePanel1 = new Telerik.WinControls.UI.RadScrollablePanel();
             listViewQuestion = new Telerik.WinControls.UI.RadListView();
-            btnExit = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)dockParent).BeginInit();
             dockParent.SuspendLayout();
             documentWindow1.SuspendLayout();
@@ -54,6 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)toolTabStrip1).BeginInit();
             toolTabStrip1.SuspendLayout();
             toolWindow1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnExit).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lblTime).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)checkBoxComplete).BeginInit();
@@ -62,13 +64,12 @@
             radScrollablePanel1.PanelContainer.SuspendLayout();
             radScrollablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)listViewQuestion).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)btnExit).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
             // dockParent
             // 
-            dockParent.ActiveWindow = toolWindow1;
+            dockParent.ActiveWindow = documentWindow1;
             dockParent.CausesValidation = false;
             dockParent.Controls.Add(questionContainer);
             dockParent.Controls.Add(toolTabStrip1);
@@ -178,6 +179,20 @@
             toolWindow1.Text = "Chi tiết";
             toolWindow1.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
+            // btnExit
+            // 
+            btnExit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnExit.BackColor = Color.Brown;
+            btnExit.ForeColor = Color.White;
+            btnExit.Location = new Point(174, 548);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(99, 36);
+            btnExit.TabIndex = 2;
+            btnExit.Text = "Thoát";
+            btnExit.ThemeName = "MaterialTeal";
+            btnExit.Visible = false;
+            btnExit.Click += btnExit_Click;
+            // 
             // lblTime
             // 
             lblTime.Anchor = AnchorStyles.Top;
@@ -256,19 +271,6 @@
             listViewQuestion.ViewType = Telerik.WinControls.UI.ListViewType.IconsView;
             listViewQuestion.ItemMouseClick += listViewQuestion_ItemMouseClick;
             // 
-            // btnExit
-            // 
-            btnExit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btnExit.BackColor = Color.Brown;
-            btnExit.ForeColor = Color.White;
-            btnExit.Location = new Point(174, 548);
-            btnExit.Name = "btnExit";
-            btnExit.Size = new Size(99, 27);
-            btnExit.TabIndex = 2;
-            btnExit.Text = "Thoát";
-            btnExit.ThemeName = "MaterialTeal";
-            btnExit.Visible = false;
-            // 
             // EnterExam
             // 
             AutoScaleBaseSize = new Size(7, 15);
@@ -276,6 +278,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1561, 689);
             Controls.Add(dockParent);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "EnterExam";
             // 
             // 
@@ -296,6 +299,7 @@
             toolTabStrip1.ResumeLayout(false);
             toolWindow1.ResumeLayout(false);
             toolWindow1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)btnExit).EndInit();
             ((System.ComponentModel.ISupportInitialize)lblTime).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).EndInit();
             ((System.ComponentModel.ISupportInitialize)checkBoxComplete).EndInit();
@@ -304,7 +308,6 @@
             ((System.ComponentModel.ISupportInitialize)radScrollablePanel1).EndInit();
             radScrollablePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)listViewQuestion).EndInit();
-            ((System.ComponentModel.ISupportInitialize)btnExit).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }

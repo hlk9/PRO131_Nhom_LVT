@@ -6,7 +6,19 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <StartupObject></StartupObject>
+    <ApplicationIcon>logoForTestify.ico</ApplicationIcon>
+    <PackageIcon>logoForTestify.png</PackageIcon>
   </PropertyGroup>
+  <ItemGroup>
+    <Content Include="logoForTestify.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\logoForTestify.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EPPlus" Version="7.0.1" />
     <PackageReference Include="Svg.Skia" Version="1.0.0.4" />

@@ -47,7 +47,7 @@ namespace Examination_PRL.Forms.Staff
 
 
             RadPageViewPage schedulePage = new RadPageViewPage("Lịch thi"); //xem danh sách lịch thi
-    
+
             Bitmap bitMapScheduleIcon = new Bitmap(Properties.Resources.schedule);
             Image scheduleIcon = bitMapScheduleIcon;
             schedulePage.Image = scheduleIcon;
@@ -184,8 +184,8 @@ namespace Examination_PRL.Forms.Staff
             addParticipantToClassPage.Controls.Add(addParticipantToClass);
             addParticipantToClass.Show();
             addParticipantToClass.Dock = DockStyle.Fill;
-            
-            classRoom.SubPages.Add(addParticipantToClassPage );
+
+            classRoom.SubPages.Add(addParticipantToClassPage);
 
             RadPageViewPage roomPage = new RadPageViewPage("Phòng thi"); //xem danh sách phòng thi
             roomPage.ToolTipText = "Phòng thi";
