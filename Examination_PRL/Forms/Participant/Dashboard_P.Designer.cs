@@ -167,7 +167,7 @@
             radPageView1.Dock = DockStyle.Fill;
             radPageView1.Location = new Point(0, 0);
             radPageView1.Name = "radPageView1";
-            radPageView1.SelectedPage = radPageViewPage2;
+            radPageView1.SelectedPage = radPageViewPage3;
             radPageView1.Size = new Size(1277, 706);
             radPageView1.TabIndex = 0;
             radPageView1.ThemeName = "MaterialTeal";
@@ -807,7 +807,7 @@
             tbt_IDParticipant.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbt_IDParticipant.Location = new Point(641, 223);
             tbt_IDParticipant.Name = "tbt_IDParticipant";
-            tbt_IDParticipant.Size = new Size(275, 37);
+            tbt_IDParticipant.Size = new Size(275, 0);
             tbt_IDParticipant.TabIndex = 14;
             tbt_IDParticipant.ThemeName = "MaterialTeal";
             // 
@@ -816,7 +816,7 @@
             tbt_Name.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbt_Name.Location = new Point(350, 223);
             tbt_Name.Name = "tbt_Name";
-            tbt_Name.Size = new Size(275, 37);
+            tbt_Name.Size = new Size(275, 0);
             tbt_Name.TabIndex = 15;
             tbt_Name.ThemeName = "MaterialTeal";
             // 
@@ -835,7 +835,7 @@
             tbt_Title.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbt_Title.Location = new Point(350, 129);
             tbt_Title.Name = "tbt_Title";
-            tbt_Title.Size = new Size(566, 37);
+            tbt_Title.Size = new Size(566, 0);
             tbt_Title.TabIndex = 16;
             tbt_Title.ThemeName = "MaterialTeal";
             // 
