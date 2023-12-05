@@ -133,11 +133,11 @@ namespace Examination_PRL.Forms.Staff
             addExam.Dock = DockStyle.Fill;
             addExam.Name = "addExamForm";
 
-            RadPageViewPage editExamPage = new RadPageViewPage("Sửa đề thi");
-            RadPageViewPage deleteExamPage = new RadPageViewPage("Xóa đề thi");
+            //RadPageViewPage editExamPage = new RadPageViewPage("Sửa đề thi");
+            //RadPageViewPage deleteExamPage = new RadPageViewPage("Xóa đề thi");
             examPage.SubPages.Add(addExamPage);
-            examPage.SubPages.Add(editExamPage);
-            examPage.SubPages.Add(deleteExamPage);
+            //examPage.SubPages.Add(editExamPage);
+            //examPage.SubPages.Add(deleteExamPage);
 
             RadPageViewPage questionPage = new RadPageViewPage("Câu hỏi");
             questionPage.ToolTipText = "Câu hỏi";
