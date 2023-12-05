@@ -32,28 +32,26 @@
             lnlFullName = new Label();
             propertyGrid1 = new Telerik.WinControls.UI.RadPropertyGrid();
             panelTotalRoom = new Telerik.WinControls.UI.RadPanel();
-            lblTotalClassRoom = new Label();
             label2 = new Label();
             panelTotalExam = new Telerik.WinControls.UI.RadPanel();
-            lblTotalExam = new Label();
             label3 = new Label();
             panelWelcome = new Telerik.WinControls.UI.RadPanel();
             panelBlock1 = new Telerik.WinControls.UI.RadPanel();
-            radPanel3 = new Telerik.WinControls.UI.RadPanel();
-            lblTotalParticipant = new Label();
+            panelGoToExam = new Telerik.WinControls.UI.RadPanel();
+            panelTotalParti = new Telerik.WinControls.UI.RadPanel();
             label1 = new Label();
             panelBlock2 = new Telerik.WinControls.UI.RadPanel();
+            panelGoToSchedule = new Telerik.WinControls.UI.RadPanel();
             panelScheduleIncoming = new Telerik.WinControls.UI.RadPanel();
             label4 = new Label();
             panelScheduleCurrent = new Telerik.WinControls.UI.RadPanel();
             label6 = new Label();
             panelBlock3 = new Telerik.WinControls.UI.RadPanel();
-            radPanel5 = new Telerik.WinControls.UI.RadPanel();
+            panelGoToFeedback = new Telerik.WinControls.UI.RadPanel();
+            panelTotalQnA = new Telerik.WinControls.UI.RadPanel();
             label5 = new Label();
-            radPanel6 = new Telerik.WinControls.UI.RadPanel();
+            panelCurrentQnA = new Telerik.WinControls.UI.RadPanel();
             label7 = new Label();
-            lblScheduleCurrent = new Label();
-            lblScheduleIncoming = new Label();
             ((System.ComponentModel.ISupportInitialize)propertyGrid1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)panelTotalRoom).BeginInit();
             panelTotalRoom.SuspendLayout();
@@ -63,20 +61,23 @@
             panelWelcome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)panelBlock1).BeginInit();
             panelBlock1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)radPanel3).BeginInit();
-            radPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)panelGoToExam).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)panelTotalParti).BeginInit();
+            panelTotalParti.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)panelBlock2).BeginInit();
             panelBlock2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)panelGoToSchedule).BeginInit();
             ((System.ComponentModel.ISupportInitialize)panelScheduleIncoming).BeginInit();
             panelScheduleIncoming.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)panelScheduleCurrent).BeginInit();
             panelScheduleCurrent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)panelBlock3).BeginInit();
             panelBlock3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)radPanel5).BeginInit();
-            radPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)radPanel6).BeginInit();
-            radPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)panelGoToFeedback).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)panelTotalQnA).BeginInit();
+            panelTotalQnA.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)panelCurrentQnA).BeginInit();
+            panelCurrentQnA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
@@ -103,9 +104,9 @@
             // panelTotalRoom
             // 
             panelTotalRoom.BackColor = Color.WhiteSmoke;
-            panelTotalRoom.Controls.Add(lblTotalClassRoom);
             panelTotalRoom.Controls.Add(label2);
-            panelTotalRoom.Location = new Point(26, 34);
+            panelTotalRoom.Font = new Font("Roboto", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            panelTotalRoom.Location = new Point(26, 27);
             panelTotalRoom.Name = "panelTotalRoom";
             // 
             // 
@@ -113,21 +114,13 @@
             panelTotalRoom.RootElement.ShadowColor = Color.FromArgb(170, 255, 255, 255);
             panelTotalRoom.Size = new Size(187, 247);
             panelTotalRoom.TabIndex = 5;
+            panelTotalRoom.TextAlignment = ContentAlignment.MiddleCenter;
             panelTotalRoom.ThemeName = "MaterialTeal";
             ((Telerik.WinControls.UI.RadPanelElement)panelTotalRoom.GetChildAt(0)).Text = "";
             ((Telerik.WinControls.UI.RadPanelElement)panelTotalRoom.GetChildAt(0)).ShadowColor = Color.FromArgb(170, 255, 255, 255);
             ((Telerik.WinControls.Primitives.BorderPrimitive)panelTotalRoom.GetChildAt(0).GetChildAt(1)).BoxStyle = Telerik.WinControls.BorderBoxStyle.FourBorders;
             ((Telerik.WinControls.Primitives.BorderPrimitive)panelTotalRoom.GetChildAt(0).GetChildAt(1)).SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
             ((Telerik.WinControls.Primitives.BorderPrimitive)panelTotalRoom.GetChildAt(0).GetChildAt(1)).Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
-            // 
-            // lblTotalClassRoom
-            // 
-            lblTotalClassRoom.AutoSize = true;
-            lblTotalClassRoom.Font = new Font("Roboto", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTotalClassRoom.Location = new Point(69, 91);
-            lblTotalClassRoom.Name = "lblTotalClassRoom";
-            lblTotalClassRoom.Size = new Size(0, 42);
-            lblTotalClassRoom.TabIndex = 5;
             // 
             // label2
             // 
@@ -142,9 +135,9 @@
             // panelTotalExam
             // 
             panelTotalExam.BackColor = Color.FromArgb(231, 249, 218);
-            panelTotalExam.Controls.Add(lblTotalExam);
             panelTotalExam.Controls.Add(label3);
-            panelTotalExam.Location = new Point(241, 34);
+            panelTotalExam.Font = new Font("Roboto", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            panelTotalExam.Location = new Point(241, 27);
             panelTotalExam.Name = "panelTotalExam";
             // 
             // 
@@ -152,21 +145,13 @@
             panelTotalExam.RootElement.ShadowColor = Color.FromArgb(170, 255, 255, 255);
             panelTotalExam.Size = new Size(187, 247);
             panelTotalExam.TabIndex = 5;
+            panelTotalExam.TextAlignment = ContentAlignment.MiddleCenter;
             panelTotalExam.ThemeName = "MaterialTeal";
             ((Telerik.WinControls.UI.RadPanelElement)panelTotalExam.GetChildAt(0)).Text = "";
             ((Telerik.WinControls.UI.RadPanelElement)panelTotalExam.GetChildAt(0)).ShadowColor = Color.FromArgb(170, 255, 255, 255);
             ((Telerik.WinControls.Primitives.BorderPrimitive)panelTotalExam.GetChildAt(0).GetChildAt(1)).BoxStyle = Telerik.WinControls.BorderBoxStyle.FourBorders;
             ((Telerik.WinControls.Primitives.BorderPrimitive)panelTotalExam.GetChildAt(0).GetChildAt(1)).SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
             ((Telerik.WinControls.Primitives.BorderPrimitive)panelTotalExam.GetChildAt(0).GetChildAt(1)).Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
-            // 
-            // lblTotalExam
-            // 
-            lblTotalExam.AutoSize = true;
-            lblTotalExam.Font = new Font("Roboto", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTotalExam.Location = new Point(60, 91);
-            lblTotalExam.Name = "lblTotalExam";
-            lblTotalExam.Size = new Size(0, 42);
-            lblTotalExam.TabIndex = 6;
             // 
             // label3
             // 
@@ -202,16 +187,17 @@
             // panelBlock1
             // 
             panelBlock1.BackColor = Color.White;
-            panelBlock1.Controls.Add(radPanel3);
+            panelBlock1.Controls.Add(panelGoToExam);
+            panelBlock1.Controls.Add(panelTotalParti);
             panelBlock1.Controls.Add(panelTotalRoom);
             panelBlock1.Controls.Add(panelTotalExam);
-            panelBlock1.Location = new Point(12, 92);
+            panelBlock1.Location = new Point(12, 100);
             panelBlock1.Name = "panelBlock1";
             // 
             // 
             // 
             panelBlock1.RootElement.ShadowColor = Color.Transparent;
-            panelBlock1.Size = new Size(455, 540);
+            panelBlock1.Size = new Size(455, 638);
             panelBlock1.TabIndex = 3;
             panelBlock1.ThemeName = "MaterialTeal";
             ((Telerik.WinControls.UI.RadPanelElement)panelBlock1.GetChildAt(0)).Text = "";
@@ -224,34 +210,50 @@
             ((Telerik.WinControls.Primitives.BorderPrimitive)panelBlock1.GetChildAt(0).GetChildAt(1)).SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             ((Telerik.WinControls.Primitives.BorderPrimitive)panelBlock1.GetChildAt(0).GetChildAt(1)).Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
             // 
-            // radPanel3
+            // panelGoToExam
             // 
-            radPanel3.BackColor = Color.WhiteSmoke;
-            radPanel3.Controls.Add(lblTotalParticipant);
-            radPanel3.Controls.Add(label1);
-            radPanel3.Location = new Point(26, 337);
-            radPanel3.Name = "radPanel3";
-            // 
+            panelGoToExam.BackColor = Color.Teal;
+            panelGoToExam.ForeColor = Color.White;
+            panelGoToExam.Location = new Point(99, 553);
+            panelGoToExam.Name = "panelGoToExam";
             // 
             // 
-            radPanel3.RootElement.ShadowColor = Color.FromArgb(170, 255, 255, 255);
-            radPanel3.Size = new Size(402, 182);
-            radPanel3.TabIndex = 7;
-            radPanel3.ThemeName = "MaterialTeal";
-            ((Telerik.WinControls.UI.RadPanelElement)radPanel3.GetChildAt(0)).Text = "";
-            ((Telerik.WinControls.UI.RadPanelElement)radPanel3.GetChildAt(0)).ShadowColor = Color.FromArgb(170, 255, 255, 255);
-            ((Telerik.WinControls.Primitives.BorderPrimitive)radPanel3.GetChildAt(0).GetChildAt(1)).BoxStyle = Telerik.WinControls.BorderBoxStyle.FourBorders;
-            ((Telerik.WinControls.Primitives.BorderPrimitive)radPanel3.GetChildAt(0).GetChildAt(1)).SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
-            ((Telerik.WinControls.Primitives.BorderPrimitive)radPanel3.GetChildAt(0).GetChildAt(1)).Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
             // 
-            // lblTotalParticipant
+            panelGoToExam.RootElement.BorderHighlightThickness = 0;
+            panelGoToExam.RootElement.ShadowColor = Color.Transparent;
+            panelGoToExam.RootElement.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            panelGoToExam.Size = new Size(241, 71);
+            panelGoToExam.TabIndex = 9;
+            panelGoToExam.Text = "Đi tới Bài Thi";
+            panelGoToExam.TextAlignment = ContentAlignment.MiddleCenter;
+            panelGoToExam.ThemeName = "MaterialTeal";
+            panelGoToExam.Click += panelGoToExam_Click;
+            ((Telerik.WinControls.UI.RadPanelElement)panelGoToExam.GetChildAt(0)).Text = "Đi tới Bài Thi";
+            ((Telerik.WinControls.UI.RadPanelElement)panelGoToExam.GetChildAt(0)).ShadowColor = Color.FromArgb(170, 255, 255, 255);
+            ((Telerik.WinControls.Primitives.BorderPrimitive)panelGoToExam.GetChildAt(0).GetChildAt(1)).BoxStyle = Telerik.WinControls.BorderBoxStyle.FourBorders;
+            ((Telerik.WinControls.Primitives.BorderPrimitive)panelGoToExam.GetChildAt(0).GetChildAt(1)).SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
+            ((Telerik.WinControls.Primitives.BorderPrimitive)panelGoToExam.GetChildAt(0).GetChildAt(1)).Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
             // 
-            lblTotalParticipant.AutoSize = true;
-            lblTotalParticipant.Font = new Font("Roboto", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTotalParticipant.Location = new Point(169, 70);
-            lblTotalParticipant.Name = "lblTotalParticipant";
-            lblTotalParticipant.Size = new Size(0, 42);
-            lblTotalParticipant.TabIndex = 6;
+            // panelTotalParti
+            // 
+            panelTotalParti.BackColor = Color.WhiteSmoke;
+            panelTotalParti.Controls.Add(label1);
+            panelTotalParti.Font = new Font("Roboto", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            panelTotalParti.Location = new Point(26, 332);
+            panelTotalParti.Name = "panelTotalParti";
+            // 
+            // 
+            // 
+            panelTotalParti.RootElement.ShadowColor = Color.FromArgb(170, 255, 255, 255);
+            panelTotalParti.Size = new Size(402, 182);
+            panelTotalParti.TabIndex = 7;
+            panelTotalParti.TextAlignment = ContentAlignment.MiddleCenter;
+            panelTotalParti.ThemeName = "MaterialTeal";
+            ((Telerik.WinControls.UI.RadPanelElement)panelTotalParti.GetChildAt(0)).Text = "";
+            ((Telerik.WinControls.UI.RadPanelElement)panelTotalParti.GetChildAt(0)).ShadowColor = Color.FromArgb(170, 255, 255, 255);
+            ((Telerik.WinControls.Primitives.BorderPrimitive)panelTotalParti.GetChildAt(0).GetChildAt(1)).BoxStyle = Telerik.WinControls.BorderBoxStyle.FourBorders;
+            ((Telerik.WinControls.Primitives.BorderPrimitive)panelTotalParti.GetChildAt(0).GetChildAt(1)).SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
+            ((Telerik.WinControls.Primitives.BorderPrimitive)panelTotalParti.GetChildAt(0).GetChildAt(1)).Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
             // 
             // label1
             // 
@@ -267,15 +269,16 @@
             // 
             panelBlock2.Anchor = AnchorStyles.Top;
             panelBlock2.BackColor = Color.White;
+            panelBlock2.Controls.Add(panelGoToSchedule);
             panelBlock2.Controls.Add(panelScheduleIncoming);
             panelBlock2.Controls.Add(panelScheduleCurrent);
-            panelBlock2.Location = new Point(653, 92);
+            panelBlock2.Location = new Point(656, 100);
             panelBlock2.Name = "panelBlock2";
             // 
             // 
             // 
             panelBlock2.RootElement.ShadowColor = Color.Transparent;
-            panelBlock2.Size = new Size(449, 540);
+            panelBlock2.Size = new Size(449, 638);
             panelBlock2.TabIndex = 7;
             panelBlock2.ThemeName = "MaterialTeal";
             ((Telerik.WinControls.UI.RadPanelElement)panelBlock2.GetChildAt(0)).Text = "";
@@ -284,12 +287,36 @@
             ((Telerik.WinControls.Primitives.BorderPrimitive)panelBlock2.GetChildAt(0).GetChildAt(1)).SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
             ((Telerik.WinControls.Primitives.BorderPrimitive)panelBlock2.GetChildAt(0).GetChildAt(1)).Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
             // 
+            // panelGoToSchedule
+            // 
+            panelGoToSchedule.BackColor = Color.Teal;
+            panelGoToSchedule.ForeColor = Color.White;
+            panelGoToSchedule.Location = new Point(108, 553);
+            panelGoToSchedule.Name = "panelGoToSchedule";
+            // 
+            // 
+            // 
+            panelGoToSchedule.RootElement.BorderHighlightThickness = 0;
+            panelGoToSchedule.RootElement.ShadowColor = Color.Transparent;
+            panelGoToSchedule.RootElement.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            panelGoToSchedule.Size = new Size(241, 71);
+            panelGoToSchedule.TabIndex = 8;
+            panelGoToSchedule.Text = "Đi tới Lịch Thi";
+            panelGoToSchedule.TextAlignment = ContentAlignment.MiddleCenter;
+            panelGoToSchedule.ThemeName = "MaterialTeal";
+            panelGoToSchedule.Click += panelGoToSchedule_Click;
+            ((Telerik.WinControls.UI.RadPanelElement)panelGoToSchedule.GetChildAt(0)).Text = "Đi tới Lịch Thi";
+            ((Telerik.WinControls.UI.RadPanelElement)panelGoToSchedule.GetChildAt(0)).ShadowColor = Color.FromArgb(170, 255, 255, 255);
+            ((Telerik.WinControls.Primitives.BorderPrimitive)panelGoToSchedule.GetChildAt(0).GetChildAt(1)).BoxStyle = Telerik.WinControls.BorderBoxStyle.FourBorders;
+            ((Telerik.WinControls.Primitives.BorderPrimitive)panelGoToSchedule.GetChildAt(0).GetChildAt(1)).SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
+            ((Telerik.WinControls.Primitives.BorderPrimitive)panelGoToSchedule.GetChildAt(0).GetChildAt(1)).Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
+            // 
             // panelScheduleIncoming
             // 
             panelScheduleIncoming.BackColor = Color.WhiteSmoke;
-            panelScheduleIncoming.Controls.Add(lblScheduleIncoming);
             panelScheduleIncoming.Controls.Add(label4);
-            panelScheduleIncoming.Location = new Point(28, 325);
+            panelScheduleIncoming.Font = new Font("Roboto", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            panelScheduleIncoming.Location = new Point(28, 332);
             panelScheduleIncoming.Name = "panelScheduleIncoming";
             // 
             // 
@@ -297,6 +324,7 @@
             panelScheduleIncoming.RootElement.ShadowColor = Color.FromArgb(170, 255, 255, 255);
             panelScheduleIncoming.Size = new Size(397, 182);
             panelScheduleIncoming.TabIndex = 6;
+            panelScheduleIncoming.TextAlignment = ContentAlignment.MiddleCenter;
             panelScheduleIncoming.ThemeName = "MaterialTeal";
             ((Telerik.WinControls.UI.RadPanelElement)panelScheduleIncoming.GetChildAt(0)).Text = "";
             ((Telerik.WinControls.UI.RadPanelElement)panelScheduleIncoming.GetChildAt(0)).ShadowColor = Color.FromArgb(170, 255, 255, 255);
@@ -317,9 +345,9 @@
             // panelScheduleCurrent
             // 
             panelScheduleCurrent.BackColor = Color.FromArgb(231, 249, 218);
-            panelScheduleCurrent.Controls.Add(lblScheduleCurrent);
             panelScheduleCurrent.Controls.Add(label6);
-            panelScheduleCurrent.Location = new Point(28, 34);
+            panelScheduleCurrent.Font = new Font("Roboto", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            panelScheduleCurrent.Location = new Point(28, 27);
             panelScheduleCurrent.Name = "panelScheduleCurrent";
             // 
             // 
@@ -327,6 +355,7 @@
             panelScheduleCurrent.RootElement.ShadowColor = Color.FromArgb(170, 255, 255, 255);
             panelScheduleCurrent.Size = new Size(397, 187);
             panelScheduleCurrent.TabIndex = 7;
+            panelScheduleCurrent.TextAlignment = ContentAlignment.MiddleCenter;
             panelScheduleCurrent.ThemeName = "MaterialTeal";
             ((Telerik.WinControls.UI.RadPanelElement)panelScheduleCurrent.GetChildAt(0)).Text = "";
             ((Telerik.WinControls.UI.RadPanelElement)panelScheduleCurrent.GetChildAt(0)).ShadowColor = Color.FromArgb(170, 255, 255, 255);
@@ -348,15 +377,16 @@
             // 
             panelBlock3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panelBlock3.BackColor = Color.White;
-            panelBlock3.Controls.Add(radPanel5);
-            panelBlock3.Controls.Add(radPanel6);
-            panelBlock3.Location = new Point(1294, 92);
+            panelBlock3.Controls.Add(panelGoToFeedback);
+            panelBlock3.Controls.Add(panelTotalQnA);
+            panelBlock3.Controls.Add(panelCurrentQnA);
+            panelBlock3.Location = new Point(1294, 100);
             panelBlock3.Name = "panelBlock3";
             // 
             // 
             // 
             panelBlock3.RootElement.ShadowColor = Color.Transparent;
-            panelBlock3.Size = new Size(449, 540);
+            panelBlock3.Size = new Size(449, 638);
             panelBlock3.TabIndex = 8;
             panelBlock3.ThemeName = "MaterialTeal";
             ((Telerik.WinControls.UI.RadPanelElement)panelBlock3.GetChildAt(0)).Text = "";
@@ -365,53 +395,81 @@
             ((Telerik.WinControls.Primitives.BorderPrimitive)panelBlock3.GetChildAt(0).GetChildAt(1)).SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
             ((Telerik.WinControls.Primitives.BorderPrimitive)panelBlock3.GetChildAt(0).GetChildAt(1)).Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
             // 
-            // radPanel5
+            // panelGoToFeedback
             // 
-            radPanel5.BackColor = Color.WhiteSmoke;
-            radPanel5.Controls.Add(label5);
-            radPanel5.Location = new Point(28, 325);
-            radPanel5.Name = "radPanel5";
+            panelGoToFeedback.BackColor = Color.Teal;
+            panelGoToFeedback.ForeColor = Color.White;
+            panelGoToFeedback.Location = new Point(111, 553);
+            panelGoToFeedback.Name = "panelGoToFeedback";
             // 
             // 
             // 
-            radPanel5.RootElement.ShadowColor = Color.FromArgb(170, 255, 255, 255);
-            radPanel5.Size = new Size(397, 182);
-            radPanel5.TabIndex = 6;
-            radPanel5.ThemeName = "MaterialTeal";
-            ((Telerik.WinControls.UI.RadPanelElement)radPanel5.GetChildAt(0)).Text = "";
-            ((Telerik.WinControls.UI.RadPanelElement)radPanel5.GetChildAt(0)).ShadowColor = Color.FromArgb(170, 255, 255, 255);
-            ((Telerik.WinControls.Primitives.BorderPrimitive)radPanel5.GetChildAt(0).GetChildAt(1)).BoxStyle = Telerik.WinControls.BorderBoxStyle.FourBorders;
-            ((Telerik.WinControls.Primitives.BorderPrimitive)radPanel5.GetChildAt(0).GetChildAt(1)).SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
-            ((Telerik.WinControls.Primitives.BorderPrimitive)radPanel5.GetChildAt(0).GetChildAt(1)).Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
+            panelGoToFeedback.RootElement.BorderHighlightThickness = 0;
+            panelGoToFeedback.RootElement.ShadowColor = Color.Transparent;
+            panelGoToFeedback.RootElement.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            panelGoToFeedback.Size = new Size(241, 71);
+            panelGoToFeedback.TabIndex = 9;
+            panelGoToFeedback.Text = "Đi tới Feedbacks";
+            panelGoToFeedback.TextAlignment = ContentAlignment.MiddleCenter;
+            panelGoToFeedback.ThemeName = "MaterialTeal";
+            panelGoToFeedback.Click += panelGoToFeedback_Click;
+            ((Telerik.WinControls.UI.RadPanelElement)panelGoToFeedback.GetChildAt(0)).Text = "Đi tới Feedbacks";
+            ((Telerik.WinControls.UI.RadPanelElement)panelGoToFeedback.GetChildAt(0)).ShadowColor = Color.FromArgb(170, 255, 255, 255);
+            ((Telerik.WinControls.Primitives.BorderPrimitive)panelGoToFeedback.GetChildAt(0).GetChildAt(1)).BoxStyle = Telerik.WinControls.BorderBoxStyle.FourBorders;
+            ((Telerik.WinControls.Primitives.BorderPrimitive)panelGoToFeedback.GetChildAt(0).GetChildAt(1)).SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
+            ((Telerik.WinControls.Primitives.BorderPrimitive)panelGoToFeedback.GetChildAt(0).GetChildAt(1)).Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
+            // 
+            // panelTotalQnA
+            // 
+            panelTotalQnA.BackColor = Color.WhiteSmoke;
+            panelTotalQnA.Controls.Add(label5);
+            panelTotalQnA.Font = new Font("Roboto", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            panelTotalQnA.Location = new Point(28, 332);
+            panelTotalQnA.Name = "panelTotalQnA";
+            // 
+            // 
+            // 
+            panelTotalQnA.RootElement.ShadowColor = Color.FromArgb(170, 255, 255, 255);
+            panelTotalQnA.Size = new Size(397, 182);
+            panelTotalQnA.TabIndex = 6;
+            panelTotalQnA.TextAlignment = ContentAlignment.MiddleCenter;
+            panelTotalQnA.ThemeName = "MaterialTeal";
+            ((Telerik.WinControls.UI.RadPanelElement)panelTotalQnA.GetChildAt(0)).Text = "";
+            ((Telerik.WinControls.UI.RadPanelElement)panelTotalQnA.GetChildAt(0)).ShadowColor = Color.FromArgb(170, 255, 255, 255);
+            ((Telerik.WinControls.Primitives.BorderPrimitive)panelTotalQnA.GetChildAt(0).GetChildAt(1)).BoxStyle = Telerik.WinControls.BorderBoxStyle.FourBorders;
+            ((Telerik.WinControls.Primitives.BorderPrimitive)panelTotalQnA.GetChildAt(0).GetChildAt(1)).SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
+            ((Telerik.WinControls.Primitives.BorderPrimitive)panelTotalQnA.GetChildAt(0).GetChildAt(1)).Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Roboto", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(143, 12);
+            label5.Location = new Point(122, 12);
             label5.Name = "label5";
-            label5.Size = new Size(108, 19);
+            label5.Size = new Size(176, 19);
             label5.TabIndex = 4;
-            label5.Text = "Đợt thi sắp tới";
+            label5.Text = "Tổng số lượng phản hồi";
             // 
-            // radPanel6
+            // panelCurrentQnA
             // 
-            radPanel6.BackColor = Color.FromArgb(231, 249, 218);
-            radPanel6.Controls.Add(label7);
-            radPanel6.Location = new Point(28, 34);
-            radPanel6.Name = "radPanel6";
+            panelCurrentQnA.BackColor = Color.FromArgb(231, 249, 218);
+            panelCurrentQnA.Controls.Add(label7);
+            panelCurrentQnA.Font = new Font("Roboto", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            panelCurrentQnA.Location = new Point(28, 27);
+            panelCurrentQnA.Name = "panelCurrentQnA";
             // 
             // 
             // 
-            radPanel6.RootElement.ShadowColor = Color.FromArgb(170, 255, 255, 255);
-            radPanel6.Size = new Size(397, 187);
-            radPanel6.TabIndex = 7;
-            radPanel6.ThemeName = "MaterialTeal";
-            ((Telerik.WinControls.UI.RadPanelElement)radPanel6.GetChildAt(0)).Text = "";
-            ((Telerik.WinControls.UI.RadPanelElement)radPanel6.GetChildAt(0)).ShadowColor = Color.FromArgb(170, 255, 255, 255);
-            ((Telerik.WinControls.Primitives.BorderPrimitive)radPanel6.GetChildAt(0).GetChildAt(1)).BoxStyle = Telerik.WinControls.BorderBoxStyle.FourBorders;
-            ((Telerik.WinControls.Primitives.BorderPrimitive)radPanel6.GetChildAt(0).GetChildAt(1)).SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
-            ((Telerik.WinControls.Primitives.BorderPrimitive)radPanel6.GetChildAt(0).GetChildAt(1)).Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
+            panelCurrentQnA.RootElement.ShadowColor = Color.FromArgb(170, 255, 255, 255);
+            panelCurrentQnA.Size = new Size(397, 187);
+            panelCurrentQnA.TabIndex = 7;
+            panelCurrentQnA.TextAlignment = ContentAlignment.MiddleCenter;
+            panelCurrentQnA.ThemeName = "MaterialTeal";
+            ((Telerik.WinControls.UI.RadPanelElement)panelCurrentQnA.GetChildAt(0)).Text = "";
+            ((Telerik.WinControls.UI.RadPanelElement)panelCurrentQnA.GetChildAt(0)).ShadowColor = Color.FromArgb(170, 255, 255, 255);
+            ((Telerik.WinControls.Primitives.BorderPrimitive)panelCurrentQnA.GetChildAt(0).GetChildAt(1)).BoxStyle = Telerik.WinControls.BorderBoxStyle.FourBorders;
+            ((Telerik.WinControls.Primitives.BorderPrimitive)panelCurrentQnA.GetChildAt(0).GetChildAt(1)).SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
+            ((Telerik.WinControls.Primitives.BorderPrimitive)panelCurrentQnA.GetChildAt(0).GetChildAt(1)).Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
             // 
             // label7
             // 
@@ -422,24 +480,6 @@
             label7.Size = new Size(213, 19);
             label7.TabIndex = 5;
             label7.Text = "Phản hồi từ thí sinh hôm nay";
-            // 
-            // lblScheduleCurrent
-            // 
-            lblScheduleCurrent.AutoSize = true;
-            lblScheduleCurrent.Font = new Font("Roboto", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblScheduleCurrent.Location = new Point(169, 57);
-            lblScheduleCurrent.Name = "lblScheduleCurrent";
-            lblScheduleCurrent.Size = new Size(0, 42);
-            lblScheduleCurrent.TabIndex = 7;
-            // 
-            // lblScheduleIncoming
-            // 
-            lblScheduleIncoming.AutoSize = true;
-            lblScheduleIncoming.Font = new Font("Roboto", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblScheduleIncoming.Location = new Point(169, 67);
-            lblScheduleIncoming.Name = "lblScheduleIncoming";
-            lblScheduleIncoming.Size = new Size(0, 42);
-            lblScheduleIncoming.TabIndex = 8;
             // 
             // Home
             // 
@@ -472,11 +512,13 @@
             panelWelcome.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)panelBlock1).EndInit();
             panelBlock1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)radPanel3).EndInit();
-            radPanel3.ResumeLayout(false);
-            radPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)panelGoToExam).EndInit();
+            ((System.ComponentModel.ISupportInitialize)panelTotalParti).EndInit();
+            panelTotalParti.ResumeLayout(false);
+            panelTotalParti.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)panelBlock2).EndInit();
             panelBlock2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)panelGoToSchedule).EndInit();
             ((System.ComponentModel.ISupportInitialize)panelScheduleIncoming).EndInit();
             panelScheduleIncoming.ResumeLayout(false);
             panelScheduleIncoming.PerformLayout();
@@ -485,12 +527,13 @@
             panelScheduleCurrent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)panelBlock3).EndInit();
             panelBlock3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)radPanel5).EndInit();
-            radPanel5.ResumeLayout(false);
-            radPanel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)radPanel6).EndInit();
-            radPanel6.ResumeLayout(false);
-            radPanel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)panelGoToFeedback).EndInit();
+            ((System.ComponentModel.ISupportInitialize)panelTotalQnA).EndInit();
+            panelTotalQnA.ResumeLayout(false);
+            panelTotalQnA.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)panelCurrentQnA).EndInit();
+            panelCurrentQnA.ResumeLayout(false);
+            panelCurrentQnA.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }
@@ -507,8 +550,6 @@
         private Telerik.WinControls.UI.RadPanel panelTotalExam;
         private Label label3;
         private Telerik.WinControls.UI.RadPanel panelWelcome;
-        private Label lblTotalClassRoom;
-        private Label lblTotalExam;
         private Telerik.WinControls.UI.RadPanel panelBlock2;
         private Telerik.WinControls.UI.RadPanel panelScheduleIncoming;
         private Label label4;
@@ -516,13 +557,14 @@
         private Label label6;
         private Telerik.WinControls.UI.RadPanel radPanel3;
         private Label label1;
-        private Label lblTotalParticipant;
         private Telerik.WinControls.UI.RadPanel panelBlock3;
-        private Telerik.WinControls.UI.RadPanel radPanel5;
+        private Telerik.WinControls.UI.RadPanel panelTotalQnA;
         private Label label5;
-        private Telerik.WinControls.UI.RadPanel radPanel6;
+        private Telerik.WinControls.UI.RadPanel panelCurrentQnA;
         private Label label7;
-        private Label lblScheduleIncoming;
-        private Label lblScheduleCurrent;
+        private Telerik.WinControls.UI.RadPanel panelTotalParti;
+        private Telerik.WinControls.UI.RadPanel panelGoToSchedule;
+        private Telerik.WinControls.UI.RadPanel panelGoToExam;
+        private Telerik.WinControls.UI.RadPanel panelGoToFeedback;
     }
 }

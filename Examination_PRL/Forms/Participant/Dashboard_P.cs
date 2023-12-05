@@ -208,7 +208,7 @@ namespace Examination_PRL.Forms.Participant
         {
             _idExamClick = Convert.ToInt32(radViewExam_Answers.Rows[e.RowIndex].Cells[1].Value);
             _idResponseClick = Convert.ToInt32(radViewExam_Answers.Rows[e.RowIndex].Cells[6].Value);
-            var obj = _serviceExam.GetAnswer_ResponsesViewModels(userAccount.Id).Where(x => x.Id == _idExamClick).FirstOrDefault();
+            var obj = _serviceExam.GetAnswer_ResponsesViewModels(userAccount.Id).Where(x => x.Id == _idResponseClick).FirstOrDefault();
             if (obj != null)
             {
                 radLblIDDe.Text = obj.IdExam.ToString();

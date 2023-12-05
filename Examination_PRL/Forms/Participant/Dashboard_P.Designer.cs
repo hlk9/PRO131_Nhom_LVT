@@ -30,6 +30,7 @@
         {
             Telerik.WinControls.UI.SchedulerDailyPrintStyle schedulerDailyPrintStyle1 = new Telerik.WinControls.UI.SchedulerDailyPrintStyle();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard_P));
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             radPageView1 = new Telerik.WinControls.UI.RadPageView();
             radPageViewPage1 = new Telerik.WinControls.UI.RadPageViewPage();
@@ -751,10 +752,10 @@
             // 
             // radLabel7
             // 
-            radLabel7.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            radLabel7.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             radLabel7.Location = new Point(518, 20);
             radLabel7.Name = "radLabel7";
-            radLabel7.Size = new Size(208, 36);
+            radLabel7.Size = new Size(208, 41);
             radLabel7.TabIndex = 20;
             radLabel7.Text = "GỬI PHẢN HỒI";
             radLabel7.ThemeName = "MaterialTeal";
@@ -806,7 +807,7 @@
             tbt_IDParticipant.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbt_IDParticipant.Location = new Point(641, 223);
             tbt_IDParticipant.Name = "tbt_IDParticipant";
-            tbt_IDParticipant.Size = new Size(275, 37);
+            tbt_IDParticipant.Size = new Size(275, 0);
             tbt_IDParticipant.TabIndex = 14;
             tbt_IDParticipant.ThemeName = "MaterialTeal";
             // 
@@ -815,7 +816,7 @@
             tbt_Name.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbt_Name.Location = new Point(350, 223);
             tbt_Name.Name = "tbt_Name";
-            tbt_Name.Size = new Size(275, 37);
+            tbt_Name.Size = new Size(275, 0);
             tbt_Name.TabIndex = 15;
             tbt_Name.ThemeName = "MaterialTeal";
             // 
@@ -834,7 +835,7 @@
             tbt_Title.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbt_Title.Location = new Point(350, 129);
             tbt_Title.Name = "tbt_Title";
-            tbt_Title.Size = new Size(566, 37);
+            tbt_Title.Size = new Size(566, 0);
             tbt_Title.TabIndex = 16;
             tbt_Title.ThemeName = "MaterialTeal";
             // 
@@ -845,6 +846,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1277, 706);
             Controls.Add(radPageView1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Dashboard_P";
             // 
             // 

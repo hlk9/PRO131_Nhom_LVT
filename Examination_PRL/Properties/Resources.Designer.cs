@@ -123,6 +123,16 @@ namespace Examination_PRL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap logoForTestify {
+            get {
+                object obj = ResourceManager.GetObject("logoForTestify", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap person {
             get {
                 object obj = ResourceManager.GetObject("person", resourceCulture);
@@ -136,6 +146,16 @@ namespace Examination_PRL.Properties {
         public static System.Drawing.Bitmap quest {
             get {
                 object obj = ResourceManager.GetObject("quest", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap question_and_answer {
+            get {
+                object obj = ResourceManager.GetObject("question-and-answer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

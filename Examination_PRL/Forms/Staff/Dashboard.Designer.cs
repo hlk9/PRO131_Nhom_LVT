@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             visualStudio2022LightTheme1 = new Telerik.WinControls.Themes.VisualStudio2022LightTheme();
             pvDashboard = new Telerik.WinControls.UI.RadPageView();
@@ -54,6 +55,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(996, 661);
             Controls.Add(pvDashboard);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Dashboard";
             // 
             // 

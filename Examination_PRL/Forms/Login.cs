@@ -45,7 +45,7 @@ namespace Examination_PRL.Forms
                     }
 
                     account.LastLogin = DateTime.Now;
-                    accountServices.UpdateAccount(account.Id,account.UserName,account.Password,Convert.ToDateTime(account.LastLogin));
+                    accountServices.UpdateAccount(account.Id, account.UserName, account.Password, Convert.ToDateTime(account.LastLogin));
 
                     List<UserPermission> userPermissions = new List<UserPermission>();
                     userPermissions = userPermissionServices.GetUserPermissionByAccountID(account.Id);
@@ -62,7 +62,7 @@ namespace Examination_PRL.Forms
                         }
                     }
 
-                    Dashboard_P dashboard_P = new Dashboard_P(account.UserName,account);
+                    Dashboard_P dashboard_P = new Dashboard_P(account.UserName, account);
                     dashboard_P.FormClosed += Dashboard_FormClosed;
                     dashboard_P.Show();
                     this.Hide();
