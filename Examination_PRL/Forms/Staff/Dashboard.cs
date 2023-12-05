@@ -293,7 +293,7 @@ namespace Examination_PRL.Forms.Staff
             createAccountParticipantPage.Controls.Add(crudTK);
             crudTK.Show();
             crudTK.Dock = DockStyle.Fill;
-            crudTK.Name = "report_Overview";
+            crudTK.Name = "Account_Manager";
 
             RadPageViewPage listQAPage = new RadPageViewPage("Phản hồi của thí sinh");
             ListQA listQA = new ListQA();
@@ -407,7 +407,9 @@ namespace Examination_PRL.Forms.Staff
                     case "thoiGianForm":
                         (form as ThoiGian).LoadData();
                         break;
-
+                    case "Account_Manager":
+                        (form as CrudTK).LoadData_Staff();
+                        break;
                     default:
                         break;
                 }

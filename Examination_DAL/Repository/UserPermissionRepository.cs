@@ -29,7 +29,6 @@ namespace Examination_DAL.Repository
                 return false;
             }
         }
-
         public bool DeleteUserPermission(int id)
         {
             try
@@ -60,5 +59,9 @@ namespace Examination_DAL.Repository
             return context.UserPermissions.Where(x => x.AccountId == accountID).ToList();
         }
 
+        public UserPermission GetUserPermissionByAccountId(string id)
+        {
+            return context.UserPermissions.Where(x => x.AccountId == id).FirstOrDefault();
+        }
     }
 }

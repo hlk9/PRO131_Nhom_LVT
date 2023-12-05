@@ -21,7 +21,7 @@ namespace Examination_BUS.Services
         {
             return permissionRepository.AddUserPermission(userPermission);
         }
-
+        
         public bool DeleteUserPermission(int id)
         {
             return permissionRepository.DeleteUserPermission(id);
@@ -36,7 +36,10 @@ namespace Examination_BUS.Services
         {
             return permissionRepository.GetUserPermissionByID(id);
         }
-
+        public UserPermission GetUserPermissionByAccountId(string id)
+        {
+            return permissionRepository.GetUserPermissionByAccountId(id);
+        }
         public List<UserPermission> GetUserPermissionByAccountID(string accountID)
         {
             return permissionRepository.GetUserPermissionByAccountID(accountID);

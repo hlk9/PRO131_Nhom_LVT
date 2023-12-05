@@ -53,8 +53,17 @@ namespace Examination_BUS.Services
             };
             return _staffRepos.Update(staff);
         }
+        public bool UpDateAccountStaff(string id, string accountId)
+        {
+            Staff staff = new Staff
+            {
+                Id = id,
+                AccountId = accountId
+            };
+            return _staffRepos.UpdateAccountId(staff);
+        }
 
-        public bool deleteStaff(string id, byte status) 
+            public bool deleteStaff(string id, byte status) 
         {
             Staff staff = new Staff()
             {
