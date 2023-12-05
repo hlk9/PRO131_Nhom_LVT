@@ -7,7 +7,6 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <StartupObject></StartupObject>
-    <PackageIcon></PackageIcon>
     <IsPublishable>False</IsPublishable>
   </PropertyGroup>
   <ItemGroup>
