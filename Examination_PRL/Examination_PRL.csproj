@@ -7,8 +7,8 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <StartupObject></StartupObject>
-    <ApplicationIcon>logoForTestify.ico</ApplicationIcon>
     <PackageIcon></PackageIcon>
+    <IsPublishable>False</IsPublishable>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="logoForTestify.ico" />
