@@ -37,6 +37,9 @@
             documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            btnFontPlus = new Telerik.WinControls.UI.RadButton();
+            lblFontSize = new Telerik.WinControls.UI.RadLabel();
+            btnFontMinus = new Telerik.WinControls.UI.RadButton();
             btnExit = new Telerik.WinControls.UI.RadButton();
             lblTime = new Telerik.WinControls.UI.RadLabel();
             radLabel1 = new Telerik.WinControls.UI.RadLabel();
@@ -55,6 +58,9 @@
             ((System.ComponentModel.ISupportInitialize)toolTabStrip1).BeginInit();
             toolTabStrip1.SuspendLayout();
             toolWindow1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnFontPlus).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lblFontSize).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnFontMinus).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnExit).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lblTime).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).BeginInit();
@@ -165,6 +171,9 @@
             // toolWindow1
             // 
             toolWindow1.Caption = null;
+            toolWindow1.Controls.Add(btnFontPlus);
+            toolWindow1.Controls.Add(lblFontSize);
+            toolWindow1.Controls.Add(btnFontMinus);
             toolWindow1.Controls.Add(btnExit);
             toolWindow1.Controls.Add(lblTime);
             toolWindow1.Controls.Add(radLabel1);
@@ -178,6 +187,44 @@
             toolWindow1.Size = new Size(276, 633);
             toolWindow1.Text = "Chi tiết";
             toolWindow1.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
+            // 
+            // btnFontPlus
+            // 
+            btnFontPlus.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnFontPlus.BackColor = Color.Teal;
+            btnFontPlus.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnFontPlus.ForeColor = Color.White;
+            btnFontPlus.Location = new Point(238, 476);
+            btnFontPlus.Name = "btnFontPlus";
+            btnFontPlus.Size = new Size(35, 36);
+            btnFontPlus.TabIndex = 7;
+            btnFontPlus.Text = "+";
+            btnFontPlus.ThemeName = "MaterialTeal";
+            btnFontPlus.Click += btnFontPlus_Click;
+            // 
+            // lblFontSize
+            // 
+            lblFontSize.Anchor = AnchorStyles.Bottom;
+            lblFontSize.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblFontSize.Location = new Point(76, 479);
+            lblFontSize.Name = "lblFontSize";
+            lblFontSize.Size = new Size(79, 30);
+            lblFontSize.TabIndex = 6;
+            lblFontSize.Text = "Cỡ chữ: ";
+            // 
+            // btnFontMinus
+            // 
+            btnFontMinus.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnFontMinus.BackColor = Color.Teal;
+            btnFontMinus.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnFontMinus.ForeColor = Color.White;
+            btnFontMinus.Location = new Point(3, 476);
+            btnFontMinus.Name = "btnFontMinus";
+            btnFontMinus.Size = new Size(35, 36);
+            btnFontMinus.TabIndex = 5;
+            btnFontMinus.Text = "-";
+            btnFontMinus.ThemeName = "MaterialTeal";
+            btnFontMinus.Click += btnFontMinus_Click;
             // 
             // btnExit
             // 
@@ -240,7 +287,7 @@
             // radScrollablePanel1
             // 
             radScrollablePanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            radScrollablePanel1.Location = new Point(3, 154);
+            radScrollablePanel1.Location = new Point(3, 116);
             radScrollablePanel1.Name = "radScrollablePanel1";
             radScrollablePanel1.Padding = new Padding(0);
             // 
@@ -299,6 +346,9 @@
             toolTabStrip1.ResumeLayout(false);
             toolWindow1.ResumeLayout(false);
             toolWindow1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)btnFontPlus).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lblFontSize).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnFontMinus).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnExit).EndInit();
             ((System.ComponentModel.ISupportInitialize)lblTime).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).EndInit();
@@ -329,5 +379,8 @@
         private Telerik.WinControls.UI.RadLabel radLabel1;
         private Telerik.WinControls.UI.RadLabel lblTime;
         private Telerik.WinControls.UI.RadButton btnExit;
+        private Telerik.WinControls.UI.RadButton btnFontMinus;
+        private Telerik.WinControls.UI.RadButton btnFontPlus;
+        private Telerik.WinControls.UI.RadLabel lblFontSize;
     }
 }

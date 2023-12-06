@@ -177,6 +177,7 @@ namespace Examination_PRL.Utilities
             if (MessageBox.Show("Xác nhận vào thi?","Thông báo",MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 EnterExam enterExam = new EnterExam(this.Name,dataItem.ExamScheduleId,userAccount);
+                
                 enterExam.ShowDialog();
             }
             

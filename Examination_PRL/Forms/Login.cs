@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Security.Principal;
 using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
@@ -23,6 +24,17 @@ namespace Examination_PRL.Forms
             InitializeComponent();
             KeyPreview = true;
             KeyPress += btnLogin_KeyPress;
+        }
+
+        private bool IsAdministrator()
+        {
+            WindowsIdentity current = WindowsIdentity.GetCurrent();
+            WindowsPrincipal windowsPrincipal = new WindowsPrincipal(current);
+            if (windowsPrincipal.IsInRole(WindowsBuiltInRole.Administrator))
+            {
+                return true;
+            }
+            return false;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

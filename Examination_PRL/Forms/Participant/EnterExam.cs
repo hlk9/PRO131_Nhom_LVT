@@ -32,8 +32,10 @@ namespace Examination_PRL.Forms.Participant
         ExamResponseServices examResponseServices = new ExamResponseServices();
         AnswerResponseServices answerResponseServices = new AnswerResponseServices();
 
+        int fontSize = 12;
+        
         Account userAccount = new Account();
-
+        int loseFocus = 0;
 
         int currentGenerateQuestion = 1;
         int pageViewWidth = -1;
@@ -42,11 +44,18 @@ namespace Examination_PRL.Forms.Participant
         int CurrentQuestionCount = 0;
         int QuestionLimit = -1;
         int scheduleId = -1;
+
+        public int EnterExam_OnLoad { get; }
+
         public EnterExam(string examCode, int scheduleId, Account account)
         {
             InitializeComponent();
             this.examCode = examCode;
             this.scheduleId = scheduleId;
+
+            this.Load += EnterExam_Load;
+
+            lblFontSize.Text = "Cỡ Font: " + fontSize.ToString();
             if (this.examCode != null)
             {
                 FillAllQuestion(this.examCode);
@@ -59,6 +68,7 @@ namespace Examination_PRL.Forms.Participant
                 this.userAccount = account;
 
 
+
             }
             else
             {
@@ -66,6 +76,18 @@ namespace Examination_PRL.Forms.Participant
             }
 
 
+
+
+        }
+
+        private void EnterExam_Load(object? sender, EventArgs e)
+        {
+            this.TopMost = true;
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.Size = Screen.PrimaryScreen.Bounds.Size;
+            this.Deactivate += EnterExam_Deactivate;
+            //   this.Location = Screen.PrimaryScreen.Bounds.Location;
         }
 
         private void CountDownTimer_Tick(object? sender, EventArgs e)
@@ -139,7 +161,7 @@ namespace Examination_PRL.Forms.Participant
             panelQuestion.TextAlignment = ContentAlignment.TopLeft;
             panelQuestion.Padding = new Padding(10);
             panelQuestion.Name = "panelQuestion" + question.Id;
-
+            panelQuestion.Font = new Font("Segoe UI", fontSize, FontStyle.Bold);
             RadPanel panelAnswer = new RadPanel();
             panelAnswer.Padding = new Padding(10);
             panelAnswer.Dock = DockStyle.Bottom;
@@ -159,9 +181,18 @@ namespace Examination_PRL.Forms.Participant
             flowPanel.Width = panelAnswer.Width;
             flowPanel.Height = panelAnswer.Height;
             flowPanel.Location = new Point(30, 80);
+            flowPanel.Dock = DockStyle.Fill;
             flowPanel.BringToFront();
-            foreach (var item in question.Answers)
+
+            var cList = question.Answers;
+
+
+            while (cList.Count > 0)
             {
+                Random random = new Random();
+                int index = random.Next(0, question.Answers.Count);
+
+                var item = question.Answers[index];
                 if (question.QuestionType == 1)
                 {
                     //panelTypeAnswer.Text = "Chọn đáp án đúng nhất ";
@@ -170,6 +201,7 @@ namespace Examination_PRL.Forms.Participant
                     radRadioButton.Name = item.Id.ToString();
                     radRadioButton.Text = item.Content;
                     flowPanel.Controls.Add(radRadioButton);
+                    radRadioButton.Font = new Font("Segoe UI", fontSize, FontStyle.Regular);
                 }
                 else if (question.QuestionType == 2)
                 {
@@ -179,6 +211,7 @@ namespace Examination_PRL.Forms.Participant
                     radCheckBox.Text = item.Content;
                     radCheckBox.ThemeName = "MaterialTeal";
                     flowPanel.Controls.Add(radCheckBox);
+                    radCheckBox.Font = new Font("Segoe UI", fontSize, FontStyle.Regular);
                 }
                 else if (question.QuestionType == 3)
                 {
@@ -188,8 +221,46 @@ namespace Examination_PRL.Forms.Participant
                     radRadioButton.Text = item.Content;
                     radRadioButton.ThemeName = "MaterialTeal";
                     flowPanel.Controls.Add(radRadioButton);
+                    radRadioButton.Font = new Font("Segoe UI", fontSize, FontStyle.Regular);
                 }
+
+                cList.RemoveAt(index);
+
+
             }
+
+
+
+            //foreach (var item in question.Answers)
+            //{
+            //    if (question.QuestionType == 1)
+            //    {
+            //        //panelTypeAnswer.Text = "Chọn đáp án đúng nhất ";
+            //        RadRadioButton radRadioButton = new RadRadioButton();
+            //        radRadioButton.ThemeName = "MaterialTeal";
+            //        radRadioButton.Name = item.Id.ToString();
+            //        radRadioButton.Text = item.Content;
+            //        flowPanel.Controls.Add(radRadioButton);
+            //    }
+            //    else if (question.QuestionType == 2)
+            //    {
+            //        //panelTypeAnswer.Text = "Chọn các đáp án đúng";
+            //        RadCheckBox radCheckBox = new RadCheckBox();
+            //        radCheckBox.Name = item.Id.ToString();
+            //        radCheckBox.Text = item.Content;
+            //        radCheckBox.ThemeName = "MaterialTeal";
+            //        flowPanel.Controls.Add(radCheckBox);
+            //    }
+            //    else if (question.QuestionType == 3)
+            //    {
+            //        //panelTypeAnswer.Text = "Chọn Đúng/Sai ";
+            //        RadRadioButton radRadioButton = new RadRadioButton();
+            //        radRadioButton.Name = item.Id.ToString();
+            //        radRadioButton.Text = item.Content;
+            //        radRadioButton.ThemeName = "MaterialTeal";
+            //        flowPanel.Controls.Add(radRadioButton);
+            //    }
+            //}
             pageViewQuestion.Controls.Add(pageQuestion);
 
             currentGenerateQuestion++;
@@ -619,6 +690,91 @@ namespace Examination_PRL.Forms.Participant
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void EnterExam_Deactivate(object sender, EventArgs e)
+        {
+            loseFocus++;
+            MessageBox.Show($"Bạn không được phép thoát khỏi bài thi, bạn sẽ bị huỷ bài thi nếu vi phạm\nSố lần vi phạm:{loseFocus}/3", "Cảnh báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+
+        }
+
+        private void btnFontMinus_Click(object sender, EventArgs e)
+        {
+            fontSize--;
+            SetFont();
+        }
+
+
+        private void GetAllChildControls(Control control)
+        {
+            foreach (Control childControl in control.Controls)
+            {
+
+                try
+                {
+                    if (childControl is RadPanel)
+                    {
+                        (childControl as RadPanel).Font = new Font("Segoe UI", fontSize, FontStyle.Bold);
+                    }
+
+                    else if (childControl is RadRadioButton)
+                    {
+                        (childControl as RadRadioButton).Font = new Font("Segoe UI", fontSize, FontStyle.Regular);
+                    }
+                    else if (childControl is RadCheckBox)
+                    {
+                        (childControl as RadCheckBox).Font = new Font("Segoe UI", fontSize, FontStyle.Regular);
+                    }
+                }
+                catch
+                {
+
+                }
+
+
+                if (childControl.HasChildren)
+                {
+                    GetAllChildControls(childControl);
+                }
+
+
+            }
+        }
+
+
+        public void SetFont()
+        {
+            lblFontSize.Text = "Cỡ Font: " + fontSize.ToString();
+            GetAllChildControls(pageViewQuestion);
+            //try
+            //{
+            //    if (item is RadLabel)
+            //    {
+            //        (item as RadLabel).Font = new Font("Segoe UI", fontSize, FontStyle.Bold);
+            //    }
+
+            //    else if (item is RadRadioButton)
+            //    {
+            //        (item as RadRadioButton).Font = new Font("Segoe UI", fontSize, FontStyle.Regular);
+            //    }
+            //    else if (item is RadCheckBox)
+            //    {
+            //        (item as RadCheckBox).Font = new Font("Segoe UI", fontSize, FontStyle.Regular);
+            //    }
+            //}
+            //catch
+            //{
+
+            //}
+
+        }
+
+        private void btnFontPlus_Click(object sender, EventArgs e)
+        {
+            fontSize++;
+            SetFont();
         }
     }
 
