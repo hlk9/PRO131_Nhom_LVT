@@ -228,39 +228,6 @@ namespace Examination_PRL.Forms.Participant
 
 
             }
-
-
-
-            //foreach (var item in question.Answers)
-            //{
-            //    if (question.QuestionType == 1)
-            //    {
-            //        //panelTypeAnswer.Text = "Chọn đáp án đúng nhất ";
-            //        RadRadioButton radRadioButton = new RadRadioButton();
-            //        radRadioButton.ThemeName = "MaterialTeal";
-            //        radRadioButton.Name = item.Id.ToString();
-            //        radRadioButton.Text = item.Content;
-            //        flowPanel.Controls.Add(radRadioButton);
-            //    }
-            //    else if (question.QuestionType == 2)
-            //    {
-            //        //panelTypeAnswer.Text = "Chọn các đáp án đúng";
-            //        RadCheckBox radCheckBox = new RadCheckBox();
-            //        radCheckBox.Name = item.Id.ToString();
-            //        radCheckBox.Text = item.Content;
-            //        radCheckBox.ThemeName = "MaterialTeal";
-            //        flowPanel.Controls.Add(radCheckBox);
-            //    }
-            //    else if (question.QuestionType == 3)
-            //    {
-            //        //panelTypeAnswer.Text = "Chọn Đúng/Sai ";
-            //        RadRadioButton radRadioButton = new RadRadioButton();
-            //        radRadioButton.Name = item.Id.ToString();
-            //        radRadioButton.Text = item.Content;
-            //        radRadioButton.ThemeName = "MaterialTeal";
-            //        flowPanel.Controls.Add(radRadioButton);
-            //    }
-            //}
             pageViewQuestion.Controls.Add(pageQuestion);
 
             currentGenerateQuestion++;

@@ -84,7 +84,7 @@ namespace Examination_PRL.Forms.Staff
             studentsList.Dock = DockStyle.Fill;
             studentsList.Name = "studentsListForm";
 
-            RadPageViewPage addStudentPage = new RadPageViewPage("Edit thí sinh");
+            RadPageViewPage addStudentPage = new RadPageViewPage("Quản ly thí sinh");
             AddStudents addThiSinh = new AddStudents();
             addThiSinh.TopLevel = false;
             addStudentPage.Controls.Add(addThiSinh);
@@ -92,7 +92,7 @@ namespace Examination_PRL.Forms.Staff
             addThiSinh.Dock = DockStyle.Fill;
             addThiSinh.Name = "addThiSinhForm";
 
-            RadPageViewPage qltkStudentPage = new RadPageViewPage("QLTK Thí Sinh");
+            RadPageViewPage qltkStudentPage = new RadPageViewPage("Quản lý tài khoản Thí Sinh");
             QLTKStudent qltkstudent = new QLTKStudent();
             qltkstudent.TopLevel = false;
             qltkStudentPage.Controls.Add(qltkstudent);
@@ -213,7 +213,7 @@ namespace Examination_PRL.Forms.Staff
             overViewNhanVien.Dock = DockStyle.Fill;
             overViewNhanVien.Name = "overViewNhanVienForm";
 
-            RadPageViewPage addStaffPage = new RadPageViewPage("Edit nhân viên");
+            RadPageViewPage addStaffPage = new RadPageViewPage("Quản lý nhân viên");
             AddNhanVien addNhanViens = new AddNhanVien();
             addNhanViens.TopLevel = false;
             addStaffPage.Controls.Add(addNhanViens);
@@ -287,7 +287,7 @@ namespace Examination_PRL.Forms.Staff
 
             reportPage.SubPages.Add(reportByScorePage);
 
-            RadPageViewPage createAccountParticipantPage = new RadPageViewPage("Quản lý tài quản");
+            RadPageViewPage createAccountParticipantPage = new RadPageViewPage("Quản lý tài quản Nhân viên");
             CrudTK crudTK = new CrudTK();
             crudTK.TopLevel = false;
             createAccountParticipantPage.Controls.Add(crudTK);
