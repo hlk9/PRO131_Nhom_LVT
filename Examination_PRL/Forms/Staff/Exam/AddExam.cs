@@ -111,11 +111,12 @@ namespace Examination_PRL.Forms.Staff.Exam
             panelTopMost.Controls.Add(panelAnswer);
             panelQuestion.Text = questionTypeServices.GetQuestionTypeNameById(Convert.ToByte(question.QuestionType)) + "\n" + question.Content;
             panelAnswer.ThemeName = "MaterialTeal";
-            panelAnswer.Padding = new Padding(10);
+            panelAnswer.Padding = new Padding(30);
 
 
 
             FlowLayoutPanel flowPanel = new FlowLayoutPanel();
+            flowPanel.Dock  = DockStyle.Fill;
             flowPanel.FlowDirection = FlowDirection.TopDown;
             flowPanel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             panelAnswer.Controls.Add(flowPanel);
@@ -124,8 +125,7 @@ namespace Examination_PRL.Forms.Staff.Exam
             flowPanel.Location = new Point(30, 80);
 
             flowPanel.BringToFront();
-            MessageBox.Show(panelAnswer.Location.X.ToString() + "\n" + panelAnswer.Location.Y.ToString());
-            MessageBox.Show(flowPanel.Location.X.ToString() + "\n" + flowPanel.Location.Y.ToString());
+   
 
 
 

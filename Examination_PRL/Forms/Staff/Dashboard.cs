@@ -123,6 +123,12 @@ namespace Examination_PRL.Forms.Staff
             editExams.Show();
             editExams.Dock = DockStyle.Fill;
             editExams.Name = "editExam";
+            Bitmap bitMapExam = new Bitmap(Properties.Resources.examBag);
+            Image examGroupIcon = bitMapExam;
+            examGroup.Image = examGroupIcon;
+            examGroup.ToolTipText = "Bài thi";
+
+
 
 
             RadPageViewPage addExamPage = new RadPageViewPage("Thêm đề thi");
@@ -221,6 +227,17 @@ namespace Examination_PRL.Forms.Staff
             addNhanViens.Dock = DockStyle.Fill;
             addNhanViens.Name = "addNhanViensForm";
 
+
+
+            RadPageViewPage createAccountParticipantPage = new RadPageViewPage("Quản lý tài quản Nhân viên");
+            CrudTK crudTK = new CrudTK();
+            crudTK.TopLevel = false;
+            createAccountParticipantPage.Controls.Add(crudTK);
+            crudTK.Show();
+            crudTK.Dock = DockStyle.Fill;
+            crudTK.Name = "Account_Manager";
+
+            staffPage.SubPages.Add(createAccountParticipantPage);
             staffPage.SubPages.Add(addStaffPage);
 
             RadPageViewPage resultPage = new RadPageViewPage("Kết quả");
@@ -287,13 +304,8 @@ namespace Examination_PRL.Forms.Staff
 
             reportPage.SubPages.Add(reportByScorePage);
 
-            RadPageViewPage createAccountParticipantPage = new RadPageViewPage("Quản lý tài quản Nhân viên");
-            CrudTK crudTK = new CrudTK();
-            crudTK.TopLevel = false;
-            createAccountParticipantPage.Controls.Add(crudTK);
-            crudTK.Show();
-            crudTK.Dock = DockStyle.Fill;
-            crudTK.Name = "Account_Manager";
+            
+            
 
             RadPageViewPage listQAPage = new RadPageViewPage("Phản hồi của thí sinh");
             ListQA listQA = new ListQA();
@@ -301,6 +313,11 @@ namespace Examination_PRL.Forms.Staff
             listQAPage.Controls.Add(listQA);
             listQA.Show();
             listQA.Dock = DockStyle.Fill;
+
+            Bitmap bitMapFeedbacks = new Bitmap(Properties.Resources.q_a);
+            Image feedbacksIcon = bitMapFeedbacks;
+            listQAPage.Image = feedbacksIcon;
+
 
             pvDashboard.Pages.Add(homePage);
             pvDashboard.Pages.Add(schedulePage);
@@ -315,7 +332,7 @@ namespace Examination_PRL.Forms.Staff
             pvDashboard.Pages.Add(resultPage);
             pvDashboard.Pages.Add(reportPage);
             pvDashboard.Pages.Add(questionPage);
-            pvDashboard.Pages.Add(createAccountParticipantPage);
+           // pvDashboard.Pages.Add(createAccountParticipantPage);
             pvDashboard.Pages.Add(listQAPage);
 
             pvDashboard.AutoScroll = true;

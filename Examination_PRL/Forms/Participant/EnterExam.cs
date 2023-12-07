@@ -331,9 +331,10 @@ namespace Examination_PRL.Forms.Participant
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            this.Deactivate -= EnterExam_Deactivate;
             if (checkBoxComplete.Checked == true)
             {
-
+               
                 //ExamResponse examResponse = new ExamResponse();
                 //examResponse.ExamDetailId = 1;
                 //examResponse.ParticipantId = "longhd";
@@ -349,6 +350,7 @@ namespace Examination_PRL.Forms.Participant
 
                 else
                 {
+                    this.Deactivate += EnterExam_Deactivate;
                     return;
                 }
 
@@ -360,6 +362,7 @@ namespace Examination_PRL.Forms.Participant
             {
                 MessageBox.Show("Bạn chưa hoàn thành bài thi");
             }
+            this.Deactivate += EnterExam_Deactivate;
         }
 
         public List<QuestionAndAnswerResponse> ListAnsweredQuestion()

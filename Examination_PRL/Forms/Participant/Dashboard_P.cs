@@ -40,7 +40,7 @@ namespace Examination_PRL.Forms.Participant
             radlblDat.Text = _serviceExam.GetExamResponses().Where(x => x.IsPassed == true).ToList().Count.ToString();
             radlblChuaDat.Text = _serviceExam.GetExamResponses().Where(x => x.IsPassed == false).ToList().Count.ToString();
             LoadDataExam();
-
+            radPageView1.SelectedPage = radPageViewPage1;
 
         }
 
@@ -272,7 +272,16 @@ namespace Examination_PRL.Forms.Participant
         private void radPageView1_SelectedPageChanged(object sender, EventArgs e)
         {
 
-            LoadDataExam();
+          //  MessageBox.Show(radPageView1.SelectedPage.Name);
+
+            if (radPageView1.SelectedPage.Name == "radPageViewPage1")
+                LoadExamSchedule();
+            else if (radPageView1.SelectedPage.Name == "radPageViewPage2")
+                LoadData();
+            else if (radPageView1.SelectedPage.Name == "radPageViewPage3")
+                LoadDataExam();
+
+
 
 
 
