@@ -91,7 +91,8 @@ namespace Examination_PRL.Forms
 
         private void Dashboard_FormClosed(object? sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            this.Show();
+            //Application.Exit();
         }
 
         private void btnLogin_KeyPress(object sender, KeyPressEventArgs e)
@@ -121,6 +122,11 @@ namespace Examination_PRL.Forms
         {
             ForgotPassword forgotPassword = new ForgotPassword();
             forgotPassword.ShowDialog();
+        }
+
+        private void radButton2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
