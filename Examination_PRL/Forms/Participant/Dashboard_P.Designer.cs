@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             Telerik.WinControls.UI.SchedulerDailyPrintStyle schedulerDailyPrintStyle1 = new Telerik.WinControls.UI.SchedulerDailyPrintStyle();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard_P));
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
-            radPageView1 = new Telerik.WinControls.UI.RadPageView();
             radPageViewPage1 = new Telerik.WinControls.UI.RadPageViewPage();
             listViewExam = new Telerik.WinControls.UI.RadListView();
             radPageViewPage2 = new Telerik.WinControls.UI.RadPageViewPage();
@@ -90,8 +89,27 @@
             tbt_Name = new Telerik.WinControls.UI.RadTextBox();
             radLabel6 = new Telerik.WinControls.UI.RadLabel();
             tbt_Title = new Telerik.WinControls.UI.RadTextBox();
-            ((System.ComponentModel.ISupportInitialize)radPageView1).BeginInit();
-            radPageView1.SuspendLayout();
+            radPageViewPage5 = new Telerik.WinControls.UI.RadPageViewPage();
+            radPanel1 = new Telerik.WinControls.UI.RadPanel();
+            radBtnClose = new Telerik.WinControls.UI.RadButton();
+            radBtnDangXuat = new Telerik.WinControls.UI.RadButton();
+            radLblAddress = new Telerik.WinControls.UI.RadLabel();
+            radLblDate = new Telerik.WinControls.UI.RadLabel();
+            radLblGender = new Telerik.WinControls.UI.RadLabel();
+            radLblNameUser = new Telerik.WinControls.UI.RadLabel();
+            radLblEmail = new Telerik.WinControls.UI.RadLabel();
+            radLblPhoneNumber = new Telerik.WinControls.UI.RadLabel();
+            radLblNameLogin = new Telerik.WinControls.UI.RadLabel();
+            radLabel30 = new Telerik.WinControls.UI.RadLabel();
+            radLabel29 = new Telerik.WinControls.UI.RadLabel();
+            radLabel28 = new Telerik.WinControls.UI.RadLabel();
+            radLabel27 = new Telerik.WinControls.UI.RadLabel();
+            radLabel20 = new Telerik.WinControls.UI.RadLabel();
+            radLabel12 = new Telerik.WinControls.UI.RadLabel();
+            radLabel11 = new Telerik.WinControls.UI.RadLabel();
+            radPictureBox1 = new Telerik.WinControls.UI.RadPictureBox();
+            radLabel10 = new Telerik.WinControls.UI.RadLabel();
+            radPageView1 = new Telerik.WinControls.UI.RadPageView();
             radPageViewPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)listViewExam).BeginInit();
             radPageViewPage2.SuspendLayout();
@@ -155,24 +173,31 @@
             ((System.ComponentModel.ISupportInitialize)tbt_Name).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tbt_Title).BeginInit();
+            radPageViewPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)radPanel1).BeginInit();
+            radPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)radBtnClose).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radBtnDangXuat).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLblAddress).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLblDate).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLblGender).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLblNameUser).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLblEmail).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLblPhoneNumber).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLblNameLogin).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel30).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel29).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel28).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel27).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel20).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel12).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel11).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radPictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel10).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radPageView1).BeginInit();
+            radPageView1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
-            // 
-            // radPageView1
-            // 
-            radPageView1.Controls.Add(radPageViewPage1);
-            radPageView1.Controls.Add(radPageViewPage2);
-            radPageView1.Controls.Add(radPageViewPage3);
-            radPageView1.Controls.Add(radPageViewPage4);
-            radPageView1.Dock = DockStyle.Fill;
-            radPageView1.Location = new Point(0, 0);
-            radPageView1.Name = "radPageView1";
-            radPageView1.SelectedPage = radPageViewPage2;
-            radPageView1.Size = new Size(1277, 706);
-            radPageView1.TabIndex = 0;
-            radPageView1.ThemeName = "MaterialTeal";
-            radPageView1.SelectedPageChanged += radPageView1_SelectedPageChanged;
-            ((Telerik.WinControls.UI.RadPageViewStripElement)radPageView1.GetChildAt(0)).StripButtons = Telerik.WinControls.UI.StripViewButtons.Scroll;
             // 
             // radPageViewPage1
             // 
@@ -180,7 +205,7 @@
             radPageViewPage1.ItemSize = new SizeF(78F, 49F);
             radPageViewPage1.Location = new Point(6, 55);
             radPageViewPage1.Name = "radPageViewPage1";
-            radPageViewPage1.Size = new Size(1265, 645);
+            radPageViewPage1.Size = new Size(1265, 711);
             radPageViewPage1.Text = "Vào Thi";
             // 
             // listViewExam
@@ -192,7 +217,7 @@
             listViewExam.Location = new Point(0, 0);
             listViewExam.Name = "listViewExam";
             listViewExam.Padding = new Padding(10);
-            listViewExam.Size = new Size(1265, 645);
+            listViewExam.Size = new Size(1265, 711);
             listViewExam.TabIndex = 0;
             listViewExam.ThemeName = "MaterialTeal";
             listViewExam.ViewType = Telerik.WinControls.UI.ListViewType.IconsView;
@@ -203,7 +228,7 @@
             radPageViewPage2.ItemSize = new SizeF(80F, 49F);
             radPageViewPage2.Location = new Point(6, 55);
             radPageViewPage2.Name = "radPageViewPage2";
-            radPageViewPage2.Size = new Size(1265, 645);
+            radPageViewPage2.Size = new Size(1265, 711);
             radPageViewPage2.Text = "Lịch Thi";
             // 
             // radViewScheduler
@@ -214,7 +239,7 @@
             radViewScheduler.Location = new Point(0, 0);
             radViewScheduler.Name = "radViewScheduler";
             radViewScheduler.PrintStyle = schedulerDailyPrintStyle1;
-            radViewScheduler.Size = new Size(1265, 645);
+            radViewScheduler.Size = new Size(1265, 711);
             radViewScheduler.TabIndex = 0;
             radViewScheduler.ThemeName = "MaterialTeal";
             // 
@@ -224,7 +249,7 @@
             radPageViewPage3.ItemSize = new SizeF(80F, 49F);
             radPageViewPage3.Location = new Point(6, 55);
             radPageViewPage3.Name = "radPageViewPage3";
-            radPageViewPage3.Size = new Size(1265, 645);
+            radPageViewPage3.Size = new Size(1265, 711);
             radPageViewPage3.Text = "Kết Quả";
             // 
             // radDock1
@@ -244,7 +269,7 @@
             // 
             // 
             radDock1.RootElement.MinSize = new Size(25, 25);
-            radDock1.Size = new Size(1265, 645);
+            radDock1.Size = new Size(1265, 711);
             radDock1.SplitterWidth = 8;
             radDock1.TabIndex = 0;
             radDock1.TabStop = false;
@@ -257,7 +282,7 @@
             documentWindow1.Location = new Point(4, 4);
             documentWindow1.Name = "documentWindow1";
             documentWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
-            documentWindow1.Size = new Size(914, 637);
+            documentWindow1.Size = new Size(914, 703);
             documentWindow1.Text = "documentWindow1";
             // 
             // radViewExam_Answers
@@ -270,9 +295,9 @@
             radViewExam_Answers.MasterTemplate.AllowAddNewRow = false;
             radViewExam_Answers.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             radViewExam_Answers.MasterTemplate.EnablePaging = true;
-            radViewExam_Answers.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            radViewExam_Answers.MasterTemplate.ViewDefinition = tableViewDefinition3;
             radViewExam_Answers.Name = "radViewExam_Answers";
-            radViewExam_Answers.Size = new Size(914, 637);
+            radViewExam_Answers.Size = new Size(914, 703);
             radViewExam_Answers.TabIndex = 0;
             radViewExam_Answers.ThemeName = "MaterialTeal";
             radViewExam_Answers.CellClick += radViewExam_Answers_CellClick;
@@ -283,6 +308,7 @@
             documentContainer1.CausesValidation = false;
             documentContainer1.Controls.Add(documentTabStrip1);
             documentContainer1.Name = "documentContainer1";
+            documentContainer1.Padding = new Padding(0);
             // 
             // 
             // 
@@ -291,7 +317,6 @@
             documentContainer1.SizeInfo.SizeMode = Telerik.WinControls.UI.Docking.SplitPanelSizeMode.Fill;
             documentContainer1.SizeInfo.SplitterCorrection = new Size(-135, 0);
             documentContainer1.SplitterWidth = 8;
-            documentContainer1.ThemeName = "MaterialTeal";
             // 
             // documentTabStrip1
             // 
@@ -305,7 +330,7 @@
             // 
             documentTabStrip1.RootElement.MinSize = new Size(25, 25);
             documentTabStrip1.SelectedIndex = 0;
-            documentTabStrip1.Size = new Size(922, 645);
+            documentTabStrip1.Size = new Size(922, 711);
             documentTabStrip1.TabIndex = 0;
             documentTabStrip1.TabStop = false;
             documentTabStrip1.TabStripVisible = false;
@@ -323,7 +348,7 @@
             // 
             toolTabStrip1.RootElement.MinSize = new Size(25, 25);
             toolTabStrip1.SelectedIndex = 0;
-            toolTabStrip1.Size = new Size(335, 645);
+            toolTabStrip1.Size = new Size(335, 711);
             toolTabStrip1.SizeInfo.AbsoluteSize = new Size(335, 200);
             toolTabStrip1.SizeInfo.SplitterCorrection = new Size(135, 0);
             toolTabStrip1.TabIndex = 1;
@@ -366,10 +391,10 @@
             toolWindow1.Controls.Add(radLabel5);
             toolWindow1.Controls.Add(radLabel4);
             toolWindow1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            toolWindow1.Location = new Point(4, 52);
+            toolWindow1.Location = new Point(4, 4);
             toolWindow1.Name = "toolWindow1";
             toolWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            toolWindow1.Size = new Size(327, 589);
+            toolWindow1.Size = new Size(327, 703);
             toolWindow1.Text = "Thông Tin Chi Tiết";
             toolWindow1.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
@@ -721,7 +746,7 @@
             radPageViewPage4.ItemSize = new SizeF(84F, 49F);
             radPageViewPage4.Location = new Point(6, 55);
             radPageViewPage4.Name = "radPageViewPage4";
-            radPageViewPage4.Size = new Size(1265, 645);
+            radPageViewPage4.Size = new Size(1265, 711);
             radPageViewPage4.Text = "Trợ Giúp";
             // 
             // btn_Send
@@ -807,7 +832,7 @@
             tbt_IDParticipant.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbt_IDParticipant.Location = new Point(641, 223);
             tbt_IDParticipant.Name = "tbt_IDParticipant";
-            tbt_IDParticipant.Size = new Size(275, 37);
+            tbt_IDParticipant.Size = new Size(275, 0);
             tbt_IDParticipant.TabIndex = 14;
             tbt_IDParticipant.ThemeName = "MaterialTeal";
             // 
@@ -816,7 +841,7 @@
             tbt_Name.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbt_Name.Location = new Point(350, 223);
             tbt_Name.Name = "tbt_Name";
-            tbt_Name.Size = new Size(275, 37);
+            tbt_Name.Size = new Size(275, 0);
             tbt_Name.TabIndex = 15;
             tbt_Name.ThemeName = "MaterialTeal";
             // 
@@ -835,16 +860,267 @@
             tbt_Title.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbt_Title.Location = new Point(350, 129);
             tbt_Title.Name = "tbt_Title";
-            tbt_Title.Size = new Size(566, 37);
+            tbt_Title.Size = new Size(566, 0);
             tbt_Title.TabIndex = 16;
             tbt_Title.ThemeName = "MaterialTeal";
+            // 
+            // radPageViewPage5
+            // 
+            radPageViewPage5.Controls.Add(radPanel1);
+            radPageViewPage5.ItemSize = new SizeF(94F, 49F);
+            radPageViewPage5.Location = new Point(6, 55);
+            radPageViewPage5.Name = "radPageViewPage5";
+            radPageViewPage5.Size = new Size(1265, 711);
+            radPageViewPage5.Text = "Thông Tin";
+            // 
+            // radPanel1
+            // 
+            radPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            radPanel1.Controls.Add(radBtnClose);
+            radPanel1.Controls.Add(radBtnDangXuat);
+            radPanel1.Controls.Add(radLblAddress);
+            radPanel1.Controls.Add(radLblDate);
+            radPanel1.Controls.Add(radLblGender);
+            radPanel1.Controls.Add(radLblNameUser);
+            radPanel1.Controls.Add(radLblEmail);
+            radPanel1.Controls.Add(radLblPhoneNumber);
+            radPanel1.Controls.Add(radLblNameLogin);
+            radPanel1.Controls.Add(radLabel30);
+            radPanel1.Controls.Add(radLabel29);
+            radPanel1.Controls.Add(radLabel28);
+            radPanel1.Controls.Add(radLabel27);
+            radPanel1.Controls.Add(radLabel20);
+            radPanel1.Controls.Add(radLabel12);
+            radPanel1.Controls.Add(radLabel11);
+            radPanel1.Controls.Add(radPictureBox1);
+            radPanel1.Controls.Add(radLabel10);
+            radPanel1.Location = new Point(172, 3);
+            radPanel1.Name = "radPanel1";
+            radPanel1.Size = new Size(898, 708);
+            radPanel1.TabIndex = 0;
+            radPanel1.ThemeName = "MaterialTeal";
+            // 
+            // radBtnClose
+            // 
+            radBtnClose.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            radBtnClose.BackColor = Color.Teal;
+            radBtnClose.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            radBtnClose.ForeColor = Color.White;
+            radBtnClose.Location = new Point(501, 663);
+            radBtnClose.Name = "radBtnClose";
+            radBtnClose.Size = new Size(194, 39);
+            radBtnClose.TabIndex = 6;
+            radBtnClose.Text = "Thoát";
+            radBtnClose.ThemeName = "MaterialTeal";
+            radBtnClose.Click += radBtnClose_Click;
+            // 
+            // radBtnDangXuat
+            // 
+            radBtnDangXuat.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            radBtnDangXuat.BackColor = Color.Teal;
+            radBtnDangXuat.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            radBtnDangXuat.ForeColor = Color.White;
+            radBtnDangXuat.Location = new Point(701, 663);
+            radBtnDangXuat.Name = "radBtnDangXuat";
+            radBtnDangXuat.Size = new Size(194, 39);
+            radBtnDangXuat.TabIndex = 5;
+            radBtnDangXuat.Text = "Đăng Xuất";
+            radBtnDangXuat.ThemeName = "MaterialTeal";
+            radBtnDangXuat.Click += radBtnDangXuat_Click;
+            // 
+            // radLblAddress
+            // 
+            radLblAddress.AutoSize = false;
+            radLblAddress.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            radLblAddress.ForeColor = Color.Teal;
+            radLblAddress.Location = new Point(134, 555);
+            radLblAddress.Name = "radLblAddress";
+            radLblAddress.Size = new Size(761, 21);
+            radLblAddress.TabIndex = 4;
+            radLblAddress.Text = "Tên Đăng Nhập:";
+            // 
+            // radLblDate
+            // 
+            radLblDate.AutoSize = false;
+            radLblDate.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            radLblDate.ForeColor = Color.Teal;
+            radLblDate.Location = new Point(137, 498);
+            radLblDate.Name = "radLblDate";
+            radLblDate.Size = new Size(761, 21);
+            radLblDate.TabIndex = 4;
+            radLblDate.Text = "Tên Đăng Nhập:";
+            // 
+            // radLblGender
+            // 
+            radLblGender.AutoSize = false;
+            radLblGender.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            radLblGender.ForeColor = Color.Teal;
+            radLblGender.Location = new Point(137, 442);
+            radLblGender.Name = "radLblGender";
+            radLblGender.Size = new Size(761, 21);
+            radLblGender.TabIndex = 4;
+            radLblGender.Text = "Tên Đăng Nhập:";
+            // 
+            // radLblNameUser
+            // 
+            radLblNameUser.AutoSize = false;
+            radLblNameUser.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            radLblNameUser.ForeColor = Color.Teal;
+            radLblNameUser.Location = new Point(137, 390);
+            radLblNameUser.Name = "radLblNameUser";
+            radLblNameUser.Size = new Size(761, 21);
+            radLblNameUser.TabIndex = 4;
+            radLblNameUser.Text = "Tên Đăng Nhập:";
+            // 
+            // radLblEmail
+            // 
+            radLblEmail.AutoSize = false;
+            radLblEmail.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            radLblEmail.ForeColor = Color.Teal;
+            radLblEmail.Location = new Point(137, 336);
+            radLblEmail.Name = "radLblEmail";
+            radLblEmail.Size = new Size(761, 21);
+            radLblEmail.TabIndex = 4;
+            radLblEmail.Text = "Tên Đăng Nhập:";
+            // 
+            // radLblPhoneNumber
+            // 
+            radLblPhoneNumber.AutoSize = false;
+            radLblPhoneNumber.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            radLblPhoneNumber.ForeColor = Color.Teal;
+            radLblPhoneNumber.Location = new Point(137, 284);
+            radLblPhoneNumber.Name = "radLblPhoneNumber";
+            radLblPhoneNumber.Size = new Size(761, 21);
+            radLblPhoneNumber.TabIndex = 3;
+            radLblPhoneNumber.Text = "Tên Đăng Nhập:";
+            // 
+            // radLblNameLogin
+            // 
+            radLblNameLogin.AutoSize = false;
+            radLblNameLogin.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            radLblNameLogin.ForeColor = Color.Teal;
+            radLblNameLogin.Location = new Point(134, 235);
+            radLblNameLogin.Name = "radLblNameLogin";
+            radLblNameLogin.Size = new Size(761, 21);
+            radLblNameLogin.TabIndex = 2;
+            radLblNameLogin.Text = "Tên Đăng Nhập:";
+            // 
+            // radLabel30
+            // 
+            radLabel30.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            radLabel30.ForeColor = Color.Teal;
+            radLabel30.Location = new Point(25, 555);
+            radLabel30.Name = "radLabel30";
+            radLabel30.Size = new Size(52, 21);
+            radLabel30.TabIndex = 3;
+            radLabel30.Text = "Địa Chỉ:";
+            // 
+            // radLabel29
+            // 
+            radLabel29.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            radLabel29.ForeColor = Color.Teal;
+            radLabel29.Location = new Point(25, 498);
+            radLabel29.Name = "radLabel29";
+            radLabel29.Size = new Size(70, 21);
+            radLabel29.TabIndex = 3;
+            radLabel29.Text = "Ngày Sinh:";
+            // 
+            // radLabel28
+            // 
+            radLabel28.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            radLabel28.ForeColor = Color.Teal;
+            radLabel28.Location = new Point(25, 442);
+            radLabel28.Name = "radLabel28";
+            radLabel28.Size = new Size(62, 21);
+            radLabel28.TabIndex = 3;
+            radLabel28.Text = "Giới Tính:";
+            // 
+            // radLabel27
+            // 
+            radLabel27.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            radLabel27.ForeColor = Color.Teal;
+            radLabel27.Location = new Point(25, 390);
+            radLabel27.Name = "radLabel27";
+            radLabel27.Size = new Size(31, 21);
+            radLabel27.TabIndex = 2;
+            radLabel27.Text = "Tên:";
+            // 
+            // radLabel20
+            // 
+            radLabel20.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            radLabel20.ForeColor = Color.Teal;
+            radLabel20.Location = new Point(25, 336);
+            radLabel20.Name = "radLabel20";
+            radLabel20.Size = new Size(41, 21);
+            radLabel20.TabIndex = 3;
+            radLabel20.Text = "Email:";
+            // 
+            // radLabel12
+            // 
+            radLabel12.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            radLabel12.ForeColor = Color.Teal;
+            radLabel12.Location = new Point(25, 284);
+            radLabel12.Name = "radLabel12";
+            radLabel12.Size = new Size(92, 21);
+            radLabel12.TabIndex = 2;
+            radLabel12.Text = "Số Điện Thoại:";
+            // 
+            // radLabel11
+            // 
+            radLabel11.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            radLabel11.ForeColor = Color.Teal;
+            radLabel11.Location = new Point(25, 235);
+            radLabel11.Name = "radLabel11";
+            radLabel11.Size = new Size(103, 21);
+            radLabel11.TabIndex = 1;
+            radLabel11.Text = "Tên Đăng Nhập:";
+            // 
+            // radPictureBox1
+            // 
+            radPictureBox1.Image = (Image)resources.GetObject("radPictureBox1.Image");
+            radPictureBox1.Location = new Point(344, 3);
+            radPictureBox1.Name = "radPictureBox1";
+            radPictureBox1.Size = new Size(170, 170);
+            radPictureBox1.TabIndex = 1;
+            // 
+            // radLabel10
+            // 
+            radLabel10.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            radLabel10.ForeColor = Color.Teal;
+            radLabel10.Location = new Point(3, 199);
+            radLabel10.Name = "radLabel10";
+            radLabel10.Size = new Size(171, 30);
+            radLabel10.TabIndex = 0;
+            radLabel10.Text = "Thông Tin Chi Tiết";
+            // 
+            // radPageView1
+            // 
+            radPageView1.Controls.Add(radPageViewPage1);
+            radPageView1.Controls.Add(radPageViewPage2);
+            radPageView1.Controls.Add(radPageViewPage3);
+            radPageView1.Controls.Add(radPageViewPage4);
+            radPageView1.Controls.Add(radPageViewPage5);
+            radPageView1.Dock = DockStyle.Fill;
+            radPageView1.Location = new Point(0, 0);
+            radPageView1.Name = "radPageView1";
+            radPageView1.SelectedPage = radPageViewPage5;
+            radPageView1.Size = new Size(1277, 772);
+            radPageView1.TabIndex = 0;
+            radPageView1.Tag = "";
+            radPageView1.ThemeName = "MaterialTeal";
+            radPageView1.SelectedPageChanged += radPageView1_SelectedPageChanged;
+            ((Telerik.WinControls.UI.RadPageViewStripElement)radPageView1.GetChildAt(0)).ShowItemPinButton = false;
+            ((Telerik.WinControls.UI.RadPageViewStripElement)radPageView1.GetChildAt(0)).StripButtons = Telerik.WinControls.UI.StripViewButtons.Scroll;
+            ((Telerik.WinControls.UI.RadPageViewStripElement)radPageView1.GetChildAt(0)).ShowItemCloseButton = false;
+            ((Telerik.WinControls.UI.RadPageViewLabelElement)radPageView1.GetChildAt(0).GetChildAt(2)).Text = "Thông Tin";
+            ((Telerik.WinControls.UI.RadPageViewLabelElement)radPageView1.GetChildAt(0).GetChildAt(3)).Text = "Thông Tin";
             // 
             // Dashboard_P
             // 
             AutoScaleBaseSize = new Size(7, 15);
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1277, 706);
+            ClientSize = new Size(1277, 772);
             Controls.Add(radPageView1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Dashboard_P";
@@ -854,8 +1130,6 @@
             RootElement.ApplyShapeToControl = true;
             Text = "Dashboard";
             ThemeName = "MaterialTeal";
-            ((System.ComponentModel.ISupportInitialize)radPageView1).EndInit();
-            radPageView1.ResumeLayout(false);
             radPageViewPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)listViewExam).EndInit();
             radPageViewPage2.ResumeLayout(false);
@@ -922,6 +1196,30 @@
             ((System.ComponentModel.ISupportInitialize)tbt_Name).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel6).EndInit();
             ((System.ComponentModel.ISupportInitialize)tbt_Title).EndInit();
+            radPageViewPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)radPanel1).EndInit();
+            radPanel1.ResumeLayout(false);
+            radPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)radBtnClose).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radBtnDangXuat).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLblAddress).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLblDate).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLblGender).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLblNameUser).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLblEmail).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLblPhoneNumber).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLblNameLogin).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel30).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel29).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel28).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel27).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel20).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel12).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel11).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radPictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel10).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radPageView1).EndInit();
+            radPageView1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }
@@ -987,5 +1285,25 @@
         private Telerik.WinControls.UI.RadLabel radLblChuaLam;
         private Telerik.WinControls.UI.RadLabel radLblPass;
         private Telerik.WinControls.UI.RadLabel radLabel36;
+        private Telerik.WinControls.UI.RadPageViewPage radPageViewPage5;
+        private Telerik.WinControls.UI.RadPanel radPanel1;
+        private Telerik.WinControls.UI.RadPictureBox radPictureBox1;
+        private Telerik.WinControls.UI.RadLabel radLabel10;
+        private Telerik.WinControls.UI.RadLabel radLabel11;
+        private Telerik.WinControls.UI.RadLabel radLabel20;
+        private Telerik.WinControls.UI.RadLabel radLabel12;
+        private Telerik.WinControls.UI.RadLabel radLblAddress;
+        private Telerik.WinControls.UI.RadLabel radLblDate;
+        private Telerik.WinControls.UI.RadLabel radLblGender;
+        private Telerik.WinControls.UI.RadLabel radLblNameUser;
+        private Telerik.WinControls.UI.RadLabel radLblEmail;
+        private Telerik.WinControls.UI.RadLabel radLblPhoneNumber;
+        private Telerik.WinControls.UI.RadLabel radLblNameLogin;
+        private Telerik.WinControls.UI.RadLabel radLabel30;
+        private Telerik.WinControls.UI.RadLabel radLabel29;
+        private Telerik.WinControls.UI.RadLabel radLabel28;
+        private Telerik.WinControls.UI.RadLabel radLabel27;
+        private Telerik.WinControls.UI.RadButton radBtnClose;
+        private Telerik.WinControls.UI.RadButton radBtnDangXuat;
     }
 }

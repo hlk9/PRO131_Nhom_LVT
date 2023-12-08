@@ -142,6 +142,7 @@
             radButton2.TabIndex = 7;
             radButton2.Text = "Thoát";
             radButton2.ThemeName = "MaterialTeal";
+            radButton2.Click += radButton2_Click;
             // 
             // radPictureBox1
             // 

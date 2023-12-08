@@ -302,10 +302,7 @@ namespace Examination_PRL.Forms.Staff
             reportByScore.Dock = DockStyle.Fill;
             reportByScore.Name = "reportByScore";
 
-            reportPage.SubPages.Add(reportByScorePage);
-
-            
-            
+            reportPage.SubPages.Add(reportByScorePage); 
 
             RadPageViewPage listQAPage = new RadPageViewPage("Phản hồi của thí sinh");
             ListQA listQA = new ListQA();
@@ -318,6 +315,8 @@ namespace Examination_PRL.Forms.Staff
             Image feedbacksIcon = bitMapFeedbacks;
             listQAPage.Image = feedbacksIcon;
 
+            RadPageViewPage logOut = new RadPageViewPage("Đăng Xuất");
+            logOut.Name = "LogOut";
 
             pvDashboard.Pages.Add(homePage);
             pvDashboard.Pages.Add(schedulePage);
@@ -334,13 +333,14 @@ namespace Examination_PRL.Forms.Staff
             pvDashboard.Pages.Add(questionPage);
            // pvDashboard.Pages.Add(createAccountParticipantPage);
             pvDashboard.Pages.Add(listQAPage);
+            pvDashboard.Pages.Add(logOut);
 
             pvDashboard.AutoScroll = true;
             CollapseAllSubPages(pvDashboard);
 
 
         }
-
+    
         private void CollapseAllSubPages(RadPageView pageView)
         {
             foreach (RadPageViewPage item in pageView.Pages)
@@ -369,6 +369,14 @@ namespace Examination_PRL.Forms.Staff
 
         private void pvDashboard_SelectedPageChanged(object sender, EventArgs e)
         {
+            if(pvDashboard.SelectedPage.Name == "LogOut")
+            {
+                    DialogResult = MessageBox.Show("Bạn có muốn đăng xuất không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (DialogResult == DialogResult.Yes)
+                    {
+                        this.Close();
+                    }                
+                }
             try
             {
                 RadPageViewPage radPageViewPage = pvDashboard.SelectedPage;
@@ -426,7 +434,7 @@ namespace Examination_PRL.Forms.Staff
                         break;
                     case "Account_Manager":
                         (form as CrudTK).LoadData_Staff();
-                        break;
+                        break;                    
                     default:
                         break;
                 }

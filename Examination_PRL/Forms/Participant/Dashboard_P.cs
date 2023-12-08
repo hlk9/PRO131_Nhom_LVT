@@ -24,6 +24,7 @@ namespace Examination_PRL.Forms.Participant
         ScheduleDetailServices scheduleDetailServices = new ScheduleDetailServices();
         List<ScheduleWithExamInforViewModel> listData;
         ExamServices _serviceExam = new ExamServices();
+        ParticipantService _serPar = new ParticipantService();
         int _idExamClick;
         int _idResponseClick;
         Account userAccount;
@@ -42,6 +43,15 @@ namespace Examination_PRL.Forms.Participant
             LoadDataExam();
             radPageView1.SelectedPage = radPageViewPage1;
 
+            var objInfo = _serPar.GetOneByID(userAccount.Id);
+            var objAcc = _serPar.GetAccountById(userAccount.Id).FirstOrDefault();
+            radLblNameLogin.Text = objAcc.UserName;
+            radLblNameUser.Text = objInfo.FullName;
+            radLblPhoneNumber.Text = objInfo.PhoneNumber;
+            radLblAddress.Text = objInfo.Address;
+            radLblEmail.Text = objInfo.Email;
+            radLblGender.Text = objInfo.Gender == true ? "Nam" : "Nữ";
+            radLblDate.Text = objInfo.DateOfBirth.Date.ToString();
         }
 
         public void LoadData()
@@ -170,7 +180,7 @@ namespace Examination_PRL.Forms.Participant
                 //{
                 //    foreach (var item in listData)
                 //    {
-                        e.VisualItem = new ExamCustomVisualItem(currentCreating, userAccount);
+                e.VisualItem = new ExamCustomVisualItem(currentCreating, userAccount);
                 //        listData.Remove(item);
                 //        return;
                 //    }
@@ -277,7 +287,7 @@ namespace Examination_PRL.Forms.Participant
         private void radPageView1_SelectedPageChanged(object sender, EventArgs e)
         {
 
-          //  MessageBox.Show(radPageView1.SelectedPage.Name);
+            //  MessageBox.Show(radPageView1.SelectedPage.Name);
 
             if (radPageView1.SelectedPage.Name == "radPageViewPage1")
                 LoadExamSchedule();
@@ -291,6 +301,21 @@ namespace Examination_PRL.Forms.Participant
 
 
 
+        }
+
+        private void radBtnDangXuat_Click(object sender, EventArgs e)
+        {
+            DialogResult = MessageBox.Show("Bạn chắc chắn muốn đăng xuất?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if(DialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+        private void radBtnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
