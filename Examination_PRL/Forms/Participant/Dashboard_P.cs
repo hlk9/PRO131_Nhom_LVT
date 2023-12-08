@@ -325,7 +325,7 @@ namespace Examination_PRL.Forms.Participant
         {
             DialogResult = MessageBox.Show("Bạn chắc chắn muốn đăng xuất?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-            if(DialogResult == DialogResult.Yes)
+            if (DialogResult == DialogResult.Yes)
             {
                 this.Close();
             }

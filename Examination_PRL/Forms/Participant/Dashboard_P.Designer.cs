@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             Telerik.WinControls.UI.SchedulerDailyPrintStyle schedulerDailyPrintStyle1 = new Telerik.WinControls.UI.SchedulerDailyPrintStyle();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard_P));
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             radPageViewPage1 = new Telerik.WinControls.UI.RadPageViewPage();
@@ -296,7 +296,7 @@
             radViewExam_Answers.MasterTemplate.AllowAddNewRow = false;
             radViewExam_Answers.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             radViewExam_Answers.MasterTemplate.EnablePaging = true;
-            radViewExam_Answers.MasterTemplate.ViewDefinition = tableViewDefinition3;
+            radViewExam_Answers.MasterTemplate.ViewDefinition = tableViewDefinition1;
             radViewExam_Answers.Name = "radViewExam_Answers";
             radViewExam_Answers.Size = new Size(914, 703);
             radViewExam_Answers.TabIndex = 0;
@@ -833,7 +833,7 @@
             tbt_IDParticipant.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbt_IDParticipant.Location = new Point(641, 223);
             tbt_IDParticipant.Name = "tbt_IDParticipant";
-            tbt_IDParticipant.Size = new Size(275, 0);
+            tbt_IDParticipant.Size = new Size(275, 37);
             tbt_IDParticipant.TabIndex = 14;
             tbt_IDParticipant.ThemeName = "MaterialTeal";
             // 
@@ -842,7 +842,7 @@
             tbt_Name.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbt_Name.Location = new Point(350, 223);
             tbt_Name.Name = "tbt_Name";
-            tbt_Name.Size = new Size(275, 0);
+            tbt_Name.Size = new Size(275, 37);
             tbt_Name.TabIndex = 15;
             tbt_Name.ThemeName = "MaterialTeal";
             // 
@@ -861,7 +861,7 @@
             tbt_Title.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbt_Title.Location = new Point(350, 129);
             tbt_Title.Name = "tbt_Title";
-            tbt_Title.Size = new Size(566, 0);
+            tbt_Title.Size = new Size(566, 37);
             tbt_Title.TabIndex = 16;
             tbt_Title.ThemeName = "MaterialTeal";
             // 
@@ -1104,7 +1104,7 @@
             radPageView1.Dock = DockStyle.Fill;
             radPageView1.Location = new Point(0, 0);
             radPageView1.Name = "radPageView1";
-            radPageView1.SelectedPage = radPageViewPage5;
+            radPageView1.SelectedPage = radPageViewPage4;
             radPageView1.Size = new Size(1277, 772);
             radPageView1.TabIndex = 0;
             radPageView1.Tag = "";
@@ -1113,8 +1113,8 @@
             ((Telerik.WinControls.UI.RadPageViewStripElement)radPageView1.GetChildAt(0)).ShowItemPinButton = false;
             ((Telerik.WinControls.UI.RadPageViewStripElement)radPageView1.GetChildAt(0)).StripButtons = Telerik.WinControls.UI.StripViewButtons.Scroll;
             ((Telerik.WinControls.UI.RadPageViewStripElement)radPageView1.GetChildAt(0)).ShowItemCloseButton = false;
-            ((Telerik.WinControls.UI.RadPageViewLabelElement)radPageView1.GetChildAt(0).GetChildAt(2)).Text = "Thông Tin";
-            ((Telerik.WinControls.UI.RadPageViewLabelElement)radPageView1.GetChildAt(0).GetChildAt(3)).Text = "Thông Tin";
+            ((Telerik.WinControls.UI.RadPageViewLabelElement)radPageView1.GetChildAt(0).GetChildAt(2)).Text = "Trợ Giúp";
+            ((Telerik.WinControls.UI.RadPageViewLabelElement)radPageView1.GetChildAt(0).GetChildAt(3)).Text = "Trợ Giúp";
             // 
             // Dashboard_P
             // 
