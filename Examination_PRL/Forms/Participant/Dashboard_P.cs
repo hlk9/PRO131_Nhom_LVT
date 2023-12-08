@@ -79,10 +79,14 @@ namespace Examination_PRL.Forms.Participant
         }
 
 
-
+        ScheduleWithExamInforViewModel currentCreating;
         public void LoadExamSchedule()
         {
-            listData = scheduleDetailServices.GetScheduleAndExamByParticipantID(userName);
+            listViewExam.Items.Clear();
+            listData = scheduleDetailServices.GetScheduleAndExamByParticipantID(userName).Where(x => x.ExamStartTime >= DateTime.Now.AddDays(3) || x.ExamEndTime >= DateTime.Now).ToList();
+
+            //get list of ScheduleDetail in 3 days before and after
+
 
             listViewExam.VisualItemCreating += ListViewExam_VisualItemCreating;
             listViewExam.VisualItemCreating += ListViewExam_VisualItemFormatting;
@@ -110,19 +114,20 @@ namespace Examination_PRL.Forms.Participant
             listViewExam.ItemSpacing = 40;
             foreach (var item in listData)
             {
-                if (listViewExam.Items.Contains(item))
-                    continue;
+                currentCreating = item;
+                //if (listViewExam.Items.Contains(item))
+                //    continue;
                 listViewExam.Items.Add(item);
 
             }
-            try
-            {
-                listViewExam.Items[listViewExam.Items.Count - 1].Visible = false;
-            }
-            catch
-            {
+            //try
+            //{
+            //    listViewExam.Items[listViewExam.Items.Count - 1].Visible = false;
+            //}
+            //catch
+            //{
 
-            }
+            //}
         }
 
         private void ListViewExam_VisualItemFormatting(object sender, ListViewVisualItemCreatingEventArgs e)
@@ -161,19 +166,19 @@ namespace Examination_PRL.Forms.Participant
 
             if (this.listViewExam.ViewType == ListViewType.IconsView)
             {
-                if (listData.Count > 0)
-                {
-                    foreach (var item in listData)
-                    {
-                        e.VisualItem = new ExamCustomVisualItem(item, userAccount);
-                        listData.Remove(item);
-                        return;
-                    }
-                }
-                else
-                {
-                    return;
-                }
+                //if (listData.Count > 0)
+                //{
+                //    foreach (var item in listData)
+                //    {
+                        e.VisualItem = new ExamCustomVisualItem(currentCreating, userAccount);
+                //        listData.Remove(item);
+                //        return;
+                //    }
+                //}
+                //else
+                //{
+                //    return;
+                //}
             }
         }
         // radgridView Kết Quả
@@ -281,6 +286,7 @@ namespace Examination_PRL.Forms.Participant
             else if (radPageView1.SelectedPage.Name == "radPageViewPage3")
                 LoadDataExam();
 
+            return;
 
 
 

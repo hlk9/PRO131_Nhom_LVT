@@ -20,6 +20,7 @@ namespace Examination_BUS.ViewModel
         public string ExamDetailCode { get; set; }
         public string ExamDes { get; set; }
         public int ExamID { get; set; }
+        public string ScheduleName { get; set; }
 
     }
 }

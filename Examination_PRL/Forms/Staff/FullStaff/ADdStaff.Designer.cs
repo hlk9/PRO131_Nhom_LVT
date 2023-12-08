@@ -231,6 +231,7 @@
             // 
             radBtnClear.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radBtnClear.BackColor = Color.Teal;
+            radBtnClear.ForeColor = Color.White;
             radBtnClear.Location = new Point(3, 628);
             radBtnClear.Name = "radBtnClear";
             radBtnClear.Size = new Size(415, 46);
@@ -243,6 +244,7 @@
             // 
             radBtnUpDate.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radBtnUpDate.BackColor = Color.Teal;
+            radBtnUpDate.ForeColor = Color.White;
             radBtnUpDate.Location = new Point(3, 579);
             radBtnUpDate.Name = "radBtnUpDate";
             radBtnUpDate.Size = new Size(415, 43);
@@ -341,6 +343,7 @@
             // 
             radBtnAddStaff.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radBtnAddStaff.BackColor = Color.Teal;
+            radBtnAddStaff.ForeColor = Color.White;
             radBtnAddStaff.Location = new Point(3, 530);
             radBtnAddStaff.Name = "radBtnAddStaff";
             radBtnAddStaff.Size = new Size(415, 43);

@@ -149,6 +149,7 @@ namespace Examination_PRL.Utilities
 
         private void ExamCustomVisualItem_Click(object? sender, EventArgs e)
         {
+            MessageBox.Show(this.Name);
             ExamDetailServices examDetailServices = new ExamDetailServices();
             var examDetail = examDetailServices.GetByExamDetailCode(dataItem.ExamDetailCode);
             ExamResponseServices examResponseServices = new ExamResponseServices();
@@ -187,7 +188,8 @@ namespace Examination_PRL.Utilities
 
         protected override void SynchronizeProperties()
         {
-
+            ExamDetailServices examDetailServices = new ExamDetailServices();
+            var examDetail = examDetailServices.GetByExamDetailCode(dataItem.ExamDetailCode);
 
             base.SynchronizeProperties();
             this.DrawText = false;
@@ -237,7 +239,7 @@ namespace Examination_PRL.Utilities
             examStatus.Font = new Font("Segoe UI", 8, FontStyle.Bold);
             examStatus.ForeColor = Color.White;
 
-            examName.Text = dataItem.ExamName;
+            examName.Text = dataItem.ScheduleName+"\n"+dataItem.ExamName;
             
             examName.Font = new Font("Segoe UI", 10, FontStyle.Regular);
             examName.ForeColor = Color.White;
@@ -245,7 +247,7 @@ namespace Examination_PRL.Utilities
             examDuration.Image = Properties.Resources.GlyphCalendar_small;
             examDuration.Text = "Hạn tới: "+ dataItem.ExamEndTime.ToString("HH:mm dd/MM/yyyy");
             houseKeepingInfo.Text = "";
-            examReTest.Text ="Lượt thi: "+dataItem.ExamRepeat.ToString();
+            examReTest.Text ="Lượt thi: "+ examDetail.ReTestNumber.ToString();
 
 
             houseKeepingInfo.Visibility = Telerik.WinControls.ElementVisibility.Hidden;

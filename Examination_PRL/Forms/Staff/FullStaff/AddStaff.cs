@@ -46,7 +46,7 @@ namespace Examination_PRL
 
             foreach (var item in _service.GetAll())
             {
-                rad_Staff.Rows.Add(stt++, item.Id, item.FullName, (item.Gender == true ? "Nam" : "Nữ"), item.DateOfBirth, item.Email, item.PhoneNumber, item.Address, (item.Status == 1 ? "Kích Hoạt" : "Vô Hiệu Hóa"));             
+                rad_Staff.Rows.Add(stt++, item.Id, item.FullName, (item.Gender == true ? "Nam" : "Nữ"), item.DateOfBirth, item.Email, item.PhoneNumber, item.Address, (item.Status == 1 ? "Kích Hoạt" : "Vô Hiệu Hóa"));
             }
 
             this.rad_Staff.Columns[8].ConditionalFormattingObjectList.Add(formattingObject);
@@ -169,10 +169,10 @@ namespace Examination_PRL
         private void Dele_Click(object? sender, EventArgs e)
         {
             string id = rad_Staff.CurrentRow.Cells[1].Value.ToString();
-            if(_service.deleteStaff(id, 255))
+            if (_service.deleteStaff(id, 255))
             {
                 MessageBox.Show("Vô Hiệu Hóa Thành Công");
-            }   
+            }
             else
             {
                 MessageBox.Show("Vô Hiệu Hóa Thất Bại");
