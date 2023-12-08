@@ -149,7 +149,7 @@ namespace Examination_PRL.Utilities
 
         private void ExamCustomVisualItem_Click(object? sender, EventArgs e)
         {
-            MessageBox.Show(this.Name);
+          //  MessageBox.Show(this.Name);
             ExamDetailServices examDetailServices = new ExamDetailServices();
             var examDetail = examDetailServices.GetByExamDetailCode(dataItem.ExamDetailCode);
             ExamResponseServices examResponseServices = new ExamResponseServices();
@@ -223,11 +223,13 @@ namespace Examination_PRL.Utilities
             {
                 examStatus.Text = "Đang diễn ra";
                 this.BackColor = Color.Teal;
+                examDuration.Text = "Hạn tới: " + dataItem.ExamEndTime.ToString("HH:mm dd/MM/yyyy");
             }    
             else if(DateTime.Now<dataItem.ExamStartTime)
             {
                 examStatus.Text = "Sắp diễn ra";
-                this.BackColor = Color.Teal;
+                this.BackColor = Color.SteelBlue;
+                examDuration.Text = "Từ: " + dataItem.ExamStartTime.ToString("HH:mm dd/MM/yyyy");
             }    
             else
             {
@@ -245,7 +247,7 @@ namespace Examination_PRL.Utilities
             examName.ForeColor = Color.White;
 
             examDuration.Image = Properties.Resources.GlyphCalendar_small;
-            examDuration.Text = "Hạn tới: "+ dataItem.ExamEndTime.ToString("HH:mm dd/MM/yyyy");
+         
             houseKeepingInfo.Text = "";
             examReTest.Text ="Lượt thi: "+ examDetail.ReTestNumber.ToString();
 

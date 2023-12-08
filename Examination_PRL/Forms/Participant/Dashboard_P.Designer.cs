@@ -167,7 +167,7 @@
             radPageView1.Dock = DockStyle.Fill;
             radPageView1.Location = new Point(0, 0);
             radPageView1.Name = "radPageView1";
-            radPageView1.SelectedPage = radPageViewPage2;
+            radPageView1.SelectedPage = radPageViewPage4;
             radPageView1.Size = new Size(1277, 706);
             radPageView1.TabIndex = 0;
             radPageView1.ThemeName = "MaterialTeal";
@@ -196,6 +196,7 @@
             listViewExam.TabIndex = 0;
             listViewExam.ThemeName = "MaterialTeal";
             listViewExam.ViewType = Telerik.WinControls.UI.ListViewType.IconsView;
+            listViewExam.SelectedItemChanged += listViewExam_SelectedItemChanged;
             // 
             // radPageViewPage2
             // 

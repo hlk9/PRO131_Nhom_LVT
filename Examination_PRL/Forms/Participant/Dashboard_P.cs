@@ -3,6 +3,7 @@ using Examination_BUS.Utilities;
 using Examination_BUS.ViewModel;
 using Examination_DAL.Models;
 using Examination_PRL.Utilities;
+using Microsoft.EntityFrameworkCore.Metadata;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,15 +35,17 @@ namespace Examination_PRL.Forms.Participant
             _ser = new FeedbackServices();
             this.userName = urs;
             this.userAccount = userAccount;
-            LoadData();
-            LoadExamSchedule();
             radlblSum.Text = _serviceExam.GetExamResponses().Count().ToString();
             radlblDat.Text = _serviceExam.GetExamResponses().Where(x => x.IsPassed == true).ToList().Count.ToString();
             radlblChuaDat.Text = _serviceExam.GetExamResponses().Where(x => x.IsPassed == false).ToList().Count.ToString();
             LoadDataExam();
-            radPageView1.SelectedPage = radPageViewPage1;
+            radPageView1.SelectedPage = radPageViewPage2;
+            LoadData();
+            LoadExamSchedule();
 
+            listViewExam.Refresh();
         }
+
 
         public void LoadData()
         {
@@ -85,18 +88,18 @@ namespace Examination_PRL.Forms.Participant
             listViewExam.Items.Clear();
             listData = scheduleDetailServices.GetScheduleAndExamByParticipantID(userName).Where(x => x.ExamStartTime >= DateTime.Now.AddDays(3) || x.ExamEndTime >= DateTime.Now).ToList();
 
-            //get list of ScheduleDetail in 3 days before and after
+
 
 
             listViewExam.VisualItemCreating += ListViewExam_VisualItemCreating;
             listViewExam.VisualItemCreating += ListViewExam_VisualItemFormatting;
-            this.listViewExam.ShowGroups = true;
-            this.listViewExam.EnableGrouping = true;
-            GroupDescriptor groupByValue = new GroupDescriptor(new SortDescriptor[]
-            {
-                new SortDescriptor("Type", ListSortDirection.Ascending)
-            });
-            this.listViewExam.GroupDescriptors.Add(groupByValue);
+            //this.listViewExam.ShowGroups = true;
+            //this.listViewExam.EnableGrouping = true;
+            //GroupDescriptor groupByValue = new GroupDescriptor(new SortDescriptor[]
+            //{
+            //    new SortDescriptor("Type", ListSortDirection.Ascending)
+            //});
+            //this.listViewExam.GroupDescriptors.Add(groupByValue);
             this.listViewExam.ViewType = ListViewType.IconsView;
             this.listViewExam.ItemSize = new Size(300, 150);
             this.listViewExam.ItemSpacing = 10;
@@ -107,7 +110,7 @@ namespace Examination_PRL.Forms.Participant
             this.listViewExam.BackColor = Color.Transparent;
             this.listViewExam.ListViewElement.DrawFill = false;
             this.listViewExam.ListViewElement.ViewElement.BackColor = Color.Transparent;
-            this.listViewExam.ListViewElement.Padding = new Padding(-9, 0, 0, 0);
+            this.listViewExam.ListViewElement.Padding = new Padding(10);
             this.listViewExam.Margin = new Padding(20);
             this.listViewExam.RootElement.EnableElementShadow = false;
             this.listViewExam.GroupItemSize = new Size(0, 45);
@@ -120,14 +123,10 @@ namespace Examination_PRL.Forms.Participant
                 listViewExam.Items.Add(item);
 
             }
-            //try
-            //{
-            //    listViewExam.Items[listViewExam.Items.Count - 1].Visible = false;
-            //}
-            //catch
-            //{
 
-            //}
+
+
+
         }
 
         private void ListViewExam_VisualItemFormatting(object sender, ListViewVisualItemCreatingEventArgs e)
@@ -158,19 +157,20 @@ namespace Examination_PRL.Forms.Participant
                 e.VisualItem.Padding = new Padding(0);
                 e.VisualItem.ResetValue(LightVisualElement.TextAlignmentProperty, Telerik.WinControls.ValueResetFlags.Local);
             }
+            //  RemoveDumplicate();
         }
 
         private void ListViewExam_VisualItemCreating(object sender, ListViewVisualItemCreatingEventArgs e)
         {
             //e.VisualItem = new ExamCustomVisualItem(null);
-
+            e.VisualItem = new ExamCustomVisualItem(currentCreating, userAccount);
             if (this.listViewExam.ViewType == ListViewType.IconsView)
             {
                 //if (listData.Count > 0)
                 //{
                 //    foreach (var item in listData)
                 //    {
-                        e.VisualItem = new ExamCustomVisualItem(currentCreating, userAccount);
+                //  e.VisualItem = new ExamCustomVisualItem(currentCreating, userAccount);
                 //        listData.Remove(item);
                 //        return;
                 //    }
@@ -277,7 +277,7 @@ namespace Examination_PRL.Forms.Participant
         private void radPageView1_SelectedPageChanged(object sender, EventArgs e)
         {
 
-          //  MessageBox.Show(radPageView1.SelectedPage.Name);
+            //  MessageBox.Show(radPageView1.SelectedPage.Name);
 
             if (radPageView1.SelectedPage.Name == "radPageViewPage1")
                 LoadExamSchedule();
@@ -291,6 +291,29 @@ namespace Examination_PRL.Forms.Participant
 
 
 
+        }
+
+
+        void RemoveDumplicate()
+        {
+
+            // MessageBox.Show(listViewExam.Items.Count.ToString());
+            //for(int i=0;i<listViewExam.Items.Count;i++)
+            //  {
+            //      for(int j=i+1;j< listViewExam.Items.Count; j++)
+            //      {
+            //          if (listViewExam.Items[i] == listViewExam.Items[j])
+            //          {
+            //              listViewExam.Items.RemoveAt(j);
+
+            //          }
+            //      }
+            //  }
+        }
+
+        private void listViewExam_SelectedItemChanged(object sender, EventArgs e)
+        {
+            // MessageBox.Show(listViewExam.Items.Count.ToString());
         }
     }
 }

@@ -29,7 +29,7 @@ namespace Examination_PRL.Forms
 
         static async Task Execute(string emailAddress, string FullName, string userName, string password)
         {
-            Environment.SetEnvironmentVariable("SENDGRID_API_KEY", "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");
+            Environment.SetEnvironmentVariable("SENDGRID_API_KEY", "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");
             var apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("hlk9@proton.me", "Testify");
@@ -73,28 +73,61 @@ namespace Examination_PRL.Forms
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             var oneParti = participantService.getAllStudents().Where(x => x.Email == txtEmail.Text).FirstOrDefault();
-            var oneStaff  = staffService.GetAll().Where(x => x.Email == txtEmail.Text).FirstOrDefault();
+            var oneStaff = staffService.GetAll().Where(x => x.Email == txtEmail.Text).FirstOrDefault();
 
-            if(oneParti==null && oneStaff==null)
+            if (oneParti == null && oneStaff == null)
             {
                 MessageBox.Show("Email không tồn tại trong hệ thống");
                 return;
             }
 
-            if(oneParti!=null && oneStaff==null)
+            if (oneParti != null && oneStaff == null)
             {
+
+                var acc = accountServices.GetAccountById(oneParti.Id);
+
                 var newPassword = GenerateRandomPassword(8);
                 var hashedPassword = HashPassword(newPassword);
-                //oneParti.Password = hashedPassword;
-                //participantService.Update(oneParti);
-             //   Execute(oneParti.Email, oneParti.FullName, oneParti.UserName, newPassword);
-                MessageBox.Show("Mật khẩu mới đã được gửi đến email của bạn");
-                return;
+                acc.Password = hashedPassword;
+                var isUpdated = accountServices.UpdateAccount(acc.Id, acc.UserName, acc.Password, null);
+
+                if (isUpdated)
+                {
+                    Execute(oneParti.Email, oneParti.FullName, oneParti.Id, newPassword).ConfigureAwait(false);
+                    MessageBox.Show("Mật khẩu mới đã được gửi đến email của bạn\nHãy kiểm tra hộp thư, kể cả thư rác");
+
+                    btnSubmit.Enabled = false;
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi xảy ra trong quá trình cập nhật mật khẩu");
+                    return;
+                }
+
+
             }
-            else if(oneParti == null && oneStaff != null)
+            else if (oneParti == null && oneStaff != null)
             {
+                var acc = accountServices.GetAccountById(oneStaff.Id);
+
                 var newPassword = GenerateRandomPassword(8);
                 var hashedPassword = HashPassword(newPassword);
+                acc.Password = hashedPassword;
+                var isUpdated = accountServices.UpdateAccount(acc.Id, acc.UserName, acc.Password, null);
+
+                if (isUpdated)
+                {
+                    Execute(oneStaff.Email, oneStaff.FullName, oneStaff.Id, newPassword).ConfigureAwait(false);
+                    MessageBox.Show("Mật khẩu mới đã được gửi đến email của bạn\nHãy kiểm tra hộp thư, kể cả thư rác");
+                    btnSubmit.Enabled = false;
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi xảy ra trong quá trình cập nhật mật khẩu");
+                    return;
+                }
 
             }
 
@@ -102,6 +135,11 @@ namespace Examination_PRL.Forms
 
 
 
+        }
+
+        private void radButton2_Click(object sender, EventArgs e)
+        {
+            this.Close();   
         }
     }
 }

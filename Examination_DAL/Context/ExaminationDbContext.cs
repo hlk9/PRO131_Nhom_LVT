@@ -111,7 +111,7 @@ namespace Examination_DAL.Context
                 {
                     Id = "longhd",
                     UserName = "longhd",
-                    Password = "123456",
+                    Password = "E10ADC3949BA59ABBE56E057F20F883E",
                     LastLogin = null,
                     Status = 1
                 },
@@ -119,7 +119,7 @@ namespace Examination_DAL.Context
                  {
                      Id = "chiupp",
                      UserName = "chiupp",
-                     Password = "123456",
+                     Password = "E10ADC3949BA59ABBE56E057F20F883E",
                      LastLogin = null,
                      Status = 1
                  },
@@ -127,7 +127,7 @@ namespace Examination_DAL.Context
                  {
                      Id = "admin",
                      UserName = "admin",
-                     Password = "123456",
+                     Password = "E10ADC3949BA59ABBE56E057F20F883E",
                      LastLogin = null,
                      Status = 1
                  }

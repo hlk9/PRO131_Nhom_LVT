@@ -33,7 +33,7 @@ namespace Examination_PRL.Forms.Participant
         AnswerResponseServices answerResponseServices = new AnswerResponseServices();
 
         int fontSize = 12;
-        
+
         Account userAccount = new Account();
         int loseFocus = 0;
 
@@ -334,7 +334,7 @@ namespace Examination_PRL.Forms.Participant
             this.Deactivate -= EnterExam_Deactivate;
             if (checkBoxComplete.Checked == true)
             {
-               
+
                 //ExamResponse examResponse = new ExamResponse();
                 //examResponse.ExamDetailId = 1;
                 //examResponse.ParticipantId = "longhd";
@@ -343,7 +343,7 @@ namespace Examination_PRL.Forms.Participant
 
                 if (DialogResult.OK == MessageBox.Show("Bạn có chắc chắn muốn nộp bài thi không?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question))
                 {
-                    ScoreExam(ListAnsweredQuestion());
+                    ScoreExam(ListAnsweredQuestion(), false);
                     MessageBox.Show("Bạn đã hoàn thành bài thi");
                     return;
                 }
@@ -503,7 +503,7 @@ namespace Examination_PRL.Forms.Participant
 
         }
 
-        public void ScoreExam(List<QuestionAndAnswerResponse> listQnA)
+        public void ScoreExam(List<QuestionAndAnswerResponse> listQnA, bool isKicked)
         {
 
             try
@@ -582,27 +582,45 @@ namespace Examination_PRL.Forms.Participant
                 }
                 else if (score > totalScore)
                 {
-                    examResponse.Score = totalScore;
+                    examResponse.Score = Math.Round(totalScore, 2);
                 }
                 else if (score <= -0)
                 {
                     examResponse.Score = 0;
                 }
-                else
 
 
+                if (isKicked == false)
+                {
                     examResponse.Score = Math.Round(score, 2);
-                examResponse.FinishTime = secondTaken;
-                examResponse.SubmitTime = DateTime.Now;
-                examResponse.ParticipantId = userAccount.Id;
-                examResponse.SubjectId = examServices.GetById(exam.ExamId).SubjectId;
-                examResponse.Status = 1;
-                examResponse.QuestionCorrect = qTrue;
-                examResponse.QuestionWrong = qFalse;
-                examResponse.QuestionNotAnswered = qNotAnswer;
-                examResponse.ScoredMethod = true; //true is automatic , false is manual
-                examResponse.Note = null;
-                examResponse.ExamScheduleId = this.scheduleId;
+                    examResponse.FinishTime = secondTaken;
+                    examResponse.SubmitTime = DateTime.Now;
+                    examResponse.ParticipantId = userAccount.Id;
+                    examResponse.SubjectId = examServices.GetById(exam.ExamId).SubjectId;
+                    examResponse.Status = 1;
+                    examResponse.QuestionCorrect = qTrue;
+                    examResponse.QuestionWrong = qFalse;
+                    examResponse.QuestionNotAnswered = qNotAnswer;
+                    examResponse.ScoredMethod = true; //true is automatic , false is manual
+                    examResponse.Note = null;
+                    examResponse.ExamScheduleId = this.scheduleId;
+                }
+                else
+                {
+                    examResponse.Score = 0;
+                    examResponse.FinishTime = secondTaken;
+                    examResponse.SubmitTime = DateTime.Now;
+                    examResponse.ParticipantId = userAccount.Id;
+                    examResponse.SubjectId = examServices.GetById(exam.ExamId).SubjectId;
+                    examResponse.Status = 2;
+                    examResponse.QuestionCorrect = qTrue;
+                    examResponse.QuestionWrong = qFalse;
+                    examResponse.QuestionNotAnswered = qNotAnswer;
+                    examResponse.ScoredMethod = true; //true is automatic , false is manual
+                    examResponse.Note = "Vi phạm quy chế thi";
+                    examResponse.ExamScheduleId = this.scheduleId;
+                }
+
                 int idExResponse = examResponseServices.AddExamResponseAndGetId(examResponse);
                 if (idExResponse != -1)
                 {
@@ -623,8 +641,13 @@ namespace Examination_PRL.Forms.Participant
 
                         }
                     }
+                    MessageBox.Show("Nộp bài thành công");
                 }
-                MessageBox.Show("Nộp bài thành công");
+                else
+                {
+                    MessageBox.Show("Nộp bài thất bại, hãy thử lại");
+                }
+
                 //  MessageBox.Show("TEST\nSố câu đúng: " + qTrue.ToString() + "\n" + "Số câu sai: " + qFalse.ToString() + "\n" + "Số câu chưa trả lời: " + qNotAnswer.ToString() + "\n" + "Tổng điểm: " + totalScore.ToString() + "\n" + "Điểm của bạn: " + score.ToString());
                 btnExit.Enabled = true;
                 btnExit.Visible = true;
@@ -665,7 +688,17 @@ namespace Examination_PRL.Forms.Participant
         private void EnterExam_Deactivate(object sender, EventArgs e)
         {
             loseFocus++;
-            MessageBox.Show($"Bạn không được phép thoát khỏi bài thi, bạn sẽ bị huỷ bài thi nếu vi phạm\nSố lần vi phạm:{loseFocus}/3", "Cảnh báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            if (loseFocus == 3)
+            {
+                this.Deactivate -= EnterExam_Deactivate;
+                ScoreExam(ListAnsweredQuestion(), true);
+                MessageBox.Show($"Bạn đã vi phạm quy chế thi\nSố lần vi phạm:{loseFocus}/3\nHệ thống sẽ huỷ bài thi của bạn: 0 điểm", "Cảnh báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Close();
+            }
+            else
+
+                MessageBox.Show($"Bạn không được phép thoát khỏi bài thi, bạn sẽ bị huỷ bài thi nếu vi phạm\nSố lần vi phạm:{loseFocus}/3", "Cảnh báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
 
         }

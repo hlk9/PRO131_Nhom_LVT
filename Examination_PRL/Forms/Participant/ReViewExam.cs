@@ -120,6 +120,7 @@ namespace Examination_PRL.Forms.Participant
             panelAnswer.Padding = new Padding(10);
 
             FlowLayoutPanel flowPanel = new FlowLayoutPanel();
+            flowPanel.Dock = DockStyle.Fill;
             flowPanel.Name = "flowPanel";
             flowPanel.FlowDirection = FlowDirection.TopDown;
             flowPanel.BorderStyle = System.Windows.Forms.BorderStyle.None;

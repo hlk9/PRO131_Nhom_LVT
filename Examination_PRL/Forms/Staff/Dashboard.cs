@@ -1,4 +1,5 @@
-﻿using Examination_DAL.Models;
+﻿using Examination_BUS.Services;
+using Examination_DAL.Models;
 using Examination_PRL.Forms.Staff.ClassRoom;
 using Examination_PRL.Forms.Staff.Exam;
 using Examination_PRL.Forms.Staff.FullStaff;
@@ -339,6 +340,29 @@ namespace Examination_PRL.Forms.Staff
             CollapseAllSubPages(pvDashboard);
 
 
+
+
+            #region set pages active for account
+
+            UserPermissionServices userPermissionServices = new UserPermissionServices();
+            List<UserPermission> userPermissions = userPermissionServices.GetUserPermissionByAccountID(usrAccount.Id);
+            foreach(var item in userPermissions)
+            {
+                if(item.PermissionId==3)
+                {
+                    pvDashboard.Pages.Remove(staffPage);
+                    break;
+                    //staffPage
+                    //addStaffPage.Enabled = false;
+                    //createAccountParticipantPage.Enabled = false;
+                }    
+            }    
+
+
+
+            #endregion
+
+
         }
 
         private void CollapseAllSubPages(RadPageView pageView)
@@ -434,7 +458,7 @@ namespace Examination_PRL.Forms.Staff
             }
             catch
             {
-
+                
             }
         }
     }

@@ -115,6 +115,7 @@
             lblForgot.Size = new Size(110, 17);
             lblForgot.TabIndex = 5;
             lblForgot.Text = "Quên mật khẩu?";
+            lblForgot.Click += lblForgot_Click;
             // 
             // btnLogin
             // 

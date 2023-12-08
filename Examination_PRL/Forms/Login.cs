@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Security.Cryptography;
 using System.Security.Principal;
 using System.Text;
 using System.Windows.Forms;
@@ -39,6 +40,8 @@ namespace Examination_PRL.Forms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            //var a = HashPassword(txtPassword.Text);
+            //MessageBox.Show(HashPassword(txtPassword.Text));
             if (txtPassword.Text == "" || txtUserName.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
@@ -50,7 +53,7 @@ namespace Examination_PRL.Forms
                 account = accountServices.GetAccountById(txtUserName.Text);
                 if (account != null)
                 {
-                    if (account.Password != txtPassword.Text)
+                    if (account.Password != HashPassword(txtPassword.Text))
                     {
                         MessageBox.Show("Sai mật khẩu");
                         return;
@@ -64,7 +67,7 @@ namespace Examination_PRL.Forms
 
                     foreach (var item in userPermissions)
                     {
-                        if (item.PermissionId == 1)
+                        if (item.PermissionId == 1 || item.PermissionId == 3 || item.PermissionId == 2)
                         {
                             Dashboard dashboard = new Dashboard(account);
                             dashboard.FormClosed += Dashboard_FormClosed;
@@ -72,6 +75,7 @@ namespace Examination_PRL.Forms
                             this.Hide();
                             return;
                         }
+
                     }
 
                     Dashboard_P dashboard_P = new Dashboard_P(account.UserName, account);
@@ -96,6 +100,27 @@ namespace Examination_PRL.Forms
             {
                 e.Handled = true;
             }
+        }
+
+        public string HashPassword(string password)
+        {
+            MD5 md5 = MD5.Create();
+            byte[] inputBytes = Encoding.ASCII.GetBytes(password);
+            byte[] hash = md5.ComputeHash(inputBytes);
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("X2"));
+            }
+            md5.Clear();
+            return sb.ToString();
+
+        }
+
+        private void lblForgot_Click(object sender, EventArgs e)
+        {
+            ForgotPassword forgotPassword = new ForgotPassword();
+            forgotPassword.ShowDialog();
         }
     }
 }
