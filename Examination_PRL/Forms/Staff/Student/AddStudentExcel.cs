@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Examination_BUS.Services;
 using Examination_PRL.Forms.Staff.ClassRoom;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Security.Cryptography;
 
 namespace Examination_PRL.Forms.Staff.Student
 {
@@ -20,6 +21,8 @@ namespace Examination_PRL.Forms.Staff.Student
     {
 
         ParticipantService _ser = new ParticipantService();
+        AccountServices _serAcc = new AccountServices();
+        UserPermissionServices _serUserPer = new UserPermissionServices();
 
         public AddStudentExcel()
         {
@@ -36,6 +39,20 @@ namespace Examination_PRL.Forms.Staff.Student
             {
                 radTxtFile.Text = openFileDialog.FileName;
             }
+        }
+        public string HashPassword(string password)
+        {
+            MD5 md5 = MD5.Create();
+            byte[] inputBytes = Encoding.ASCII.GetBytes(password);
+            byte[] hash = md5.ComputeHash(inputBytes);
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("X2"));
+            }
+            md5.Clear();
+            return sb.ToString();
+
         }
 
         private void importExcelStudent(string path)
@@ -77,8 +94,15 @@ namespace Examination_PRL.Forms.Staff.Student
                     {
                         accountId = null;
                     }
-                    
 
+                    var userPer = new UserPermission()
+                    {
+                        AccountId = accountId,
+                        PermissionId = 4
+                    };
+
+                    _serAcc.AddAccount(accountId, accountId, HashPassword("123456"));
+                    _serUserPer.AddUserPermission(userPer);
                     _ser.createStudents(id, name, address, email, phone, gender, status, dateOfBirth, classRoomId, accountId);
              
                 }
