@@ -135,9 +135,9 @@ namespace Examination_PRL.Forms
                 PermissionId = 4
             };
 
-            if(_serAcc.AddAccount(idAcc, userName, passWord))
+            if (_serAcc.AddAccount(idAcc, userName, passWord))
             {
-                if(_serUserPer.AddUserPermission(userPer))
+                if (_serUserPer.AddUserPermission(userPer))
                 {
                     if (_ser.createStudents(id, name, address, email, phone, gender, status, dateOfBirth, classRoomId, AccId))
                     {
@@ -148,7 +148,7 @@ namespace Examination_PRL.Forms
                         MessageBox.Show("Thêm Thất Bại");
                     }
                 }
-                
+
             }
             LoadData();
         }
