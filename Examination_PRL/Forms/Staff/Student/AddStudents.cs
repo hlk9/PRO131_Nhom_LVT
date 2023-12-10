@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
@@ -18,6 +19,9 @@ namespace Examination_PRL.Forms
     {
         ParticipantService _ser = new ParticipantService();
         ClassroomServices _serClass = new ClassroomServices();
+        AccountServices _serAcc = new AccountServices();
+        UserPermissionServices _serUserPer = new UserPermissionServices();
+
         List<string> _lstClass = new List<string>();
 
         string _idWhenClick;
@@ -44,7 +48,7 @@ namespace Examination_PRL.Forms
         {
             int stt = 1;
 
-            examGridView.ColumnCount = 10;
+            examGridView.ColumnCount = 11;
             examGridView.Columns[0].HeaderText = "STT";
             examGridView.Columns[1].HeaderText = "Mã Thí Sinh";
             examGridView.Columns[2].HeaderText = "Tên Thí Sinh";
@@ -54,12 +58,23 @@ namespace Examination_PRL.Forms
             examGridView.Columns[6].HeaderText = "Email";
             examGridView.Columns[7].HeaderText = "Địa Chỉ";
             examGridView.Columns[8].HeaderText = "Mã Lớp";
-            examGridView.Columns[9].HeaderText = "Trạng Thái";
+            examGridView.Columns[9].HeaderText = "Tên Đăng Nhập";
+            examGridView.Columns[10].HeaderText = "Trạng Thái";
             examGridView.Rows.Clear();
 
             foreach (var x in _ser.getAllStudents())
             {
-                examGridView.Rows.Add(stt++, x.Id, x.FullName, (x.Gender == true ? "Nam" : "Nữ"), x.DateOfBirth, x.PhoneNumber, x.Email, x.Address, x.ClassroomId, x.Status == 1 ? "Hoạt Động" : "Không Hoạt Động");
+                string userName = "";
+                try
+                {
+                    userName = _serAcc.GetAccountById(x.AccountId).UserName;
+                }
+                catch
+                {
+
+                }
+
+                examGridView.Rows.Add(stt++, x.Id, x.FullName, (x.Gender == true ? "Nam" : "Nữ"), x.DateOfBirth, x.PhoneNumber, x.Email, x.Address, x.ClassroomId, userName, x.Status == 1 ? "Hoạt Động" : "Không Hoạt Động");
 
                 foreach (GridViewRowInfo rowInfo in examGridView.Rows)
                 {
@@ -69,6 +84,21 @@ namespace Examination_PRL.Forms
                     }
                 }
             }
+        }
+
+        public string HashPassword(string password)
+        {
+            MD5 md5 = MD5.Create();
+            byte[] inputBytes = Encoding.ASCII.GetBytes(password);
+            byte[] hash = md5.ComputeHash(inputBytes);
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("X2"));
+            }
+            md5.Clear();
+            return sb.ToString();
+
         }
 
         private void radBtnAdd_Click(object sender, EventArgs e)
@@ -93,15 +123,33 @@ namespace Examination_PRL.Forms
             DateTime dateOfBirth = radDtpDateOfBirth.Value;
             string classRoomId = _lstClass[radDDClassId.SelectedIndex];
 
-            if (_ser.createStudents(id, name, address, email, phone, gender, status, dateOfBirth, classRoomId))
-            {
-                MessageBox.Show("Thêm Thành Công");
-            }
-            else
-            {
-                MessageBox.Show("Thêm Thất Bại");
-            }
+            string idAcc = radTxtId.Text;
+            string userName = radTxtUserName.Text;
+            string passWord = HashPassword("123456");
 
+            string AccId = idAcc;
+
+            var userPer = new UserPermission()
+            {
+                AccountId = idAcc,
+                PermissionId = 4
+            };
+
+            if(_serAcc.AddAccount(idAcc, userName, passWord))
+            {
+                if(_serUserPer.AddUserPermission(userPer))
+                {
+                    if (_ser.createStudents(id, name, address, email, phone, gender, status, dateOfBirth, classRoomId, AccId))
+                    {
+                        MessageBox.Show("Thêm Thành Công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm Thất Bại");
+                    }
+                }
+                
+            }
             LoadData();
         }
 

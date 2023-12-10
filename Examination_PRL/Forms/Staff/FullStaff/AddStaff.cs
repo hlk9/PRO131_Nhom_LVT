@@ -1,9 +1,11 @@
 ﻿using Examination_BUS.Services;
+using Examination_DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
@@ -15,7 +17,13 @@ namespace Examination_PRL
     public partial class AddNhanVien : Telerik.WinControls.UI.RadForm
     {
         StaffService _service = new StaffService();
+        AccountServices _serAcc = new AccountServices();
+        UserPermissionServices _serUser = new UserPermissionServices();
+        PermissionService _serPer = new PermissionService();
+
         string _idWhenClick;
+
+        List<byte> _lstIdPermisstion = new List<byte>();
 
         public AddNhanVien()
         {
@@ -31,7 +39,7 @@ namespace Examination_PRL
 
             int stt = 1;
 
-            rad_Staff.ColumnCount = 9;
+            rad_Staff.ColumnCount = 11;
             rad_Staff.Columns[0].HeaderText = "STT";
             rad_Staff.Columns[1].HeaderText = "ID";
             rad_Staff.Columns[2].HeaderText = "Họ Tên";
@@ -41,12 +49,16 @@ namespace Examination_PRL
             rad_Staff.Columns[6].HeaderText = "SĐT";
             rad_Staff.Columns[7].HeaderText = "Địa Chỉ";
             rad_Staff.Columns[8].HeaderText = "Trạng Thái";
+            rad_Staff.Columns[9].HeaderText = "Tên Đăng Nhập";
+            rad_Staff.Columns[10].HeaderText = "Quyền";
 
             rad_Staff.Rows.Clear();
 
             foreach (var item in _service.GetAll())
             {
-                rad_Staff.Rows.Add(stt++, item.Id, item.FullName, (item.Gender == true ? "Nam" : "Nữ"), item.DateOfBirth, item.Email, item.PhoneNumber, item.Address, (item.Status == 1 ? "Kích Hoạt" : "Vô Hiệu Hóa"));
+                string userName = _serAcc.GetAccountById(item.Id).UserName;
+                string permission = _serPer.GetById(Convert.ToByte(_serUser.GetUserPermissionByAccountID(item.AccountId).FirstOrDefault().PermissionId)).Name;
+                rad_Staff.Rows.Add(stt++, item.Id, item.FullName, (item.Gender == true ? "Nam" : "Nữ"), item.DateOfBirth, item.Email, item.PhoneNumber, item.Address, (item.Status == 1 ? "Kích Hoạt" : "Vô Hiệu Hóa"), userName, permission);
             }
 
             this.rad_Staff.Columns[8].ConditionalFormattingObjectList.Add(formattingObject);
@@ -81,13 +93,40 @@ namespace Examination_PRL
                 {
                     radListStaff.SelectedIndex = 1;
                 }
+
+                radTxtUserName.Text = _serAcc.GetAccountById(obj.AccountId).UserName;
+
+                radCmbPermission.SelectedIndex = _lstIdPermisstion.FindIndex(x => x == _serPer.GetById(_serUser.GetUserPermissionByAccountId(obj.Id).PermissionId).Id);
             }
         }
         public void LoadDropDown()
         {
             radListStaff.Items.Add("Vô Hiệu Hóa");
             radListStaff.Items.Add("Kích Hoạt");
-            radListStaff.SelectedIndex = 0;
+            radListStaff.SelectedIndex = 1;
+
+            foreach (var x in _serPer.GetAllPermission())
+            {
+                _lstIdPermisstion.Add(x.Id);
+                radCmbPermission.Items.Add(x.Name);
+            }
+
+            radCmbPermission.SelectedIndex = 0;
+        }
+
+        public string HashPassword(string password)
+        {
+            MD5 md5 = MD5.Create();
+            byte[] inputBytes = Encoding.ASCII.GetBytes(password);
+            byte[] hash = md5.ComputeHash(inputBytes);
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("X2"));
+            }
+            md5.Clear();
+            return sb.ToString();
+
         }
 
         private void radBtnAddStaff_Click(object sender, EventArgs e)
@@ -101,17 +140,35 @@ namespace Examination_PRL
             string address = radTxtAdress.Text;
             byte statuss = 0;
             string selectedStatus = radListStaff.SelectedItem.Text;
+
+            string idAcc = id;
+            string userName = radTxtUserName.Text;
+            string passWord = HashPassword("123456");
+
+            var userPer = new UserPermission()
+            {
+                AccountId = idAcc,
+                PermissionId = _lstIdPermisstion[radCmbPermission.SelectedIndex],
+            };
+
             if (selectedStatus != null && selectedStatus.StartsWith("Kích Hoạt"))
             {
                 statuss = 1;
             }
-            if (_service.AddStaff(id, name, gender, date, email, phone, address, statuss))
+
+            if (_serAcc.AddAccount(idAcc, userName, passWord))
             {
-                MessageBox.Show("Thêm Nhân Viên Thành Công");
-            }
-            else
-            {
-                MessageBox.Show("Thêm Nhân Viên Thất Bại");
+                if (_serUser.AddUserPermission(userPer))
+                {
+                    if (_service.AddStaff(id, name, gender, date, email, phone, address, statuss, idAcc))
+                    {
+                        MessageBox.Show("Thêm Nhân Viên Thành Công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm Nhân Viên Thất Bại");
+                    }
+                }
             }
             LoadData();
         }

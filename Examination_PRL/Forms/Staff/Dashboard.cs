@@ -2,7 +2,7 @@
 using Examination_DAL.Models;
 using Examination_PRL.Forms.Staff.ClassRoom;
 using Examination_PRL.Forms.Staff.Exam;
-using Examination_PRL.Forms.Staff.FullStaff;
+using Examination_PRL.Forms.Staff;
 using Examination_PRL.Forms.Staff.Home;
 using Examination_PRL.Forms.Staff.QuestionForm;
 using Examination_PRL.Forms.Staff.Result;
@@ -85,7 +85,7 @@ namespace Examination_PRL.Forms.Staff
             studentsList.Dock = DockStyle.Fill;
             studentsList.Name = "studentsListForm";
 
-            RadPageViewPage addStudentPage = new RadPageViewPage("Quản ly thí sinh");
+            RadPageViewPage addStudentPage = new RadPageViewPage("Quản lý thí sinh");
             AddStudents addThiSinh = new AddStudents();
             addThiSinh.TopLevel = false;
             addStudentPage.Controls.Add(addThiSinh);
@@ -93,15 +93,7 @@ namespace Examination_PRL.Forms.Staff
             addThiSinh.Dock = DockStyle.Fill;
             addThiSinh.Name = "addThiSinhForm";
 
-            RadPageViewPage qltkStudentPage = new RadPageViewPage("Quản lý tài khoản Thí Sinh");
-            QLTKStudent qltkstudent = new QLTKStudent();
-            qltkstudent.TopLevel = false;
-            qltkStudentPage.Controls.Add(qltkstudent);
-            qltkstudent.Show();
-            qltkstudent.Dock = DockStyle.Fill;
-            qltkstudent.Name = "QLTK Thí Sinh";
             studentPage.SubPages.Add(addStudentPage);
-            studentPage.SubPages.Add(qltkStudentPage);
 
             RadPageViewPage examPage = new RadPageViewPage("Đề thi"); //xem danh sách đề thi
             examPage.ToolTipText = "Đề thi";
@@ -228,17 +220,6 @@ namespace Examination_PRL.Forms.Staff
             addNhanViens.Dock = DockStyle.Fill;
             addNhanViens.Name = "addNhanViensForm";
 
-
-
-            RadPageViewPage createAccountParticipantPage = new RadPageViewPage("Quản lý tài quản Nhân viên");
-            CrudTK crudTK = new CrudTK();
-            crudTK.TopLevel = false;
-            createAccountParticipantPage.Controls.Add(crudTK);
-            crudTK.Show();
-            crudTK.Dock = DockStyle.Fill;
-            crudTK.Name = "Account_Manager";
-
-            staffPage.SubPages.Add(createAccountParticipantPage);
             staffPage.SubPages.Add(addStaffPage);
 
             RadPageViewPage resultPage = new RadPageViewPage("Kết quả");
@@ -322,7 +303,6 @@ namespace Examination_PRL.Forms.Staff
             pvDashboard.Pages.Add(homePage);
             pvDashboard.Pages.Add(schedulePage);
             pvDashboard.Pages.Add(studentPage);
-            pvDashboard.Pages.Add(qltkStudentPage);
             pvDashboard.Pages.Add(examGroup);
             pvDashboard.Pages.Add(examPage);
             pvDashboard.Pages.Add(subjectPage);
@@ -456,9 +436,6 @@ namespace Examination_PRL.Forms.Staff
                     case "thoiGianForm":
                         (form as ThoiGian).LoadData();
                         break;
-                    case "Account_Manager":
-                        (form as CrudTK).LoadData_Staff();
-                        break;                    
                     default:
                         break;
                 }

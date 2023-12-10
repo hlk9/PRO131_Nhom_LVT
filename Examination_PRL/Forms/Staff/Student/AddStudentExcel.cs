@@ -67,9 +67,19 @@ namespace Examination_PRL.Forms.Staff.Student
                     {
                         classRoomId = null;
                     }
+
+                    string accountId;
+                    if (workSheetStudent.Cells[row, 10].Value != null)
+                    {
+                        accountId = workSheetStudent.Cells[row, 10].Value.ToString();
+                    }
+                    else
+                    {
+                        accountId = null;
+                    }
                     
 
-                    _ser.createStudents(id, name, address, email, phone, gender, status, dateOfBirth, classRoomId);
+                    _ser.createStudents(id, name, address, email, phone, gender, status, dateOfBirth, classRoomId, accountId);
              
                 }
 
