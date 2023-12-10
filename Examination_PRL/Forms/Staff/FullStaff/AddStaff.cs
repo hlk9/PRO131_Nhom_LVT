@@ -23,6 +23,8 @@ namespace Examination_PRL
 
         string _idWhenClick;
 
+        string _accountIdWhenClick;
+
         List<byte> _lstIdPermisstion = new List<byte>();
 
         public AddNhanVien()
@@ -39,7 +41,7 @@ namespace Examination_PRL
 
             int stt = 1;
 
-            rad_Staff.ColumnCount = 11;
+            rad_Staff.ColumnCount = 12;
             rad_Staff.Columns[0].HeaderText = "STT";
             rad_Staff.Columns[1].HeaderText = "ID";
             rad_Staff.Columns[2].HeaderText = "Họ Tên";
@@ -51,6 +53,8 @@ namespace Examination_PRL
             rad_Staff.Columns[8].HeaderText = "Trạng Thái";
             rad_Staff.Columns[9].HeaderText = "Tên Đăng Nhập";
             rad_Staff.Columns[10].HeaderText = "Quyền";
+            rad_Staff.Columns[11].HeaderText = "Mã TK";
+            rad_Staff.Columns[11].IsVisible = false;
 
             rad_Staff.Rows.Clear();
 
@@ -58,7 +62,7 @@ namespace Examination_PRL
             {
                 string userName = _serAcc.GetAccountById(item.Id).UserName;
                 string permission = _serPer.GetById(Convert.ToByte(_serUser.GetUserPermissionByAccountID(item.AccountId).FirstOrDefault().PermissionId)).Name;
-                rad_Staff.Rows.Add(stt++, item.Id, item.FullName, (item.Gender == true ? "Nam" : "Nữ"), item.DateOfBirth, item.Email, item.PhoneNumber, item.Address, (item.Status == 1 ? "Kích Hoạt" : "Vô Hiệu Hóa"), userName, permission);
+                rad_Staff.Rows.Add(stt++, item.Id, item.FullName, (item.Gender == true ? "Nam" : "Nữ"), item.DateOfBirth, item.Email, item.PhoneNumber, item.Address, (item.Status == 1 ? "Kích Hoạt" : "Vô Hiệu Hóa"), userName, permission, item.AccountId);
             }
 
             this.rad_Staff.Columns[8].ConditionalFormattingObjectList.Add(formattingObject);
@@ -67,6 +71,7 @@ namespace Examination_PRL
         private void rad_Staff_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
             _idWhenClick = rad_Staff.Rows[e.RowIndex].Cells[1].Value.ToString();
+            _accountIdWhenClick = rad_Staff.CurrentRow.Cells[11].Value.ToString();
             var obj = _service.GetAll().Where(x => x.Id == _idWhenClick).FirstOrDefault();
 
             if (obj != null)
@@ -97,6 +102,8 @@ namespace Examination_PRL
                 radTxtUserName.Text = _serAcc.GetAccountById(obj.AccountId).UserName;
 
                 radCmbPermission.SelectedIndex = _lstIdPermisstion.FindIndex(x => x == _serPer.GetById(_serUser.GetUserPermissionByAccountId(obj.Id).PermissionId).Id);
+
+                radTxtUserName.Enabled = false;
             }
         }
         public void LoadDropDown()
@@ -107,6 +114,10 @@ namespace Examination_PRL
 
             foreach (var x in _serPer.GetAllPermission())
             {
+                if(x.Id == 4)
+                {
+                    continue;
+                }
                 _lstIdPermisstion.Add(x.Id);
                 radCmbPermission.Items.Add(x.Name);
             }
@@ -188,14 +199,28 @@ namespace Examination_PRL
             {
                 statuss = 1;
             }
-            if (_service.UpDateStaff(id, name, gender, date, email, phone, address, statuss))
+
+            byte permisstion = _lstIdPermisstion[radCmbPermission.SelectedIndex];
+
+            UserPermission userPer = new UserPermission()
             {
-                MessageBox.Show("Sửa Nhân Viên Thành Công");
-            }
-            else
+                Id = _serUser.GetUserPermissionByAccountId(_idWhenClick).Id,
+                PermissionId = permisstion
+            };
+
+            if(_serUser.UpdateUserPermission(userPer))
             {
-                MessageBox.Show("Sửa Nhân Viên Thất Bại");
+                if (_service.UpDateStaff(id, name, gender, date, email, phone, address, statuss))
+                {
+                    MessageBox.Show("Sửa Nhân Viên Thành Công");
+                }
+                else
+                {
+                    MessageBox.Show("Sửa Nhân Viên Thất Bại");
+                }
             }
+
+            
             LoadData();
         }
 
@@ -208,6 +233,8 @@ namespace Examination_PRL
             radTxtPhone.Text = "";
             radNam.IsChecked = true;
             radListStaff.SelectedIndex = 0;
+            radTxtUserName.Enabled = true;
+            radTxtUserName.Text = "";
         }
 
         private void rad_Staff_ContextMenuOpening(object sender, ContextMenuOpeningEventArgs e)

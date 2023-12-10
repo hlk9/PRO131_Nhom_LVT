@@ -195,12 +195,17 @@ namespace Examination_PRL.Forms
             radBtnBoy.IsChecked = true;
             radDDClassId.SelectedIndex = 0;
             radTxtId.Text = "";
+            radTxtUserName.Text = "";
+
+            radTxtUserName.Enabled = true;
         }
 
         private void examGridView_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
             _idWhenClick = examGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
             var obj = _ser.getAllStudents().Where(x => x.Id == _idWhenClick).FirstOrDefault();
+
+            radTxtUserName.Enabled = false;
 
             if (obj != null)
             {
@@ -220,6 +225,15 @@ namespace Examination_PRL.Forms
                 }
 
                 radDDClassId.SelectedIndex = _lstClass.FindIndex(x => x == obj.ClassroomId);
+                if(obj.AccountId != null)
+                {
+                    radTxtUserName.Text = _serAcc.GetAccountById(obj.AccountId).UserName;
+                }
+                else
+                {
+                    radTxtUserName.Text = "";
+                }
+                
             }
         }
 
