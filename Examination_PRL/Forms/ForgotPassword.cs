@@ -21,16 +21,20 @@ namespace Examination_PRL.Forms
         ParticipantService participantService = new ParticipantService();
         StaffService staffService = new StaffService();
         AccountServices accountServices = new AccountServices();
-
+    
         public ForgotPassword()
         {
             InitializeComponent();
-          
+
+            //uCCOjtTaUMLaBYIUQin70jJz032i+R26IIIAcgrLu+FpsyTmufTGQGIJbuUXvcCrMlkxl4o/rSNooRhrYq4G+9iNLECtWW0gQGwLQe5jpek=
+
+
         }
 
         static async Task Execute(string emailAddress, string FullName, string userName, string password)
         {
-            Environment.SetEnvironmentVariable("SENDGRID_API_KEY", "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");
+            var key = "b14ca5898a4e4133bbce2ea2315a1916";
+            Environment.SetEnvironmentVariable("SENDGRID_API_KEY", DecryptString(key, "uCCOjtTaUMLaBYIUQin70jJz032i+R26IIIAcgrLu+FpsyTmufTGQGIJbuUXvcCrMlkxl4o/rSNooRhrYq4G+9iNLECtWW0gQGwLQe5jpek="));
             var apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("hlk9@proton.me", "Testify");
@@ -70,8 +74,8 @@ namespace Examination_PRL.Forms
             return sb.ToString();
 
         }
-      
-     
+
+
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -140,9 +144,63 @@ namespace Examination_PRL.Forms
 
         }
 
+
+        public static string EncryptString(string key, string plainText)
+        {
+            byte[] iv = new byte[16];
+            byte[] array;
+
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = Encoding.UTF8.GetBytes(key);
+                aes.IV = iv;
+
+                ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
+
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, encryptor, CryptoStreamMode.Write))
+                    {
+                        using (StreamWriter streamWriter = new StreamWriter((Stream)cryptoStream))
+                        {
+                            streamWriter.Write(plainText);
+                        }
+
+                        array = memoryStream.ToArray();
+                    }
+                }
+            }
+
+            return Convert.ToBase64String(array);
+        }
+
+        public static string DecryptString(string key, string cipherText)
+        {
+            byte[] iv = new byte[16];
+            byte[] buffer = Convert.FromBase64String(cipherText);
+
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = Encoding.UTF8.GetBytes(key);
+                aes.IV = iv;
+                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+
+                using (MemoryStream memoryStream = new MemoryStream(buffer))
+                {
+                    using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, decryptor, CryptoStreamMode.Read))
+                    {
+                        using (StreamReader streamReader = new StreamReader((Stream)cryptoStream))
+                        {
+                            return streamReader.ReadToEnd();
+                        }
+                    }
+                }
+            }
+        }
+
         private void radButton2_Click(object sender, EventArgs e)
         {
-            this.Close();   
+            this.Close();
         }
     }
 }
