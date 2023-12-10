@@ -63,11 +63,11 @@ namespace Examination_PRL.Forms.Staff
             radGridViewExamDetail.Columns[5].HeaderText = "Điểm Đạt";
             radGridViewExamDetail.Columns[6].HeaderText = "Số Lần Được Làm";
             radGridViewExamDetail.Columns[7].HeaderText = "ID Exam Response";
-            radGridViewExamDetail.Columns[7].IsVisible = false;
+           // radGridViewExamDetail.Columns[7].IsVisible = false;
 
             foreach (var x in _serExam.getExam_DetailViewModelss(id))
             {
-                radGridViewExamDetail.Rows.Add(stt++, x.examDetailCode, x.duration, x.maxiumMark, x.totalQuestion, x.passMark, x.reTestNumber);
+                radGridViewExamDetail.Rows.Add(stt++, x.examDetailCode, x.duration, x.maxiumMark, x.totalQuestion, x.passMark, x.reTestNumber,x.Id);
             }
         }
 
