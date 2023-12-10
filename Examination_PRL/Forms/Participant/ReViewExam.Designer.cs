@@ -36,14 +36,14 @@
             documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            lblTotalScore = new Telerik.WinControls.UI.RadLabel();
+            radLabel2 = new Telerik.WinControls.UI.RadLabel();
             btnEx = new Telerik.WinControls.UI.RadButton();
             listViewQuestion = new Telerik.WinControls.UI.RadListView();
             btnExit = new Telerik.WinControls.UI.RadButton();
             radLabel1 = new Telerik.WinControls.UI.RadLabel();
             checkBoxComplete = new Telerik.WinControls.UI.RadCheckBox();
             btnSubmit = new Telerik.WinControls.UI.RadButton();
-            radLabel2 = new Telerik.WinControls.UI.RadLabel();
-            lblTotalScore = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)dockParent).BeginInit();
             dockParent.SuspendLayout();
             documentWindow1.SuspendLayout();
@@ -55,14 +55,14 @@
             ((System.ComponentModel.ISupportInitialize)toolTabStrip1).BeginInit();
             toolTabStrip1.SuspendLayout();
             toolWindow1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)lblTotalScore).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnEx).BeginInit();
             ((System.ComponentModel.ISupportInitialize)listViewQuestion).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnExit).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)checkBoxComplete).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnSubmit).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)lblTotalScore).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
@@ -180,6 +180,28 @@
             toolWindow1.Text = "Chi tiết";
             toolWindow1.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
+            // lblTotalScore
+            // 
+            lblTotalScore.Anchor = AnchorStyles.Top;
+            lblTotalScore.Font = new Font("Roboto", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTotalScore.ForeColor = Color.Teal;
+            lblTotalScore.Location = new Point(122, 43);
+            lblTotalScore.Name = "lblTotalScore";
+            lblTotalScore.Size = new Size(20, 27);
+            lblTotalScore.TabIndex = 4;
+            lblTotalScore.Text = "0";
+            // 
+            // radLabel2
+            // 
+            radLabel2.Anchor = AnchorStyles.Top;
+            radLabel2.Font = new Font("Roboto", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            radLabel2.ForeColor = Color.Teal;
+            radLabel2.Location = new Point(70, 3);
+            radLabel2.Name = "radLabel2";
+            radLabel2.Size = new Size(129, 34);
+            radLabel2.TabIndex = 4;
+            radLabel2.Text = "Tổng điểm";
+            // 
             // btnEx
             // 
             btnEx.Anchor = AnchorStyles.Bottom;
@@ -258,28 +280,6 @@
             btnSubmit.Text = "Nộp bài";
             btnSubmit.ThemeName = "MaterialTeal";
             // 
-            // radLabel2
-            // 
-            radLabel2.Anchor = AnchorStyles.Top;
-            radLabel2.Font = new Font("Roboto", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            radLabel2.ForeColor = Color.Teal;
-            radLabel2.Location = new Point(70, 3);
-            radLabel2.Name = "radLabel2";
-            radLabel2.Size = new Size(129, 34);
-            radLabel2.TabIndex = 4;
-            radLabel2.Text = "Tổng điểm";
-            // 
-            // lblTotalScore
-            // 
-            lblTotalScore.Anchor = AnchorStyles.Top;
-            lblTotalScore.Font = new Font("Roboto", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblTotalScore.ForeColor = Color.Teal;
-            lblTotalScore.Location = new Point(122, 43);
-            lblTotalScore.Name = "lblTotalScore";
-            lblTotalScore.Size = new Size(20, 27);
-            lblTotalScore.TabIndex = 4;
-            lblTotalScore.Text = "0";
-            // 
             // ReViewExam
             // 
             AutoScaleBaseSize = new Size(7, 15);
@@ -294,6 +294,7 @@
             RootElement.ApplyShapeToControl = true;
             Text = "ReViewExam";
             ThemeName = "MaterialTeal";
+            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)dockParent).EndInit();
             dockParent.ResumeLayout(false);
             documentWindow1.ResumeLayout(false);
@@ -306,14 +307,14 @@
             toolTabStrip1.ResumeLayout(false);
             toolWindow1.ResumeLayout(false);
             toolWindow1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)lblTotalScore).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel2).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnEx).EndInit();
             ((System.ComponentModel.ISupportInitialize)listViewQuestion).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnExit).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).EndInit();
             ((System.ComponentModel.ISupportInitialize)checkBoxComplete).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnSubmit).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)lblTotalScore).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }

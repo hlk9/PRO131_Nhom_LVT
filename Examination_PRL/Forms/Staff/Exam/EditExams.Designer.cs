@@ -240,6 +240,7 @@
             // 
             radBtnSua.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radBtnSua.BackColor = Color.Teal;
+            radBtnSua.ForeColor = Color.White;
             radBtnSua.Location = new Point(3, 466);
             radBtnSua.Name = "radBtnSua";
             radBtnSua.Size = new Size(250, 45);
@@ -252,6 +253,7 @@
             // 
             radBtnThem.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radBtnThem.BackColor = Color.Teal;
+            radBtnThem.ForeColor = Color.White;
             radBtnThem.Location = new Point(3, 415);
             radBtnThem.Name = "radBtnThem";
             radBtnThem.Size = new Size(250, 45);
