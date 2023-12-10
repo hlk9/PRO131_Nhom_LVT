@@ -42,7 +42,7 @@ namespace Examination_BUS.Services
             return _respos.GetAllByAccountId(accountId);
         }    
 
-        public bool createStudents(string id, string name, string address, string email, string phone, bool gender, byte status, DateTime dateOfBirth, string classRoomId)
+        public bool createStudents(string id, string name, string address, string email, string phone, bool gender, byte status, DateTime dateOfBirth, string classRoomId, string accountId)
         {
             var student = new Participant()
             {
@@ -54,7 +54,8 @@ namespace Examination_BUS.Services
                 Gender = gender,
                 Status = status,
                 DateOfBirth = dateOfBirth,
-                ClassroomId = classRoomId           
+                ClassroomId = classRoomId,
+                AccountId = accountId
             };
 
             return _respos.createStudents(student);
