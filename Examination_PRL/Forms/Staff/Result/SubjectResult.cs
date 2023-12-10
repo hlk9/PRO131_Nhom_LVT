@@ -80,7 +80,9 @@ namespace Examination_PRL.Forms.Staff
             {
                 sumScore += x.Score;
             }
-            radLblSumScore.Text = sumScore.ToString();
+
+            double Avg = sumScore / _serSubject.GetSubject_ViewModel(_idWhenClick).Count;
+            radLblSumScore.Text = Avg.ToString();
             loadExamSubject(_idWhenClick);
         }
 
