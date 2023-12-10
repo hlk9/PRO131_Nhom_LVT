@@ -25,11 +25,12 @@ namespace Examination_PRL.Forms
         public ForgotPassword()
         {
             InitializeComponent();
+          
         }
 
         static async Task Execute(string emailAddress, string FullName, string userName, string password)
         {
-            Environment.SetEnvironmentVariable("SENDGRID_API_KEY", "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");
+            Environment.SetEnvironmentVariable("SENDGRID_API_KEY", "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");
             var apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("hlk9@proton.me", "Testify");
@@ -69,6 +70,8 @@ namespace Examination_PRL.Forms
             return sb.ToString();
 
         }
+      
+     
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
