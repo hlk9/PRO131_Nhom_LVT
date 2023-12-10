@@ -46,6 +46,7 @@ namespace Examination_PRL.Forms.Staff.Schedule
             {
                 gridViewClass.Rows.Add(stt1++, item.Id, item.Name);
             }
+            gridViewClass.Rows.Add(stt1++, "Null", "Sinh viên chưa xếp lớp");
 
 
 
@@ -59,9 +60,29 @@ namespace Examination_PRL.Forms.Staff.Schedule
             {
                 _idClassrom = gridViewClass.Rows[e.RowIndex].Cells[1].Value.ToString();
                 lblCurrentClass.Text = gridViewClass.Rows[e.RowIndex].Cells[2].Value.ToString();
-
-                gridViewParti.Rows.Clear();
                 int stt = 1;
+
+                if (_idClassrom == "Null")
+                {
+                    gridViewParti.Rows.Clear();
+                   
+                    gridViewParti.ColumnCount = 5;
+                    gridViewParti.Columns[0].HeaderText = "STT";
+                    gridViewParti.Columns[1].HeaderText = "ID";
+                    gridViewParti.Columns[2].HeaderText = "Họ và tên";
+                    gridViewParti.Columns[3].HeaderText = "Giới tính";
+                    gridViewParti.Columns[4].HeaderText = "Ngày sinh";
+                    foreach (var item in participantService.getAllStudents().Where(x => x.ClassroomId == null))
+                    {
+                        gridViewParti.Rows.Add(stt++, item.Id, item.FullName, item.Gender == true ? "Nam" : item.Gender == null ? "Khác" : "Nữ", item.DateOfBirth);
+                    }
+                    classmateCount.Text = gridViewParti.Rows.Count.ToString();
+                    return;
+                }
+
+
+
+                gridViewParti.Rows.Clear();             
                 gridViewParti.ColumnCount = 5;
                 gridViewParti.Columns[0].HeaderText = "STT";
                 gridViewParti.Columns[1].HeaderText = "ID";
