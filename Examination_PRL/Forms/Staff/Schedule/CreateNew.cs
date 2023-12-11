@@ -89,7 +89,7 @@ namespace Examination_PRL.Forms.Staff.Schedule
             }    
             else
             {
-                MessageBox.Show("Phòng thi đã có lịch thi\nthời gian không hợp lệ");
+                MessageBox.Show("Phòng thi đã có lịch thi\nThời gian không hợp lệ");
             }
 
 
