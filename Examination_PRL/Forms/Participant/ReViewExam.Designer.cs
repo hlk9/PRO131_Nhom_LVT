@@ -36,6 +36,7 @@
             documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            lblParticipantInfo = new Telerik.WinControls.UI.RadLabel();
             lblTotalScore = new Telerik.WinControls.UI.RadLabel();
             radLabel2 = new Telerik.WinControls.UI.RadLabel();
             btnEx = new Telerik.WinControls.UI.RadButton();
@@ -55,6 +56,7 @@
             ((System.ComponentModel.ISupportInitialize)toolTabStrip1).BeginInit();
             toolTabStrip1.SuspendLayout();
             toolWindow1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)lblParticipantInfo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)lblTotalScore).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnEx).BeginInit();
@@ -164,6 +166,7 @@
             // toolWindow1
             // 
             toolWindow1.Caption = null;
+            toolWindow1.Controls.Add(lblParticipantInfo);
             toolWindow1.Controls.Add(lblTotalScore);
             toolWindow1.Controls.Add(radLabel2);
             toolWindow1.Controls.Add(btnEx);
@@ -179,6 +182,17 @@
             toolWindow1.Size = new Size(276, 633);
             toolWindow1.Text = "Chi tiết";
             toolWindow1.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
+            // 
+            // lblParticipantInfo
+            // 
+            lblParticipantInfo.Anchor = AnchorStyles.Top;
+            lblParticipantInfo.Font = new Font("Roboto", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblParticipantInfo.ForeColor = Color.Teal;
+            lblParticipantInfo.Location = new Point(3, 87);
+            lblParticipantInfo.Name = "lblParticipantInfo";
+            lblParticipantInfo.Size = new Size(20, 27);
+            lblParticipantInfo.TabIndex = 5;
+            lblParticipantInfo.Text = "0";
             // 
             // lblTotalScore
             // 
@@ -307,6 +321,7 @@
             toolTabStrip1.ResumeLayout(false);
             toolWindow1.ResumeLayout(false);
             toolWindow1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)lblParticipantInfo).EndInit();
             ((System.ComponentModel.ISupportInitialize)lblTotalScore).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel2).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnEx).EndInit();
@@ -337,5 +352,6 @@
         private Telerik.WinControls.UI.RadButton btnEx;
         private Telerik.WinControls.UI.RadLabel lblTotalScore;
         private Telerik.WinControls.UI.RadLabel radLabel2;
+        private Telerik.WinControls.UI.RadLabel lblParticipantInfo;
     }
 }

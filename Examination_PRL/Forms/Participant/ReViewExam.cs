@@ -44,9 +44,11 @@ namespace Examination_PRL.Forms.Participant
             this.examCode = examDetailServices.GetById(response.ExamDetailId).ExamDetailCode;
             GetListAnsweredQuestion(examResponseID);
             FillAllQuestion(this.examCode);
-
+            ParticipantService participantService = new ParticipantService();
+            var participant = participantService.GetOneByID(response.ParticipantId);
             lblTotalScore.Text = response.Score.ToString() + "/" + examDetailServices.GetByExamDetailCode(this.examCode).MaxiumMark;
 
+            lblParticipantInfo.Text = participant.FullName + " - " + participant.Id;
         }
 
 

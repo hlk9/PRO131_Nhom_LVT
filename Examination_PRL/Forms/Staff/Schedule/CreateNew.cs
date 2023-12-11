@@ -55,13 +55,6 @@ namespace Examination_PRL.Forms.Staff.Schedule
             }
 
 
-            if (txtDes.Text == "")
-            {
-                MessageBox.Show("Mô tả không được để trống");
-                return;
-            }
-
-
             if(txtSubject.Text=="")
             {
                 MessageBox.Show("Tên môn học không được để trống");
