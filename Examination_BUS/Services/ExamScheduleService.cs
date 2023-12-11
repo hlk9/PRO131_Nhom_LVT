@@ -28,11 +28,11 @@ namespace Examination_BUS.Services
         {
             if(end >= DateTime.Now)
             {
-                return _resExamSchedule.getAllByDateTime().Where(x => x.StartTime.Date >= start.Date && x.EndTime.Date <= DateTime.Now.Date).ToList();
+                return _resExamSchedule.getAllByDateTime().Where(x => x.StartTime.Date >= start.Date && x.EndTime <= DateTime.Now).ToList();
             }
             else
             {
-                return _resExamSchedule.getAllByDateTime().Where(x => x.StartTime.Date >= start.Date && x.EndTime.Date <= end.Date).ToList();
+                return _resExamSchedule.getAllByDateTime().Where(x => x.StartTime.Date >= start.Date && x.EndTime <= end).ToList();
             }
         }       
     }
