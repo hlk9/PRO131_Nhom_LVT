@@ -41,16 +41,53 @@ namespace Examination_PRL.Forms.Staff.Schedule
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
+            if(txtName.Text=="")
+            {
+                MessageBox.Show("Tên lịch thi không được để trống");
+                return;
+            }
+
+
+            if (txtSubject.Text == "")
+            {
+                MessageBox.Show("Tên môn học không được để trống");
+                return;
+            }
+
+
+            if (txtDes.Text == "")
+            {
+                MessageBox.Show("Mô tả không được để trống");
+                return;
+            }
+
+
+            if(txtSubject.Text=="")
+            {
+                MessageBox.Show("Tên môn học không được để trống");
+                return;
+            }
+            if(txtExamID.Text=="")
+            {
+                MessageBox.Show("Hãy chọn bài thi");
+                return;
+            }
+
+
+
+
             if (dateStart.Value.Date < DateTime.Now.Date)
             {
                 MessageBox.Show("Ngày bắt đầu không được nhỏ hơn ngày hiện tại");
                 dateStart.Value = DateTime.Now;
+                return;
             }
 
             if (dateStart.Value > dateEnd.Value)
             {
                 MessageBox.Show("Ngày bắt đầu không được lớn hơn ngày kết thúc");
                 dateStart.Value = DateTime.Now;
+                return;
             }
 
 
