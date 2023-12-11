@@ -74,7 +74,7 @@ namespace Examination_PRL.Forms.Staff
                 }
             }
             catch { }
-            
+
             byte trangthai = 1;
 
             if (rb_Off.IsChecked)
@@ -117,6 +117,11 @@ namespace Examination_PRL.Forms.Staff
             tbt_IDSubject.Text = "";
             tbt_Subject.Text = "";
             tbt_IDSubject.Enabled = true;
+        }
+
+        private void toolWindow2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition5 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition6 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition7 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition8 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition9 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition10 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition11 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition12 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition13 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition14 = new Telerik.WinControls.UI.TableViewDefinition();
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             radDock1 = new Telerik.WinControls.UI.Docking.RadDock();
             documentContainer1 = new Telerik.WinControls.UI.Docking.DocumentContainer();
@@ -45,7 +45,13 @@
             radGridView5 = new Telerik.WinControls.UI.RadGridView();
             radGridView6 = new Telerik.WinControls.UI.RadGridView();
             radDock2 = new Telerik.WinControls.UI.Docking.RadDock();
+            toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            dtg_Show = new Telerik.WinControls.UI.RadGridView();
+            documentContainer2 = new Telerik.WinControls.UI.Docking.DocumentContainer();
+            documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
+            toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             toolWindow2 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            radBtnClear = new Telerik.WinControls.UI.RadButton();
             rb_Off = new Telerik.WinControls.UI.RadRadioButton();
             rb_Onl = new Telerik.WinControls.UI.RadRadioButton();
             tbt_IDSubject = new Telerik.WinControls.UI.RadTextBox();
@@ -55,12 +61,6 @@
             btn_Edit = new Telerik.WinControls.UI.RadButton();
             btn_Add = new Telerik.WinControls.UI.RadButton();
             radLabel2 = new Telerik.WinControls.UI.RadLabel();
-            documentContainer2 = new Telerik.WinControls.UI.Docking.DocumentContainer();
-            documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
-            toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
-            dtg_Show = new Telerik.WinControls.UI.RadGridView();
-            toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
-            radBtnClear = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)radDock1).BeginInit();
             radDock1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)documentContainer1).BeginInit();
@@ -78,7 +78,17 @@
             ((System.ComponentModel.ISupportInitialize)radGridView6.MasterTemplate).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radDock2).BeginInit();
             radDock2.SuspendLayout();
+            toolWindow1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dtg_Show).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtg_Show.MasterTemplate).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)documentContainer2).BeginInit();
+            documentContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)documentTabStrip1).BeginInit();
+            documentTabStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)toolTabStrip1).BeginInit();
+            toolTabStrip1.SuspendLayout();
             toolWindow2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)radBtnClear).BeginInit();
             ((System.ComponentModel.ISupportInitialize)rb_Off).BeginInit();
             ((System.ComponentModel.ISupportInitialize)rb_Onl).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tbt_IDSubject).BeginInit();
@@ -88,16 +98,6 @@
             ((System.ComponentModel.ISupportInitialize)btn_Edit).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btn_Add).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)documentContainer2).BeginInit();
-            documentContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)documentTabStrip1).BeginInit();
-            documentTabStrip1.SuspendLayout();
-            toolWindow1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dtg_Show).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dtg_Show.MasterTemplate).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)toolTabStrip1).BeginInit();
-            toolTabStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)radBtnClear).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
@@ -137,7 +137,7 @@
             // 
             // 
             // 
-            radGridView1.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            radGridView1.MasterTemplate.ViewDefinition = tableViewDefinition8;
             radGridView1.Name = "radGridView1";
             radGridView1.Size = new Size(375, 234);
             radGridView1.TabIndex = 0;
@@ -148,7 +148,7 @@
             // 
             // 
             // 
-            radGridView2.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            radGridView2.MasterTemplate.ViewDefinition = tableViewDefinition9;
             radGridView2.Name = "radGridView2";
             radGridView2.Size = new Size(375, 234);
             radGridView2.TabIndex = 0;
@@ -159,7 +159,7 @@
             // 
             // 
             // 
-            radGridView3.MasterTemplate.ViewDefinition = tableViewDefinition3;
+            radGridView3.MasterTemplate.ViewDefinition = tableViewDefinition10;
             radGridView3.Name = "radGridView3";
             radGridView3.Size = new Size(375, 234);
             radGridView3.TabIndex = 0;
@@ -170,7 +170,7 @@
             // 
             // 
             // 
-            radGridView4.MasterTemplate.ViewDefinition = tableViewDefinition4;
+            radGridView4.MasterTemplate.ViewDefinition = tableViewDefinition11;
             radGridView4.Name = "radGridView4";
             radGridView4.Size = new Size(375, 234);
             radGridView4.TabIndex = 0;
@@ -181,7 +181,7 @@
             // 
             // 
             // 
-            radGridView5.MasterTemplate.ViewDefinition = tableViewDefinition5;
+            radGridView5.MasterTemplate.ViewDefinition = tableViewDefinition12;
             radGridView5.Name = "radGridView5";
             radGridView5.Size = new Size(375, 234);
             radGridView5.TabIndex = 0;
@@ -192,7 +192,7 @@
             // 
             // 
             // 
-            radGridView6.MasterTemplate.ViewDefinition = tableViewDefinition6;
+            radGridView6.MasterTemplate.ViewDefinition = tableViewDefinition13;
             radGridView6.Name = "radGridView6";
             radGridView6.Size = new Size(375, 234);
             radGridView6.TabIndex = 0;
@@ -220,128 +220,33 @@
             radDock2.TabStop = false;
             radDock2.ThemeName = "MaterialTeal";
             // 
-            // toolWindow2
+            // toolWindow1
             // 
-            toolWindow2.Caption = null;
-            toolWindow2.Controls.Add(radBtnClear);
-            toolWindow2.Controls.Add(rb_Off);
-            toolWindow2.Controls.Add(rb_Onl);
-            toolWindow2.Controls.Add(tbt_IDSubject);
-            toolWindow2.Controls.Add(radLabel3);
-            toolWindow2.Controls.Add(tbt_Subject);
-            toolWindow2.Controls.Add(radLabel1);
-            toolWindow2.Controls.Add(btn_Edit);
-            toolWindow2.Controls.Add(btn_Add);
-            toolWindow2.Controls.Add(radLabel2);
-            toolWindow2.DocumentButtons = Telerik.WinControls.UI.Docking.DocumentStripButtons.None;
-            toolWindow2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            toolWindow2.Location = new Point(4, 39);
-            toolWindow2.Margin = new Padding(4, 3, 4, 3);
-            toolWindow2.Name = "toolWindow2";
-            toolWindow2.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Hidden;
-            toolWindow2.Size = new Size(286, 400);
-            toolWindow2.Text = "Thông tin chi tiết";
-            toolWindow2.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
+            toolWindow1.Caption = null;
+            toolWindow1.Controls.Add(dtg_Show);
+            toolWindow1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            toolWindow1.Location = new Point(4, 4);
+            toolWindow1.Margin = new Padding(4);
+            toolWindow1.Name = "toolWindow1";
+            toolWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
+            toolWindow1.Size = new Size(403, 434);
+            toolWindow1.Text = "toolWindow2";
             // 
-            // rb_Off
+            // dtg_Show
             // 
-            rb_Off.Location = new Point(121, 152);
-            rb_Off.Margin = new Padding(3, 2, 3, 2);
-            rb_Off.Name = "rb_Off";
-            rb_Off.Size = new Size(106, 17);
-            rb_Off.TabIndex = 5;
-            rb_Off.Text = "Không hoạt động";
-            rb_Off.ThemeName = "MaterialTeal";
+            dtg_Show.Dock = DockStyle.Fill;
+            dtg_Show.Location = new Point(0, 0);
+            dtg_Show.Margin = new Padding(3, 2, 3, 2);
             // 
-            // rb_Onl
             // 
-            rb_Onl.Location = new Point(10, 152);
-            rb_Onl.Margin = new Padding(3, 2, 3, 2);
-            rb_Onl.Name = "rb_Onl";
-            rb_Onl.Size = new Size(74, 17);
-            rb_Onl.TabIndex = 5;
-            rb_Onl.Text = "Hoạt động";
-            rb_Onl.ThemeName = "MaterialTeal";
             // 
-            // tbt_IDSubject
-            // 
-            tbt_IDSubject.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tbt_IDSubject.Location = new Point(3, 21);
-            tbt_IDSubject.Margin = new Padding(3, 2, 3, 2);
-            tbt_IDSubject.Name = "tbt_IDSubject";
-            tbt_IDSubject.Size = new Size(281, 29);
-            tbt_IDSubject.TabIndex = 0;
-            tbt_IDSubject.ThemeName = "MaterialTeal";
-            // 
-            // radLabel3
-            // 
-            radLabel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            radLabel3.Location = new Point(3, 2);
-            radLabel3.Margin = new Padding(3, 2, 3, 2);
-            radLabel3.Name = "radLabel3";
-            radLabel3.Size = new Size(92, 16);
-            radLabel3.TabIndex = 1;
-            radLabel3.Text = "Nhập ID Môn học:";
-            radLabel3.ThemeName = "MaterialTeal";
-            // 
-            // tbt_Subject
-            // 
-            tbt_Subject.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tbt_Subject.Location = new Point(3, 85);
-            tbt_Subject.Margin = new Padding(3, 2, 3, 2);
-            tbt_Subject.Name = "tbt_Subject";
-            tbt_Subject.Size = new Size(281, 29);
-            tbt_Subject.TabIndex = 0;
-            tbt_Subject.ThemeName = "MaterialTeal";
-            // 
-            // radLabel1
-            // 
-            radLabel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            radLabel1.Location = new Point(0, 66);
-            radLabel1.Margin = new Padding(3, 2, 3, 2);
-            radLabel1.Name = "radLabel1";
-            radLabel1.Size = new Size(79, 16);
-            radLabel1.TabIndex = 1;
-            radLabel1.Text = "Nhập môn học:";
-            radLabel1.ThemeName = "MaterialTeal";
-            // 
-            // btn_Edit
-            // 
-            btn_Edit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btn_Edit.BackColor = Color.Teal;
-            btn_Edit.ForeColor = Color.White;
-            btn_Edit.Location = new Point(4, 330);
-            btn_Edit.Margin = new Padding(3, 2, 3, 2);
-            btn_Edit.Name = "btn_Edit";
-            btn_Edit.Size = new Size(281, 28);
-            btn_Edit.TabIndex = 2;
-            btn_Edit.Text = "Sửa";
-            btn_Edit.ThemeName = "MaterialTeal";
-            btn_Edit.Click += btn_Edit_Click;
-            // 
-            // btn_Add
-            // 
-            btn_Add.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            btn_Add.BackColor = Color.Teal;
-            btn_Add.ForeColor = Color.White;
-            btn_Add.Location = new Point(3, 297);
-            btn_Add.Margin = new Padding(3, 2, 3, 2);
-            btn_Add.Name = "btn_Add";
-            btn_Add.Size = new Size(281, 28);
-            btn_Add.TabIndex = 2;
-            btn_Add.Text = "Thêm";
-            btn_Add.ThemeName = "MaterialTeal";
-            btn_Add.Click += btn_Add_Click;
-            // 
-            // radLabel2
-            // 
-            radLabel2.Location = new Point(4, 132);
-            radLabel2.Margin = new Padding(3, 2, 3, 2);
-            radLabel2.Name = "radLabel2";
-            radLabel2.Size = new Size(58, 16);
-            radLabel2.TabIndex = 1;
-            radLabel2.Text = "Trạng thái:";
-            radLabel2.ThemeName = "MaterialTeal";
+            dtg_Show.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            dtg_Show.MasterTemplate.ViewDefinition = tableViewDefinition14;
+            dtg_Show.Name = "dtg_Show";
+            dtg_Show.Size = new Size(403, 434);
+            dtg_Show.TabIndex = 0;
+            dtg_Show.ThemeName = "MaterialTeal";
+            dtg_Show.CellClick += dtg_Show_CellClick;
             // 
             // documentContainer2
             // 
@@ -377,34 +282,6 @@
             documentTabStrip1.TabStripVisible = false;
             documentTabStrip1.ThemeName = "MaterialTeal";
             // 
-            // toolWindow1
-            // 
-            toolWindow1.Caption = null;
-            toolWindow1.Controls.Add(dtg_Show);
-            toolWindow1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            toolWindow1.Location = new Point(4, 3);
-            toolWindow1.Margin = new Padding(4, 4, 4, 4);
-            toolWindow1.Name = "toolWindow1";
-            toolWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            toolWindow1.Size = new Size(403, 436);
-            toolWindow1.Text = "toolWindow2";
-            // 
-            // dtg_Show
-            // 
-            dtg_Show.Dock = DockStyle.Fill;
-            dtg_Show.Location = new Point(0, 0);
-            dtg_Show.Margin = new Padding(3, 2, 3, 2);
-            // 
-            // 
-            // 
-            dtg_Show.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            dtg_Show.MasterTemplate.ViewDefinition = tableViewDefinition7;
-            dtg_Show.Name = "dtg_Show";
-            dtg_Show.Size = new Size(403, 436);
-            dtg_Show.TabIndex = 0;
-            dtg_Show.ThemeName = "MaterialTeal";
-            dtg_Show.CellClick += dtg_Show_CellClick;
-            // 
             // toolTabStrip1
             // 
             toolTabStrip1.CanUpdateChildIndex = true;
@@ -425,19 +302,143 @@
             toolTabStrip1.Text = "Thông tin chi tiết";
             toolTabStrip1.ThemeName = "MaterialTeal";
             // 
+            // toolWindow2
+            // 
+            toolWindow2.Caption = null;
+            toolWindow2.Controls.Add(radBtnClear);
+            toolWindow2.Controls.Add(rb_Off);
+            toolWindow2.Controls.Add(rb_Onl);
+            toolWindow2.Controls.Add(tbt_IDSubject);
+            toolWindow2.Controls.Add(radLabel3);
+            toolWindow2.Controls.Add(tbt_Subject);
+            toolWindow2.Controls.Add(radLabel1);
+            toolWindow2.Controls.Add(btn_Edit);
+            toolWindow2.Controls.Add(btn_Add);
+            toolWindow2.Controls.Add(radLabel2);
+            toolWindow2.DocumentButtons = Telerik.WinControls.UI.Docking.DocumentStripButtons.None;
+            toolWindow2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            toolWindow2.Location = new Point(4, 52);
+            toolWindow2.Margin = new Padding(4, 3, 4, 3);
+            toolWindow2.Name = "toolWindow2";
+            toolWindow2.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Hidden;
+            toolWindow2.Size = new Size(286, 386);
+            toolWindow2.Text = "Thông tin chi tiết";
+            toolWindow2.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
+            toolWindow2.Click += toolWindow2_Click;
+            // 
             // radBtnClear
             // 
             radBtnClear.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             radBtnClear.BackColor = Color.Teal;
             radBtnClear.ForeColor = Color.White;
-            radBtnClear.Location = new Point(4, 362);
+            radBtnClear.Location = new Point(5, 348);
             radBtnClear.Margin = new Padding(3, 2, 3, 2);
             radBtnClear.Name = "radBtnClear";
-            radBtnClear.Size = new Size(281, 29);
+            radBtnClear.Size = new Size(281, 36);
             radBtnClear.TabIndex = 3;
             radBtnClear.Text = "Clear";
             radBtnClear.ThemeName = "MaterialTeal";
             radBtnClear.Click += radBtnClear_Click;
+            // 
+            // rb_Off
+            // 
+            rb_Off.Location = new Point(121, 152);
+            rb_Off.Margin = new Padding(3, 2, 3, 2);
+            rb_Off.Name = "rb_Off";
+            rb_Off.Size = new Size(136, 22);
+            rb_Off.TabIndex = 5;
+            rb_Off.Text = "Không hoạt động";
+            rb_Off.ThemeName = "MaterialTeal";
+            // 
+            // rb_Onl
+            // 
+            rb_Onl.Location = new Point(10, 152);
+            rb_Onl.Margin = new Padding(3, 2, 3, 2);
+            rb_Onl.Name = "rb_Onl";
+            rb_Onl.Size = new Size(94, 22);
+            rb_Onl.TabIndex = 5;
+            rb_Onl.Text = "Hoạt động";
+            rb_Onl.ThemeName = "MaterialTeal";
+            // 
+            // tbt_IDSubject
+            // 
+            tbt_IDSubject.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tbt_IDSubject.Location = new Point(3, 21);
+            tbt_IDSubject.Margin = new Padding(3, 2, 3, 2);
+            tbt_IDSubject.Name = "tbt_IDSubject";
+            tbt_IDSubject.Size = new Size(281, 37);
+            tbt_IDSubject.TabIndex = 0;
+            tbt_IDSubject.ThemeName = "MaterialTeal";
+            // 
+            // radLabel3
+            // 
+            radLabel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radLabel3.Location = new Point(3, 2);
+            radLabel3.Margin = new Padding(3, 2, 3, 2);
+            radLabel3.Name = "radLabel3";
+            radLabel3.Size = new Size(122, 21);
+            radLabel3.TabIndex = 1;
+            radLabel3.Text = "Nhập ID Môn học:";
+            radLabel3.ThemeName = "MaterialTeal";
+            // 
+            // tbt_Subject
+            // 
+            tbt_Subject.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tbt_Subject.Location = new Point(3, 85);
+            tbt_Subject.Margin = new Padding(3, 2, 3, 2);
+            tbt_Subject.Name = "tbt_Subject";
+            tbt_Subject.Size = new Size(281, 37);
+            tbt_Subject.TabIndex = 0;
+            tbt_Subject.ThemeName = "MaterialTeal";
+            // 
+            // radLabel1
+            // 
+            radLabel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radLabel1.Location = new Point(0, 66);
+            radLabel1.Margin = new Padding(3, 2, 3, 2);
+            radLabel1.Name = "radLabel1";
+            radLabel1.Size = new Size(105, 21);
+            radLabel1.TabIndex = 1;
+            radLabel1.Text = "Nhập môn học:";
+            radLabel1.ThemeName = "MaterialTeal";
+            // 
+            // btn_Edit
+            // 
+            btn_Edit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btn_Edit.BackColor = Color.Teal;
+            btn_Edit.ForeColor = Color.White;
+            btn_Edit.Location = new Point(5, 308);
+            btn_Edit.Margin = new Padding(3, 2, 3, 2);
+            btn_Edit.Name = "btn_Edit";
+            btn_Edit.Size = new Size(281, 36);
+            btn_Edit.TabIndex = 2;
+            btn_Edit.Text = "Sửa";
+            btn_Edit.ThemeName = "MaterialTeal";
+            btn_Edit.Click += btn_Edit_Click;
+            // 
+            // btn_Add
+            // 
+            btn_Add.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btn_Add.BackColor = Color.Teal;
+            btn_Add.ForeColor = Color.White;
+            btn_Add.Location = new Point(5, 268);
+            btn_Add.Margin = new Padding(3, 2, 3, 2);
+            btn_Add.Name = "btn_Add";
+            btn_Add.Size = new Size(281, 36);
+            btn_Add.TabIndex = 2;
+            btn_Add.Text = "Thêm";
+            btn_Add.ThemeName = "MaterialTeal";
+            btn_Add.Click += btn_Add_Click;
+            // 
+            // radLabel2
+            // 
+            radLabel2.Location = new Point(4, 132);
+            radLabel2.Margin = new Padding(3, 2, 3, 2);
+            radLabel2.Name = "radLabel2";
+            radLabel2.Size = new Size(77, 21);
+            radLabel2.TabIndex = 1;
+            radLabel2.Text = "Trạng thái:";
+            radLabel2.ThemeName = "MaterialTeal";
             // 
             // Subject
             // 
@@ -472,8 +473,18 @@
             ((System.ComponentModel.ISupportInitialize)radGridView6).EndInit();
             ((System.ComponentModel.ISupportInitialize)radDock2).EndInit();
             radDock2.ResumeLayout(false);
+            toolWindow1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dtg_Show.MasterTemplate).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtg_Show).EndInit();
+            ((System.ComponentModel.ISupportInitialize)documentContainer2).EndInit();
+            documentContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)documentTabStrip1).EndInit();
+            documentTabStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)toolTabStrip1).EndInit();
+            toolTabStrip1.ResumeLayout(false);
             toolWindow2.ResumeLayout(false);
             toolWindow2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)radBtnClear).EndInit();
             ((System.ComponentModel.ISupportInitialize)rb_Off).EndInit();
             ((System.ComponentModel.ISupportInitialize)rb_Onl).EndInit();
             ((System.ComponentModel.ISupportInitialize)tbt_IDSubject).EndInit();
@@ -483,16 +494,6 @@
             ((System.ComponentModel.ISupportInitialize)btn_Edit).EndInit();
             ((System.ComponentModel.ISupportInitialize)btn_Add).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)documentContainer2).EndInit();
-            documentContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)documentTabStrip1).EndInit();
-            documentTabStrip1.ResumeLayout(false);
-            toolWindow1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dtg_Show.MasterTemplate).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dtg_Show).EndInit();
-            ((System.ComponentModel.ISupportInitialize)toolTabStrip1).EndInit();
-            toolTabStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)radBtnClear).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }
