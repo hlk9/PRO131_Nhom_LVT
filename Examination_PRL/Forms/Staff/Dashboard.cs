@@ -101,6 +101,7 @@ namespace Examination_PRL.Forms.Staff
             Bitmap bitMapExamIcon = new Bitmap(Properties.Resources.exam);
             Image examIcon = bitMapExamIcon;
             examPage.Image = examIcon;
+          
 
 
             Exam_Overview exam_Overview = new Exam_Overview();
@@ -126,7 +127,7 @@ namespace Examination_PRL.Forms.Staff
 
 
             RadPageViewPage addExamPage = new RadPageViewPage("Thêm đề thi");
-            AddExam addExam = new AddExam();
+            AddExam addExam = new AddExam(usrAccount);
             addExam.TopLevel = false;
             addExamPage.Controls.Add(addExam);
             addExam.Show();
@@ -453,7 +454,10 @@ namespace Examination_PRL.Forms.Staff
                         break;
                     case "Home":
                         (form as Examination_PRL.Forms.Staff.Home.Home).LoadData();
-                        break;                    
+                        break;
+                    case "exam_OverviewForm":
+                        (form as Exam_Overview).LoadData();
+                        break;
                     default:
                         break;
                 }

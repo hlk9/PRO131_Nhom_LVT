@@ -89,27 +89,33 @@
             radTxtPassCu.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radTxtPassCu.Location = new Point(12, 113);
             radTxtPassCu.Name = "radTxtPassCu";
+            radTxtPassCu.PasswordChar = '●';
             radTxtPassCu.Size = new Size(346, 37);
             radTxtPassCu.TabIndex = 3;
             radTxtPassCu.ThemeName = "MaterialTeal";
+            radTxtPassCu.UseSystemPasswordChar = true;
             // 
             // radTxtPassMoi
             // 
             radTxtPassMoi.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radTxtPassMoi.Location = new Point(12, 201);
             radTxtPassMoi.Name = "radTxtPassMoi";
+            radTxtPassMoi.PasswordChar = '●';
             radTxtPassMoi.Size = new Size(346, 37);
             radTxtPassMoi.TabIndex = 4;
             radTxtPassMoi.ThemeName = "MaterialTeal";
+            radTxtPassMoi.UseSystemPasswordChar = true;
             // 
             // radTxtPassMoiNL
             // 
             radTxtPassMoiNL.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radTxtPassMoiNL.Location = new Point(12, 290);
             radTxtPassMoiNL.Name = "radTxtPassMoiNL";
+            radTxtPassMoiNL.PasswordChar = '●';
             radTxtPassMoiNL.Size = new Size(346, 37);
             radTxtPassMoiNL.TabIndex = 4;
             radTxtPassMoiNL.ThemeName = "MaterialTeal";
+            radTxtPassMoiNL.UseSystemPasswordChar = true;
             // 
             // radLabel4
             // 

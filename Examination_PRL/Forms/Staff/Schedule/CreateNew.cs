@@ -77,12 +77,21 @@ namespace Examination_PRL.Forms.Staff.Schedule
             examSchedule.ExamId = Convert.ToInt32(txtExamID.Text);
             examSchedule.Subject = txtSubject.Text;
 
-            if (scheduleServices.AddSchedule(examSchedule) == true)
-                MessageBox.Show("Thêm thành công");
-            else
-                MessageBox.Show("Thêm thất bại");
+            if(ScheduleExist(examSchedule)==false)
+            {
 
-            OnDataAdded(EventArgs.Empty);
+                if (scheduleServices.AddSchedule(examSchedule) == true)
+                    MessageBox.Show("Thêm thành công");
+                else
+                    MessageBox.Show("Thêm thất bại");
+
+                OnDataAdded(EventArgs.Empty);
+            }    
+            else
+            {
+                MessageBox.Show("Phòng thi đã có lịch thi\nThời gian không hợp lệ");
+            }
+
 
         }
 
@@ -119,5 +128,30 @@ namespace Examination_PRL.Forms.Staff.Schedule
 
 
         }
+
+        bool ScheduleExist(ExamSchedule examSchedule)
+        {
+            var list = scheduleServices.GetAllSchedule().Where(x=>x.EndTime>=DateTime.Now).ToList();
+            foreach (var item in list)
+            {
+                if (item.ExamRoomId == examSchedule.ExamRoomId)
+                {
+                    if (item.StartTime <= examSchedule.StartTime && item.EndTime >= examSchedule.StartTime)
+                    {
+                        return true;
+                    }
+                    if (item.StartTime <= examSchedule.EndTime && item.EndTime >= examSchedule.EndTime)
+                    {
+                        return true;
+                    }
+                    if (item.StartTime >= examSchedule.StartTime && item.EndTime <= examSchedule.EndTime)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
     }
 }

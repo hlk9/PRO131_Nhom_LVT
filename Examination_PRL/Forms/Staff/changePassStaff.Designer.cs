@@ -54,7 +54,7 @@
             radBtnChange.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             radBtnChange.BackColor = Color.Teal;
             radBtnChange.ForeColor = Color.White;
-            radBtnChange.Location = new Point(236, 397);
+            radBtnChange.Location = new Point(238, 434);
             radBtnChange.Name = "radBtnChange";
             radBtnChange.Size = new Size(122, 42);
             radBtnChange.TabIndex = 14;
@@ -69,7 +69,7 @@
             radLabel4.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             radLabel4.Location = new Point(12, 254);
             radLabel4.Name = "radLabel4";
-            radLabel4.Size = new Size(346, 30);
+            radLabel4.Size = new Size(348, 30);
             radLabel4.TabIndex = 10;
             radLabel4.Text = "Nhập lại mật khẩu mới:";
             // 
@@ -78,27 +78,33 @@
             radTxtPassMoiNL.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radTxtPassMoiNL.Location = new Point(12, 290);
             radTxtPassMoiNL.Name = "radTxtPassMoiNL";
-            radTxtPassMoiNL.Size = new Size(346, 37);
+            radTxtPassMoiNL.PasswordChar = '●';
+            radTxtPassMoiNL.Size = new Size(348, 37);
             radTxtPassMoiNL.TabIndex = 12;
             radTxtPassMoiNL.ThemeName = "MaterialTeal";
+            radTxtPassMoiNL.UseSystemPasswordChar = true;
             // 
             // radTxtPassMoi
             // 
             radTxtPassMoi.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radTxtPassMoi.Location = new Point(12, 201);
             radTxtPassMoi.Name = "radTxtPassMoi";
-            radTxtPassMoi.Size = new Size(346, 37);
+            radTxtPassMoi.PasswordChar = '●';
+            radTxtPassMoi.Size = new Size(348, 37);
             radTxtPassMoi.TabIndex = 13;
             radTxtPassMoi.ThemeName = "MaterialTeal";
+            radTxtPassMoi.UseSystemPasswordChar = true;
             // 
             // radTxtPassCu
             // 
             radTxtPassCu.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             radTxtPassCu.Location = new Point(12, 113);
             radTxtPassCu.Name = "radTxtPassCu";
-            radTxtPassCu.Size = new Size(346, 37);
+            radTxtPassCu.PasswordChar = '●';
+            radTxtPassCu.Size = new Size(348, 37);
             radTxtPassCu.TabIndex = 11;
             radTxtPassCu.ThemeName = "MaterialTeal";
+            radTxtPassCu.UseSystemPasswordChar = true;
             // 
             // radLabel3
             // 
@@ -107,7 +113,7 @@
             radLabel3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             radLabel3.Location = new Point(12, 165);
             radLabel3.Name = "radLabel3";
-            radLabel3.Size = new Size(346, 30);
+            radLabel3.Size = new Size(348, 30);
             radLabel3.TabIndex = 9;
             radLabel3.Text = "Mật khẩu mới:";
             // 
@@ -118,7 +124,7 @@
             radLabel2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             radLabel2.Location = new Point(12, 77);
             radLabel2.Name = "radLabel2";
-            radLabel2.Size = new Size(346, 30);
+            radLabel2.Size = new Size(348, 30);
             radLabel2.TabIndex = 8;
             radLabel2.Text = "Mật khẩu cũ:";
             // 
@@ -129,7 +135,7 @@
             radLabel1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             radLabel1.Location = new Point(12, 12);
             radLabel1.Name = "radLabel1";
-            radLabel1.Size = new Size(346, 42);
+            radLabel1.Size = new Size(348, 42);
             radLabel1.TabIndex = 7;
             radLabel1.Text = "Đổi Mật Khẩu";
             radLabel1.TextAlignment = ContentAlignment.MiddleCenter;
@@ -139,7 +145,7 @@
             AutoScaleBaseSize = new Size(7, 15);
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(370, 451);
+            ClientSize = new Size(372, 488);
             Controls.Add(radBtnChange);
             Controls.Add(radLabel4);
             Controls.Add(radTxtPassMoiNL);
@@ -148,6 +154,7 @@
             Controls.Add(radLabel3);
             Controls.Add(radLabel2);
             Controls.Add(radLabel1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "changePassStaff";
             // 
             // 

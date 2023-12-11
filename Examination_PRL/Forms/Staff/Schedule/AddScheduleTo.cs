@@ -158,6 +158,12 @@ namespace Examination_PRL.Forms.Staff.Schedule
                 ParticipantId = _idParticipant,
                 ExamScheduleId = _idSchedule
             };
+            if (CheckExist(scheduleDetail) == true)
+            {
+               MessageBox.Show("Sinh viên đã có trong danh sách");
+                return;
+            }
+
             if (scheduleDetailServices.AddScheduleDetail(scheduleDetail) == true)
             {
                 MessageBox.Show("Thêm thành công");

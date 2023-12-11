@@ -62,7 +62,7 @@ namespace Examination_PRL.Forms.Staff
                 return;
             }
 
-            if(passMoi == passCu || passMoiNL == passCu)
+            if (passMoi == passCu || passMoiNL == passCu)
             {
                 MessageBox.Show("Mật khẩu mới không được trong với mật khẩu cũ.");
                 return;

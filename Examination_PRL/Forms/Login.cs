@@ -18,8 +18,7 @@ namespace Examination_PRL.Forms
 {
     public partial class Login : Telerik.WinControls.UI.RadForm
     {
-        UserPermissionServices userPermissionServices = new UserPermissionServices();
-        AccountServices accountServices = new AccountServices();
+       
         public Login()
         {
             InitializeComponent();
@@ -40,6 +39,8 @@ namespace Examination_PRL.Forms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            UserPermissionServices userPermissionServices = new UserPermissionServices();
+            AccountServices accountServices = new AccountServices();
             //var a = HashPassword(txtPassword.Text);
             //MessageBox.Show(HashPassword(txtPassword.Text));
             if (txtPassword.Text == "" || txtUserName.Text == "")
@@ -92,6 +93,8 @@ namespace Examination_PRL.Forms
         private void Dashboard_FormClosed(object? sender, FormClosedEventArgs e)
         {
             this.Show();
+            txtPassword.Text = "";
+            txtUserName.Text = "";
             //Application.Exit();
         }
 
