@@ -50,9 +50,16 @@ namespace Examination_PRL.Forms.Staff.QuestionForm
                 questionGridView.Columns[i].TextAlignment = ContentAlignment.MiddleCenter;
             }
 
-            questionGridView.CurrentRow = questionGridView.Rows[0];
+          try
+            {
+                questionGridView.CurrentRow = questionGridView.Rows[0];
 
-            lblTotal.Text = questionGridView.Rows.Count.ToString();
+                lblTotal.Text = questionGridView.Rows.Count.ToString();
+            }
+            catch
+            {
+
+            }
         }
 
         private void btnImport_Click(object sender, EventArgs e)

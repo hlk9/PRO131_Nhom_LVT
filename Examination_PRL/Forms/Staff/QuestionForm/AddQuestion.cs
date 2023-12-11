@@ -40,7 +40,6 @@ namespace Examination_PRL.Forms.Staff.QuestionForm
         public void ImportFileQuestion(string path)
         {
 
-
             ExcelPackage package = new ExcelPackage(new FileInfo(path));
             ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
             ExcelWorksheet worksheetQuestion = package.Workbook.Worksheets[0];

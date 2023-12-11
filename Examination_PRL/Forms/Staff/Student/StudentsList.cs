@@ -54,7 +54,14 @@ namespace Examination_PRL.Forms.Staff
                 examGridView.Columns[i].TextAlignment = ContentAlignment.MiddleCenter;
             }
 
-            examGridView.CurrentRow = examGridView.Rows[0];
+           try
+            {
+                examGridView.CurrentRow = examGridView.Rows[0];
+            }
+            catch
+            {
+
+            }
 
         }
 

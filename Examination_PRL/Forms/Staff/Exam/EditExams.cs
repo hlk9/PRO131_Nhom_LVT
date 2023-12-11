@@ -42,7 +42,18 @@ namespace Examination_PRL.Forms
             {
                 radGrid_ExamEdit.Rows.Add(stt++, item.Id, item.ExamCode, item.SubjectId, item.Name);
             }
+
+            try
+
+            {
             radGrid_ExamEdit.CurrentRow = radGrid_ExamEdit.Rows[0];
+
+            }
+            catch
+            {
+
+            }
+
         }
         public void LoadCMB()
         {
