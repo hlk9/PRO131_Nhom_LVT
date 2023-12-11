@@ -149,7 +149,7 @@ namespace Examination_PRL.Forms.Staff
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            var examDetail = examDetailServices.GetById(Convert.ToInt32(curentExamDetailCode));
+            var examDetail = examDetailServices.GetByCode(curentExamDetailCode);
            examDetail.Status = false;
             if (examDetail != null)
             {

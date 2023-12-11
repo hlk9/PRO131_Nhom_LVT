@@ -159,7 +159,7 @@ namespace Examination_PRL
                 }
             }
             catch { }
-            
+
 
             string name = radTxtFullName.Text;
             bool gender = radNam.IsChecked;
@@ -286,6 +286,11 @@ namespace Examination_PRL
             }
 
             LoadData();
+        }
+
+        private void radTxtID_TextChanged(object sender, EventArgs e)
+        {
+            radTxtUserName.Text = radTxtID.Text;
         }
     }
 }
