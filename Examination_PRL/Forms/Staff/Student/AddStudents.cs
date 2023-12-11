@@ -119,7 +119,7 @@ namespace Examination_PRL.Forms
                 }
             }
             catch { }
-            
+
 
             string name = radTxtName.Text;
             string email = radTxtEmail.Text;
@@ -301,6 +301,11 @@ namespace Examination_PRL.Forms
         {
             AddStudentExcel addStudentExcel = new AddStudentExcel();
             addStudentExcel.ShowDialog();
+        }
+
+        private void radTxtId_TextChanged(object sender, EventArgs e)
+        {
+            radTxtUserName.Text = radTxtId.Text;
         }
     }
 }

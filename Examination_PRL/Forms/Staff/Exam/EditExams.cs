@@ -67,6 +67,12 @@ namespace Examination_PRL.Forms
 
         private void radBtnThem_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(radxtID.Text) || string.IsNullOrWhiteSpace(radTxtIdBaiThi.Text) || string.IsNullOrWhiteSpace(radTxtTenBaiThi.Text))
+            {
+                MessageBox.Show("Không được để trống dữ liệu");
+                return;
+            }
+
             Exam AddExam = new Exam();
             // AddExam.Id = _idWhenClick;
             AddExam.ExamCode = radTxtIdBaiThi.Text;
@@ -85,6 +91,12 @@ namespace Examination_PRL.Forms
 
         private void radBtnSua_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(radxtID.Text) || string.IsNullOrWhiteSpace(radTxtIdBaiThi.Text) || string.IsNullOrWhiteSpace(radTxtTenBaiThi.Text))
+            {
+                MessageBox.Show("Không được để trống dữ liệu");
+                return;
+            }
+
             Exam updateExam = new Exam();
             updateExam.Id = _idWhenClick;
             updateExam.ExamCode = radTxtIdBaiThi.Text;
@@ -129,6 +141,13 @@ namespace Examination_PRL.Forms
             {
                 radTxtTenBaiThi.Text = "";
             }
+        }
+
+        private void radBtnClear_Click(object sender, EventArgs e)
+        {
+            radxtID.Text = "";
+            radTxtIdBaiThi.Text = "";
+            radTxtTenBaiThi.Text = "";
         }
     }
 }
