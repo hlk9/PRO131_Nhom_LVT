@@ -2,6 +2,7 @@
 using Examination_BUS.Utilities;
 using Examination_BUS.ViewModel;
 using Examination_DAL.Models;
+using Examination_PRL.Forms.Staff;
 using Examination_PRL.Utilities;
 using Microsoft.EntityFrameworkCore.Metadata;
 using System;
@@ -36,6 +37,7 @@ namespace Examination_PRL.Forms.Participant
             _ser = new FeedbackServices();
             this.userName = urs;
             this.userAccount = userAccount;
+
             radlblSum.Text = _serviceExam.GetExamResponses().Count().ToString();
             radlblDat.Text = _serviceExam.GetExamResponses().Where(x => x.IsPassed == true).ToList().Count.ToString();
             radlblChuaDat.Text = _serviceExam.GetExamResponses().Where(x => x.IsPassed == false).ToList().Count.ToString();
@@ -338,6 +340,12 @@ namespace Examination_PRL.Forms.Participant
         private void listViewExam_SelectedItemChanged(object sender, EventArgs e)
         {
             // MessageBox.Show(listViewExam.Items.Count.ToString());
+        }
+
+        private void radBtnChangePass_Click(object sender, EventArgs e)
+        {
+            ChangePassWord changePass = new ChangePassWord(userAccount);
+            changePass.ShowDialog();
         }
     }
 }
