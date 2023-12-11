@@ -300,6 +300,14 @@ namespace Examination_PRL.Forms.Staff
             Image feedbacksIcon = bitMapFeedbacks;
             listQAPage.Image = feedbacksIcon;
 
+            RadPageViewPage changePass = new RadPageViewPage("Đổi mật khẩu");
+            changePassStaff ChangePassStaff = new changePassStaff(usrAccount);
+            ChangePassStaff.TopLevel = false;
+            changePass.Controls.Add(ChangePassStaff);
+            ChangePassStaff.Show();
+            ChangePassStaff.Dock = DockStyle.Fill;
+            changePass.Name = "change";
+
             RadPageViewPage logOut = new RadPageViewPage("Đăng Xuất");
             logOut.Name = "LogOut";
 
@@ -317,6 +325,7 @@ namespace Examination_PRL.Forms.Staff
             pvDashboard.Pages.Add(questionPage);
            // pvDashboard.Pages.Add(createAccountParticipantPage);
             pvDashboard.Pages.Add(listQAPage);
+            pvDashboard.Pages.Add(changePass);
             pvDashboard.Pages.Add(logOut);
 
             pvDashboard.AutoScroll = true;

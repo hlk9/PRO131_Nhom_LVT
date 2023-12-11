@@ -12,15 +12,15 @@ using Telerik.WinControls;
 
 namespace Examination_PRL.Forms.Staff
 {
-    public partial class ChangePassWord : Telerik.WinControls.UI.RadForm
+    public partial class changePassStaff : Telerik.WinControls.UI.RadForm
     {
         AccountServices _serAcc = new AccountServices();
         Account Account;
-        public ChangePassWord(Account acc)
+
+        public changePassStaff(Account acc)
         {
             this.Account = acc;
             InitializeComponent();
-            
         }
 
         public string HashPassword(string password)
@@ -39,7 +39,7 @@ namespace Examination_PRL.Forms.Staff
 
         private void radBtnChange_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrWhiteSpace(radTxtPassCu.Text) || string.IsNullOrWhiteSpace(radTxtPassMoi.Text) || string.IsNullOrWhiteSpace(radTxtPassMoiNL.Text))
+            if (string.IsNullOrWhiteSpace(radTxtPassCu.Text) || string.IsNullOrWhiteSpace(radTxtPassMoi.Text) || string.IsNullOrWhiteSpace(radTxtPassMoiNL.Text))
             {
                 MessageBox.Show("Không được để trống thông tin.");
                 return;
@@ -47,23 +47,22 @@ namespace Examination_PRL.Forms.Staff
 
             string passCu = HashPassword(radTxtPassCu.Text);
 
-            if(_serAcc.GetAccountById(Account.Id).Password != passCu)
+            if (_serAcc.GetAccountById(Account.Id).Password != passCu)
             {
                 MessageBox.Show("Mật khẩu hiện tại không đúng! Mời kiểm tra lại.");
                 return;
             }
 
-            
             string passMoi = HashPassword(radTxtPassMoi.Text);
             string passMoiNL = HashPassword(radTxtPassMoiNL.Text);
 
             if (passMoi != passMoiNL)
             {
-                 MessageBox.Show("Mật khẩu mới và mật khẩu mới nhập lại không khớp! Mời kiểm tra lại");
-                 return;
+                MessageBox.Show("Mật khẩu mới và mật khẩu mới nhập lại không khớp! Mời kiểm tra lại");
+                return;
             }
 
-            if (passMoi == passCu || passMoiNL == passCu)
+            if(passMoi == passCu || passMoiNL == passCu)
             {
                 MessageBox.Show("Mật khẩu mới không được trong với mật khẩu cũ.");
                 return;
@@ -81,12 +80,7 @@ namespace Examination_PRL.Forms.Staff
                 {
                     MessageBox.Show("Đổi mật khẩu thất bại");
                 }
-            }         
-        }
-
-        private void radBtnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            }
         }
     }
 }
