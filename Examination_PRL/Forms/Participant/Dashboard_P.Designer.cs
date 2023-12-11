@@ -110,6 +110,7 @@
             radPictureBox1 = new Telerik.WinControls.UI.RadPictureBox();
             radLabel10 = new Telerik.WinControls.UI.RadLabel();
             radPageView1 = new Telerik.WinControls.UI.RadPageView();
+            radPanel2 = new Telerik.WinControls.UI.RadPanel();
             radPageViewPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)listViewExam).BeginInit();
             radPageViewPage2.SuspendLayout();
@@ -196,6 +197,8 @@
             ((System.ComponentModel.ISupportInitialize)radLabel10).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radPageView1).BeginInit();
             radPageView1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)radPanel2).BeginInit();
+            radPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
@@ -733,29 +736,19 @@
             // 
             // radPageViewPage4
             // 
-            radPageViewPage4.Controls.Add(btn_Send);
-            radPageViewPage4.Controls.Add(btn_Reset);
-            radPageViewPage4.Controls.Add(radLabel7);
-            radPageViewPage4.Controls.Add(radLabel1);
-            radPageViewPage4.Controls.Add(tbt_Content);
-            radPageViewPage4.Controls.Add(radLabel2);
-            radPageViewPage4.Controls.Add(radLabel3);
-            radPageViewPage4.Controls.Add(tbt_IDParticipant);
-            radPageViewPage4.Controls.Add(tbt_Name);
-            radPageViewPage4.Controls.Add(radLabel6);
-            radPageViewPage4.Controls.Add(tbt_Title);
-            radPageViewPage4.ItemSize = new SizeF(84F, 49F);
+            radPageViewPage4.Controls.Add(radPanel2);
+            radPageViewPage4.ItemSize = new SizeF(88F, 49F);
             radPageViewPage4.Location = new Point(6, 55);
             radPageViewPage4.Name = "radPageViewPage4";
             radPageViewPage4.Size = new Size(1265, 711);
-            radPageViewPage4.Text = "Trợ Giúp";
+            radPageViewPage4.Text = "Phản Hồi";
             // 
             // btn_Send
             // 
-            btn_Send.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            btn_Send.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_Send.BackColor = Color.Teal;
             btn_Send.ForeColor = Color.White;
-            btn_Send.Location = new Point(429, 491);
+            btn_Send.Location = new Point(489, 669);
             btn_Send.Name = "btn_Send";
             btn_Send.Size = new Size(120, 36);
             btn_Send.TabIndex = 19;
@@ -765,10 +758,10 @@
             // 
             // btn_Reset
             // 
-            btn_Reset.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            btn_Reset.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_Reset.BackColor = Color.Teal;
             btn_Reset.ForeColor = Color.White;
-            btn_Reset.Location = new Point(721, 491);
+            btn_Reset.Location = new Point(615, 669);
             btn_Reset.Name = "btn_Reset";
             btn_Reset.Size = new Size(120, 36);
             btn_Reset.TabIndex = 18;
@@ -778,20 +771,23 @@
             // 
             // radLabel7
             // 
+            radLabel7.AutoSize = false;
             radLabel7.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            radLabel7.Location = new Point(518, 20);
+            radLabel7.Location = new Point(3, 38);
             radLabel7.Name = "radLabel7";
-            radLabel7.Size = new Size(208, 41);
+            radLabel7.Size = new Size(732, 41);
             radLabel7.TabIndex = 20;
             radLabel7.Text = "GỬI PHẢN HỒI";
+            radLabel7.TextAlignment = ContentAlignment.MiddleCenter;
             radLabel7.ThemeName = "MaterialTeal";
             // 
             // radLabel1
             // 
             radLabel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            radLabel1.Location = new Point(350, 102);
+            radLabel1.AutoSize = false;
+            radLabel1.Location = new Point(3, 126);
             radLabel1.Name = "radLabel1";
-            radLabel1.Size = new Size(55, 21);
+            radLabel1.Size = new Size(732, 21);
             radLabel1.TabIndex = 11;
             radLabel1.Text = "Tiêu đề";
             radLabel1.ThemeName = "MaterialTeal";
@@ -800,20 +796,21 @@
             // 
             tbt_Content.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tbt_Content.BorderColor = Color.FromArgb(224, 224, 224);
-            tbt_Content.Location = new Point(350, 323);
+            tbt_Content.Location = new Point(3, 428);
             tbt_Content.Name = "tbt_Content";
             tbt_Content.SelectionFill = Color.FromArgb(128, 128, 203, 196);
             tbt_Content.SelectionStroke = Color.FromArgb(128, 203, 196);
-            tbt_Content.Size = new Size(566, 143);
+            tbt_Content.Size = new Size(732, 143);
             tbt_Content.TabIndex = 17;
             tbt_Content.ThemeName = "MaterialTeal";
             // 
             // radLabel2
             // 
             radLabel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            radLabel2.Location = new Point(350, 196);
+            radLabel2.AutoSize = false;
+            radLabel2.Location = new Point(3, 220);
             radLabel2.Name = "radLabel2";
-            radLabel2.Size = new Size(68, 21);
+            radLabel2.Size = new Size(732, 21);
             radLabel2.TabIndex = 10;
             radLabel2.Text = "Họ và tên";
             radLabel2.ThemeName = "MaterialTeal";
@@ -821,9 +818,10 @@
             // radLabel3
             // 
             radLabel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            radLabel3.Location = new Point(641, 196);
+            radLabel3.AutoSize = false;
+            radLabel3.Location = new Point(3, 308);
             radLabel3.Name = "radLabel3";
-            radLabel3.Size = new Size(49, 21);
+            radLabel3.Size = new Size(732, 21);
             radLabel3.TabIndex = 9;
             radLabel3.Text = "Mã SV";
             radLabel3.ThemeName = "MaterialTeal";
@@ -831,27 +829,28 @@
             // tbt_IDParticipant
             // 
             tbt_IDParticipant.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tbt_IDParticipant.Location = new Point(641, 223);
+            tbt_IDParticipant.Location = new Point(3, 335);
             tbt_IDParticipant.Name = "tbt_IDParticipant";
-            tbt_IDParticipant.Size = new Size(275, 37);
+            tbt_IDParticipant.Size = new Size(732, 37);
             tbt_IDParticipant.TabIndex = 14;
             tbt_IDParticipant.ThemeName = "MaterialTeal";
             // 
             // tbt_Name
             // 
             tbt_Name.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tbt_Name.Location = new Point(350, 223);
+            tbt_Name.Location = new Point(3, 247);
             tbt_Name.Name = "tbt_Name";
-            tbt_Name.Size = new Size(275, 37);
+            tbt_Name.Size = new Size(732, 37);
             tbt_Name.TabIndex = 15;
             tbt_Name.ThemeName = "MaterialTeal";
             // 
             // radLabel6
             // 
             radLabel6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            radLabel6.Location = new Point(350, 279);
+            radLabel6.AutoSize = false;
+            radLabel6.Location = new Point(3, 401);
             radLabel6.Name = "radLabel6";
-            radLabel6.Size = new Size(65, 21);
+            radLabel6.Size = new Size(732, 21);
             radLabel6.TabIndex = 6;
             radLabel6.Text = "Nội dụng";
             radLabel6.ThemeName = "MaterialTeal";
@@ -859,9 +858,9 @@
             // tbt_Title
             // 
             tbt_Title.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tbt_Title.Location = new Point(350, 129);
+            tbt_Title.Location = new Point(3, 153);
             tbt_Title.Name = "tbt_Title";
-            tbt_Title.Size = new Size(566, 37);
+            tbt_Title.Size = new Size(732, 37);
             tbt_Title.TabIndex = 16;
             tbt_Title.ThemeName = "MaterialTeal";
             // 
@@ -1113,8 +1112,28 @@
             ((Telerik.WinControls.UI.RadPageViewStripElement)radPageView1.GetChildAt(0)).ShowItemPinButton = false;
             ((Telerik.WinControls.UI.RadPageViewStripElement)radPageView1.GetChildAt(0)).StripButtons = Telerik.WinControls.UI.StripViewButtons.Scroll;
             ((Telerik.WinControls.UI.RadPageViewStripElement)radPageView1.GetChildAt(0)).ShowItemCloseButton = false;
-            ((Telerik.WinControls.UI.RadPageViewLabelElement)radPageView1.GetChildAt(0).GetChildAt(2)).Text = "Trợ Giúp";
-            ((Telerik.WinControls.UI.RadPageViewLabelElement)radPageView1.GetChildAt(0).GetChildAt(3)).Text = "Trợ Giúp";
+            ((Telerik.WinControls.UI.RadPageViewLabelElement)radPageView1.GetChildAt(0).GetChildAt(2)).Text = "Phản Hồi";
+            ((Telerik.WinControls.UI.RadPageViewLabelElement)radPageView1.GetChildAt(0).GetChildAt(3)).Text = "Phản Hồi";
+            // 
+            // radPanel2
+            // 
+            radPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            radPanel2.Controls.Add(radLabel7);
+            radPanel2.Controls.Add(btn_Send);
+            radPanel2.Controls.Add(tbt_Title);
+            radPanel2.Controls.Add(btn_Reset);
+            radPanel2.Controls.Add(radLabel6);
+            radPanel2.Controls.Add(tbt_Name);
+            radPanel2.Controls.Add(radLabel1);
+            radPanel2.Controls.Add(tbt_IDParticipant);
+            radPanel2.Controls.Add(tbt_Content);
+            radPanel2.Controls.Add(radLabel3);
+            radPanel2.Controls.Add(radLabel2);
+            radPanel2.Location = new Point(250, 3);
+            radPanel2.Name = "radPanel2";
+            radPanel2.Size = new Size(738, 714);
+            radPanel2.TabIndex = 21;
+            radPanel2.ThemeName = "MaterialTeal";
             // 
             // Dashboard_P
             // 
@@ -1185,7 +1204,6 @@
             ((System.ComponentModel.ISupportInitialize)radLabel5).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel4).EndInit();
             radPageViewPage4.ResumeLayout(false);
-            radPageViewPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)btn_Send).EndInit();
             ((System.ComponentModel.ISupportInitialize)btn_Reset).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel7).EndInit();
@@ -1221,6 +1239,9 @@
             ((System.ComponentModel.ISupportInitialize)radLabel10).EndInit();
             ((System.ComponentModel.ISupportInitialize)radPageView1).EndInit();
             radPageView1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)radPanel2).EndInit();
+            radPanel2.ResumeLayout(false);
+            radPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }
@@ -1306,5 +1327,6 @@
         private Telerik.WinControls.UI.RadLabel radLabel27;
         private Telerik.WinControls.UI.RadButton radBtnClose;
         private Telerik.WinControls.UI.RadButton radBtnDangXuat;
+        private Telerik.WinControls.UI.RadPanel radPanel2;
     }
 }
