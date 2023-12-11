@@ -78,7 +78,7 @@
             // 
             // radDock1
             // 
-            radDock1.ActiveWindow = documentWindow1;
+            radDock1.ActiveWindow = toolWindow1;
             radDock1.CausesValidation = false;
             radDock1.Controls.Add(documentContainer1);
             radDock1.Controls.Add(toolTabStrip1);
@@ -205,7 +205,7 @@
             toolWindow1.Name = "toolWindow1";
             toolWindow1.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
             toolWindow1.Size = new Size(256, 519);
-            toolWindow1.Text = "Nhân Viên Chi Tiết";
+            toolWindow1.Text = "Thông Tin Chi Tiết";
             toolWindow1.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
             // radCMB

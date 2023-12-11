@@ -64,10 +64,16 @@ namespace Examination_PRL.Forms.Staff.Student
                 ExcelWorksheet workSheetStudent = newPackage.Workbook.Worksheets[0];
                 int rowCount = workSheetStudent.Dimension.Rows;
                 int columns = workSheetStudent.Dimension.Columns;
-
+                int count = 0;
                 for (int row = 2; row <= rowCount; row++)
                 {
                     string id = workSheetStudent.Cells[row, 1].Value.ToString();
+
+                    if(_ser.GetOneByID(id) != null)
+                    {
+                        continue;
+                    }
+                    count++;
                     string name = workSheetStudent.Cells[row, 2].Value.ToString();
                     bool gender = Convert.ToBoolean(workSheetStudent.Cells[row, 3].Value);
                     DateTime dateOfBirth = Convert.ToDateTime(workSheetStudent.Cells[row, 4].Value);
@@ -107,7 +113,7 @@ namespace Examination_PRL.Forms.Staff.Student
              
                 }
 
-                MessageBox.Show($"Thêm Thành Công {rowCount - 1} Thí Sinh");
+                MessageBox.Show($"Thêm Thành Công {count} Thí Sinh");
             }
             catch
             {

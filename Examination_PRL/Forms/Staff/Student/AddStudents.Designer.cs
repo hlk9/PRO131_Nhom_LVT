@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             radDock1 = new Telerik.WinControls.UI.Docking.RadDock();
@@ -60,6 +61,11 @@
             radTxtId = new Telerik.WinControls.UI.RadTextBox();
             radLabel = new Telerik.WinControls.UI.RadLabel();
             radLabel1 = new Telerik.WinControls.UI.RadLabel();
+            errorProvider1 = new ErrorProvider(components);
+            radLabel9 = new Telerik.WinControls.UI.RadLabel();
+            radLabel10 = new Telerik.WinControls.UI.RadLabel();
+            radLabel11 = new Telerik.WinControls.UI.RadLabel();
+            radLabel12 = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)radDock1).BeginInit();
             radDock1.SuspendLayout();
             toolWindow1.SuspendLayout();
@@ -95,12 +101,17 @@
             ((System.ComponentModel.ISupportInitialize)radTxtId).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel10).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel11).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel12).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
             // radDock1
             // 
-            radDock1.ActiveWindow = toolWindow1;
+            radDock1.ActiveWindow = toolWindow2;
             radDock1.CausesValidation = false;
             radDock1.Controls.Add(documentContainer1);
             radDock1.Controls.Add(toolTabStrip1);
@@ -207,6 +218,10 @@
             // toolWindow2
             // 
             toolWindow2.Caption = null;
+            toolWindow2.Controls.Add(radLabel12);
+            toolWindow2.Controls.Add(radLabel11);
+            toolWindow2.Controls.Add(radLabel10);
+            toolWindow2.Controls.Add(radLabel9);
             toolWindow2.Controls.Add(radTxtUserName);
             toolWindow2.Controls.Add(radBtnExcel);
             toolWindow2.Controls.Add(radLabel2);
@@ -480,6 +495,58 @@
             radLabel1.Text = "Mã Thí Sinh";
             radLabel1.ThemeName = "MaterialTeal";
             // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
+            // radLabel9
+            // 
+            radLabel9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radLabel9.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            radLabel9.ForeColor = Color.Red;
+            radLabel9.Location = new Point(92, 0);
+            radLabel9.Name = "radLabel9";
+            radLabel9.Size = new Size(18, 30);
+            radLabel9.TabIndex = 9;
+            radLabel9.Text = "*";
+            radLabel9.ThemeName = "MaterialTeal";
+            // 
+            // radLabel10
+            // 
+            radLabel10.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radLabel10.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            radLabel10.ForeColor = Color.Red;
+            radLabel10.Location = new Point(92, 70);
+            radLabel10.Name = "radLabel10";
+            radLabel10.Size = new Size(18, 30);
+            radLabel10.TabIndex = 10;
+            radLabel10.Text = "*";
+            radLabel10.ThemeName = "MaterialTeal";
+            // 
+            // radLabel11
+            // 
+            radLabel11.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radLabel11.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            radLabel11.ForeColor = Color.Red;
+            radLabel11.Location = new Point(52, 210);
+            radLabel11.Name = "radLabel11";
+            radLabel11.Size = new Size(18, 30);
+            radLabel11.TabIndex = 11;
+            radLabel11.Text = "*";
+            radLabel11.ThemeName = "MaterialTeal";
+            // 
+            // radLabel12
+            // 
+            radLabel12.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            radLabel12.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            radLabel12.ForeColor = Color.Red;
+            radLabel12.Location = new Point(116, 543);
+            radLabel12.Name = "radLabel12";
+            radLabel12.Size = new Size(18, 30);
+            radLabel12.TabIndex = 30;
+            radLabel12.Text = "*";
+            radLabel12.ThemeName = "MaterialTeal";
+            // 
             // AddStudents
             // 
             AutoScaleBaseSize = new Size(7, 15);
@@ -532,6 +599,11 @@
             ((System.ComponentModel.ISupportInitialize)radTxtId).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel10).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel11).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel12).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }
@@ -568,5 +640,10 @@
         private Telerik.WinControls.UI.RadButton radBtnExcel;
         private Telerik.WinControls.UI.RadTextBox radTxtUserName;
         private Telerik.WinControls.UI.RadLabel radLabel2;
+        private ErrorProvider errorProvider1;
+        private Telerik.WinControls.UI.RadLabel radLabel12;
+        private Telerik.WinControls.UI.RadLabel radLabel11;
+        private Telerik.WinControls.UI.RadLabel radLabel10;
+        private Telerik.WinControls.UI.RadLabel radLabel9;
     }
 }

@@ -45,6 +45,7 @@ namespace Examination_PRL.Forms.Staff
             homePage.Controls.Add(home);
             home.Show();
             home.Dock = DockStyle.Fill;
+            home.Name = "Home";
 
 
             RadPageViewPage schedulePage = new RadPageViewPage("Lịch thi"); //xem danh sách lịch thi
@@ -183,6 +184,7 @@ namespace Examination_PRL.Forms.Staff
             addParticipantToClassPage.Controls.Add(addParticipantToClass);
             addParticipantToClass.Show();
             addParticipantToClass.Dock = DockStyle.Fill;
+            addParticipantToClass.Name = "addParticipantToClass";
 
             classRoom.SubPages.Add(addParticipantToClassPage);
 
@@ -292,6 +294,7 @@ namespace Examination_PRL.Forms.Staff
             listQAPage.Controls.Add(listQA);
             listQA.Show();
             listQA.Dock = DockStyle.Fill;
+            listQA.Name = "list";
 
             Bitmap bitMapFeedbacks = new Bitmap(Properties.Resources.q_a);
             Image feedbacksIcon = bitMapFeedbacks;
@@ -436,6 +439,12 @@ namespace Examination_PRL.Forms.Staff
                     case "thoiGianForm":
                         (form as ThoiGian).LoadData();
                         break;
+                    case "list":
+                        (form as ListQA).LoadData(null);
+                        break;
+                    case "Home":
+                        (form as Examination_PRL.Forms.Staff.Home.Home).LoadData();
+                        break;                    
                     default:
                         break;
                 }

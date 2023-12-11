@@ -84,10 +84,10 @@
             // lnlFullName
             // 
             lnlFullName.AutoSize = true;
-            lnlFullName.Font = new Font("Roboto", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lnlFullName.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             lnlFullName.Location = new Point(790, 9);
             lnlFullName.Name = "lnlFullName";
-            lnlFullName.Size = new Size(156, 23);
+            lnlFullName.Size = new Size(171, 24);
             lnlFullName.TabIndex = 0;
             lnlFullName.Text = "Chào mừng ABC!";
             // 
@@ -105,7 +105,7 @@
             // 
             panelTotalRoom.BackColor = Color.WhiteSmoke;
             panelTotalRoom.Controls.Add(label2);
-            panelTotalRoom.Font = new Font("Roboto", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            panelTotalRoom.Font = new Font("Microsoft Sans Serif", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
             panelTotalRoom.Location = new Point(26, 27);
             panelTotalRoom.Name = "panelTotalRoom";
             // 
@@ -125,10 +125,10 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Roboto", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label2.Location = new Point(73, 15);
             label2.Name = "label2";
-            label2.Size = new Size(36, 19);
+            label2.Size = new Size(39, 20);
             label2.TabIndex = 4;
             label2.Text = "Lớp";
             // 
@@ -136,7 +136,7 @@
             // 
             panelTotalExam.BackColor = Color.FromArgb(231, 249, 218);
             panelTotalExam.Controls.Add(label3);
-            panelTotalExam.Font = new Font("Roboto", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            panelTotalExam.Font = new Font("Microsoft Sans Serif", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
             panelTotalExam.Location = new Point(241, 27);
             panelTotalExam.Name = "panelTotalExam";
             // 
@@ -156,10 +156,10 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Roboto", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label3.Location = new Point(61, 15);
             label3.Name = "label3";
-            label3.Size = new Size(54, 19);
+            label3.Size = new Size(60, 20);
             label3.TabIndex = 5;
             label3.Text = "Bài thi";
             // 
@@ -238,7 +238,7 @@
             // 
             panelTotalParti.BackColor = Color.WhiteSmoke;
             panelTotalParti.Controls.Add(label1);
-            panelTotalParti.Font = new Font("Roboto", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            panelTotalParti.Font = new Font("Microsoft Sans Serif", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
             panelTotalParti.Location = new Point(26, 332);
             panelTotalParti.Name = "panelTotalParti";
             // 
@@ -258,10 +258,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Roboto", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(139, 12);
             label1.Name = "label1";
-            label1.Size = new Size(121, 19);
+            label1.Size = new Size(136, 20);
             label1.TabIndex = 4;
             label1.Text = "Tổng số thí sinh";
             // 
@@ -315,7 +315,7 @@
             // 
             panelScheduleIncoming.BackColor = Color.WhiteSmoke;
             panelScheduleIncoming.Controls.Add(label4);
-            panelScheduleIncoming.Font = new Font("Roboto", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            panelScheduleIncoming.Font = new Font("Microsoft Sans Serif", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
             panelScheduleIncoming.Location = new Point(28, 332);
             panelScheduleIncoming.Name = "panelScheduleIncoming";
             // 
@@ -335,10 +335,10 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Roboto", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label4.Location = new Point(143, 12);
             label4.Name = "label4";
-            label4.Size = new Size(108, 19);
+            label4.Size = new Size(122, 20);
             label4.TabIndex = 4;
             label4.Text = "Đợt thi sắp tới";
             // 
@@ -346,7 +346,7 @@
             // 
             panelScheduleCurrent.BackColor = Color.FromArgb(231, 249, 218);
             panelScheduleCurrent.Controls.Add(label6);
-            panelScheduleCurrent.Font = new Font("Roboto", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            panelScheduleCurrent.Font = new Font("Microsoft Sans Serif", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
             panelScheduleCurrent.Location = new Point(28, 27);
             panelScheduleCurrent.Name = "panelScheduleCurrent";
             // 
@@ -366,10 +366,10 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Roboto", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label6.Location = new Point(111, 15);
             label6.Name = "label6";
-            label6.Size = new Size(151, 19);
+            label6.Size = new Size(168, 20);
             label6.TabIndex = 5;
             label6.Text = "Đợt thi đang diễn ra";
             // 
@@ -423,7 +423,7 @@
             // 
             panelTotalQnA.BackColor = Color.WhiteSmoke;
             panelTotalQnA.Controls.Add(label5);
-            panelTotalQnA.Font = new Font("Roboto", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            panelTotalQnA.Font = new Font("Microsoft Sans Serif", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
             panelTotalQnA.Location = new Point(28, 332);
             panelTotalQnA.Name = "panelTotalQnA";
             // 
@@ -443,10 +443,10 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Roboto", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(122, 12);
+            label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(101, 12);
             label5.Name = "label5";
-            label5.Size = new Size(176, 19);
+            label5.Size = new Size(196, 20);
             label5.TabIndex = 4;
             label5.Text = "Tổng số lượng phản hồi";
             // 
@@ -454,7 +454,7 @@
             // 
             panelCurrentQnA.BackColor = Color.FromArgb(231, 249, 218);
             panelCurrentQnA.Controls.Add(label7);
-            panelCurrentQnA.Font = new Font("Roboto", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            panelCurrentQnA.Font = new Font("Microsoft Sans Serif", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
             panelCurrentQnA.Location = new Point(28, 27);
             panelCurrentQnA.Name = "panelCurrentQnA";
             // 
@@ -474,10 +474,10 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Roboto", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(111, 15);
+            label7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Location = new Point(83, 15);
             label7.Name = "label7";
-            label7.Size = new Size(213, 19);
+            label7.Size = new Size(235, 20);
             label7.TabIndex = 5;
             label7.Text = "Phản hồi từ thí sinh hôm nay";
             // 

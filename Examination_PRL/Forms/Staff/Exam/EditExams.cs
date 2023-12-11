@@ -46,7 +46,7 @@ namespace Examination_PRL.Forms
             try
 
             {
-            radGrid_ExamEdit.CurrentRow = radGrid_ExamEdit.Rows[0];
+                radGrid_ExamEdit.CurrentRow = radGrid_ExamEdit.Rows[0];
 
             }
             catch
@@ -68,7 +68,7 @@ namespace Examination_PRL.Forms
         private void radBtnThem_Click(object sender, EventArgs e)
         {
             Exam AddExam = new Exam();
-           // AddExam.Id = _idWhenClick;
+            // AddExam.Id = _idWhenClick;
             AddExam.ExamCode = radTxtIdBaiThi.Text;
             AddExam.SubjectId = radCMB.SelectedItem.Text;
             AddExam.Name = radTxtTenBaiThi.Text;

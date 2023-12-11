@@ -9,9 +9,11 @@ using System.Data;
 using System.Drawing;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Telerik.WinControls;
 using Telerik.WinControls.UI;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace Examination_PRL.Forms
 {
@@ -98,12 +100,23 @@ namespace Examination_PRL.Forms
             }
             md5.Clear();
             return sb.ToString();
-
         }
 
         private void radBtnAdd_Click(object sender, EventArgs e)
         {
+            if (radTxtId.Text == "" || radTxtUserName.Text == "" || radTxtName.Text == "" || radTxtEmail.Text == "")
+            {
+                MessageBox.Show("Không được để trống dữ liệu quan trọng");
+                return;
+            }
             string id = radTxtId.Text;
+
+            if (_ser.GetOneByID(id) != null)
+            {
+                MessageBox.Show("Đã có mã sinh viên này", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             string name = radTxtName.Text;
             string email = radTxtEmail.Text;
             string address = radTxtAddress.Text;
@@ -151,6 +164,8 @@ namespace Examination_PRL.Forms
 
             }
             LoadData();
+            radTxtId.Enabled = true;
+
         }
 
         private void radBtnUpdate_Click(object sender, EventArgs e)
@@ -183,6 +198,7 @@ namespace Examination_PRL.Forms
             }
 
             LoadData();
+            radTxtId.Enabled = true;
         }
 
         private void radBtnClear_Click(object sender, EventArgs e)
@@ -225,7 +241,7 @@ namespace Examination_PRL.Forms
                 }
 
                 radDDClassId.SelectedIndex = _lstClass.FindIndex(x => x == obj.ClassroomId);
-                if(obj.AccountId != null)
+                if (obj.AccountId != null)
                 {
                     radTxtUserName.Text = _serAcc.GetAccountById(obj.AccountId).UserName;
                 }
@@ -233,8 +249,9 @@ namespace Examination_PRL.Forms
                 {
                     radTxtUserName.Text = "";
                 }
-                
             }
+
+            radTxtId.Enabled = false;
         }
 
         private void examGridView_ContextMenuOpening(object sender, ContextMenuOpeningEventArgs e)
@@ -268,6 +285,7 @@ namespace Examination_PRL.Forms
                 MessageBox.Show("Xóa Thất bại");
             }
             LoadData();
+            radTxtId.Enabled = true;
         }
 
         private void radBtnExcel_Click(object sender, EventArgs e)
