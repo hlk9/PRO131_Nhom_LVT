@@ -87,6 +87,13 @@ namespace Examination_PRL.Forms.Staff.Schedule
         {
             if (_idSchedule != null)
             {
+              var schedule =    scheduleServices.GetScheduleById(int.Parse(_idSchedule));
+                if(schedule.EndTime<DateTime.Now)
+                {
+                    MessageBox.Show("Lịch thi đã kết thúc, không thể sửa");
+                    return;
+                }
+
                 AddScheduleTo addToClass = new AddScheduleTo(int.Parse(_idSchedule));
                 addToClass.ShowDialog();
 
