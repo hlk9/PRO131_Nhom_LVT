@@ -145,7 +145,7 @@ namespace Examination_PRL.Forms.Staff
             Bitmap bitMapQuestionIcon = new Bitmap(Properties.Resources.quest);
             Image questionIcon = bitMapQuestionIcon;
             questionPage.Image = questionIcon;
-            QuestionOverview questionOverview = new QuestionOverview();
+            QuestionOverview questionOverview = new QuestionOverview(usrAccount);
             questionOverview.TopLevel = false;
             questionPage.Controls.Add(questionOverview);
             questionOverview.Show();

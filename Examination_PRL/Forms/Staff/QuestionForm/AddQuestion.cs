@@ -19,10 +19,19 @@ namespace Examination_PRL.Forms.Staff.QuestionForm
 
         QuestionServices questionServices = new QuestionServices();
         AnswerServices answerServices = new AnswerServices();
-        public AddQuestion()
+        Account usrAccount;
+        public event EventHandler DataAdded;
+        public AddQuestion(Account account)
         {
+            this.usrAccount = account;
             InitializeComponent();
         }
+        protected virtual void OnDataAdded(EventArgs e)
+        {
+            // Gọi sự kiện DataAdded để thông báo rằng dữ liệu đã được thêm
+            DataAdded?.Invoke(this, e);
+        }
+
 
         private void btnSelectFile_Click(object sender, EventArgs e)
         {
@@ -51,7 +60,7 @@ namespace Examination_PRL.Forms.Staff.QuestionForm
             //int totalRowAnswer = worksheetAnswer.Dimension.Rows;
             List<QuestionInExcel> listQiExcel = new List<QuestionInExcel>();
 
-            for (int rowQ = 2; rowQ < worksheetQuestion.Dimension.Rows; rowQ++)
+            for (int rowQ = 2; rowQ <= worksheetQuestion.Dimension.Rows; rowQ++)
             {
                 try
                 {
@@ -102,7 +111,8 @@ namespace Examination_PRL.Forms.Staff.QuestionForm
 
             try
             {
-
+                int qNumberExist = 0;
+                int qNumberAdded = 0;
                 foreach (var item in listQiExcel)
                 {
                     Question q = new Question();
@@ -131,10 +141,20 @@ namespace Examination_PRL.Forms.Staff.QuestionForm
                     }
                     q.Status = true;
 
+                
+                    var oneQuestion = questionServices.GetListQuestionWithSubject(q.SubjectId).ToList().Where(x => x.Content == q.Content).FirstOrDefault();
+                    if (oneQuestion != null)
+                    {
+                       
+                        qNumberExist++;
+                        continue;
+                    }
+
 
                     int questionId = questionServices.AddQuestionReturnId(q);
                     if (questionId != -1)
                     {
+                        qNumberAdded++;
                         foreach (var answer in item.Answers)
                         {
                             Answer a = new Answer();
@@ -152,7 +172,8 @@ namespace Examination_PRL.Forms.Staff.QuestionForm
 
                 }
 
-                MessageBox.Show("Thêm thành công " + listQiExcel.Count + "câu hỏi kèm đáp án");
+                MessageBox.Show("Thêm thành công " + qNumberAdded + "câu hỏi kèm đáp án\nCó "+qNumberExist+" Câu trùng và được bỏ qua");
+                OnDataAdded(EventArgs.Empty);
 
             }
             catch

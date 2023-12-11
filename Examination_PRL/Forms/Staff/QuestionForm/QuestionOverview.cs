@@ -18,10 +18,13 @@ namespace Examination_PRL.Forms.Staff.QuestionForm
         QuestionLevelService levelService = new QuestionLevelService();
         int currentQuestionId = -1;
         QuestionTypeServices questionTypeServices = new QuestionTypeServices();
-        public QuestionOverview()
+        Account usrAccount;
+        public QuestionOverview(Account usrAccount)
         {
             InitializeComponent();
+            this.usrAccount = usrAccount;
             LoadData();
+          
         }
         public void LoadData()
         {
@@ -64,8 +67,15 @@ namespace Examination_PRL.Forms.Staff.QuestionForm
 
         private void btnImport_Click(object sender, EventArgs e)
         {
-            AddQuestion addQuestion = new AddQuestion();
+            AddQuestion addQuestion = new AddQuestion(usrAccount);
+            addQuestion.DataAdded += AddQuestion_DataAdded;
             addQuestion.ShowDialog();
+        }
+
+        private void AddQuestion_DataAdded(object? sender, EventArgs e)
+        {
+           
+            LoadData();
         }
 
         private void questionGridView_SelectionChanged(object sender, EventArgs e)
