@@ -22,6 +22,11 @@ namespace Examination_DAL.Repository
             _context = context;
         }
 
+        public Classroom GetClassRoomById(string id)
+        {
+            return _context.Classrooms.Find(id);
+        }
+
         public bool CreateClass(Classroom room)
         {
             try

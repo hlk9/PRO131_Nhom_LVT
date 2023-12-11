@@ -104,18 +104,22 @@ namespace Examination_PRL.Forms
 
         private void radBtnAdd_Click(object sender, EventArgs e)
         {
-            if (radTxtId.Text == "" || radTxtUserName.Text == "" || radTxtName.Text == "" || radTxtEmail.Text == "")
+            if (string.IsNullOrWhiteSpace(radTxtId.Text) || string.IsNullOrWhiteSpace(radTxtUserName.Text) || string.IsNullOrWhiteSpace(radTxtName.Text) || string.IsNullOrWhiteSpace(radTxtEmail.Text))
             {
                 MessageBox.Show("Không được để trống dữ liệu quan trọng");
                 return;
             }
             string id = radTxtId.Text;
-
-            if (_ser.GetOneByID(id) != null)
+            try
             {
-                MessageBox.Show("Đã có mã sinh viên này", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                if (_ser.GetOneByID(id) != null)
+                {
+                    MessageBox.Show("Đã có mã sinh viên này", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
             }
+            catch { }
+            
 
             string name = radTxtName.Text;
             string email = radTxtEmail.Text;
@@ -170,6 +174,11 @@ namespace Examination_PRL.Forms
 
         private void radBtnUpdate_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(radTxtId.Text) || string.IsNullOrWhiteSpace(radTxtUserName.Text) || string.IsNullOrWhiteSpace(radTxtName.Text) || string.IsNullOrWhiteSpace(radTxtEmail.Text))
+            {
+                MessageBox.Show("Không được để trống dữ liệu quan trọng");
+                return;
+            }
             string id = _idWhenClick;
             string name = radTxtName.Text;
             string email = radTxtEmail.Text;
@@ -212,7 +221,7 @@ namespace Examination_PRL.Forms
             radDDClassId.SelectedIndex = 0;
             radTxtId.Text = "";
             radTxtUserName.Text = "";
-
+            radTxtId.Enabled = true;
             radTxtUserName.Enabled = true;
         }
 

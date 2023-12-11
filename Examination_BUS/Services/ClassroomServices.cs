@@ -24,6 +24,11 @@ namespace Examination_BUS.Services
             return _repos.GetClassrooms().ToList();
         }      
 
+        public Classroom getClassById(string id)
+        {
+            return _repos.GetClassRoomById(id);
+        }
+
         public bool AddNewClass(string id, string name)
         {
             var room = new Classroom()

@@ -104,6 +104,7 @@ namespace Examination_PRL
                 radCmbPermission.SelectedIndex = _lstIdPermisstion.FindIndex(x => x == _serPer.GetById(_serUser.GetUserPermissionByAccountId(obj.Id).PermissionId).Id);
 
                 radTxtUserName.Enabled = false;
+                radTxtID.Enabled = false;
             }
         }
         public void LoadDropDown()
@@ -114,7 +115,7 @@ namespace Examination_PRL
 
             foreach (var x in _serPer.GetAllPermission())
             {
-                if(x.Id == 4)
+                if (x.Id == 4)
                 {
                     continue;
                 }
@@ -142,7 +143,24 @@ namespace Examination_PRL
 
         private void radBtnAddStaff_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(radTxtID.Text) || string.IsNullOrWhiteSpace(radTxtUserName.Text) || string.IsNullOrWhiteSpace(radTxtFullName.Text) || string.IsNullOrWhiteSpace(radTxtEmail.Text))
+            {
+                MessageBox.Show("Không được để trống dữ liệu quan trọng");
+                return;
+            }
             string id = radTxtID.Text;
+
+            try
+            {
+                if (_service.GetStaffById(id).Id != null)
+                {
+                    MessageBox.Show("Đã có mã nhân viên này", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+            catch { }
+            
+
             string name = radTxtFullName.Text;
             bool gender = radNam.IsChecked;
             DateTime date = Convert.ToDateTime(radDTP.Text);
@@ -186,6 +204,12 @@ namespace Examination_PRL
 
         private void radBtnUpDate_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(radTxtID.Text) || string.IsNullOrWhiteSpace(radTxtUserName.Text) || string.IsNullOrWhiteSpace(radTxtFullName.Text) || string.IsNullOrWhiteSpace(radTxtEmail.Text))
+            {
+                MessageBox.Show("Không được để trống dữ liệu quan trọng");
+                return;
+            }
+
             string id = _idWhenClick;
             string name = radTxtFullName.Text;
             bool gender = radNam.IsChecked;
@@ -208,7 +232,7 @@ namespace Examination_PRL
                 PermissionId = permisstion
             };
 
-            if(_serUser.UpdateUserPermission(userPer))
+            if (_serUser.UpdateUserPermission(userPer))
             {
                 if (_service.UpDateStaff(id, name, gender, date, email, phone, address, statuss))
                 {
@@ -219,8 +243,6 @@ namespace Examination_PRL
                     MessageBox.Show("Sửa Nhân Viên Thất Bại");
                 }
             }
-
-            
             LoadData();
         }
 
@@ -235,6 +257,7 @@ namespace Examination_PRL
             radListStaff.SelectedIndex = 0;
             radTxtUserName.Enabled = true;
             radTxtUserName.Text = "";
+            radTxtID.Enabled = true;
         }
 
         private void rad_Staff_ContextMenuOpening(object sender, ContextMenuOpeningEventArgs e)
