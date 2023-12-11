@@ -50,6 +50,17 @@ namespace Examination_BUS.Services
             return _repsAcc.Update(account);
         }
 
+        public bool UpdatePassWord(string id, string passWord)
+        {
+            Account acc = new Account
+            {
+                Id = id,
+                Password = passWord
+            };
+
+            return _repsAcc.UpdatePass(acc);
+        }
+
         public bool DeleteAccount(string id)
         {
             Account acc = new Account() { Id = id };

@@ -72,7 +72,24 @@ namespace Examination_DAL.Repository
                 account.UserName = obj.UserName;
                 account.Password = obj.Password;
                 account.Status = obj.Status;
-                
+                context.Accounts.Update(account);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool UpdatePass(Account obj)
+        {
+            try
+            {
+                var account = context.Accounts.Find(obj.Id);            
+                account.Password = obj.Password;
+
+                context.Accounts.Update(account);
                 context.SaveChanges();
                 return true;
             }
