@@ -65,7 +65,7 @@ namespace Examination_PRL.Forms.Staff.Schedule
                 if (_idClassrom == "Null")
                 {
                     gridViewParti.Rows.Clear();
-                   
+
                     gridViewParti.ColumnCount = 5;
                     gridViewParti.Columns[0].HeaderText = "STT";
                     gridViewParti.Columns[1].HeaderText = "ID";
@@ -82,7 +82,7 @@ namespace Examination_PRL.Forms.Staff.Schedule
 
 
 
-                gridViewParti.Rows.Clear();             
+                gridViewParti.Rows.Clear();
                 gridViewParti.ColumnCount = 5;
                 gridViewParti.Columns[0].HeaderText = "STT";
                 gridViewParti.Columns[1].HeaderText = "ID";
@@ -132,13 +132,23 @@ namespace Examination_PRL.Forms.Staff.Schedule
                     ParticipantId = item.Id,
                     ExamScheduleId = _idSchedule
                 };
-                if(scheduleDetailServices.AddScheduleDetail(scheduleDetail) == true)
+
+                if(CheckExist(scheduleDetail) == true)
                 {
-                    count++;
+                    continue;
                 }
-               
+                else
+                {
+                    if (scheduleDetailServices.AddScheduleDetail(scheduleDetail) == true)
+                    {
+                        count++;
+                    }
+                }
+
+              
+
             }
-            MessageBox.Show("Thêm thành công " + count + " sinh viên của lớp "+_idClassrom);
+            MessageBox.Show("Thêm thành công " + count + " sinh viên của lớp " + _idClassrom);
         }
 
         private void radButton1_Click(object sender, EventArgs e)
@@ -148,7 +158,7 @@ namespace Examination_PRL.Forms.Staff.Schedule
                 ParticipantId = _idParticipant,
                 ExamScheduleId = _idSchedule
             };
-            if (scheduleDetailServices.AddScheduleDetail(scheduleDetail)==true)
+            if (scheduleDetailServices.AddScheduleDetail(scheduleDetail) == true)
             {
                 MessageBox.Show("Thêm thành công");
             }
@@ -156,7 +166,19 @@ namespace Examination_PRL.Forms.Staff.Schedule
             {
                 MessageBox.Show("Thêm thất bại");
             }
-          
+
+        }
+
+        public bool CheckExist(ExamScheduleDetail exd)
+        {
+            ScheduleDetailServices scheduleDetailServices = new ScheduleDetailServices();
+            var ojb = scheduleDetailServices.GetScheduleDetailByParticipantId(exd.ParticipantId).Where(x => x.ExamScheduleId == exd.ExamScheduleId).FirstOrDefault();
+            if (ojb != null)
+            {
+                return true;
+            }
+            return false;
+
         }
     }
 }

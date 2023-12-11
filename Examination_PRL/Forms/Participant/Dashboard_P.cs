@@ -287,7 +287,7 @@ namespace Examination_PRL.Forms.Participant
         private void radPageView1_SelectedPageChanged(object sender, EventArgs e)
         {
 
-            //  MessageBox.Show(radPageView1.SelectedPage.Name);
+            //MessageBox.Show(radPageView1.SelectedPage.Name);
 
             if (radPageView1.SelectedPage.Name == "radPageViewPage1")
                 LoadExamSchedule();
