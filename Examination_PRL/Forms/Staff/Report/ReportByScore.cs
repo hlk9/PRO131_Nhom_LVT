@@ -59,6 +59,12 @@ namespace Examination_PRL.Forms
 
             var lstExamResponses = _serExamResponses.GetExamResponseByExamScheduleId(id);
 
+            if(lstExamResponses.Count == 0)
+            {
+                MessageBox.Show("Không có bài thi nào trong kì thi này");
+                return;
+            }
+
             double pass = 0, fail = 0, total = 0, passRate = 0, failRate = 0, unknown = 0, unknownRate = 0;
 
             pass = lstExamResponses.FindAll(x => x.IsPassed == true).Count;

@@ -93,6 +93,16 @@ namespace Examination_PRL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap examBag {
+            get {
+                object obj = ResourceManager.GetObject("examBag", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap GlyphCalendar_small {
             get {
                 object obj = ResourceManager.GetObject("GlyphCalendar_small", resourceCulture);
@@ -136,6 +146,16 @@ namespace Examination_PRL.Properties {
         public static System.Drawing.Bitmap person {
             get {
                 object obj = ResourceManager.GetObject("person", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap q_a {
+            get {
+                object obj = ResourceManager.GetObject("q&a", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

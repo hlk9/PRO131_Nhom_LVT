@@ -54,7 +54,28 @@ namespace Examination_PRL.Forms.Staff
 
         private void radBtnAdd_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrWhiteSpace(radTxtId.Text) || string.IsNullOrWhiteSpace(radTxtName.Text) || string.IsNullOrWhiteSpace(radTxtCapacity.Text))
+            {
+                MessageBox.Show("Không được để trống dữ liệu quan trọng");
+                return;
+            }
+
             string id = radTxtId.Text;
+
+            try
+            {
+                if (_ser.GetExamRoomById(id).Id != null)
+                {
+                    MessageBox.Show("Đã có mã phòng thi này", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+            catch
+            {
+
+            }
+            
+
             string name = radTxtName.Text;
             string address = radTxtAddress.Text;
             string note = radTxtNote.Text;
@@ -84,6 +105,12 @@ namespace Examination_PRL.Forms.Staff
 
         private void radBtnUpdate_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(radTxtId.Text) || string.IsNullOrWhiteSpace(radTxtName.Text) || string.IsNullOrWhiteSpace(radTxtCapacity.Text))
+            {
+                MessageBox.Show("Không được để trống dữ liệu quan trọng");
+                return;
+            }
+
             string id = _idWhenClick;
             string name = radTxtName.Text;
             string address = radTxtAddress.Text;
@@ -130,6 +157,8 @@ namespace Examination_PRL.Forms.Staff
             {
                 radBtnFalse.IsChecked = true;
             }
+
+            radTxtId.Enabled = false;
         }
 
         private void dtg_Show_ContextMenuOpening(object sender, ContextMenuOpeningEventArgs e)
@@ -156,6 +185,16 @@ namespace Examination_PRL.Forms.Staff
 
                 LoadData();
             }
+        }
+
+        private void radBtnClear_Click(object sender, EventArgs e)
+        {
+            radTxtId.Text = "";
+            radTxtCapacity.Text = "";
+            radTxtAddress.Text = "";
+            radTxtNote.Text = "";
+            radTxtName.Text = "";
+            radTxtId.Enabled = true;
         }
     }
 }

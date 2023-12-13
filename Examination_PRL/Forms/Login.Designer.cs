@@ -115,6 +115,7 @@
             lblForgot.Size = new Size(110, 17);
             lblForgot.TabIndex = 5;
             lblForgot.Text = "Quên mật khẩu?";
+            lblForgot.Click += lblForgot_Click;
             // 
             // btnLogin
             // 
@@ -142,6 +143,7 @@
             radButton2.TabIndex = 7;
             radButton2.Text = "Thoát";
             radButton2.ThemeName = "MaterialTeal";
+            radButton2.Click += radButton2_Click;
             // 
             // radPictureBox1
             // 

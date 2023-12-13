@@ -21,6 +21,11 @@ namespace Examination_BUS.Services
         {
             return permissionRepository.AddUserPermission(userPermission);
         }
+
+        public bool UpdateUserPermission(UserPermission userPermission)
+        {
+            return permissionRepository.UpdateUserPermission(userPermission);
+        }
         
         public bool DeleteUserPermission(int id)
         {

@@ -65,7 +65,66 @@ namespace Examination_PRL.Forms.Staff.Schedule
 
         private void radButton1_Click(object sender, EventArgs e)
         {
-          MessageBox.Show(dropDownExamRoom.SelectedItem.Text);
+
+            if (txtName.Text == "")
+            {
+                MessageBox.Show("Tên lịch thi không được để trống");
+                return;
+            }
+
+
+            if (txtSubject.Text == "")
+            {
+                MessageBox.Show("Tên môn học không được để trống");
+                return;
+            }
+
+
+            if (txtSubject.Text == "")
+            {
+                MessageBox.Show("Tên môn học không được để trống");
+                return;
+            }
+            if (txtExamID.Text == "")
+            {
+                MessageBox.Show("Hãy chọn bài thi");
+                return;
+            }
+
+
+
+
+            if (dateStart.Value.Date < DateTime.Now.Date)
+            {
+                MessageBox.Show("Ngày bắt đầu không được nhỏ hơn ngày hiện tại");
+                dateStart.Value = DateTime.Now;
+                return;
+            }
+
+            if (dateStart.Value > dateEnd.Value)
+            {
+                MessageBox.Show("Ngày bắt đầu không được lớn hơn ngày kết thúc");
+                dateStart.Value = DateTime.Now;
+                return;
+            }
+
+
+            if (dateEnd.Value < dateStart.Value)
+            {
+                MessageBox.Show("Ngày kết thúc không được nhỏ hơn ngày bắt đầu");
+                return;
+            }
+
+
+            if (txtExamID.Text == null)
+            {
+                MessageBox.Show("Hãy chọn bài thi");
+                return;
+            }
+
+
+
+
             ExamSchedule examSchedule = new ExamSchedule();
             examSchedule.Id = scheduleId;
             examSchedule.StartTime = Convert.ToDateTime(dateStart.Value);
@@ -76,15 +135,48 @@ namespace Examination_PRL.Forms.Staff.Schedule
             examSchedule.Status = true;
             examSchedule.ExamId = Convert.ToInt32(txtExamID.Text);
             examSchedule.Subject = txtSubject.Text;
-            if (scheduleServices.UpdateSchedule(examSchedule) == true)
-            {
-                MessageBox.Show("Sửa thành công");
 
-            }    
+
+            if (ScheduleExist(examSchedule) == false)
+            {
+                if (scheduleServices.UpdateSchedule(examSchedule) == true)
+                {
+                    MessageBox.Show("Sửa thành công");
+
+                }
+                else
+                    MessageBox.Show("Sửa thất bại");
+            }
             else
-                MessageBox.Show("Sửa thất bại");
+            {
+                MessageBox.Show("Phòng thi đã có lịch thi\nThời gian không hợp lệ");
+            }
+
 
             OnDataAdded(EventArgs.Empty);
+        }
+        bool ScheduleExist(ExamSchedule examSchedule)
+        {
+            var list = scheduleServices.GetAllSchedule().Where(x => x.EndTime >= DateTime.Now).ToList();
+            foreach (var item in list)
+            {
+                if (item.ExamRoomId == examSchedule.ExamRoomId)
+                {
+                    if (item.StartTime <= examSchedule.StartTime && item.EndTime >= examSchedule.StartTime)
+                    {
+                        return true;
+                    }
+                    if (item.StartTime <= examSchedule.EndTime && item.EndTime >= examSchedule.EndTime)
+                    {
+                        return true;
+                    }
+                    if (item.StartTime >= examSchedule.StartTime && item.EndTime <= examSchedule.EndTime)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     }
 }

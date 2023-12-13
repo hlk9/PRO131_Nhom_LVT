@@ -23,7 +23,7 @@ namespace Examination_BUS.Services
         {
             return _staffRepos.GetById(id);
         }
-        public bool AddStaff(string id, string name, bool sex, DateTime dateofbirth, string email, string phone, string address, byte status)
+        public bool AddStaff(string id, string name, bool sex, DateTime dateofbirth, string email, string phone, string address, byte status, string accountId)
         {
             Staff staff = new Staff
             {
@@ -34,7 +34,8 @@ namespace Examination_BUS.Services
                 Email = email,
                 PhoneNumber = phone,
                 Address = address,
-                Status = status
+                Status = status,
+                AccountId = accountId
             };
             return _staffRepos.Add(staff);
         }

@@ -37,7 +37,10 @@
             documentTabStrip4 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
+            radButton1 = new Telerik.WinControls.UI.RadButton();
+            txtReTest = new Telerik.WinControls.UI.RadTextBox();
             btnAdd = new Telerik.WinControls.UI.RadButton();
+            radLabel9 = new Telerik.WinControls.UI.RadLabel();
             txtMaxScore = new Telerik.WinControls.UI.RadTextBox();
             radLabel8 = new Telerik.WinControls.UI.RadLabel();
             txtQNumber = new Telerik.WinControls.UI.RadTextBox();
@@ -59,8 +62,6 @@
             lblExamCode = new Telerik.WinControls.UI.RadLabel();
             radLabel6 = new Telerik.WinControls.UI.RadLabel();
             btnSelectExam = new Telerik.WinControls.UI.RadButton();
-            txtReTest = new Telerik.WinControls.UI.RadTextBox();
-            radLabel9 = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)radDock1).BeginInit();
             radDock1.SuspendLayout();
             documentWindow4.SuspendLayout();
@@ -75,7 +76,10 @@
             ((System.ComponentModel.ISupportInitialize)toolTabStrip1).BeginInit();
             toolTabStrip1.SuspendLayout();
             toolWindow1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)radButton1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtReTest).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnAdd).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtMaxScore).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtQNumber).BeginInit();
@@ -98,8 +102,6 @@
             ((System.ComponentModel.ISupportInitialize)lblExamCode).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLabel6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnSelectExam).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtReTest).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
@@ -218,6 +220,7 @@
             // toolWindow1
             // 
             toolWindow1.Caption = null;
+            toolWindow1.Controls.Add(radButton1);
             toolWindow1.Controls.Add(txtReTest);
             toolWindow1.Controls.Add(btnAdd);
             toolWindow1.Controls.Add(radLabel9);
@@ -244,6 +247,29 @@
             toolWindow1.Size = new Size(419, 887);
             toolWindow1.Text = "Cấu trúc đề thi";
             // 
+            // radButton1
+            // 
+            radButton1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            radButton1.Location = new Point(10, 784);
+            radButton1.Name = "radButton1";
+            radButton1.Size = new Size(149, 36);
+            radButton1.TabIndex = 16;
+            radButton1.Text = "Xoá dữ liệu form";
+            radButton1.ThemeName = "MaterialTeal";
+            radButton1.Click += radButton1_Click_1;
+            // 
+            // txtReTest
+            // 
+            txtReTest.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtReTest.BackColor = Color.LavenderBlush;
+            txtReTest.Location = new Point(153, 663);
+            txtReTest.Name = "txtReTest";
+            txtReTest.NullText = "Mặc định: 1";
+            txtReTest.ShowNullText = true;
+            txtReTest.Size = new Size(246, 37);
+            txtReTest.TabIndex = 15;
+            txtReTest.ThemeName = "MaterialTeal";
+            // 
             // btnAdd
             // 
             btnAdd.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
@@ -254,6 +280,15 @@
             btnAdd.Text = "Thêm";
             btnAdd.ThemeName = "MaterialTeal";
             btnAdd.Click += radButton2_Click;
+            // 
+            // radLabel9
+            // 
+            radLabel9.Location = new Point(20, 672);
+            radLabel9.Name = "radLabel9";
+            radLabel9.Size = new Size(83, 21);
+            radLabel9.TabIndex = 14;
+            radLabel9.Text = "Lượt làm lại";
+            radLabel9.ThemeName = "MaterialTeal";
             // 
             // txtMaxScore
             // 
@@ -479,27 +514,6 @@
             btnSelectExam.ThemeName = "MaterialTeal";
             btnSelectExam.Click += radButton1_Click;
             // 
-            // txtReTest
-            // 
-            txtReTest.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtReTest.BackColor = Color.LavenderBlush;
-            txtReTest.Location = new Point(153, 663);
-            txtReTest.Name = "txtReTest";
-            txtReTest.NullText = "Mặc định: 1";
-            txtReTest.ShowNullText = true;
-            txtReTest.Size = new Size(246, 37);
-            txtReTest.TabIndex = 15;
-            txtReTest.ThemeName = "MaterialTeal";
-            // 
-            // radLabel9
-            // 
-            radLabel9.Location = new Point(20, 672);
-            radLabel9.Name = "radLabel9";
-            radLabel9.Size = new Size(83, 21);
-            radLabel9.TabIndex = 14;
-            radLabel9.Text = "Lượt làm lại";
-            radLabel9.ThemeName = "MaterialTeal";
-            // 
             // AddExam
             // 
             AutoScaleBaseSize = new Size(7, 15);
@@ -530,7 +544,10 @@
             toolTabStrip1.ResumeLayout(false);
             toolWindow1.ResumeLayout(false);
             toolWindow1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)radButton1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtReTest).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnAdd).EndInit();
+            ((System.ComponentModel.ISupportInitialize)radLabel9).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtMaxScore).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel8).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtQNumber).EndInit();
@@ -554,8 +571,6 @@
             ((System.ComponentModel.ISupportInitialize)lblExamCode).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLabel6).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnSelectExam).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtReTest).EndInit();
-            ((System.ComponentModel.ISupportInitialize)radLabel9).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }
@@ -595,5 +610,6 @@
         private Telerik.WinControls.UI.RadTextBox lblExamDetailCode;
         private Telerik.WinControls.UI.RadTextBox txtReTest;
         private Telerik.WinControls.UI.RadLabel radLabel9;
+        private Telerik.WinControls.UI.RadButton radButton1;
     }
 }

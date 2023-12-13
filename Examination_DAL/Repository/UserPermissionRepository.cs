@@ -29,6 +29,25 @@ namespace Examination_DAL.Repository
                 return false;
             }
         }
+
+        public bool UpdateUserPermission(UserPermission obj)
+        {
+            try
+            {
+                var update = context.UserPermissions.Find(obj.Id);
+                update.PermissionId = obj.PermissionId;
+
+                context.UserPermissions.Update(update);
+                context.SaveChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public bool DeleteUserPermission(int id)
         {
             try

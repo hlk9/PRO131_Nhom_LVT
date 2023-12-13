@@ -1,7 +1,8 @@
-﻿using Examination_DAL.Models;
+﻿using Examination_BUS.Services;
+using Examination_DAL.Models;
 using Examination_PRL.Forms.Staff.ClassRoom;
 using Examination_PRL.Forms.Staff.Exam;
-using Examination_PRL.Forms.Staff.FullStaff;
+using Examination_PRL.Forms.Staff;
 using Examination_PRL.Forms.Staff.Home;
 using Examination_PRL.Forms.Staff.QuestionForm;
 using Examination_PRL.Forms.Staff.Result;
@@ -44,6 +45,7 @@ namespace Examination_PRL.Forms.Staff
             homePage.Controls.Add(home);
             home.Show();
             home.Dock = DockStyle.Fill;
+            home.Name = "Home";
 
 
             RadPageViewPage schedulePage = new RadPageViewPage("Lịch thi"); //xem danh sách lịch thi
@@ -84,7 +86,7 @@ namespace Examination_PRL.Forms.Staff
             studentsList.Dock = DockStyle.Fill;
             studentsList.Name = "studentsListForm";
 
-            RadPageViewPage addStudentPage = new RadPageViewPage("Edit thí sinh");
+            RadPageViewPage addStudentPage = new RadPageViewPage("Quản lý thí sinh");
             AddStudents addThiSinh = new AddStudents();
             addThiSinh.TopLevel = false;
             addStudentPage.Controls.Add(addThiSinh);
@@ -92,21 +94,14 @@ namespace Examination_PRL.Forms.Staff
             addThiSinh.Dock = DockStyle.Fill;
             addThiSinh.Name = "addThiSinhForm";
 
-            RadPageViewPage qltkStudentPage = new RadPageViewPage("QLTK Thí Sinh");
-            QLTKStudent qltkstudent = new QLTKStudent();
-            qltkstudent.TopLevel = false;
-            qltkStudentPage.Controls.Add(qltkstudent);
-            qltkstudent.Show();
-            qltkstudent.Dock = DockStyle.Fill;
-            qltkstudent.Name = "QLTK Thí Sinh";
             studentPage.SubPages.Add(addStudentPage);
-            studentPage.SubPages.Add(qltkStudentPage);
 
             RadPageViewPage examPage = new RadPageViewPage("Đề thi"); //xem danh sách đề thi
             examPage.ToolTipText = "Đề thi";
             Bitmap bitMapExamIcon = new Bitmap(Properties.Resources.exam);
             Image examIcon = bitMapExamIcon;
             examPage.Image = examIcon;
+          
 
 
             Exam_Overview exam_Overview = new Exam_Overview();
@@ -123,10 +118,16 @@ namespace Examination_PRL.Forms.Staff
             editExams.Show();
             editExams.Dock = DockStyle.Fill;
             editExams.Name = "editExam";
+            Bitmap bitMapExam = new Bitmap(Properties.Resources.examBag);
+            Image examGroupIcon = bitMapExam;
+            examGroup.Image = examGroupIcon;
+            examGroup.ToolTipText = "Bài thi";
+
+
 
 
             RadPageViewPage addExamPage = new RadPageViewPage("Thêm đề thi");
-            AddExam addExam = new AddExam();
+            AddExam addExam = new AddExam(usrAccount);
             addExam.TopLevel = false;
             addExamPage.Controls.Add(addExam);
             addExam.Show();
@@ -144,7 +145,7 @@ namespace Examination_PRL.Forms.Staff
             Bitmap bitMapQuestionIcon = new Bitmap(Properties.Resources.quest);
             Image questionIcon = bitMapQuestionIcon;
             questionPage.Image = questionIcon;
-            QuestionOverview questionOverview = new QuestionOverview();
+            QuestionOverview questionOverview = new QuestionOverview(usrAccount);
             questionOverview.TopLevel = false;
             questionPage.Controls.Add(questionOverview);
             questionOverview.Show();
@@ -184,6 +185,7 @@ namespace Examination_PRL.Forms.Staff
             addParticipantToClassPage.Controls.Add(addParticipantToClass);
             addParticipantToClass.Show();
             addParticipantToClass.Dock = DockStyle.Fill;
+            addParticipantToClass.Name = "addParticipantToClass";
 
             classRoom.SubPages.Add(addParticipantToClassPage);
 
@@ -213,7 +215,7 @@ namespace Examination_PRL.Forms.Staff
             overViewNhanVien.Dock = DockStyle.Fill;
             overViewNhanVien.Name = "overViewNhanVienForm";
 
-            RadPageViewPage addStaffPage = new RadPageViewPage("Edit nhân viên");
+            RadPageViewPage addStaffPage = new RadPageViewPage("Quản lý nhân viên");
             AddNhanVien addNhanViens = new AddNhanVien();
             addNhanViens.TopLevel = false;
             addStaffPage.Controls.Add(addNhanViens);
@@ -285,15 +287,7 @@ namespace Examination_PRL.Forms.Staff
             reportByScore.Dock = DockStyle.Fill;
             reportByScore.Name = "reportByScore";
 
-            reportPage.SubPages.Add(reportByScorePage);
-
-            RadPageViewPage createAccountParticipantPage = new RadPageViewPage("Quản lý tài quản");
-            CrudTK crudTK = new CrudTK();
-            crudTK.TopLevel = false;
-            createAccountParticipantPage.Controls.Add(crudTK);
-            crudTK.Show();
-            crudTK.Dock = DockStyle.Fill;
-            crudTK.Name = "Account_Manager";
+            reportPage.SubPages.Add(reportByScorePage); 
 
             RadPageViewPage listQAPage = new RadPageViewPage("Phản hồi của thí sinh");
             ListQA listQA = new ListQA();
@@ -301,11 +295,26 @@ namespace Examination_PRL.Forms.Staff
             listQAPage.Controls.Add(listQA);
             listQA.Show();
             listQA.Dock = DockStyle.Fill;
+            listQA.Name = "list";
+
+            Bitmap bitMapFeedbacks = new Bitmap(Properties.Resources.q_a);
+            Image feedbacksIcon = bitMapFeedbacks;
+            listQAPage.Image = feedbacksIcon;
+
+            RadPageViewPage changePass = new RadPageViewPage("Đổi mật khẩu");
+            changePassStaff ChangePassStaff = new changePassStaff(usrAccount);
+            ChangePassStaff.TopLevel = false;
+            changePass.Controls.Add(ChangePassStaff);
+            ChangePassStaff.Show();
+            ChangePassStaff.Dock = DockStyle.Fill;
+            changePass.Name = "change";
+
+            RadPageViewPage logOut = new RadPageViewPage("Đăng Xuất");
+            logOut.Name = "LogOut";
 
             pvDashboard.Pages.Add(homePage);
             pvDashboard.Pages.Add(schedulePage);
             pvDashboard.Pages.Add(studentPage);
-            pvDashboard.Pages.Add(qltkStudentPage);
             pvDashboard.Pages.Add(examGroup);
             pvDashboard.Pages.Add(examPage);
             pvDashboard.Pages.Add(subjectPage);
@@ -315,15 +324,40 @@ namespace Examination_PRL.Forms.Staff
             pvDashboard.Pages.Add(resultPage);
             pvDashboard.Pages.Add(reportPage);
             pvDashboard.Pages.Add(questionPage);
-            pvDashboard.Pages.Add(createAccountParticipantPage);
+           // pvDashboard.Pages.Add(createAccountParticipantPage);
             pvDashboard.Pages.Add(listQAPage);
+            pvDashboard.Pages.Add(changePass);
+            pvDashboard.Pages.Add(logOut);
 
             pvDashboard.AutoScroll = true;
             CollapseAllSubPages(pvDashboard);
 
 
-        }
 
+
+            #region set pages active for account
+
+            UserPermissionServices userPermissionServices = new UserPermissionServices();
+            List<UserPermission> userPermissions = userPermissionServices.GetUserPermissionByAccountID(usrAccount.Id);
+            foreach(var item in userPermissions)
+            {
+                if(item.PermissionId==3)
+                {
+                    pvDashboard.Pages.Remove(staffPage);
+                    break;
+                    //staffPage
+                    //addStaffPage.Enabled = false;
+                    //createAccountParticipantPage.Enabled = false;
+                }    
+            }    
+
+
+
+            #endregion
+
+
+        }
+    
         private void CollapseAllSubPages(RadPageView pageView)
         {
             foreach (RadPageViewPage item in pageView.Pages)
@@ -352,6 +386,14 @@ namespace Examination_PRL.Forms.Staff
 
         private void pvDashboard_SelectedPageChanged(object sender, EventArgs e)
         {
+            if(pvDashboard.SelectedPage.Name == "LogOut")
+            {
+                    DialogResult = MessageBox.Show("Bạn có muốn đăng xuất không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (DialogResult == DialogResult.Yes)
+                    {
+                        this.Close();
+                    }                
+                }
             try
             {
                 RadPageViewPage radPageViewPage = pvDashboard.SelectedPage;
@@ -407,8 +449,14 @@ namespace Examination_PRL.Forms.Staff
                     case "thoiGianForm":
                         (form as ThoiGian).LoadData();
                         break;
-                    case "Account_Manager":
-                        (form as CrudTK).LoadData_Staff();
+                    case "list":
+                        (form as ListQA).LoadData(null);
+                        break;
+                    case "Home":
+                        (form as Examination_PRL.Forms.Staff.Home.Home).LoadData();
+                        break;
+                    case "exam_OverviewForm":
+                        (form as Exam_Overview).LoadData();
                         break;
                     default:
                         break;
@@ -417,7 +465,7 @@ namespace Examination_PRL.Forms.Staff
             }
             catch
             {
-
+                
             }
         }
     }

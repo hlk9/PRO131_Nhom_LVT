@@ -25,6 +25,8 @@ namespace Examination_PRL.Forms.Staff.Schedule
             InitializeComponent();
             LoadData();
             dropdownClass.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
+            dateStart.Value = DateTime.Now;
+            dateEnd.Value = DateTime.Now.AddDays(1);
 
         }
         public void LoadData()
@@ -38,6 +40,57 @@ namespace Examination_PRL.Forms.Staff.Schedule
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+
+            if(txtName.Text=="")
+            {
+                MessageBox.Show("Tên lịch thi không được để trống");
+                return;
+            }
+
+
+            if (txtSubject.Text == "")
+            {
+                MessageBox.Show("Tên môn học không được để trống");
+                return;
+            }
+
+
+            if(txtSubject.Text=="")
+            {
+                MessageBox.Show("Tên môn học không được để trống");
+                return;
+            }
+            if(txtExamID.Text=="")
+            {
+                MessageBox.Show("Hãy chọn bài thi");
+                return;
+            }
+
+
+
+
+            if (dateStart.Value.Date < DateTime.Now.Date)
+            {
+                MessageBox.Show("Ngày bắt đầu không được nhỏ hơn ngày hiện tại");
+                dateStart.Value = DateTime.Now;
+                return;
+            }
+
+            if (dateStart.Value > dateEnd.Value)
+            {
+                MessageBox.Show("Ngày bắt đầu không được lớn hơn ngày kết thúc");
+                dateStart.Value = DateTime.Now;
+                return;
+            }
+
+
+            if (dateEnd.Value < dateStart.Value)
+            {
+                MessageBox.Show("Ngày kết thúc không được nhỏ hơn ngày bắt đầu");
+                return;
+            }
+
+
             if (txtExamID.Text == null)
             {
                 MessageBox.Show("Hãy chọn bài thi");
@@ -50,16 +103,25 @@ namespace Examination_PRL.Forms.Staff.Schedule
             examSchedule.Description = txtDes.Text;
             examSchedule.ExamRoomId = dropdownClass.SelectedItem.Text;
             examSchedule.Status = true;
-            examSchedule.CreatedBy = usrAccount.Id;          
+            examSchedule.CreatedBy = usrAccount.Id;
             examSchedule.ExamId = Convert.ToInt32(txtExamID.Text);
             examSchedule.Subject = txtSubject.Text;
 
-           if(scheduleServices.AddSchedule(examSchedule)==true)
-                MessageBox.Show("Thêm thành công");
-           else
-                MessageBox.Show("Thêm thất bại");
+            if(ScheduleExist(examSchedule)==false)
+            {
 
-            OnDataAdded(EventArgs.Empty);
+                if (scheduleServices.AddSchedule(examSchedule) == true)
+                    MessageBox.Show("Thêm thành công");
+                else
+                    MessageBox.Show("Thêm thất bại");
+
+                OnDataAdded(EventArgs.Empty);
+            }    
+            else
+            {
+                MessageBox.Show("Phòng thi đã có lịch thi\nThời gian không hợp lệ");
+            }
+
 
         }
 
@@ -82,5 +144,44 @@ namespace Examination_PRL.Forms.Staff.Schedule
             MessageBox.Show("Select: " + selectOrAddNewExam.curentExamID);
             txtExamID.Text = selectOrAddNewExam.curentExamID.ToString();
         }
+
+        private void dateStart_ValueChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void dateEnd_ValueChanged(object sender, EventArgs e)
+        {
+           
+
+
+
+
+        }
+
+        bool ScheduleExist(ExamSchedule examSchedule)
+        {
+            var list = scheduleServices.GetAllSchedule().Where(x=>x.EndTime>=DateTime.Now).ToList();
+            foreach (var item in list)
+            {
+                if (item.ExamRoomId == examSchedule.ExamRoomId)
+                {
+                    if (item.StartTime <= examSchedule.StartTime && item.EndTime >= examSchedule.StartTime)
+                    {
+                        return true;
+                    }
+                    if (item.StartTime <= examSchedule.EndTime && item.EndTime >= examSchedule.EndTime)
+                    {
+                        return true;
+                    }
+                    if (item.StartTime >= examSchedule.StartTime && item.EndTime <= examSchedule.EndTime)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
     }
 }

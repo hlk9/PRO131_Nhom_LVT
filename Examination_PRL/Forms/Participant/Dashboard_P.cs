@@ -2,7 +2,9 @@
 using Examination_BUS.Utilities;
 using Examination_BUS.ViewModel;
 using Examination_DAL.Models;
+using Examination_PRL.Forms.Staff;
 using Examination_PRL.Utilities;
+using Microsoft.EntityFrameworkCore.Metadata;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +26,7 @@ namespace Examination_PRL.Forms.Participant
         ScheduleDetailServices scheduleDetailServices = new ScheduleDetailServices();
         List<ScheduleWithExamInforViewModel> listData;
         ExamServices _serviceExam = new ExamServices();
+        ParticipantService _serPar = new ParticipantService();
         int _idExamClick;
         int _idResponseClick;
         Account userAccount;
@@ -34,15 +37,27 @@ namespace Examination_PRL.Forms.Participant
             _ser = new FeedbackServices();
             this.userName = urs;
             this.userAccount = userAccount;
-            LoadData();
-            LoadExamSchedule();
+
             radlblSum.Text = _serviceExam.GetExamResponses().Count().ToString();
             radlblDat.Text = _serviceExam.GetExamResponses().Where(x => x.IsPassed == true).ToList().Count.ToString();
             radlblChuaDat.Text = _serviceExam.GetExamResponses().Where(x => x.IsPassed == false).ToList().Count.ToString();
             LoadDataExam();
+            radPageView1.SelectedPage = radPageViewPage2;
+            LoadData();
+            LoadExamSchedule();
 
-
+            listViewExam.Refresh();
+            var objInfo = _serPar.GetOneByID(userAccount.Id);
+            var objAcc = _serPar.GetAccountById(userAccount.Id).FirstOrDefault();
+            radLblNameLogin.Text = objAcc.UserName;
+            radLblNameUser.Text = objInfo.FullName;
+            radLblPhoneNumber.Text = objInfo.PhoneNumber;
+            radLblAddress.Text = objInfo.Address;
+            radLblEmail.Text = objInfo.Email;
+            radLblGender.Text = objInfo.Gender == true ? "Nam" : "Nữ";
+            radLblDate.Text = objInfo.DateOfBirth.Date.ToString();
         }
+
 
         public void LoadData()
         {
@@ -79,20 +94,24 @@ namespace Examination_PRL.Forms.Participant
         }
 
 
-
+        ScheduleWithExamInforViewModel currentCreating;
         public void LoadExamSchedule()
         {
-            listData = scheduleDetailServices.GetScheduleAndExamByParticipantID(userName);
+            listViewExam.Items.Clear();
+            listData = scheduleDetailServices.GetScheduleAndExamByParticipantID(userName).Where(x => x.ExamStartTime >= DateTime.Now.AddDays(3) || x.ExamEndTime >= DateTime.Now).ToList();
+
+
+
 
             listViewExam.VisualItemCreating += ListViewExam_VisualItemCreating;
             listViewExam.VisualItemCreating += ListViewExam_VisualItemFormatting;
-            this.listViewExam.ShowGroups = true;
-            this.listViewExam.EnableGrouping = true;
-            GroupDescriptor groupByValue = new GroupDescriptor(new SortDescriptor[]
-            {
-                new SortDescriptor("Type", ListSortDirection.Ascending)
-            });
-            this.listViewExam.GroupDescriptors.Add(groupByValue);
+            //this.listViewExam.ShowGroups = true;
+            //this.listViewExam.EnableGrouping = true;
+            //GroupDescriptor groupByValue = new GroupDescriptor(new SortDescriptor[]
+            //{
+            //    new SortDescriptor("Type", ListSortDirection.Ascending)
+            //});
+            //this.listViewExam.GroupDescriptors.Add(groupByValue);
             this.listViewExam.ViewType = ListViewType.IconsView;
             this.listViewExam.ItemSize = new Size(300, 150);
             this.listViewExam.ItemSpacing = 10;
@@ -103,26 +122,23 @@ namespace Examination_PRL.Forms.Participant
             this.listViewExam.BackColor = Color.Transparent;
             this.listViewExam.ListViewElement.DrawFill = false;
             this.listViewExam.ListViewElement.ViewElement.BackColor = Color.Transparent;
-            this.listViewExam.ListViewElement.Padding = new Padding(-9, 0, 0, 0);
+            this.listViewExam.ListViewElement.Padding = new Padding(10);
             this.listViewExam.Margin = new Padding(20);
             this.listViewExam.RootElement.EnableElementShadow = false;
             this.listViewExam.GroupItemSize = new Size(0, 45);
             listViewExam.ItemSpacing = 40;
             foreach (var item in listData)
             {
-                if (listViewExam.Items.Contains(item))
-                    continue;
+                currentCreating = item;
+                //if (listViewExam.Items.Contains(item))
+                //    continue;
                 listViewExam.Items.Add(item);
 
             }
-            try
-            {
-                listViewExam.Items[listViewExam.Items.Count - 1].Visible = false;
-            }
-            catch
-            {
 
-            }
+
+
+
         }
 
         private void ListViewExam_VisualItemFormatting(object sender, ListViewVisualItemCreatingEventArgs e)
@@ -153,27 +169,28 @@ namespace Examination_PRL.Forms.Participant
                 e.VisualItem.Padding = new Padding(0);
                 e.VisualItem.ResetValue(LightVisualElement.TextAlignmentProperty, Telerik.WinControls.ValueResetFlags.Local);
             }
+            //  RemoveDumplicate();
         }
 
         private void ListViewExam_VisualItemCreating(object sender, ListViewVisualItemCreatingEventArgs e)
         {
             //e.VisualItem = new ExamCustomVisualItem(null);
-
+            e.VisualItem = new ExamCustomVisualItem(currentCreating, userAccount);
             if (this.listViewExam.ViewType == ListViewType.IconsView)
             {
-                if (listData.Count > 0)
-                {
-                    foreach (var item in listData)
-                    {
-                        e.VisualItem = new ExamCustomVisualItem(item, userAccount);
-                        listData.Remove(item);
-                        return;
-                    }
-                }
-                else
-                {
-                    return;
-                }
+                //if (listData.Count > 0)
+                //{
+                //    foreach (var item in listData)
+                //    {
+                //  e.VisualItem = new ExamCustomVisualItem(currentCreating, userAccount);
+                //        listData.Remove(item);
+                //        return;
+                //    }
+                //}
+                //else
+                //{
+                //    return;
+                //}
             }
         }
         // radgridView Kết Quả
@@ -272,10 +289,63 @@ namespace Examination_PRL.Forms.Participant
         private void radPageView1_SelectedPageChanged(object sender, EventArgs e)
         {
 
-            LoadDataExam();
+            //MessageBox.Show(radPageView1.SelectedPage.Name);
+
+            if (radPageView1.SelectedPage.Name == "radPageViewPage1")
+                LoadExamSchedule();
+            else if (radPageView1.SelectedPage.Name == "radPageViewPage2")
+                LoadData();
+            else if (radPageView1.SelectedPage.Name == "radPageViewPage3")
+                LoadDataExam();
+
+            return;
 
 
 
+
+        }
+
+
+        void RemoveDumplicate()
+        {
+
+            // MessageBox.Show(listViewExam.Items.Count.ToString());
+            //for(int i=0;i<listViewExam.Items.Count;i++)
+            //  {
+            //      for(int j=i+1;j< listViewExam.Items.Count; j++)
+            //      {
+            //          if (listViewExam.Items[i] == listViewExam.Items[j])
+            //          {
+            //              listViewExam.Items.RemoveAt(j);
+
+            //          }
+            //      }
+            //  }
+        }
+
+        private void radBtnDangXuat_Click(object sender, EventArgs e)
+        {
+            DialogResult = MessageBox.Show("Bạn chắc chắn muốn đăng xuất?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if (DialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+        private void radBtnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        private void listViewExam_SelectedItemChanged(object sender, EventArgs e)
+        {
+            // MessageBox.Show(listViewExam.Items.Count.ToString());
+        }
+
+        private void radBtnChangePass_Click(object sender, EventArgs e)
+        {
+            ChangePassWord changePass = new ChangePassWord(userAccount);
+            changePass.ShowDialog();
         }
     }
 }

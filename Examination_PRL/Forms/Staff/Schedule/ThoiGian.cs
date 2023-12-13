@@ -21,7 +21,7 @@ namespace Examination_PRL
         {
             InitializeComponent();
             LoadData();
-            scheduleDetail.ActiveViewType = SchedulerViewType.Agenda;
+            scheduleDetail.ActiveViewType = SchedulerViewType.Month;
         }
         public void LoadData()
         {

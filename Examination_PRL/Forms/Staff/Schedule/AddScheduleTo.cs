@@ -46,6 +46,7 @@ namespace Examination_PRL.Forms.Staff.Schedule
             {
                 gridViewClass.Rows.Add(stt1++, item.Id, item.Name);
             }
+            gridViewClass.Rows.Add(stt1++, "Null", "Sinh viên chưa xếp lớp");
 
 
 
@@ -59,9 +60,29 @@ namespace Examination_PRL.Forms.Staff.Schedule
             {
                 _idClassrom = gridViewClass.Rows[e.RowIndex].Cells[1].Value.ToString();
                 lblCurrentClass.Text = gridViewClass.Rows[e.RowIndex].Cells[2].Value.ToString();
+                int stt = 1;
+
+                if (_idClassrom == "Null")
+                {
+                    gridViewParti.Rows.Clear();
+
+                    gridViewParti.ColumnCount = 5;
+                    gridViewParti.Columns[0].HeaderText = "STT";
+                    gridViewParti.Columns[1].HeaderText = "ID";
+                    gridViewParti.Columns[2].HeaderText = "Họ và tên";
+                    gridViewParti.Columns[3].HeaderText = "Giới tính";
+                    gridViewParti.Columns[4].HeaderText = "Ngày sinh";
+                    foreach (var item in participantService.getAllStudents().Where(x => x.ClassroomId == null))
+                    {
+                        gridViewParti.Rows.Add(stt++, item.Id, item.FullName, item.Gender == true ? "Nam" : item.Gender == null ? "Khác" : "Nữ", item.DateOfBirth);
+                    }
+                    classmateCount.Text = gridViewParti.Rows.Count.ToString();
+                    return;
+                }
+
+
 
                 gridViewParti.Rows.Clear();
-                int stt = 1;
                 gridViewParti.ColumnCount = 5;
                 gridViewParti.Columns[0].HeaderText = "STT";
                 gridViewParti.Columns[1].HeaderText = "ID";
@@ -111,13 +132,23 @@ namespace Examination_PRL.Forms.Staff.Schedule
                     ParticipantId = item.Id,
                     ExamScheduleId = _idSchedule
                 };
-                if(scheduleDetailServices.AddScheduleDetail(scheduleDetail) == true)
+
+                if(CheckExist(scheduleDetail) == true)
                 {
-                    count++;
+                    continue;
                 }
-               
+                else
+                {
+                    if (scheduleDetailServices.AddScheduleDetail(scheduleDetail) == true)
+                    {
+                        count++;
+                    }
+                }
+
+              
+
             }
-            MessageBox.Show("Thêm thành công " + count + " sinh viên của lớp "+_idClassrom);
+            MessageBox.Show("Thêm thành công " + count + " sinh viên của lớp " + _idClassrom);
         }
 
         private void radButton1_Click(object sender, EventArgs e)
@@ -127,7 +158,13 @@ namespace Examination_PRL.Forms.Staff.Schedule
                 ParticipantId = _idParticipant,
                 ExamScheduleId = _idSchedule
             };
-            if (scheduleDetailServices.AddScheduleDetail(scheduleDetail)==true)
+            if (CheckExist(scheduleDetail) == true)
+            {
+               MessageBox.Show("Sinh viên đã có trong danh sách");
+                return;
+            }
+
+            if (scheduleDetailServices.AddScheduleDetail(scheduleDetail) == true)
             {
                 MessageBox.Show("Thêm thành công");
             }
@@ -135,7 +172,19 @@ namespace Examination_PRL.Forms.Staff.Schedule
             {
                 MessageBox.Show("Thêm thất bại");
             }
-          
+
+        }
+
+        public bool CheckExist(ExamScheduleDetail exd)
+        {
+            ScheduleDetailServices scheduleDetailServices = new ScheduleDetailServices();
+            var ojb = scheduleDetailServices.GetScheduleDetailByParticipantId(exd.ParticipantId).Where(x => x.ExamScheduleId == exd.ExamScheduleId).FirstOrDefault();
+            if (ojb != null)
+            {
+                return true;
+            }
+            return false;
+
         }
     }
 }

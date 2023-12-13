@@ -162,6 +162,7 @@
             scheduleNavigator.Dock = DockStyle.Top;
             scheduleNavigator.Location = new Point(0, 0);
             scheduleNavigator.Name = "scheduleNavigator";
+            scheduleNavigator.NavigationStep = 7;
             scheduleNavigator.NavigationStepType = Telerik.WinControls.UI.NavigationStepTypes.Day;
             // 
             // 
@@ -173,6 +174,7 @@
             // 
             // scheduleDetail
             // 
+            scheduleDetail.ActiveViewType = Telerik.WinControls.UI.SchedulerViewType.Month;
             scheduleDetail.AllowAppointmentCreateInline = false;
             scheduleDetail.AllowAppointmentMove = false;
             scheduleDetail.AllowAppointmentResize = false;

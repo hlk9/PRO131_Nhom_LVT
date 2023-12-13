@@ -94,7 +94,7 @@ namespace Examination_BUS.Services
             questionWithAnswerViewModel.Id = questionData.Id;
             questionWithAnswerViewModel.Content = questionData.Content;
             questionWithAnswerViewModel.Point = questionData.Point;
-            questionWithAnswerViewModel.QuestionType = questionData.QuestionLevelId;
+            questionWithAnswerViewModel.QuestionType = questionData.QuestionTypeId;
             questionWithAnswerViewModel.QuestionLevel = questionData.QuestionLevelId;
             questionWithAnswerViewModel.Subject = questionData.SubjectId;
             questionWithAnswerViewModel.Docs = questionData.Docs;

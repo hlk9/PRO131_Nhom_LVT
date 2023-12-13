@@ -19,10 +19,19 @@ namespace Examination_PRL.Forms.Staff.QuestionForm
 
         QuestionServices questionServices = new QuestionServices();
         AnswerServices answerServices = new AnswerServices();
-        public AddQuestion()
+        Account usrAccount;
+        public event EventHandler DataAdded;
+        public AddQuestion(Account account)
         {
+            this.usrAccount = account;
             InitializeComponent();
         }
+        protected virtual void OnDataAdded(EventArgs e)
+        {
+            // Gọi sự kiện DataAdded để thông báo rằng dữ liệu đã được thêm
+            DataAdded?.Invoke(this, e);
+        }
+
 
         private void btnSelectFile_Click(object sender, EventArgs e)
         {
@@ -40,161 +49,184 @@ namespace Examination_PRL.Forms.Staff.QuestionForm
         public void ImportFileQuestion(string path)
         {
 
-          
-                ExcelPackage package = new ExcelPackage(new FileInfo(path));
-                ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
-                ExcelWorksheet worksheetQuestion = package.Workbook.Worksheets[0];
-                ExcelWorksheet worksheetAnswer = package.Workbook.Worksheets[1];
-                int rowCount = worksheetQuestion.Dimension.Rows;
-                int colCount = worksheetQuestion.Dimension.Columns;
+            ExcelPackage package = new ExcelPackage(new FileInfo(path));
+            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+            ExcelWorksheet worksheetQuestion = package.Workbook.Worksheets[0];
+            ExcelWorksheet worksheetAnswer = package.Workbook.Worksheets[1];
+            int rowCount = worksheetQuestion.Dimension.Rows;
+            int colCount = worksheetQuestion.Dimension.Columns;
 
-                //int totalRowQuestion = worksheetQuestion.Dimension.Rows;
-                //int totalRowAnswer = worksheetAnswer.Dimension.Rows;
-                List<QuestionInExcel> listQiExcel = new List<QuestionInExcel>();
+            //int totalRowQuestion = worksheetQuestion.Dimension.Rows;
+            //int totalRowAnswer = worksheetAnswer.Dimension.Rows;
+            List<QuestionInExcel> listQiExcel = new List<QuestionInExcel>();
 
-                for(int rowQ = 2;rowQ< worksheetQuestion.Dimension.Rows;rowQ++)
+            for (int rowQ = 2; rowQ <= worksheetQuestion.Dimension.Rows; rowQ++)
+            {
+                try
                 {
-                   try
+                    QuestionInExcel question = new QuestionInExcel();
+                    question.ConnectionId = Convert.ToInt32(worksheetQuestion.Cells[rowQ, 1].Value.ToString());
+                    question.Content = worksheetQuestion.Cells[rowQ, 2].Value.ToString();
+                    question.QuestionLevelId = Convert.ToByte(worksheetQuestion.Cells[rowQ, 3].Value.ToString());
+                    question.QuestionTypeId = Convert.ToByte(worksheetQuestion.Cells[rowQ, 4].Value.ToString());
+                    question.SubjectId = worksheetQuestion.Cells[rowQ, 5].Value.ToString();
+
+                    List<AnswerInExcel> answers = new List<AnswerInExcel>();
+
+                    for (int rowA = 2; rowA < worksheetAnswer.Dimension.Rows; rowA++)
                     {
-                        QuestionInExcel question = new QuestionInExcel();
-                        question.ConnectionId = Convert.ToInt32(worksheetQuestion.Cells[rowQ, 1].Value.ToString());
-                        question.Content = worksheetQuestion.Cells[rowQ, 2].Value.ToString();
-                        question.QuestionLevelId = Convert.ToByte(worksheetQuestion.Cells[rowQ, 3].Value.ToString());
-                        question.QuestionTypeId = Convert.ToByte(worksheetQuestion.Cells[rowQ, 4].Value.ToString());
-                        question.SubjectId = worksheetQuestion.Cells[rowQ, 5].Value.ToString();
 
-                        List<AnswerInExcel> answers = new List<AnswerInExcel>();
-
-                        for (int rowA = 2; rowA < worksheetAnswer.Dimension.Rows; rowA++)
+                        try
                         {
 
                             if (worksheetQuestion.Cells[rowQ, 1].Value.ToString() == worksheetAnswer.Cells[rowA, 1].Value.ToString())
                             {
+
                                 AnswerInExcel answer = new AnswerInExcel();
                                 answer.Content = worksheetAnswer.Cells[rowA, 2].Value.ToString();
                                 answer.IsCorrect = worksheetAnswer.Cells[rowA, 3].Value.ToString() == "1" ? true : false;
                                 answer.ConnectionId = Convert.ToInt32(worksheetAnswer.Cells[rowA, 1].Value.ToString());
                                 answers.Add(answer);
-
                             }
                         }
-                        question.Answers = answers;
-                        listQiExcel.Add(question);
-                    }
-                    catch
-                    {
-                       // MessageBox.Show("Import failed!");
-                    }
-                }
 
-
-
-                try
-                {
-
-                    foreach(var item in listQiExcel)
-                    {
-                        Question q = new Question();
-                        q.QuestionTypeId = item.QuestionTypeId;
-                        q.QuestionLevelId = item.QuestionLevelId;
-                        q.SubjectId = item.SubjectId;
-                        q.Content = item.Content;
-                        q.Docs = null;
-                        q.CreatedBy = staffCode;
-                        q.CreatedTime = DateTime.Now;
-                        switch (q.QuestionLevelId)
+                        catch
                         {
-                            case 1:
-                                q.Point = 0.25;
-                                break;
-                            case 2:
-                                q.Point = 0.5;
-                                break;
-                            case 3:
-                                q.Point = 0.75;
-                                break;
-                            default:
-                                q.Point = 1;
-                                break;
-
+                            MessageBox.Show("Dòng KV1 " + rowA+"\nMax: "+ worksheetAnswer.Dimension.Rows);
                         }
-                        q.Status = true;
 
 
-                        int questionId = questionServices.AddQuestionReturnId(q);
-                        if (questionId != -1)
+                    }
+                    question.Answers = answers;
+                    listQiExcel.Add(question);
+                }
+                catch (Exception ex)
+                {
+                    //MessageBox.Show("Import failed!");
+                    MessageBox.Show(ex.Message + " Dòng KV2 " + rowQ+ "\nMax: " + worksheetQuestion.Dimension.Rows);
+                }
+            }
+
+
+
+            try
+            {
+                int qNumberExist = 0;
+                int qNumberAdded = 0;
+                foreach (var item in listQiExcel)
+                {
+                    Question q = new Question();
+                    q.QuestionTypeId = item.QuestionTypeId;
+                    q.QuestionLevelId = item.QuestionLevelId;
+                    q.SubjectId = item.SubjectId;
+                    q.Content = item.Content;
+                    q.Docs = null;
+                    q.CreatedBy = staffCode;
+                    q.CreatedTime = DateTime.Now;
+                    switch (q.QuestionLevelId)
+                    {
+                        case 1:
+                            q.Point = 0.25;
+                            break;
+                        case 2:
+                            q.Point = 0.5;
+                            break;
+                        case 3:
+                            q.Point = 0.75;
+                            break;
+                        default:
+                            q.Point = 1;
+                            break;
+
+                    }
+                    q.Status = true;
+
+                
+                    var oneQuestion = questionServices.GetListQuestionWithSubject(q.SubjectId).ToList().Where(x => x.Content == q.Content).FirstOrDefault();
+                    if (oneQuestion != null)
+                    {
+                       
+                        qNumberExist++;
+                        continue;
+                    }
+
+
+                    int questionId = questionServices.AddQuestionReturnId(q);
+                    if (questionId != -1)
+                    {
+                        qNumberAdded++;
+                        foreach (var answer in item.Answers)
                         {
-                            foreach (var answer in item.Answers)
-                            {
-                               Answer a = new Answer();
-                                a.QuestionId = questionId;
-                                a.Content = answer.Content;
-                                a.IsCorrect = answer.IsCorrect;
-                                a.CreatedBy = staffCode;
-                                a.Status = true;
-                                a.CreatedAt = DateTime.Now;
+                            Answer a = new Answer();
+                            a.QuestionId = questionId;
+                            a.Content = answer.Content;
+                            a.IsCorrect = answer.IsCorrect;
+                            a.CreatedBy = staffCode;
+                            a.Status = true;
+                            a.CreatedAt = DateTime.Now;
                             a.UpdatedAt = null;
-                                answerServices.AddAnswer(a);
-                               
-                            }
-                        }
+                            answerServices.AddAnswer(a);
 
+                        }
                     }
 
-                    MessageBox.Show("Thêm thành công "+ listQiExcel.Count + "câu hỏi kèm đáp án");
-
-                }
-                catch
-                {
-                    MessageBox.Show("Import failed!");
                 }
 
+                MessageBox.Show("Thêm thành công " + qNumberAdded + "câu hỏi kèm đáp án\nCó "+qNumberExist+" Câu trùng và được bỏ qua");
+                OnDataAdded(EventArgs.Empty);
 
-
-
-             
-
-                //for (int row = 2; row <= rowCount; row++)
-                //{
-                //    Question q = new Question();
-                //    Answer a = new Answer();
-                //    q.QuestionTypeId = Convert.ToByte(worksheetQuestion.Cells[row, 1].Value.ToString());
-                //    q.QuestionLevelId = Convert.ToByte(worksheetQuestion.Cells[row, 2].Value.ToString());
-                //    q.SubjectId = worksheetQuestion.Cells[row, 3].Value?.ToString();
-                //    q.Content = worksheetQuestion.Cells[row, 4].Value?.ToString();
-                //    q.Docs = worksheetQuestion.Cells[row, 5].Value?.ToString();
-                //    q.CreatedBy = staffCode;
-                //    q.CreatedTime = DateTime.Now;
-                //    switch (q.QuestionLevelId)
-                //    {
-                //        case 1:
-                //            q.Point = 0.25;
-                //            break;
-                //        case 2:
-                //            q.Point = 0.5;
-                //            break;
-                //        case 3:
-                //            q.Point = 0.75;
-                //            break;
-                //        default:
-                //            q.Point = 1;
-                //            break;
-
-                //    }
-                //    q.Status = true;
-
-                //    questionServices.AddQuestion(q);
-
-
-
-                //    MessageBox.Show("Import successful!");
-
-                //}
+            }
+            catch
+            {
+                MessageBox.Show("Import failed!");
+            }
 
 
 
 
-          
+
+
+            //for (int row = 2; row <= rowCount; row++)
+            //{
+            //    Question q = new Question();
+            //    Answer a = new Answer();
+            //    q.QuestionTypeId = Convert.ToByte(worksheetQuestion.Cells[row, 1].Value.ToString());
+            //    q.QuestionLevelId = Convert.ToByte(worksheetQuestion.Cells[row, 2].Value.ToString());
+            //    q.SubjectId = worksheetQuestion.Cells[row, 3].Value?.ToString();
+            //    q.Content = worksheetQuestion.Cells[row, 4].Value?.ToString();
+            //    q.Docs = worksheetQuestion.Cells[row, 5].Value?.ToString();
+            //    q.CreatedBy = staffCode;
+            //    q.CreatedTime = DateTime.Now;
+            //    switch (q.QuestionLevelId)
+            //    {
+            //        case 1:
+            //            q.Point = 0.25;
+            //            break;
+            //        case 2:
+            //            q.Point = 0.5;
+            //            break;
+            //        case 3:
+            //            q.Point = 0.75;
+            //            break;
+            //        default:
+            //            q.Point = 1;
+            //            break;
+
+            //    }
+            //    q.Status = true;
+
+            //    questionServices.AddQuestion(q);
+
+
+
+            //    MessageBox.Show("Import successful!");
+
+            //}
+
+
+
+
+
 
 
         }

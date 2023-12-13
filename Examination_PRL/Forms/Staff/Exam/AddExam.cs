@@ -33,9 +33,10 @@ namespace Examination_PRL.Forms.Staff.Exam
         List<int> QuestionList = new List<int>();
         int CurrentQuestionCount = 0;
         int QuestionLimit = -1;
-
-        public AddExam()
+        Account currentAccount = new Account();
+        public AddExam(Account account)
         {
+            this.currentAccount = account;
             InitializeComponent();
             LoadForm();
 
@@ -111,11 +112,12 @@ namespace Examination_PRL.Forms.Staff.Exam
             panelTopMost.Controls.Add(panelAnswer);
             panelQuestion.Text = questionTypeServices.GetQuestionTypeNameById(Convert.ToByte(question.QuestionType)) + "\n" + question.Content;
             panelAnswer.ThemeName = "MaterialTeal";
-            panelAnswer.Padding = new Padding(10);
+            panelAnswer.Padding = new Padding(30);
 
 
 
             FlowLayoutPanel flowPanel = new FlowLayoutPanel();
+            flowPanel.Dock = DockStyle.Fill;
             flowPanel.FlowDirection = FlowDirection.TopDown;
             flowPanel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             panelAnswer.Controls.Add(flowPanel);
@@ -124,8 +126,7 @@ namespace Examination_PRL.Forms.Staff.Exam
             flowPanel.Location = new Point(30, 80);
 
             flowPanel.BringToFront();
-            MessageBox.Show(panelAnswer.Location.X.ToString() + "\n" + panelAnswer.Location.Y.ToString());
-            MessageBox.Show(flowPanel.Location.X.ToString() + "\n" + flowPanel.Location.Y.ToString());
+
 
 
 
@@ -186,12 +187,18 @@ namespace Examination_PRL.Forms.Staff.Exam
 
         private void radButton2_Click(object sender, EventArgs e)
         {
+            btnSelectExam.Enabled = false;
+
+            txtDuration.ReadOnly = true;
+            txtMaxScore.ReadOnly = true;
+            txtQNumber.ReadOnly = true;
+            txtReTest.ReadOnly = true;
 
             try
             {
-                if (txtQNumber.Text == "" || txtMaxScore.Text == "" || txtDuration.Text == "" || lblExam.Text == "")
+                if (txtQNumber.Text == "" || txtMaxScore.Text == "" || txtDuration.Text == "" || lblExam.Text == ""||lblExamDetailCode.Text=="")
                 {
-                    MessageBox.Show("Các trường yêu cầu không trống");
+                    MessageBox.Show("Các trường yêu cầu không trống\nCác trường này được bôi đỏ");
                     return;
                 }
             }
@@ -276,10 +283,10 @@ namespace Examination_PRL.Forms.Staff.Exam
                 examDetail.TotalQuestion = QuestionLimit;
                 examDetail.CreatedAt = DateTime.Now;
                 examDetail.UpdatedAt = null;
-                examDetail.CreatedBy = "admin";
+                examDetail.CreatedBy = currentAccount.Id;
                 examDetail.UpdatedBy = null;
                 examDetail.PassMark = 5;
-                if(txtReTest.Text == "")
+                if (txtReTest.Text == "")
                     examDetail.ReTestNumber = 1;
                 else
                     examDetail.ReTestNumber = Convert.ToInt32(txtReTest.Text);
@@ -313,6 +320,32 @@ namespace Examination_PRL.Forms.Staff.Exam
 
 
             }
+        }
+
+        private void radButton1_Click_1(object sender, EventArgs e)
+        {
+            btnSelectExam.Enabled = true;
+            pageViewQuestion.Controls.Clear();
+             currentGenerateQuestion = 1;          
+             QuestionList.Clear();
+             CurrentQuestionCount = 0;
+            QuestionLimit = -1;
+            txtCount.Text = "";
+            txtDuration.Text = "";
+            txtMaxScore.Text = "";
+            txtQNumber.Text = "";
+            txtReTest.Text = "";
+            lblExam.Text = "";
+            lblExamDetailCode.Text = "";
+            dropDownQuestionLevel.SelectedIndex = 0;
+            dropDownQuestionType.SelectedIndex = 0;
+
+          
+            txtDuration.ReadOnly = false;
+            txtMaxScore.ReadOnly = false;
+            txtQNumber.ReadOnly = false;
+            txtReTest.ReadOnly = false;
+
         }
     }
 }

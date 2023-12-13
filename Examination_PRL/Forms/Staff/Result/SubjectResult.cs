@@ -80,7 +80,14 @@ namespace Examination_PRL.Forms.Staff
             {
                 sumScore += x.Score;
             }
-            radLblSumScore.Text = sumScore.ToString();
+
+            double Avg = sumScore / _serSubject.GetSubject_ViewModel(_idWhenClick).Count;
+       
+            radLblSumScore.Text = Math.Round(Avg, 2).ToString();
+            if (radLblSumScore.Text == "NaN")
+            {
+                radLblSumScore.Text = "0";
+            }
             loadExamSubject(_idWhenClick);
         }
 

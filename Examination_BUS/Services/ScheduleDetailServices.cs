@@ -66,45 +66,48 @@ namespace Examination_BUS.Services
 
         public List<ScheduleWithExamInforViewModel> GetScheduleAndExamByParticipantID(string id)
         {
+          
+
             var data = (from scheduleDetail in _scheduleDetailRepository.GetScheduleDetailByParticipantId(id)
                        join schedule in _examScheduleRepository.GetListSchedule()
                        on scheduleDetail.ExamScheduleId equals schedule.Id
                        join exam in _examRepository.GetAll()
                        on schedule.ExamId equals exam.Id
-                       join examDetail in _examDetailRepository.GetAll()
-                       on exam.Id equals examDetail.ExamId
                        join room in _examRoomResposiroty.getAllRooms()
                        on schedule.ExamRoomId equals room.Id
                        select new ScheduleWithExamInforViewModel
                        {
                            ScheduleDetailId = scheduleDetail.Id,
-                           ExamDuration = examDetail.Duration,
+                         //  ExamDuration = examDetail.Duration,
                            ExamName = exam.Name,
                            ExamRoomId = room.Id,                           
                            ExamScheduleId = schedule.Id,
-                           ExamDes = examDetail.Description,
+                       //    ExamDes = examDetail.Description,
                            ExamStartTime = schedule.StartTime,
                            ExamEndTime = schedule.EndTime,             
                            ParticipantId = scheduleDetail.ParticipantId,
-                           ExamRepeat = examDetail.ReTestNumber,
-                           ExamDetailCode = examDetail.ExamDetailCode,
-                           ExamID = exam.Id
+                         //  ExamRepeat = examDetail.ReTestNumber,
+                           ExamDetailCode = GetRandomExamDetailCode(exam.Id),
+                           ExamID = exam.Id,
+                           ScheduleName = schedule.Name
                        }).ToList();
 
 
-            return FilterAndRandomize(data);
+            return data;
         }
-
-        static List<ScheduleWithExamInforViewModel> FilterAndRandomize(List<ScheduleWithExamInforViewModel> list)
+        public string GetRandomExamDetailCode(int examId)
         {
-            // Lọc danh sách và chọn ngẫu nhiên giữa các phần tử trùng nhau
+            string code = "";
+            ExamDetailServices examDetailServices = new ExamDetailServices();
+            List<ExamDetail> examDetails = examDetailServices.getByExamIds(examId);
             Random random = new Random();
-            List<ScheduleWithExamInforViewModel> filteredList = list.GroupBy(x => x.ExamScheduleId)
-                                       .Select(g => g.OrderBy(y => random.Next()).First())
-                                       .ToList();
+            int index = random.Next(0, examDetails.Count);
+            code = examDetails[index].ExamDetailCode;
 
-            return filteredList;
+
+            return code;
         }
+
 
 
 

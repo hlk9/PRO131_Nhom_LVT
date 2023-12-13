@@ -50,14 +50,33 @@ namespace Examination_PRL.Forms.Staff
             {
                 rb_Off.IsChecked = true; rb_Onl.IsChecked = false;
             }
-
+            tbt_IDSubject.Enabled = false;
         }
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(tbt_IDSubject.Text) || string.IsNullOrWhiteSpace(tbt_IDSubject.Text))
+            {
+                MessageBox.Show("Không được để trống dữ liệu quan trọng");
+                return;
+            }
+
             string name = tbt_Subject.Text;
+
             string ID = tbt_IDSubject.Text;
+
+            try
+            {
+                if (_ser.GetOneWithID(ID).Id != null)
+                {
+                    MessageBox.Show("Đã có mã môn này", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+            catch { }
+
             byte trangthai = 1;
+
             if (rb_Off.IsChecked)
             {
                 trangthai = 0;
@@ -70,6 +89,12 @@ namespace Examination_PRL.Forms.Staff
 
         private void btn_Edit_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(tbt_IDSubject.Text) || string.IsNullOrWhiteSpace(tbt_IDSubject.Text))
+            {
+                MessageBox.Show("Không được để trống dữ liệu quan trọng");
+                return;
+            }
+
             string name = tbt_Subject.Text;
             string ID = tbt_IDSubject.Text;
             byte trangthai = 0;
@@ -83,6 +108,18 @@ namespace Examination_PRL.Forms.Staff
         }
 
         private void rb_Off_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radBtnClear_Click(object sender, EventArgs e)
+        {
+            tbt_IDSubject.Text = "";
+            tbt_Subject.Text = "";
+            tbt_IDSubject.Enabled = true;
+        }
+
+        private void toolWindow2_Click(object sender, EventArgs e)
         {
 
         }

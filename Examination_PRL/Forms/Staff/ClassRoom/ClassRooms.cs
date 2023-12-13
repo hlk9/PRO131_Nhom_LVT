@@ -43,7 +43,24 @@ namespace Examination_PRL.Forms.Staff.ClassRoom
 
         private void radBtnAdd_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(radTxtName.Text) || string.IsNullOrWhiteSpace(radTxId.Text))
+            {
+                MessageBox.Show("Không được để trống dữ liệu quan trọng");
+                return;
+            }
             string id = radTxId.Text;
+
+            try
+            {
+                if (_ser.getClassById(id).Id != null)
+                {
+                    MessageBox.Show("Đã có mã lớp này", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+            catch { }
+            
+
             string name = radTxtName.Text;
 
             if (_ser.AddNewClass(id, name))
@@ -59,6 +76,11 @@ namespace Examination_PRL.Forms.Staff.ClassRoom
 
         private void radBtnUpdate_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(radTxtName.Text))
+            {
+                MessageBox.Show("Không được để trống dữ liệu quan trọng");
+                return;
+            }
             string id = radTxId.Text;
             string name = radTxtName.Text;
 
@@ -81,6 +103,8 @@ namespace Examination_PRL.Forms.Staff.ClassRoom
 
             radTxtName.Text = obj.Name;
             radTxId.Text = obj.Id;
+
+            radTxId.Enabled = false;
         }
 
         private void ClassRoomExamGridView_ContextMenuOpening(object sender, Telerik.WinControls.UI.ContextMenuOpeningEventArgs e)
@@ -101,6 +125,13 @@ namespace Examination_PRL.Forms.Staff.ClassRoom
                 MessageBox.Show("Xóa Thất Bại");
             }
             LoadData();
+        }
+
+        private void radBtnClear_Click(object sender, EventArgs e)
+        {
+            radTxtName.Text = "";
+            radTxId.Text = "";
+            radTxId.Enabled = true;
         }
     }
 }
