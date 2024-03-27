@@ -45,13 +45,13 @@ namespace Examination_DAL.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=QuanLyThiTracNghiem;Integrated Security=True");
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-V87F30H\\HLDUC;Initial Catalog=QLTracNghiem;Integrated Security=True");
 
 
-           // optionsBuilder.UseSqlServer(@"server=db-for-pro131-lvt.eastasia.cloudapp.azure.com;database=QuanLyThiTracNghiem;uid=VM;password=123456789Aa@");
+            //optionsBuilder.UseSqlServer(@"server=db-for-pro131-lvt.eastasia.cloudapp.azure.com;database=QuanLyThiTracNghiem;uid=VM;password=123456789Aa@");
 
 
-            // "server=db-test-for-pro-131.australiaeast.cloudapp.azure.com,1433;database=QuanLyThiTracNghiem;uid=VM;password=123456789Aa@"
+            //"server=db-test-for-pro-131.australiaeast.cloudapp.azure.com,1433;database=QuanLyThiTracNghiem;uid=VM;password=123456789Aa@";
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -90,11 +90,11 @@ namespace Examination_DAL.Context
                .OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<ExamQuestion>().HasIndex(eq => eq.QuestionId).IsUnique(false);
 
-         //modelBuilder.Entity<Account>()
-         //.HasOne(a => a.UserPermission)
-         //.WithOne(up => up.Account)
-         //.HasForeignKey<UserPermission>(up => up.AccountId)
-         //.OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<Account>()
+            //.HasOne(a => a.UserPermission)
+            //.WithOne(up => up.Account)
+            //.HasForeignKey<UserPermission>(up => up.AccountId)
+            //.OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<ExamSchedule>()
                 .HasMany(exr => exr.ExamResponse)
