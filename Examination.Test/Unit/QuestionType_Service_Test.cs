@@ -238,5 +238,30 @@ namespace Examination.Test.Unit
             };
             Assert.AreEqual(false, _serQuestionType.Update(questionType));
         }
+
+        //Test function remove
+        [Test]
+        public void Delete_Test1()
+        {
+            Assert.AreEqual(false, _serQuestionType.DeleteById(0));
+        }
+
+        [Test]
+        public void Delete_Test2()
+        {
+            Assert.AreEqual(false, _serQuestionType.DeleteById(11));
+        }
+
+        [Test]
+        public void Delete_Test3()
+        {
+            Assert.AreEqual(false, _serQuestionType.DeleteById(byte.MaxValue));
+        }
+
+        [Test]
+        public void Delete_Test4()
+        {
+            Assert.AreEqual(true, _serQuestionType.DeleteById(5));
+        }
     }
 }
