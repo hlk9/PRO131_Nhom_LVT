@@ -25,11 +25,147 @@ namespace Examination.Test.Unit
             Assert.IsNotNull(_service.GetAllAnswerResponses());
         }
 
+        //CHECK ADD FUNCTION
+        //Add thành công với các trường hợp lệ, không cần nhập Id vì Id tự tăng
         [Test]
         public void AddAnsRespone_Pass()
         {
-            AnswerResponse ansresponse = new AnswerResponse { Id = 1, IsCorrect= true,QuestionId =1 ,AnswerId =1, ExamResponseId=1, AnswerAt = DateTime.Now };
-            Assert.AreEqual(true, _service.AddAnswerResponse(ansresponse));
+            AnswerResponse answerResponse = new AnswerResponse {  IsCorrect= false,QuestionId =11 ,AnswerId =40, ExamResponseId=1, AnswerAt = DateTime.Now };
+            Assert.AreEqual(true, _service.AddAnswerResponse(answerResponse));
         }
+
+        //Add thành công với AnswerId bị bỏ trống
+
+        [Test]
+
+
+        public void AddAnsRespone_Pass1()
+        {
+            AnswerResponse answerResponse = new AnswerResponse { IsCorrect = true, QuestionId = 13, ExamResponseId = 1, AnswerAt = DateTime.Now };
+            Assert.AreEqual(true, _service.AddAnswerResponse(answerResponse));
+        }
+
+        //Add thành công với IsCorrect bỏ trống , các trường còn lại nhập hợp lệ, 
+        [Test]
+        public void AddAnsRespone_Pass_3()
+        {
+            AnswerResponse answerResponse = new AnswerResponse { QuestionId = 13, AnswerId = 2, ExamResponseId = 1, AnswerAt = DateTime.Now };
+            Assert.AreEqual(true, _service.AddAnswerResponse(answerResponse));
+        }
+
+        //Add không thành công với AnswerResponse.QuestionId là số âm, các trường còn lại nhập hợp lệ, không cần nhập Id vì Id tự tăng
+
+        [Test]
+        public void AddAnsRespone_Fail_1()
+        {
+            AnswerResponse answerResponse = new AnswerResponse { IsCorrect = true, QuestionId = -1, AnswerId = 2, ExamResponseId = 1, AnswerAt = DateTime.Now };
+            Assert.AreEqual(false, _service.AddAnswerResponse(answerResponse));
+
+
+        }
+
+        //Add không thành công với QuestionId bỏ trống , các trường còn lại nhập hợp lệ, 
+        [Test]
+        public void AddAnsRespone_Fail_2()
+        {
+            AnswerResponse answerResponse = new AnswerResponse { IsCorrect = false, AnswerId = 2, ExamResponseId = 1, AnswerAt = DateTime.Now };
+            Assert.AreEqual(false, _service.AddAnswerResponse(answerResponse));
+        }
+
+
+        
+
+        //Add không thành công với AnswerId là số âm, các trường còn lại nhập hợp lệ, 
+        [Test]
+
+        public void AddAnsRespone_Fail_3()
+        {
+            AnswerResponse answerResponse = new AnswerResponse { IsCorrect=true, QuestionId = 13, AnswerId = -2, ExamResponseId = 1, AnswerAt = DateTime.Now };
+            Assert.AreEqual(false, _service.AddAnswerResponse(answerResponse));
+        }
+
+        //Add không thành công với ExamResponseId là số âm, các trường còn lại nhập hợp lệ,
+        [Test]
+
+        public void AddAnsRespone_Fail_4()
+        {
+            AnswerResponse answerResponse = new AnswerResponse { IsCorrect = true, QuestionId = 13, AnswerId = 2, ExamResponseId = -1, AnswerAt = DateTime.Now };
+            Assert.AreEqual(false, _service.AddAnswerResponse(answerResponse));
+        }
+
+
+
+        //Add không thành công với tất cả các trường dữ liệu bỏ trống
+        [Test]
+
+        public void AddAnsRespone_Fail_5()
+        {
+            AnswerResponse answerResponse = new AnswerResponse { };
+            Assert.AreEqual(false, _service.AddAnswerResponse(answerResponse));
+        }
+
+        //Add không thành công với ExamResponseId bỏ trống, các trường còn lại nhập hợp lệ,
+        [Test]
+
+        public void AddAnsRespone_Fail_6()
+        {
+            AnswerResponse answerResponse = new AnswerResponse { IsCorrect = true, QuestionId = 50, AnswerId = 4, AnswerAt = DateTime.Now };
+            Assert.AreEqual(false, _service.AddAnswerResponse(answerResponse));
+        }
+
+
+        //CHECK UPDATE FUNCTION
+
+
+        //Update không thành công với AnswerId là số âm
+        [Test]        
+        
+        public void UpdateAnsResponse_Test1()
+        {
+            AnswerResponse answer = new AnswerResponse()
+            {
+                Id = 1,
+                IsCorrect = true,
+                QuestionId = 1,
+                AnswerId = -1,
+                ExamResponseId = 1,
+                AnswerAt = DateTime.Now
+            };
+            Assert.AreEqual(false, _service.UpdateAnswerResponse(answer));
+        }
+
+        //Update khoogn thành công với QuestionId là số âm
+        [Test]
+        public void UpdateAnsResponse_Test2()
+        {
+            AnswerResponse answer = new AnswerResponse()
+            {
+                Id = 1,
+                IsCorrect = true,
+                QuestionId = -1,
+                AnswerId = 1,
+                ExamResponseId = 1,
+                AnswerAt = DateTime.Now
+            };
+            Assert.AreEqual(false, _service.UpdateAnswerResponse(answer));
+        }
+
+        //Update không thành công với ExamResponseId là số âm
+        [Test]
+        public void UpdateAnsResponse_Test3()
+        {
+            AnswerResponse answer = new AnswerResponse()
+            {
+                Id = 1,
+                IsCorrect = true,
+                QuestionId = 1,
+                AnswerId = 1,
+                ExamResponseId = -1,
+                AnswerAt = DateTime.Now
+            };
+            Assert.AreEqual(false, _service.UpdateAnswerResponse(answer));
+        }
+
+
     }
 }

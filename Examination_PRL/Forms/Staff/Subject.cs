@@ -57,6 +57,7 @@ namespace Examination_PRL.Forms.Staff
         {
             string name = tbt_Subject.Text;
             string ID = tbt_IDSubject.Text;
+           
             byte trangthai = 1;
             if (rb_Off.IsChecked)
             {

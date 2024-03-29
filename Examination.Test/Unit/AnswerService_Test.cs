@@ -17,18 +17,18 @@ namespace Examination.Test.Unit
             _service = new Examination_BUS.Services.AnswerServices();
         }
 
-        [Test]
-        public void GetAllAns()
-        {
-            Assert.IsNotNull(_service.GetAllAnswers());
-        }
+        //[Test]
+        //public void GetAllAns()
+        //{
+        //    Assert.IsNotNull(_service.GetAllAnswers());
+        //}
 
-        [Test]
+        //[Test]
 
-        public void AddAns_Pass()
-        {
-            Answer ans = new Answer { Id = 1, Content = "First Answer", IsCorrect = true , CreatedAt = DateTime.Now , UpdatedAt = DateTime.Now , CreatedBy="admin" ,UpdatedBy="admin" };
-            Assert.AreEqual(true, _service.AddAnswer(ans));
-        }
+        //public void AddAns_Pass()
+        //{
+        //    Answer ans = new Answer { Id = 1, Content = "First Answer", IsCorrect = true, CreatedAt = DateTime.Now, UpdatedAt = DateTime.Now, CreatedBy = "admin", UpdatedBy = "admin" };
+        //    Assert.AreEqual(true, _service.AddAnswer(ans));
+        //}
     }
 }

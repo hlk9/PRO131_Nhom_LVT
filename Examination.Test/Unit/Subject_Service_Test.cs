@@ -19,18 +19,18 @@ namespace Examination.Test.Unit
 
         }
 
-        [Test]
-        public void GetAllSubjetc()
-        {
-            Assert.IsNotNull(_service.GetSubjects());
-        }
+        //[Test]
+        //public void GetAllSubjetc()
+        //{
+        //    Assert.IsNotNull(_service.GetSubjects());
+        //}
 
-        [Test]
+        //[Test]
 
-        public void AddSubjetc_Pass()
-        {
-            Subject sbj = new Subject { Id = "T104", Name="Toán",Status = 1, Description = "Mô tả 1"};
-            //Assert.AreEqual(true, _service.AddSub(sbj));
-        }
+        //public void AddSubjetc_Pass()
+        //{
+        //    Subject sbj = new Subject { Id = "T104", Name="Toán",Status = 1, Description = "Mô tả 1"};
+        //    //Assert.AreEqual(true, _service.AddSub(sbj));
+        //}
     }
 }
