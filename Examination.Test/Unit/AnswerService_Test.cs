@@ -136,8 +136,144 @@ namespace Examination.Test.Unit
 
 
 
-        //CHECK UPDATE FUNCTION
+        //CHECK delete FUNCTION
 
+        [Test]
+        public void Delete_Test1()
+        {
+            Assert.AreEqual(true, _service.DeleteAnswer(1));
+        }
+
+        [Test]
+        public void Delete_Test2()
+        {
+            Assert.AreEqual(true, _service.DeleteAnswer(10));
+        }
+
+
+        [Test]
+        public void Delete_Test3()
+        {
+            Assert.AreEqual(true, _service.DeleteAnswer(20));
+        }
+
+        [Test]
+        public void Delete_Test4()
+        {
+            Assert.AreEqual(false, _service.DeleteAnswer(0));
+        }
+
+        [Test]
+        public void Delete_Test5()
+        {
+            Assert.AreEqual(false, _service.DeleteAnswer(100));
+        }
+        //GetById
+
+        [Test]
+        public void GetById_Test()
+        {
+            Assert.IsNotNull(_service.GetAnswerById(1));
+        }
+
+
+        [Test]
+        public void GetById_Test1()
+        {
+            Assert.IsNotNull(_service.GetAnswerById(1));
+        }
+
+
+        [Test]
+        public void GetById_Test2()
+        {
+            Assert.IsNotNull(_service.GetAnswerById(10));
+        }
+
+
+
+        [Test]
+        public void GetById_Test3()
+        {
+            Assert.IsNotNull(_service.GetAnswerById(12));
+        }
+
+
+        [Test]
+        public void GetById_Test4()
+        {
+            Assert.IsNull(_service.GetAnswerById(0));
+        }
+
+        [Test]
+        public void GetById_Test5()
+        {
+            Assert.IsNull(_service.GetAnswerById(100));
+        }
+
+        //Update
+
+        [Test]
+
+        public void Update_Test1()
+        {
+            Answer answer = new Answer()
+            {
+                Id = 1,
+                Content = "Content1",
+                IsCorrect = false,
+                UpdatedAt = DateTime.Now,
+                UpdatedBy = "Đức",
+                CreatedAt = DateTime.Now,
+                CreatedBy = "Đức",
+                Status = false,
+                QuestionId = 10
+            };
+
+            Assert.AreEqual(true,_service.UpdateAnswer(answer));
+        }
+
+
+        [Test]
+
+        public void Update_Test2()
+        {
+            Answer answer = new Answer()
+            {
+                Id = 1,
+                Content = "Content1",
+             
+                UpdatedAt = DateTime.Now,
+                UpdatedBy = "Đức",
+                CreatedAt = DateTime.Now,
+                CreatedBy = "Đức",
+                Status = false,
+                QuestionId = 10
+            };
+
+            Assert.AreEqual(false, _service.UpdateAnswer(answer));
+        }
+
+
+        [Test]
+
+        public void Update_Test3()
+        {
+            Answer answer = new Answer()
+            {
+                Id = 1,
+                Content = "Content1",
+                IsCorrect = false,
+                UpdatedAt = DateTime.Now,
+                UpdatedBy = "Đức",
+                CreatedAt = DateTime.Now,
+                CreatedBy = "Đức",
+                Status = false,
+              
+            };
+
+            Assert.AreEqual(false, _service.UpdateAnswer(answer));
+        }
 
 
     }

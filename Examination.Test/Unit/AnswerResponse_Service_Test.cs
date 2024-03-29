@@ -229,6 +229,59 @@ namespace Examination.Test.Unit
 
         //Check function Delete
 
+        [Test]
+
+        public void Delete_1()
+        {
+            Assert.AreEqual(true, _service.DeleteAnswerResponse(1));
+
+        }
+ 
+
+        public void Delete_2()
+        {
+            Assert.AreEqual(false, _service.DeleteAnswerResponse(0));
+        }
+        [Test]
+
+        public void Delete_3()
+        {
+            Assert.AreEqual(false, _service.DeleteAnswerResponse(-100));
+        }
+
+        //GET ID
+        [Test]
+        public void GetById1()
+        {
+            Assert.IsNotNull(_service.GetAnswerResponseById(1));
+
+        }
+
+        [Test]
+        public void GetById2()
+        {
+            Assert.IsNotNull(_service.GetAnswerResponseById(10));
+        }
+
+        [Test]
+        public void GetById3()
+        {
+            Assert.IsNotNull(_service.GetAnswerResponseById(12));
+        }
+
+
+
+        [Test]
+        public void GetById4()
+        {
+            Assert.IsNull(_service.GetAnswerResponseById(0));
+        }
+
+        [Test]
+        public void GetById5()
+        {
+            Assert.IsNull(_service.GetAnswerResponseById(byte.MaxValue));
+        }
 
 
 
