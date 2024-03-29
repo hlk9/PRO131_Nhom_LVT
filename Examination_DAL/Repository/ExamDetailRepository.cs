@@ -34,7 +34,15 @@ namespace Examination_DAL.Repository
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            var a =  _context.ExamDetails.Find(id);
+            try
+            {
+                _context.ExamDetails.Remove(a);
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            { return false; }
         }
 
         public bool DeleteByCode(string code)
