@@ -1,4 +1,5 @@
-﻿using Examination_DAL.Models;
+﻿using Examination_DAL.IRepository;
+using Examination_DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,9 +48,17 @@ namespace Examination.Test.Unit
 
         //Add thành công với IsCorrect bỏ trống , các trường còn lại nhập hợp lệ, 
         [Test]
+        public void AddAnsRespone_Pass_2()
+        {
+            AnswerResponse answerResponse = new AnswerResponse { QuestionId = 14, AnswerId = 55, ExamResponseId = 1, AnswerAt = DateTime.Now };
+            Assert.AreEqual(true, _service.AddAnswerResponse(answerResponse));
+        }
+
+        //Add thành công với AnswerAt bị bỏ trống
+        [Test]
         public void AddAnsRespone_Pass_3()
         {
-            AnswerResponse answerResponse = new AnswerResponse { QuestionId = 13, AnswerId = 2, ExamResponseId = 1, AnswerAt = DateTime.Now };
+            AnswerResponse answerResponse = new AnswerResponse { IsCorrect = true, QuestionId = 15, AnswerId = 42, ExamResponseId = 1};
             Assert.AreEqual(true, _service.AddAnswerResponse(answerResponse));
         }
 
@@ -165,6 +174,64 @@ namespace Examination.Test.Unit
             };
             Assert.AreEqual(false, _service.UpdateAnswerResponse(answer));
         }
+
+        //Update thành công với AnswerAt bị bỏ trống
+        [Test]
+
+        public void UpdateAnswerResponse_Test4()
+        {
+            AnswerResponse answer = new AnswerResponse()
+            {
+                Id = 12,
+                IsCorrect = true,
+                QuestionId = 12,
+                AnswerId = 41,
+                ExamResponseId = 1
+            };
+            Assert.AreEqual(true, _service.UpdateAnswerResponse(answer));
+
+        }
+
+        //Update thành công với AnswerId bị bỏ trống
+        [Test]
+
+        public void UpdateAnswerResponse_Test5()
+        {
+            AnswerResponse answer = new AnswerResponse()
+            {
+                Id = 12,
+                IsCorrect = true,
+                QuestionId = 12,
+                ExamResponseId = 1,
+                AnswerAt = DateTime.Now
+                
+            };
+            Assert.AreEqual(true, _service.UpdateAnswerResponse(answer));
+
+        }
+
+        //Update thành công với IsCorrect bị bỏ trống
+        [Test]
+
+        public void UpdateAnswerResponse_Test6()
+        {
+            AnswerResponse answer = new AnswerResponse()
+            {
+                Id = 12,
+                QuestionId = 12,
+                ExamResponseId = 1,
+                AnswerAt = DateTime.Now
+
+            };
+            Assert.AreEqual(true, _service.UpdateAnswerResponse(answer));
+
+        }
+
+        //Check function Delete
+
+
+
+
 
 
     }

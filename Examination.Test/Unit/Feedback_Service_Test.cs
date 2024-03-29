@@ -18,18 +18,39 @@ namespace Examination.Test.Unit
             _service = new Examination_BUS.Services.FeedbackServices();
         }
 
-        //[Test]
-        //public void GetAllFeedback()
-        //{
-        //    Assert.IsNotNull(_service.GetAll());
-        //}
+        [Test]
+        public void GetAllFeedback()
+        {
+            Assert.IsNotNull(_service.GetAll());
+        }
+        //Add Feedback thành công
+        [Test]
 
-        //[Test]
+        public void AddFeedback_Test1()
+        {
+            Feedback fb = new Feedback { Title = "Đánh giá sau sử dụng", Name = "Lê Huỳnh Đức", IdParticipant = "PH32245", Content = "Nội dung 1", SubmitTime = DateTime.Now, Status = true };
+            Assert.AreEqual(true, _service.Send(fb));
+        }
 
-        //public void AddFeedback_Pass()
-        //{
-        //    Feedback fb = new Feedback {Id=1, Title ="Tiêu đề 1",Name="Lê Huỳnh Đức",IdParticipant="PH32245", Content="Nội dung 1", SubmitTime = DateTime.Now,Status=true };
-        //    Assert.AreEqual(true,_service.Send(fb));
-        //}
+        //Add feedback k thành công với Title là giá trị tối đa với  256 ký tự
+
+        [Test]
+
+        public void AddFeedback_Test2()
+        {
+            Feedback fb = new Feedback { Title = "Đánh giá sau sử dụng Đánh giá sau sử dụng Đánh giá sau sử dụng Đánh giá sau sử dụng Đánh giá sau sử dụng Đánh giá sau sử dụng Đánh giá sau sử dụng Đánh giá sau sử dụng Đánh giá sau sử dụng Đánh giá sau sử dụng Đánh giá sau sử dụng Đánh giá sau sử dụng Đánh", Name = "Lê Huỳnh Đức", IdParticipant = "PH32245", Content = "Nội dung 1", SubmitTime = DateTime.Now, Status = true };
+            Assert.AreEqual(false, _service.Send(fb));
+
+
+        }
+        //Add feedback k thành công với Title là giá trị tối đa với  256 ký tự
+
+        [Test]
+
+        public void AddFeedback_Test3()
+        {
+            Feedback fb = new Feedback { Title = "Đánh giá sau sử dụng", Name = "Lê Huỳnh Đức", IdParticipant = "PH32245", Content = "Nội dung 1", SubmitTime = DateTime.Now, Status = true };
+            Assert.AreEqual(false, _service.Send(fb));
+        }
     }
 }
