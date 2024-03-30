@@ -41,13 +41,15 @@ namespace Examination_BUS.Services
         {
             return _repos.GetSubjectByname(name).ToList();
         }
-        public bool AddSub(string name, string ID, byte status)//truyền vào các thuộc tính
+        public bool AddSub(string name, string ID, byte status )//truyền vào các thuộc tính
         {
             var sub = new Subject()
             {
                 Name = name,
                Id = ID,
-               Status = status
+               Status = status,
+              
+              
              
             };
             return _repos.AddNewSub(sub);

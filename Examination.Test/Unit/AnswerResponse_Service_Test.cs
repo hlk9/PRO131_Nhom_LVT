@@ -123,6 +123,8 @@ namespace Examination.Test.Unit
         }
 
         //Add không thành công với ExamResponseId =0, các trường còn lại nhập hợp lệ,
+
+
         [Test]
 
         public void AddAnsRespone_Fail_7()
@@ -132,6 +134,8 @@ namespace Examination.Test.Unit
         }
 
         //Add không thành công với QuestionId = 0, các trường còn lại nhập hợp lệ,
+
+
         [Test]
 
         public void AddAnsRespone_Fail_8()
@@ -141,6 +145,8 @@ namespace Examination.Test.Unit
         }
 
         //Add không thành công với AnswerId = 0, các trường còn lại nhập hợp lệ,
+
+
         [Test]
 
         public void AddAnsRespone_Fail_9()
