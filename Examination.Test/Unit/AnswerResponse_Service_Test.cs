@@ -122,6 +122,35 @@ namespace Examination.Test.Unit
             Assert.AreEqual(false, _service.AddAnswerResponse(answerResponse));
         }
 
+        //Add không thành công với ExamResponseId =0, các trường còn lại nhập hợp lệ,
+        [Test]
+
+        public void AddAnsRespone_Fail_7()
+        {
+            AnswerResponse answerResponse = new AnswerResponse { IsCorrect = true, QuestionId = 50, AnswerId = 4, ExamResponseId = 0, AnswerAt = DateTime.Now };
+            Assert.AreEqual(false, _service.AddAnswerResponse(answerResponse));
+        }
+
+        //Add không thành công với QuestionId = 0, các trường còn lại nhập hợp lệ,
+        [Test]
+
+        public void AddAnsRespone_Fail_8()
+        {
+            AnswerResponse answerResponse = new AnswerResponse { IsCorrect = true, QuestionId = 0, AnswerId = 4, ExamResponseId = 1, AnswerAt = DateTime.Now };
+            Assert.AreEqual(false, _service.AddAnswerResponse(answerResponse));
+        }
+
+        //Add không thành công với AnswerId = 0, các trường còn lại nhập hợp lệ,
+        [Test]
+
+        public void AddAnsRespone_Fail_9()
+        {
+            AnswerResponse answerResponse = new AnswerResponse { IsCorrect = true, QuestionId = 51, AnswerId = 0, ExamResponseId =11, AnswerAt = DateTime.Now };
+            Assert.AreEqual(false, _service.AddAnswerResponse(answerResponse));
+        }
+
+
+
 
         //CHECK UPDATE FUNCTION
 

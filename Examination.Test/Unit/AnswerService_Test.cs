@@ -23,6 +23,15 @@ namespace Examination.Test.Unit
             Assert.IsNotNull(_service.GetAllAnswers());
         }
 
+        //Add không thành công với QuestionId = 0
+        [Test] 
+
+        public void AddAns_Test()
+        {
+            Answer ans = new Answer { Content = "First Answer", IsCorrect = true, CreatedAt = DateTime.Now, UpdatedAt = DateTime.Now, CreatedBy = "admin", UpdatedBy = "admin", Status = true, QuestionId = 1 };
+            Assert.AreEqual(true, _service.AddAnswer(ans));
+        }
+
 
         //Add Answer thành công, Id tự tăng không cần thêm
         [Test]
@@ -124,7 +133,7 @@ namespace Examination.Test.Unit
             Assert.AreEqual(true, _service.AddAnswer(ans));
         }
 
-        //Add Answer không thành công với Question bỏ trống
+        //Add Answer không thành công với QuestionId bỏ trống
 
         [Test]
 
@@ -134,7 +143,15 @@ namespace Examination.Test.Unit
             Assert.AreEqual(false, _service.AddAnswer(ans));
         }
 
+        //Add không thành công với QuestionId= 0
+        [Test]
 
+        public void AddAns_Test11()
+        {
+            Answer ans = new Answer { Content = "Lê Quang Liêm", IsCorrect = true, CreatedAt = DateTime.Now, UpdatedAt = DateTime.Now, CreatedBy = "admin", UpdatedBy = "admin", Status = true, QuestionId = 0 };
+            Assert.AreEqual(false, _service.AddAnswer(ans));
+        }
+        
 
         //CHECK delete FUNCTION
 
