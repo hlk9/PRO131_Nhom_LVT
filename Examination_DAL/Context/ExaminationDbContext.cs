@@ -45,10 +45,10 @@ namespace Examination_DAL.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseSqlServer("Data Source=XPK4\\SQLEXPRESS;Initial Catalog=QuanLyThiTracNghiem;Integrated Security=True");
+            optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=QuanLyThiTracNghiem;Integrated Security=True");
 
 
-           //optionsBuilder.UseSqlServer(@"server=db-for-pro131-lvt.eastasia.cloudapp.azure.com;database=QuanLyThiTracNghiem;uid=VM;password=123456789Aa@");
+          // optionsBuilder.UseSqlServer(@"server=db-for-pro131-lvt.eastasia.cloudapp.azure.com;database=QuanLyThiTracNghiem;uid=VM;password=123456789Aa@");
 
 
             // "server=db-test-for-pro-131.australiaeast.cloudapp.azure.com,1433;database=QuanLyThiTracNghiem;uid=VM;password=123456789Aa@"
