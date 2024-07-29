@@ -68,11 +68,12 @@ namespace Examination_PRL.Forms.Staff.Student
                 for (int row = 2; row <= rowCount; row++)
                 {
                     string id = workSheetStudent.Cells[row, 1].Value.ToString();
-
+                  
                     if(_ser.GetOneByID(id) != null)
                     {
                         continue;
                     }
+                  
                     count++;
                     string name = workSheetStudent.Cells[row, 2].Value.ToString();
                     bool gender = Convert.ToBoolean(workSheetStudent.Cells[row, 3].Value);

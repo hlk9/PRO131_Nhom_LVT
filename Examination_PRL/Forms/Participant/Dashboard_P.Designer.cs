@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             Telerik.WinControls.UI.SchedulerDailyPrintStyle schedulerDailyPrintStyle1 = new Telerik.WinControls.UI.SchedulerDailyPrintStyle();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard_P));
             materialTealTheme1 = new Telerik.WinControls.Themes.MaterialTealTheme();
             radPageViewPage1 = new Telerik.WinControls.UI.RadPageViewPage();
@@ -92,6 +92,7 @@
             radLabel2 = new Telerik.WinControls.UI.RadLabel();
             radPageViewPage5 = new Telerik.WinControls.UI.RadPageViewPage();
             radPanel1 = new Telerik.WinControls.UI.RadPanel();
+            radBtnChangePass = new Telerik.WinControls.UI.RadButton();
             radBtnClose = new Telerik.WinControls.UI.RadButton();
             radBtnDangXuat = new Telerik.WinControls.UI.RadButton();
             radLblAddress = new Telerik.WinControls.UI.RadLabel();
@@ -111,7 +112,6 @@
             radPictureBox1 = new Telerik.WinControls.UI.RadPictureBox();
             radLabel10 = new Telerik.WinControls.UI.RadLabel();
             radPageView1 = new Telerik.WinControls.UI.RadPageView();
-            radBtnChangePass = new Telerik.WinControls.UI.RadButton();
             radPageViewPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)listViewExam).BeginInit();
             radPageViewPage2.SuspendLayout();
@@ -180,6 +180,7 @@
             radPageViewPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)radPanel1).BeginInit();
             radPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)radBtnChangePass).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radBtnClose).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radBtnDangXuat).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radLblAddress).BeginInit();
@@ -200,7 +201,6 @@
             ((System.ComponentModel.ISupportInitialize)radLabel10).BeginInit();
             ((System.ComponentModel.ISupportInitialize)radPageView1).BeginInit();
             radPageView1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)radBtnChangePass).BeginInit();
             ((System.ComponentModel.ISupportInitialize)this).BeginInit();
             SuspendLayout();
             // 
@@ -301,7 +301,7 @@
             radViewExam_Answers.MasterTemplate.AllowAddNewRow = false;
             radViewExam_Answers.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             radViewExam_Answers.MasterTemplate.EnablePaging = true;
-            radViewExam_Answers.MasterTemplate.ViewDefinition = tableViewDefinition3;
+            radViewExam_Answers.MasterTemplate.ViewDefinition = tableViewDefinition1;
             radViewExam_Answers.Name = "radViewExam_Answers";
             radViewExam_Answers.Size = new Size(914, 703);
             radViewExam_Answers.TabIndex = 0;
@@ -923,6 +923,20 @@
             radPanel1.TabIndex = 0;
             radPanel1.ThemeName = "MaterialTeal";
             // 
+            // radBtnChangePass
+            // 
+            radBtnChangePass.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            radBtnChangePass.BackColor = Color.Teal;
+            radBtnChangePass.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            radBtnChangePass.ForeColor = Color.White;
+            radBtnChangePass.Location = new Point(3, 663);
+            radBtnChangePass.Name = "radBtnChangePass";
+            radBtnChangePass.Size = new Size(194, 39);
+            radBtnChangePass.TabIndex = 7;
+            radBtnChangePass.Text = "Đổi Mật Khẩu";
+            radBtnChangePass.ThemeName = "MaterialTeal";
+            radBtnChangePass.Click += radBtnChangePass_Click;
+            // 
             // radBtnClose
             // 
             radBtnClose.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -1126,7 +1140,7 @@
             radPageView1.Dock = DockStyle.Fill;
             radPageView1.Location = new Point(0, 0);
             radPageView1.Name = "radPageView1";
-            radPageView1.SelectedPage = radPageViewPage5;
+            radPageView1.SelectedPage = radPageViewPage4;
             radPageView1.Size = new Size(1277, 772);
             radPageView1.TabIndex = 0;
             radPageView1.Tag = "";
@@ -1135,22 +1149,8 @@
             ((Telerik.WinControls.UI.RadPageViewStripElement)radPageView1.GetChildAt(0)).ShowItemPinButton = false;
             ((Telerik.WinControls.UI.RadPageViewStripElement)radPageView1.GetChildAt(0)).StripButtons = Telerik.WinControls.UI.StripViewButtons.Scroll;
             ((Telerik.WinControls.UI.RadPageViewStripElement)radPageView1.GetChildAt(0)).ShowItemCloseButton = false;
-            ((Telerik.WinControls.UI.RadPageViewLabelElement)radPageView1.GetChildAt(0).GetChildAt(2)).Text = "Thông Tin";
-            ((Telerik.WinControls.UI.RadPageViewLabelElement)radPageView1.GetChildAt(0).GetChildAt(3)).Text = "Thông Tin";
-            // 
-            // radBtnChangePass
-            // 
-            radBtnChangePass.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            radBtnChangePass.BackColor = Color.Teal;
-            radBtnChangePass.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            radBtnChangePass.ForeColor = Color.White;
-            radBtnChangePass.Location = new Point(3, 663);
-            radBtnChangePass.Name = "radBtnChangePass";
-            radBtnChangePass.Size = new Size(194, 39);
-            radBtnChangePass.TabIndex = 7;
-            radBtnChangePass.Text = "Đổi Mật Khẩu";
-            radBtnChangePass.ThemeName = "MaterialTeal";
-            radBtnChangePass.Click += radBtnChangePass_Click;
+            ((Telerik.WinControls.UI.RadPageViewLabelElement)radPageView1.GetChildAt(0).GetChildAt(2)).Text = "Phản Hồi";
+            ((Telerik.WinControls.UI.RadPageViewLabelElement)radPageView1.GetChildAt(0).GetChildAt(3)).Text = "Phản Hồi";
             // 
             // Dashboard_P
             // 
@@ -1239,6 +1239,7 @@
             ((System.ComponentModel.ISupportInitialize)radPanel1).EndInit();
             radPanel1.ResumeLayout(false);
             radPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)radBtnChangePass).EndInit();
             ((System.ComponentModel.ISupportInitialize)radBtnClose).EndInit();
             ((System.ComponentModel.ISupportInitialize)radBtnDangXuat).EndInit();
             ((System.ComponentModel.ISupportInitialize)radLblAddress).EndInit();
@@ -1259,7 +1260,6 @@
             ((System.ComponentModel.ISupportInitialize)radLabel10).EndInit();
             ((System.ComponentModel.ISupportInitialize)radPageView1).EndInit();
             radPageView1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)radBtnChangePass).EndInit();
             ((System.ComponentModel.ISupportInitialize)this).EndInit();
             ResumeLayout(false);
         }
